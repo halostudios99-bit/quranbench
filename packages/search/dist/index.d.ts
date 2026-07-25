@@ -1,3 +1,10 @@
-export declare const SEARCH_ENGINE_READY: false;
+export { buildIndex, type SearchIndex } from './build-index.js';
+export { search, searchString } from './search.js';
+export { evaluate } from './evaluate.js';
+export { parseQuery } from './parse.js';
+export { parseReference, resolveReference, type ParsedReference } from './reference.js';
+export { normaliseArabic, canonicaliseUthmani } from './normalise.js';
+export type { Query, ExactQuery, NormalisedQuery, PrefixQuery, SuffixQuery, PatternQuery, ProximityQuery, AdjacencyQuery, AndQuery, OrQuery, NotQuery, ScopedQuery, MatchAllQuery, ReferenceQuery, RootQuery, LemmaQuery, Scope, SearchResult, ParseError, ParseResult, } from './types.js';
+export { UnsupportedQueryError } from './types.js';
 export type { ComputationParams, NormalisationProfile } from './params.js';
-export { DEFAULT_PARAMS, withDefaults, serialiseParams, parseParams, } from './params.js';
+export { DEFAULT_PARAMS, withDefaults, serialiseParams, parseParams } from './params.js';
