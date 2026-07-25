@@ -7,8 +7,14 @@ v0.1.0 the identity string is derived from position under a named scheme.
     work     quran
     surah    quran:2
     verse    quran:tanzil-uthmani:2:43
+    token    quran:tanzil-uthmani:2:43:4
 
-Token identifiers (``...:2:43:4``) are a later prompt; not built here.
+Position (surah, ayah, position) is an *attribute* of the token, not its
+identity — the identity string simply encodes those attributes under a named
+segmentation scheme. A separated surah-opening basmala is addressed as ayah 0
+(``quran:tanzil-uthmani:2:0:1``), since it opens the surah but belongs to no
+numbered verse. Al-Fatiha is the exception: its basmala *is* verse 1:1 and keeps
+that identity.
 """
 
 from __future__ import annotations
@@ -16,6 +22,8 @@ from __future__ import annotations
 from .sources import SEGMENTATION_SOURCE_ID
 
 WORK_ID = "quran"
+IDENTIFIER_FORMAT = f"{WORK_ID}:{SEGMENTATION_SOURCE_ID}:<surah>:<ayah>:<position>"
+BASMALA_AYAH = 0  # synthetic ayah for a separated surah-opening basmala
 
 
 def work_id() -> str:
@@ -28,3 +36,7 @@ def surah_id(surah: int) -> str:
 
 def verse_id(surah: int, ayah: int) -> str:
     return f"{WORK_ID}:{SEGMENTATION_SOURCE_ID}:{surah}:{ayah}"
+
+
+def token_id(surah: int, ayah: int, position: int) -> str:
+    return f"{WORK_ID}:{SEGMENTATION_SOURCE_ID}:{surah}:{ayah}:{position}"

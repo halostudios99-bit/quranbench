@@ -35,7 +35,10 @@ SOURCES: tuple[Source, ...] = (
         publisher="Tanzil Project",
         edition="Uthmani 1.1",
         year=None,
-        url="https://tanzil.net/pub/download/index.php?quranType=uthmani&outType=txt-2&agree=true",
+        # marks=true keeps the standalone waqf/pause marks the token layer detects
+        # and excludes; sajdah/rub keep the sajda (۩) and rub-el-hizb (۞) markers so
+        # their exclusion is exercised against real data rather than assumed absent.
+        url="https://tanzil.net/pub/download/index.php?quranType=uthmani&outType=txt-2&marks=true&sajdah=true&rub=true&agree=true",
         licence="CC-BY-3.0",
         filename="tanzil-uthmani.txt",
         role="text-edition",

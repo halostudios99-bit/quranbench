@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "corpus identifier version mapping",
+  "type": "object",
+  "required": [
+    "from_version",
+    "to_version",
+    "mappings"
+  ],
+  "properties": {
+    "from_version": {
+      "type": "string"
+    },
+    "to_version": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "status"
+        ],
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "prior-version id"
+          },
+          "status": {
+            "enum": [
+              "unchanged",
+              "moved",
+              "renamed",
+              "split",
+              "merged",
+              "tombstone"
+            ]
+          },
+          "to": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "successor id(s); empty for a tombstone"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

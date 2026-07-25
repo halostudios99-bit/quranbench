@@ -1,0 +1,6 @@
+{
+  "from_version": "0.1.0",
+  "to_version": "0.2.0",
+  "note": "v0.1.0 published no token layer, so no token ids need remapping. Verse ids are unchanged. This file is the scaffold required by the identifier policy; it is populated only when a future version changes segmentation.",
+  "mappings": []
+}

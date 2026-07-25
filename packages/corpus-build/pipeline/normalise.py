@@ -37,6 +37,23 @@ _DIACRITICS = re.compile(
 
 _TATWEEL = "ـ"
 
+_ALEF_WASLA = "ٱ"  # U+0671
+_BARE_ALEF = "ا"  # U+0627
+
+# --- Quranic recitation/annotation signs removed for text_simple ---
+# The small high/low signs and pause marks that the Uthmani mushaf carries for
+# recitation. Removing them (but keeping harakat) yields a plain-orthography form.
+# Deliberately narrower than _DIACRITIC_RANGES: harakat, shadda, sukun, maddah,
+# hamza-above and the superscript alef (U+0670) are all KEPT, so text_simple still
+# carries full vowelling — that is what distinguishes it from text_no_tashkeel.
+_SIMPLE_STRIP_RANGES: tuple[tuple[int, int], ...] = (
+    (0x0610, 0x061A),  # honorific signs
+    (0x06D6, 0x06ED),  # small high/low signs, pause marks, sajda, rub-el-hizb
+)
+_SIMPLE_STRIP = re.compile(
+    "[" + "".join(f"{chr(a)}-{chr(b)}" for a, b in _SIMPLE_STRIP_RANGES) + "]"
+)
+
 # --- letter unifications for text_normalised ---
 _ALEF_VARIANTS = {
     "آ": "ا",  # ALEF WITH MADDA ABOVE
@@ -58,6 +75,16 @@ def normalise(text: str) -> str:
     text = strip_tashkeel(text)
     text = text.replace(_TATWEEL, "")
     return text.translate(_LETTER_TABLE)
+
+
+def to_simple(text: str) -> str:
+    """Plain-orthography form: strip Quranic recitation signs and unify alef wasla,
+    keeping harakat. Used to derive ``text_simple`` for tokens, which — unlike
+    verses — cannot be sourced from the Tanzil Simple edition because the two
+    editions do not align word-for-word (see docs / build notes)."""
+    text = _SIMPLE_STRIP.sub("", text)
+    text = text.replace(_TATWEEL, "")
+    return text.replace(_ALEF_WASLA, _BARE_ALEF)
 
 
 @dataclass(frozen=True)
@@ -109,7 +136,38 @@ NORMALISATION_RULES: tuple[NormalisationRule, ...] = (
         applies_to=("text_normalised",),
         detail=_mapping_detail(_ALIF_MAQSURA),
     ),
+    NormalisationRule(
+        id="to-simple",
+        description=(
+            "Plain-orthography form: remove Quranic recitation/pause signs and "
+            "unify alef wasla to bare alef, keeping harakat. Applied to derive "
+            "token text_simple, which cannot be sourced from the Simple edition "
+            "because the editions do not tokenise word-for-word."
+        ),
+        applies_to=("token.text_simple",),
+        detail=(
+            "Delete codepoints in ranges: "
+            + ", ".join(f"U+{a:04X}..U+{b:04X}" for a, b in _SIMPLE_STRIP_RANGES)
+            + f"; delete U+{ord(_TATWEEL):04X}; "
+            + f"map U+{ord(_ALEF_WASLA):04X}->U+{ord(_BARE_ALEF):04X}."
+        ),
+    ),
 )
+
+
+def derive_token_fields(text_uthmani: str) -> dict[str, str]:
+    """Token forms are all pure functions of the token's own Uthmani text.
+
+    Unlike a verse — whose ``text_simple`` is a parallel human edition — a token
+    has no aligned Simple-edition counterpart, so ``text_simple`` is computed via
+    :func:`to_simple`. Provenance for this is recorded distinctly in the manifest.
+    """
+    return {
+        "text_uthmani": text_uthmani,
+        "text_simple": to_simple(text_uthmani),
+        "text_no_tashkeel": strip_tashkeel(text_uthmani),
+        "text_normalised": normalise(text_uthmani),
+    }
 
 
 def derive_text_fields(text_uthmani: str, text_simple: str) -> dict[str, str]:
