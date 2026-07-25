@@ -31,7 +31,7 @@ export interface ComputationParams {
 
 export const DEFAULT_PARAMS: ComputationParams = {
   textEdition: 'tanzil-uthmani',
-  corpusVersion: '0.5.0',
+  corpusVersion: '0.6.0',
   numberingScheme: 'kufan',
   includeBasmala: true,
   includeWaqfMarks: false,

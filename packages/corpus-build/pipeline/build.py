@@ -49,8 +49,9 @@ from .parse import parse_metadata, parse_text
 from .paths import DATA_DIR, OUT_DIR, SOURCES_DIR, sha256_bytes, sha256_file
 from .sources import MORPHOLOGY_SOURCE_ID, SEGMENTATION_SOURCE_ID, SOURCES
 from .tokens import Token, segment_basmala, segment_verse
+from . import translations as translations_mod
 
-PREVIOUS_VERSION = "0.4.0"
+PREVIOUS_VERSION = "0.5.0"
 
 FIELD_PROVENANCE: dict[str, Any] = {
     "text_uthmani": {"source_id": "tanzil-uthmani", "transform": []},
@@ -305,6 +306,39 @@ def build_source_records() -> list[dict[str, Any]]:
     return records
 
 
+@dataclass
+class ProcessedTranslations:
+    #: sources.json records, one per edition (licence, translator, year, checksum).
+    source_records: list[dict[str, Any]]
+    #: edition id -> verse-level lines (one per counted verse).
+    lines_by_id: dict[str, list[dict[str, Any]]]
+    #: edition id -> line count.
+    line_counts: dict[str, int]
+    #: edition id -> per-edition LICENSE text.
+    licence_files: dict[str, str]
+
+
+def process_translations(verses: list[dict[str, Any]]) -> ProcessedTranslations:
+    """Parse each licensed edition, align it verse-by-verse onto the corpus, and
+    assemble its source record, lines and licence file. Alignment is asserted
+    exact — a partial or drifted edition raises rather than shipping silently."""
+    source_records: list[dict[str, Any]] = []
+    lines_by_id: dict[str, list[dict[str, Any]]] = {}
+    line_counts: dict[str, int] = {}
+    licence_files: dict[str, str] = {}
+    for t in translations_mod.TRANSLATIONS:
+        raw = (SOURCES_DIR / t.filename).read_text(encoding="utf-8")
+        edition = translations_mod.parse_edition(raw)
+        lines = translations_mod.build_lines(edition, verses, t.id)
+        source_records.append(
+            translations_mod.source_record(t, sha256_file(SOURCES_DIR / t.filename))
+        )
+        lines_by_id[t.id] = lines
+        line_counts[t.id] = len(lines)
+        licence_files[t.id] = translations_mod.licence_file(t)
+    return ProcessedTranslations(source_records, lines_by_id, line_counts, licence_files)
+
+
 def build_identifiers() -> dict[str, Any]:
     return {
         "scheme": SEGMENTATION_SOURCE_ID,
@@ -363,19 +397,19 @@ def build_identifiers() -> dict[str, Any]:
 
 
 def _build_mapping() -> dict[str, Any]:
-    """The v0.4.0 -> v0.5.0 identifier mapping: a pure identity.
+    """The v0.5.0 -> v0.6.0 identifier mapping: a pure identity.
 
-    v0.5.0 layers Leeds QAC morphology onto tokens as an annotation. Token ids,
-    positions and surface text are unchanged — morphology adds a field, it does
-    not resegment. No token or verse id moves, so there are no explicit entries:
-    every prior id resolves to itself by the identity default, a total mapping.
+    v0.6.0 adds verse-level translation editions. Translations align to existing
+    verse ids (an identity mapping) and never touch tokens; token and verse ids,
+    positions and surface text are unchanged. No id moves, so there are no explicit
+    entries: every prior id resolves to itself by the identity default.
     """
     return {
         "from_version": PREVIOUS_VERSION,
         "to_version": CORPUS_VERSION,
         "note": (
-            "Annotation-only release: a morphology block (root, lemma, pos, "
-            "features, segments) was added to every token from the Leeds QAC. No "
+            "Verse-level translations release: licensed translation editions were "
+            "added, each aligned to existing verse ids. No token or verse "
             "identifier changed, so no id is remapped and every prior id resolves "
             "to itself."
         ),
@@ -698,6 +732,19 @@ def _write_morphology(
     (morph_dir / "alignment-report.md").write_text(report_md, encoding="utf-8")
 
 
+def _write_translations(out_dir: Path, processed: ProcessedTranslations) -> None:
+    """Emit one ``<edition>.jsonl`` and one ``<edition>.LICENSE.md`` per edition
+    under ``translations/`` — so a downloader can take only the editions they can
+    use, each with its own licence alongside it."""
+    trans_dir = out_dir / translations_mod.TRANSLATIONS_DIR
+    trans_dir.mkdir(parents=True, exist_ok=True)
+    for edition_id, lines in processed.lines_by_id.items():
+        _write_jsonl(trans_dir / f"{edition_id}.jsonl", lines)
+        (trans_dir / f"{edition_id}.LICENSE.md").write_text(
+            processed.licence_files[edition_id], encoding="utf-8"
+        )
+
+
 def build(out_root: Path = OUT_DIR) -> Path:
     fetch_all()
 
@@ -713,8 +760,14 @@ def build(out_root: Path = OUT_DIR) -> Path:
     summary = report_stats(stats, roots_records)
     report_md = render_report(stats, roots_records)
 
+    # Verse-level translation editions (v0.6.0). Parsed and aligned onto the
+    # already-assembled verse rows by verse id — an identity mapping that never
+    # touches tokens. Their source records join sources.json alongside the corpus
+    # sources so every ingested edition is recorded with licence and checksum.
+    processed_translations = process_translations(assembled.verses)
+
     surahs = build_surah_records(assembled.verses, assembled.basmala)
-    sources = build_source_records()
+    sources = build_source_records() + processed_translations.source_records
     manifest = build_manifest(
         sources,
         surahs,
@@ -725,10 +778,14 @@ def build(out_root: Path = OUT_DIR) -> Path:
         assembled.ordinal_maps,
     )
     manifest["morphology"] = _morphology_manifest(summary)
+    manifest["translations"] = translations_mod.manifest_block(
+        processed_translations.source_records, processed_translations.line_counts
+    )
 
     out_dir = out_root / f"v{CORPUS_VERSION}"
     (out_dir / "mapping").mkdir(parents=True, exist_ok=True)
     (out_dir / "numbering").mkdir(parents=True, exist_ok=True)
+    _write_translations(out_dir, processed_translations)
     _write_json(out_dir / "sources.json", sources)
     _write_json(out_dir / "surahs.json", surahs)
     _write_jsonl(out_dir / "verses.jsonl", assembled.verses)
@@ -762,7 +819,9 @@ def build(out_root: Path = OUT_DIR) -> Path:
         f"  morphology: {summary['distinct_roots']} roots, "
         f"{summary['aligned_leeds_words']}/{summary['leeds_words']} Leeds words aligned "
         f"({100 * summary['align_rate']:.4f}%), "
-        f"{summary['tokens_without_root']} tokens with no root"
+        f"{summary['tokens_without_root']} tokens with no root\n"
+        f"  translations: {len(processed_translations.line_counts)} editions "
+        f"({', '.join(processed_translations.line_counts)})"
     )
     return out_dir
 

@@ -46,3 +46,18 @@ test('word page has a specific, non-templated title', async ({ page }) => {
   await page.goto(ZAKAH);
   await expect(page).toHaveTitle(/2:43:4/);
 });
+
+test('word page shows how translators rendered it, labelling the verse-level limit', async ({
+  page,
+}) => {
+  await page.goto(ZAKAH);
+  const section = page.locator('section', {
+    has: page.getByRole('heading', { name: /How translators rendered it/ }),
+  });
+  await expect(section).toBeVisible();
+  // Honest about the limitation: verse-level, not word-level.
+  await expect(section.getByText(/verse-level/)).toBeVisible();
+  await expect(section.getByText(/not this word alone/)).toBeVisible();
+  // Each edition carries the translation ProvenanceTag.
+  await expect(section.locator('[data-provenance="translation"]').first()).toBeVisible();
+});

@@ -1,0 +1,8 @@
+{
+  "from_version": "0.5.0",
+  "to_version": "0.6.0",
+  "note": "Verse-level translations release: licensed translation editions were added, each aligned to existing verse ids. No token or verse identifier changed, so no id is remapped and every prior id resolves to itself.",
+  "default_resolution": "identity",
+  "default_resolution_note": "Every v0.5.0 id is unchanged in v0.6.0 and resolves to itself. No ids changed form, so 'mappings' is empty. This makes the mapping total: every prior id resolves to exactly one successor (itself).",
+  "mappings": []
+}

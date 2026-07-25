@@ -4,6 +4,7 @@
 
 export type {
   Corpus,
+  LoadedTranslation,
   Manifest,
   Morphology,
   MorphSegment,
@@ -14,6 +15,9 @@ export type {
   Surah,
   SurahBasmala,
   Token,
+  TranslationEdition,
+  TranslationLine,
+  TranslationsManifest,
 } from './types.js';
 
 export { CorpusValidationError, DEFAULT_CORPUS_VERSION, loadCorpus } from './load.js';

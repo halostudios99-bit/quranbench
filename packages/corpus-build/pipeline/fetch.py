@@ -15,6 +15,7 @@ from pathlib import Path
 
 from .paths import CHECKSUMS_FILE, SOURCES_DIR, sha256_file
 from .sources import SOURCES, Source
+from .translations import TRANSLATIONS, Translation
 
 
 class ChecksumError(RuntimeError):
@@ -32,22 +33,30 @@ def _download(url: str, dest: Path) -> None:
         dest.write_bytes(resp.read())
 
 
-def fetch_source(source: Source, expected: dict[str, str]) -> str:
-    dest = SOURCES_DIR / source.filename
-    want = expected.get(source.filename)
+def _fetch_file(url: str, filename: str, expected: dict[str, str]) -> str:
+    dest = SOURCES_DIR / filename
+    want = expected.get(filename)
     if want is None:
-        raise ChecksumError(f"no recorded checksum for {source.filename}")
+        raise ChecksumError(f"no recorded checksum for {filename}")
 
     if dest.exists() and sha256_file(dest) == want:
         return "cached"
 
-    _download(source.url, dest)
+    _download(url, dest)
     got = sha256_file(dest)
     if got != want:
         raise ChecksumError(
-            f"checksum mismatch for {source.filename}: expected {want}, got {got}"
+            f"checksum mismatch for {filename}: expected {want}, got {got}"
         )
     return "downloaded"
+
+
+def fetch_source(source: Source, expected: dict[str, str]) -> str:
+    return _fetch_file(source.url, source.filename, expected)
+
+
+def fetch_translation(translation: Translation, expected: dict[str, str]) -> str:
+    return _fetch_file(translation.url, translation.filename, expected)
 
 
 def fetch_all() -> dict[str, str]:
@@ -56,6 +65,8 @@ def fetch_all() -> dict[str, str]:
     results: dict[str, str] = {}
     for source in SOURCES:
         results[source.id] = fetch_source(source, expected)
+    for translation in TRANSLATIONS:
+        results[translation.id] = fetch_translation(translation, expected)
     return results
 
 

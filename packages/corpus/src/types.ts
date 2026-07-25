@@ -136,6 +136,60 @@ export interface Root {
   token_ids: string[];
 }
 
+/**
+ * A licensed translation edition's metadata, from the manifest `translations`
+ * block. The edition text is verse-level only (see {@link LoadedTranslation}):
+ * there is one translation line per counted verse, never per token. Always shown
+ * with translator, edition, year and licence — never anonymous.
+ */
+export interface TranslationEdition {
+  id: string;
+  language: string;
+  language_code: string;
+  translator: string;
+  year: number;
+  /** Exact licence string, e.g. "Public Domain". Must permit redistribution. */
+  licence: string;
+  /** URL where the licence/public-domain status can be verified. */
+  licence_url: string;
+  /** Number of verse-level lines; equals the corpus verse count. */
+  verses: number;
+  /** Artifact path, relative to the version dir, e.g. translations/en-pickthall.jsonl. */
+  artifact: string;
+  licence_file: string;
+  /** The matching sources.json entry id. */
+  source_id: string;
+}
+
+/** One verse-level translation line. translations/<edition>.jsonl. */
+export interface TranslationLine {
+  /** The corpus verse id this line translates — an identity mapping. */
+  id: string;
+  surah: number;
+  slot: string;
+  text: string;
+}
+
+/**
+ * A translation edition loaded into memory: its metadata and a verse-id → text
+ * lookup. Verse-level correspondence only; there is deliberately no token-level
+ * map, because word-level alignment data does not exist for these editions.
+ */
+export interface LoadedTranslation {
+  edition: TranslationEdition;
+  /** verse id → translation text. */
+  byVerseId: Map<string, string>;
+}
+
+/** The manifest's `translations` block. */
+export interface TranslationsManifest {
+  alignment: string;
+  alignment_note?: string;
+  licensing_note?: string;
+  retrieval_source?: Record<string, unknown>;
+  editions: TranslationEdition[];
+}
+
 /** A verse-counting tradition, expressed as data. numbering/<id>.json. */
 export interface NumberingScheme {
   id: string;
@@ -194,6 +248,8 @@ export interface Manifest {
   }>;
   /** Morphology provenance: source, alignment summary, root counts, licence. */
   morphology?: Record<string, unknown>;
+  /** Translation editions: alignment method, licences, per-edition metadata. */
+  translations?: TranslationsManifest;
 }
 
 /**
@@ -211,6 +267,8 @@ export interface Corpus {
   tokens: Token[];
   /** One record per root (morphology/roots.json), most frequent first. */
   roots: Root[];
+  /** Verse-level translation editions, in manifest order. Empty on older versions. */
+  translations: LoadedTranslation[];
   numbering: Map<string, NumberingScheme>;
   /** sha256 of each loaded artifact file, computed at load time. */
   checksums: Record<string, string>;

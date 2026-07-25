@@ -14,6 +14,10 @@ const PATHS = [
   '/word/quran%3Atanzil-uthmani%3A1%3A5%3A1',
   '/root/z-k-w',
   '/search?q=root:%D8%B2%20%D9%83%20%D9%88',
+  '/compare',
+  '/compare?v=2:255',
+  '/compare?v=112:1-4',
+  '/compare?q=mercy',
 ];
 
 for (const path of PATHS) {

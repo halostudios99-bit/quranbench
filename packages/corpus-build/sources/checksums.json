@@ -3,5 +3,8 @@
   "tanzil-uthmani.txt": "4b91f9e6e8ac645d039e4ed85b3be492e795232a31cd22d668ac58238722e26f",
   "tanzil-simple.txt": "f3268cfe7a400add8a8024fe23368d66f58cc8baa51773fe94e323625c66344b",
   "quran-metadata.xml": "8867c1d88191472adec9db694b3cd9f135b1a2ef580574d32cf888dcb22c5c7a",
-  "quran-morphology.txt": "742bfac59941b2cb09736d5b7aae694af50792261fb8450cbf6afafcc340645f"
+  "quran-morphology.txt": "742bfac59941b2cb09736d5b7aae694af50792261fb8450cbf6afafcc340645f",
+  "en-pickthall.json": "0dbb55fa4daeb93aa6bc030441aec750ebf6a5d5235d0f4695f1f30666a72107",
+  "en-rodwell.json": "523cde1948b2bf1109c7e36944b36592cec4ed8eeb3d05736f66b46eb24350e6",
+  "en-palmer.json": "6513aa2b54fbef73d25e24d786e1d1c10584690c9ec581e7c6aa8caaa3a7534e"
 }

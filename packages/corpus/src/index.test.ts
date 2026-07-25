@@ -26,7 +26,7 @@ describe('loadCorpus', () => {
   });
 
   it('loads the declared counts exactly', () => {
-    // Documented figures from corpus v0.5.0's manifest.
+    // Documented figures — unchanged since v0.5.0 (v0.6.0 only adds translations).
     expect(corpus.tokens.length).toBe(77881);
     expect(corpus.segments.length).toBe(6236);
     expect(corpus.surahs.length).toBe(114);
@@ -76,6 +76,20 @@ describe('loadCorpus', () => {
     expect(first.id).toBe('quran:tanzil-uthmani:1:1:1');
     expect(first.text_uthmani).toBe('بِسْمِ');
     expect(first.text_normalised).toBe('بسم');
+  });
+
+  it('loads verse-level translation editions with a redistributable licence', () => {
+    expect(corpus.translations.length).toBeGreaterThanOrEqual(2);
+    for (const t of corpus.translations) {
+      expect(t.edition.licence).toBeTruthy();
+      expect(t.edition.licence_url).toMatch(/^https?:\/\//);
+      expect(t.edition.translator).toBeTruthy();
+      // Verse-level: one line per counted verse, keyed by a real verse id.
+      expect(t.byVerseId.size).toBe(corpus.segments.length);
+      expect(t.byVerseId.get('quran:tanzil-uthmani:1:1')).toBeTruthy();
+    }
+    expect(corpus.translations.map((t) => t.edition.id)).toContain('en-pickthall');
+    expect(corpus.manifest.translations!.alignment).toBe('verse-level');
   });
 
   it('fails loudly when the requested version is absent', () => {

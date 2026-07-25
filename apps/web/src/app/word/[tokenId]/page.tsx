@@ -6,9 +6,15 @@ import { OccurrenceChips } from '@/components/OccurrenceChips';
 import { ProvenanceTag } from '@/components/ProvenanceTag';
 import { ReaderVerse } from '@/components/ReaderVerse';
 import { VerseActions } from '@/components/VerseActions';
+import { VerseTranslations } from '@/components/VerseTranslations';
 import { rootHref, surahHref, verseHref, wordHref } from '@/lib/addressing';
 import { absoluteUrl } from '@/lib/site';
-import { describeToken, getCorpus, getTextEdition } from '@/server/corpus';
+import {
+  describeToken,
+  getCorpus,
+  getTextEdition,
+  getVerseTranslations,
+} from '@/server/corpus';
 
 // ~77,430 word pages: too many to statically generate, so on-demand ISR with a
 // week-long revalidate. A page is built the first time it is requested, then
@@ -90,7 +96,7 @@ function Section({
   children,
 }: {
   title: string;
-  provenance: 'quran' | 'computed' | 'external';
+  provenance: 'quran' | 'computed' | 'external' | 'translation';
   note?: string;
   children: React.ReactNode;
 }) {
@@ -114,6 +120,9 @@ export default async function WordPage({ params }: Params) {
   const morph = token.morphology;
   const edition = getTextEdition();
   const corpusVersion = getCorpus().version;
+  // Verse-level: how each edition renders the whole verse containing this token.
+  // A separated basmala is not a counted verse, so it has no translation line.
+  const verseTranslations = getVerseTranslations(view.segmentId);
   const canonical = absoluteUrl(wordHref(token.id));
   const reference = `${surah.name_en} ${ref}`;
   const features = Object.entries(morph.features);
@@ -412,6 +421,26 @@ export default async function WordPage({ params }: Params) {
             </div>
           )}
         </Section>
+
+        {verseTranslations.length > 0 ? (
+          <Section
+            title="How translators rendered it"
+            provenance="translation"
+            note={`${verseTranslations.length} edition${verseTranslations.length === 1 ? '' : 's'}`}
+          >
+            <p className="mb-3 text-[13px] text-ink2">
+              These translations render <strong>verse {verseRef}</strong> — the
+              whole verse this word appears in — not this word alone. The
+              correspondence is <strong>verse-level</strong>: no word-level
+              alignment of translations exists for these editions, so we do not
+              claim which English word renders this Arabic word.{' '}
+              <a href={`/compare?v=${verseRef}`} className="text-accent underline">
+                Compare the editions →
+              </a>
+            </p>
+            <VerseTranslations items={verseTranslations} />
+          </Section>
+        ) : null}
 
         <Section
           title={`Same form · ${sameForm.total} occurrence${sameForm.total === 1 ? '' : 's'}`}

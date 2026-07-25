@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { ReaderVerse } from '@/components/ReaderVerse';
+import { TranslationSettings } from '@/components/TranslationSettings';
+import { VerseTranslations } from '@/components/VerseTranslations';
 import {
   parseAyahParam,
   parseSurahParam,
@@ -10,7 +12,14 @@ import {
   surahHref,
   verseHref,
 } from '@/lib/addressing';
-import { getSurah, getSurahVerses, getVerseRange } from '@/server/corpus';
+import { selectedTranslationEditions } from '@/lib/translation-prefs';
+import {
+  getSurah,
+  getSurahVerses,
+  getVerseRange,
+  getVerseTranslations,
+  listTranslationEditions,
+} from '@/server/corpus';
 
 interface Params {
   params: Promise<{ surah: string; ayah: string }>;
@@ -52,6 +61,9 @@ export default async function VersePage({ params }: Params) {
   const single = from === to;
   const ref = referenceLabel(number, from, to);
 
+  const editions = listTranslationEditions();
+  const shown = await selectedTranslationEditions(editions.map((e) => e.id));
+
   const all = getSurahVerses(number);
   const maxOrdinal = all.length > 0 ? all[all.length - 1]!.ordinal : from;
   const prevOrdinal = single && from > 1 ? from - 1 : null;
@@ -71,23 +83,44 @@ export default async function VersePage({ params }: Params) {
         <span className="text-ink2">{ref}</span>
       </nav>
 
-      <header className="mb-6">
+      <header className="mb-6 flex flex-wrap items-end justify-between gap-3">
         <h1 className="text-[22px] font-semibold tracking-tight text-ink">
           {surah.name_en} {ref}
           {!single ? <span className="font-normal text-ink3"> · verses {from}–{to}</span> : null}
         </h1>
+        {editions.length > 0 ? (
+          <div className="flex items-center gap-3 text-[13px]">
+            <a
+              href={`/compare?v=${number}:${single ? from : `${from}-${to}`}`}
+              className="text-accent hover:underline"
+            >
+              Compare editions →
+            </a>
+            <TranslationSettings
+              editions={editions.map((e) => ({
+                id: e.id,
+                translator: e.translator,
+                year: e.year,
+              }))}
+            />
+          </div>
+        ) : null}
       </header>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-6">
         {views.map((view) => (
-          <ReaderVerse
-            key={view.segment.id}
-            surahNumber={number}
-            surahName={surah.name_en}
-            tokens={view.tokens}
-            from={view.ordinal}
-            mode="reading"
-          />
+          <div key={view.segment.id}>
+            <ReaderVerse
+              surahNumber={number}
+              surahName={surah.name_en}
+              tokens={view.tokens}
+              from={view.ordinal}
+              mode="reading"
+            />
+            <VerseTranslations
+              items={getVerseTranslations(view.segment.id, shown)}
+            />
+          </div>
         ))}
       </div>
 

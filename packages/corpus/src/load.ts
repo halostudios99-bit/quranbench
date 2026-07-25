@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 import type {
   Corpus,
+  LoadedTranslation,
   Manifest,
   NumberingScheme,
   Root,
@@ -14,7 +15,7 @@ import type {
   Token,
 } from './types.js';
 
-export const DEFAULT_CORPUS_VERSION = '0.5.0';
+export const DEFAULT_CORPUS_VERSION = '0.6.0';
 
 /**
  * Thrown when an artifact fails validation. A corrupted or schema-drifted corpus
@@ -300,6 +301,38 @@ export function loadCorpus(
     return row as unknown as Root;
   });
 
+  // Verse-level translation editions (v0.6.0+). Each edition declared in the
+  // manifest is loaded, checksum-verified, and indexed by verse id. A missing or
+  // count-mismatched edition is a hard error: the manifest and artifacts must agree.
+  const translations: LoadedTranslation[] = [];
+  const verseIds = new Set(segments.map((s) => s.id));
+  for (const edition of manifest.translations?.editions ?? []) {
+    const relPath = edition.artifact;
+    const editionPath = join(dir, relPath);
+    const editionText = readText(editionPath);
+    verifyBytes(relPath, editionText);
+    checksums[relPath] = sha256(editionText);
+    const rows = parseJsonl(editionPath, editionText);
+    const byVerseId = new Map<string, string>();
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i]!;
+      requireKeys(`${editionPath} row ${i + 1}`, row, ['id', 'text']);
+      const id = row['id'];
+      const text = row['text'];
+      if (typeof id !== 'string') fail(`${editionPath} row ${i + 1}: id must be a string`);
+      if (typeof text !== 'string') fail(`${editionPath} row ${i + 1}: text must be a string`);
+      // Identity mapping: every translation line addresses a real corpus verse.
+      if (!verseIds.has(id)) fail(`${editionPath} row ${i + 1}: '${id}' is not a corpus verse id`);
+      byVerseId.set(id, text);
+    }
+    if (byVerseId.size !== edition.verses) {
+      fail(
+        `translation '${edition.id}' has ${byVerseId.size} lines, manifest declares ${edition.verses}`,
+      );
+    }
+    translations.push({ edition, byVerseId });
+  }
+
   // Cross-check the loaded shapes against the manifest's declared counts. A
   // mismatch means the artifacts and manifest disagree — refuse to load.
   if (tokens.length !== manifest.counts.tokens) {
@@ -335,6 +368,7 @@ export function loadCorpus(
     segments,
     tokens,
     roots,
+    translations,
     numbering,
     checksums,
   };

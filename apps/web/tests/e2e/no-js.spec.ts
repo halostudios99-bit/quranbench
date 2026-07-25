@@ -16,6 +16,7 @@ const PAGES: { path: string; heading: RegExp }[] = [
   { path: '/word/quran%3Atanzil-uthmani%3A2%3A43%3A4', heading: /[؀-ۿ]/ },
   { path: '/root/z-k-w', heading: /ز ك و/ },
   { path: '/search?q=root:%D8%B2%20%D9%83%20%D9%88', heading: /Search/ },
+  { path: '/compare?v=2:255', heading: /Translation laboratory/ },
 ];
 
 for (const { path, heading } of PAGES) {

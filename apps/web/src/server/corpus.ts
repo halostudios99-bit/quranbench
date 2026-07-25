@@ -5,10 +5,12 @@ import { resolve } from 'node:path';
 import {
   loadCorpus,
   type Corpus,
+  type LoadedTranslation,
   type Root,
   type Segment,
   type Surah,
   type Token,
+  type TranslationEdition,
 } from '@quranbench/corpus';
 import {
   buildIndex,
@@ -18,6 +20,12 @@ import {
 
 import { pageSlice, pageCount as pagesFor } from '@/lib/pagination';
 import { tokenRefLabel, verseHref } from '@/lib/addressing';
+import {
+  computeDivergence,
+  reverseLookup,
+  type DivergenceResult,
+  type EditionText,
+} from '@/lib/translations';
 
 // The whole corpus is a few megabytes and fits in RAM (see CLAUDE.md). It is
 // loaded and indexed exactly once per server process — a module-level singleton,
@@ -40,6 +48,10 @@ interface CorpusState {
   rootBySlug: Map<string, Root>;
   /** Root identity forms → Root: the spaced form (`ز ك و`) and its unspaced form. */
   rootByForm: Map<string, Root>;
+  /** Verse-level translation editions, in manifest order. */
+  translations: LoadedTranslation[];
+  /** Corpus verse ids in reading order — the ordering basis for reverse lookup. */
+  verseOrder: string[];
   loadMs: number;
 }
 
@@ -107,6 +119,8 @@ function build(): CorpusState {
     versesBySurah,
     rootBySlug,
     rootByForm,
+    translations: corpus.translations,
+    verseOrder: corpus.segments.map((s) => s.id),
     loadMs,
   };
 }
@@ -531,6 +545,106 @@ export function getRootOccurrences(
   });
 
   return { page: clamped, pageCount: pages, total, items };
+}
+
+// ─── Translations ──────────────────────────────────────────────────────────
+// Verse-level licensed human translation editions. Never Quranic text: each is a
+// labelled external edition, always shown with translator, edition, year and
+// licence. Correspondence to Arabic is verse-level only — never word-level.
+
+/** The available translation editions' metadata, in manifest order. */
+export function listTranslationEditions(): TranslationEdition[] {
+  return state().translations.map((t) => t.edition);
+}
+
+/** A concise "Translator (year)" label plus licence, for a ProvenanceTag note. */
+export function translationLabel(edition: TranslationEdition): string {
+  return `${edition.translator} (${edition.year}) · ${edition.licence}`;
+}
+
+export interface VerseTranslation {
+  edition: TranslationEdition;
+  text: string;
+}
+
+/**
+ * Every edition's rendering of one verse, in manifest order. `editionIds`, when
+ * given, restricts and orders the result to those editions (the reader setting).
+ */
+export function getVerseTranslations(
+  verseId: string,
+  editionIds?: string[],
+): VerseTranslation[] {
+  const wanted = editionIds ? new Set(editionIds) : null;
+  const out: VerseTranslation[] = [];
+  for (const t of state().translations) {
+    if (wanted && !wanted.has(t.edition.id)) continue;
+    const text = t.byVerseId.get(verseId);
+    if (text !== undefined) out.push({ edition: t.edition, text });
+  }
+  return out;
+}
+
+/** Lexical divergence across editions for one verse (see lib/translations). */
+export function getVerseDivergence(
+  verseId: string,
+  editionIds?: string[],
+): DivergenceResult {
+  const editions: EditionText[] = getVerseTranslations(verseId, editionIds).map((v) => ({
+    editionId: v.edition.id,
+    text: v.text,
+  }));
+  return computeDivergence(editions);
+}
+
+export interface ReverseLookupOccurrence {
+  verseId: string;
+  ref: string;
+  href: string;
+  /** Editions whose rendering of this verse contains the query word. */
+  editions: { edition: TranslationEdition; text: string }[];
+  /** The Arabic tokens of the verse — verse-level correspondence, not word-level. */
+  tokens: Token[];
+}
+
+export interface ReverseLookupView {
+  word: string;
+  total: number;
+  occurrences: ReverseLookupOccurrence[];
+}
+
+/**
+ * Reverse lookup: which verses render an English word, and the Arabic tokens in
+ * those verses. Verse-level correspondence only — the UI must say so. `limit`
+ * caps the rendered occurrences; `total` reports the full count.
+ */
+export function reverseLookupWord(query: string, limit: number): ReverseLookupView {
+  const s = state();
+  const editionsByVerse = s.translations.map((t) => ({
+    editionId: t.edition.id,
+    byVerseId: t.byVerseId,
+  }));
+  const editionById = new Map(s.translations.map((t) => [t.edition.id, t]));
+  const result = reverseLookup(query, editionsByVerse, s.verseOrder);
+  const occurrences: ReverseLookupOccurrence[] = result.verses
+    .slice(0, limit)
+    .map((v) => {
+      const segment = s.index.segmentById.get(v.verseId);
+      const ordinal = segment ? (segment.ordinals[s.scheme] ?? null) : null;
+      const surah = segment?.surah ?? 0;
+      return {
+        verseId: v.verseId,
+        ref: ordinal === null ? v.verseId : `${surah}:${ordinal}`,
+        href: ordinal === null ? `/${surah}` : verseHref(surah, ordinal),
+        editions: v.editionIds.flatMap((id) => {
+          const t = editionById.get(id);
+          const text = t?.byVerseId.get(v.verseId);
+          return t && text !== undefined ? [{ edition: t.edition, text }] : [];
+        }),
+        tokens: s.tokensBySegment.get(v.verseId) ?? [],
+      };
+    });
+  return { word: result.word, total: result.total, occurrences };
 }
 
 /** Text edition label for provenance display (the Uthmani text edition source). */
