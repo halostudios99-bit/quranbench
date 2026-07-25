@@ -1,8 +1,8 @@
 {
-  "corpus_version": "0.3.0",
-  "previous_version": "0.2.0",
+  "corpus_version": "0.4.0",
+  "previous_version": "0.3.0",
   "work_id": "quran",
-  "built_at": "2026-07-25T06:34:08+00:00",
+  "built_at": "2026-07-25T09:41:45+00:00",
   "generator": "quranbench/packages/corpus-build",
   "segmentation_scheme": "tanzil-uthmani",
   "identifier_format": "quran:tanzil-uthmani:<surah>:<segment>:<position>",
@@ -180,5 +180,43 @@
       ],
       "detail": "Delete codepoints in ranges: U+0610..U+061A, U+06D6..U+06ED; delete U+0640; map U+0671->U+0627."
     }
-  ]
+  ],
+  "checksums": {
+    "identifiers.json": {
+      "sha256": "ad691b421f7bcf700c3865ba1026d67358eee1106df13670a7d3e28fc6a731ae",
+      "bytes": 1894
+    },
+    "mapping/mapping.schema.json": {
+      "sha256": "26eeb699088f17adb9d0ea0bda44cf7bc19d9e6afa8cc80fd4819b89e4776c51",
+      "bytes": 1732
+    },
+    "mapping/v0.3.0-to-v0.4.0.json": {
+      "sha256": "5c5bb838ed758ec87fff7d58c7e3937e78cb7ce9b95e3bc188710ec38474af69",
+      "bytes": 503
+    },
+    "numbering/kufan.json": {
+      "sha256": "43f70350303e536dbc42541a49e05b0488ee66c5b0c3fe85be455587747538e7",
+      "bytes": 906
+    },
+    "numbering/numbering.schema.json": {
+      "sha256": "31dfd3ef638e02b71f37a95e655af0dcf32af0fcb8f0457111ea97220a3262fa",
+      "bytes": 1464
+    },
+    "sources.json": {
+      "sha256": "8efe5a01ebc0d4bcf9268279de49a830fee8093d9696869d26294ff239b2271b",
+      "bytes": 1178
+    },
+    "surahs.json": {
+      "sha256": "b4f4992a245c4780abe60e98acf16549e592b01d265d1393146e2cbf84241a68",
+      "bytes": 95361
+    },
+    "tokens.jsonl": {
+      "sha256": "133a7577f35d5313786164c739f676797155b25b86064e270bf938c6f618bb43",
+      "bytes": 26376508
+    },
+    "verses.jsonl": {
+      "sha256": "987aa84729fc0890480c9f2c946772b42fc95a4aadb638d906089294fd3a85e8",
+      "bytes": 5625732
+    }
+  }
 }

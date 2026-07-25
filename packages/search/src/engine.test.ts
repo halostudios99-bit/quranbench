@@ -7,7 +7,7 @@ import { resolveReference } from './reference.js';
 import { search, searchString } from './search.js';
 import { UnsupportedQueryError, type Query } from './types.js';
 
-// Documented, hand-verified figures for corpus v0.3.0. Derived from the
+// Documented, hand-verified figures for corpus v0.4.0. Derived from the
 // artifacts directly (not from the code under test), and asserted as stable.
 const EXACT_ZAKAT = 24; // text_uthmani ٱلزَّكَوٰةَ (fatha ending), NFC-exact
 const NORM_ZAKAT = 26; // text_normalised الزكوه (adds the 2 kasra-ending forms)
@@ -46,8 +46,8 @@ describe('exact query', () => {
 
   it('carries the corpus version and computation params for reproducibility', () => {
     const r = search(index, { type: 'exact', text: 'ٱلزَّكَوٰةَ' });
-    expect(r.corpusVersion).toBe('0.3.0');
-    expect(r.params.corpusVersion).toBe('0.3.0');
+    expect(r.corpusVersion).toBe('0.4.0');
+    expect(r.params.corpusVersion).toBe('0.4.0');
     expect(r.params.numberingScheme).toBe('kufan');
     expect(r.segmentIds.length).toBeGreaterThan(0);
   });

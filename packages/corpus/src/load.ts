@@ -13,7 +13,7 @@ import type {
   Token,
 } from './types.js';
 
-export const DEFAULT_CORPUS_VERSION = '0.3.0';
+export const DEFAULT_CORPUS_VERSION = '0.4.0';
 
 /**
  * Thrown when an artifact fails validation. A corrupted or schema-drifted corpus
@@ -162,6 +162,11 @@ function validateManifest(path: string, raw: unknown, expectedVersion: string): 
   if (typeof numbering['active'] !== 'string') fail(`${path}: numbering.active must be a string`);
   if (!Array.isArray(numbering['available'])) fail(`${path}: numbering.available must be an array`);
 
+  // Checked after the version guard so a version mismatch is still reported as
+  // such rather than as a missing checksums block.
+  const checksums = raw['checksums'];
+  if (!isObject(checksums)) fail(`${path}: manifest.checksums must be an object`);
+
   return raw as unknown as Manifest;
 }
 
@@ -189,9 +194,30 @@ export function loadCorpus(
   const manifestText = readText(paths.manifest);
   const manifest = validateManifest(paths.manifest, parseJson(paths.manifest, manifestText), version);
 
+  // Byte-level verification: every artifact must match the sha256 and size the
+  // manifest records for it. Structural checks below run in addition — this
+  // guards against a corpus whose shape is fine but whose bytes were tampered
+  // with. The manifest cannot checksum itself, so it is excluded.
+  const expectedChecksums = manifest.checksums;
+  function verifyBytes(relKey: string, text: string): void {
+    const expected = expectedChecksums[relKey];
+    if (!expected) fail(`manifest has no checksum entry for artifact '${relKey}'`);
+    const actualSha = sha256(text);
+    if (actualSha !== expected.sha256) {
+      fail(
+        `artifact '${relKey}' failed checksum: manifest sha256 ${expected.sha256}, file ${actualSha}`,
+      );
+    }
+    const actualBytes = Buffer.byteLength(text, 'utf8');
+    if (actualBytes !== expected.bytes) {
+      fail(`artifact '${relKey}' size mismatch: manifest ${expected.bytes} bytes, file ${actualBytes} bytes`);
+    }
+  }
+
   const checksums: Record<string, string> = { 'manifest.json': sha256(manifestText) };
 
   const sourcesText = readText(paths.sources);
+  verifyBytes('sources.json', sourcesText);
   checksums['sources.json'] = sha256(sourcesText);
   const sourcesRaw = parseJson(paths.sources, sourcesText);
   if (!Array.isArray(sourcesRaw)) fail(`${paths.sources}: expected an array`);
@@ -202,6 +228,7 @@ export function loadCorpus(
   });
 
   const surahsText = readText(paths.surahs);
+  verifyBytes('surahs.json', surahsText);
   checksums['surahs.json'] = sha256(surahsText);
   const surahsRaw = parseJson(paths.surahs, surahsText);
   if (!Array.isArray(surahsRaw)) fail(`${paths.surahs}: expected an array`);
@@ -215,6 +242,7 @@ export function loadCorpus(
   for (const id of manifest.numbering.available) {
     const numPath = join(dir, 'numbering', `${id}.json`);
     const numText = readText(numPath);
+    verifyBytes(`numbering/${id}.json`, numText);
     checksums[`numbering/${id}.json`] = sha256(numText);
     const numRaw = parseJson(numPath, numText);
     if (!isObject(numRaw)) fail(`${numPath}: expected an object`);
@@ -223,6 +251,7 @@ export function loadCorpus(
   }
 
   const versesText = readText(paths.verses);
+  verifyBytes('verses.jsonl', versesText);
   checksums['verses.jsonl'] = sha256(versesText);
   const versesRaw = parseJsonl(paths.verses, versesText);
   const segments: Segment[] = versesRaw.map((row, i) => {
@@ -232,6 +261,7 @@ export function loadCorpus(
   });
 
   const tokensText = readText(paths.tokens);
+  verifyBytes('tokens.jsonl', tokensText);
   checksums['tokens.jsonl'] = sha256(tokensText);
   const tokensRaw = parseJsonl(paths.tokens, tokensText);
   const tokens: Token[] = tokensRaw.map((row, i) => {

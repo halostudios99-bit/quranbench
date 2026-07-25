@@ -125,6 +125,12 @@ export interface Manifest {
   token_segmentation: Record<string, unknown>;
   source_download_options?: Record<string, unknown>;
   sources: Array<{ id: string; sha256: string }>;
+  /**
+   * sha256 and byte size of every emitted artifact, keyed by POSIX-relative
+   * path, excluding the manifest itself. Lets the loader — and any third party —
+   * verify a published corpus byte-for-byte, not just structurally.
+   */
+  checksums: Record<string, { sha256: string; bytes: number }>;
   field_provenance: Record<string, unknown>;
   token_field_provenance: Record<string, unknown>;
   normalisation_rules: Array<{

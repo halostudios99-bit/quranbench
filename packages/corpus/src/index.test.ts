@@ -1,10 +1,19 @@
-import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdtempSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { describe, expect, it } from 'vitest';
 
 import { CorpusValidationError, DEFAULT_CORPUS_VERSION, loadCorpus } from './index.js';
+
+const ARTIFACTS_ROOT = join(
+  dirname(fileURLToPath(import.meta.url)),
+  '..',
+  '..',
+  'corpus-build',
+  'out',
+);
 
 // Loaded once — the artifacts are a few megabytes and reused across assertions.
 const corpus = loadCorpus();
@@ -17,7 +26,7 @@ describe('loadCorpus', () => {
   });
 
   it('loads the declared counts exactly', () => {
-    // Documented figures from corpus v0.3.0's manifest.
+    // Documented figures from corpus v0.4.0's manifest.
     expect(corpus.tokens.length).toBe(77881);
     expect(corpus.segments.length).toBe(6236);
     expect(corpus.surahs.length).toBe(114);
@@ -33,6 +42,33 @@ describe('loadCorpus', () => {
     for (const file of ['manifest.json', 'sources.json', 'surahs.json', 'verses.jsonl', 'tokens.jsonl']) {
       expect(corpus.checksums[file]).toMatch(/^[0-9a-f]{64}$/);
     }
+  });
+
+  it('records output checksums in the manifest for every non-manifest artifact', () => {
+    const checksums = corpus.manifest.checksums;
+    expect(checksums['manifest.json']).toBeUndefined();
+    for (const file of ['sources.json', 'surahs.json', 'verses.jsonl', 'tokens.jsonl', 'numbering/kufan.json']) {
+      expect(checksums[file]!.sha256).toMatch(/^[0-9a-f]{64}$/);
+      expect(checksums[file]!.bytes).toBeGreaterThan(0);
+    }
+    // The loader's independently computed checksums agree with the manifest's.
+    for (const file of ['sources.json', 'surahs.json', 'verses.jsonl', 'tokens.jsonl']) {
+      expect(corpus.checksums[file]).toBe(checksums[file]!.sha256);
+    }
+  });
+
+  it('fails loudly, naming the file, when one byte of an artifact is corrupted', () => {
+    const root = mkdtempSync(join(tmpdir(), 'qb-corrupt-'));
+    const dir = join(root, `v${DEFAULT_CORPUS_VERSION}`);
+    cpSync(join(ARTIFACTS_ROOT, `v${DEFAULT_CORPUS_VERSION}`), dir, { recursive: true });
+
+    const tokensPath = join(dir, 'tokens.jsonl');
+    const bytes = readFileSync(tokensPath);
+    bytes[1000] = bytes[1000]! ^ 0x01; // flip a single bit deep in the file
+    writeFileSync(tokensPath, bytes);
+
+    expect(() => loadCorpus(DEFAULT_CORPUS_VERSION, { root })).toThrow(CorpusValidationError);
+    expect(() => loadCorpus(DEFAULT_CORPUS_VERSION, { root })).toThrow(/tokens\.jsonl.*checksum/);
   });
 
   it('preserves Quranic text byte-for-byte (no mutation on load)', () => {

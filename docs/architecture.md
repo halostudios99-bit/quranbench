@@ -54,6 +54,28 @@ out/v0.1.0/
 
 Artifacts are immutable once released. Corrections produce a new version.
 
+### Verifying a published corpus
+
+`manifest.json` carries a `checksums` block: the sha256 and byte size of every artifact the pipeline emitted, keyed by its path relative to the version directory, excluding the manifest itself (a file cannot record its own final hash). This lets anyone confirm a published corpus is byte-for-byte what was built — the site's promise of reproducibility applied to its own data.
+
+```
+"checksums": {
+  "tokens.jsonl":  { "sha256": "133a75…", "bytes": 26376508 },
+  "verses.jsonl":  { "sha256": "987aa8…", "bytes": 5625732 },
+  ...
+}
+```
+
+To verify a downloaded artifact directory, from `packages/corpus-build/`:
+
+```
+python -m pipeline.verify out/v0.4.0
+```
+
+It re-hashes every listed file, flags any that differ in bytes or size, and flags any file present on disk but absent from the block (or listed but missing). It prints `OK` and exits `0` when everything matches, and exits non-zero on the first sign of tampering. No build step and no trust in the loader is required — the standard library computes the same sha256 the manifest records.
+
+The application loader performs the same byte check at boot: `loadCorpus` verifies each artifact it reads against the manifest and refuses to load — naming the offending file — if a single byte differs, in addition to its structural checks.
+
 ## Search
 
 Built at process boot by reading artifacts into typed in-memory structures:

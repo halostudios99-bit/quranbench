@@ -15,7 +15,7 @@ export type NormalisationProfile = 'uthmani' | 'simple' | 'no-tashkeel' | 'norma
 export interface ComputationParams {
   /** The text edition a computation runs over, e.g. the ingested Uthmani. */
   textEdition: string;
-  /** Corpus artifact version, e.g. '0.3.0'. A citation names a version. */
+  /** Corpus artifact version, e.g. '0.4.0'. A citation names a version. */
   corpusVersion: string;
   /** Verse numbering scheme in effect, e.g. 'kufan'. Numbering is a parameter. */
   numberingScheme: string;
@@ -31,7 +31,7 @@ export interface ComputationParams {
 
 export const DEFAULT_PARAMS: ComputationParams = {
   textEdition: 'tanzil-uthmani',
-  corpusVersion: '0.3.0',
+  corpusVersion: '0.4.0',
   numberingScheme: 'kufan',
   includeBasmala: true,
   includeWaqfMarks: false,
@@ -68,7 +68,7 @@ function bit(value: boolean): '0' | '1' {
 
 /**
  * Serialise to a short, stable, single-line string. Example:
- * `text=tanzil-uthmani;corpus=0.3.0;numbering=kufan;basmala=1;waqf=0;tashkeel=0;norm=normalised`
+ * `text=tanzil-uthmani;corpus=0.4.0;numbering=kufan;basmala=1;waqf=0;tashkeel=0;norm=normalised`
  */
 export function serialiseParams(p: ComputationParams): string {
   const parts: Record<(typeof FIELDS)[number], string> = {

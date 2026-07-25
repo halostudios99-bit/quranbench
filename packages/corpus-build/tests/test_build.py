@@ -32,12 +32,12 @@ def test_writes_expected_files(artifacts: Path) -> None:
         "identifiers.json",
         "manifest.json",
         "mapping/mapping.schema.json",
-        "mapping/v0.2.0-to-v0.3.0.json",
+        "mapping/v0.3.0-to-v0.4.0.json",
         "numbering/numbering.schema.json",
         "numbering/kufan.json",
     ):
         assert (artifacts / name).exists(), name
-    assert artifacts.name == "v0.3.0"
+    assert artifacts.name == "v0.4.0"
 
 
 def test_verse_artifact_counts_and_ids(artifacts: Path) -> None:
@@ -102,8 +102,8 @@ def test_sources_artifact_matches_entity_model(artifacts: Path) -> None:
 
 def test_manifest_is_self_describing(artifacts: Path) -> None:
     manifest = _read_json(artifacts / "manifest.json")
-    assert manifest["corpus_version"] == "0.3.0"
-    assert manifest["previous_version"] == "0.2.0"
+    assert manifest["corpus_version"] == "0.4.0"
+    assert manifest["previous_version"] == "0.3.0"
     assert manifest["work_id"] == "quran"
     assert manifest["segmentation_scheme"] == "tanzil-uthmani"
     assert manifest["identifier_format"] == "quran:tanzil-uthmani:<surah>:<segment>:<position>"
@@ -217,48 +217,37 @@ def test_identifiers_policy_is_machine_readable(artifacts: Path) -> None:
     assert "basmala_ayah" not in ids
 
 
-def test_mapping_is_real_and_documented(artifacts: Path) -> None:
+def test_mapping_is_identity_with_no_entries(artifacts: Path) -> None:
     schema = _read_json(artifacts / "mapping" / "mapping.schema.json")
     assert schema["type"] == "object"
     assert "mappings" in schema["properties"]
     assert "default_resolution" in schema["properties"]
 
-    mapping = _read_json(artifacts / "mapping" / "v0.2.0-to-v0.3.0.json")
-    assert mapping["from_version"] == "0.2.0"
-    assert mapping["to_version"] == "0.3.0"
+    # v0.4.0 is a metadata-only release: no identifier moved, so the mapping is a
+    # pure identity default with zero explicit entries.
+    mapping = _read_json(artifacts / "mapping" / "v0.3.0-to-v0.4.0.json")
+    assert mapping["from_version"] == "0.3.0"
+    assert mapping["to_version"] == "0.4.0"
     assert mapping["default_resolution"] == "identity"
-    # One entry per changed (basmala) token: 112 separated surahs x 4 tokens.
-    assert len(mapping["mappings"]) == 448
-    sample = mapping["mappings"][0]
-    assert sample["from"] == "quran:tanzil-uthmani:2:0:1"
-    assert sample["status"] == "renamed"
-    assert sample["to"] == ["quran:tanzil-uthmani:2:basmala:1"]
+    assert mapping["mappings"] == []
 
 
-def test_mapping_is_total_over_v0_2_0_token_ids(artifacts: Path) -> None:
-    # Reconstruct the v0.2.0 token id set from the v0.3.0 tokens: a basmala token
-    # was addressed as ayah 0; everything else had the same id it has now.
+def test_mapping_is_total_by_identity(artifacts: Path) -> None:
+    # With an identity default and no explicit entries, every v0.3.0 id resolves
+    # to itself — a total mapping over the prior version's identifiers.
     tokens = _read_jsonl(artifacts / "tokens.jsonl")
     new_ids = {t["id"] for t in tokens}
-    old_ids = set()
-    for t in tokens:
-        if t["slot"] == "basmala":
-            old_ids.add(t["id"].replace(":basmala:", ":0:"))
-        else:
-            old_ids.add(t["id"])
 
-    mapping = _read_json(artifacts / "mapping" / "v0.2.0-to-v0.3.0.json")
+    mapping = _read_json(artifacts / "mapping" / "v0.3.0-to-v0.4.0.json")
     explicit = {m["from"]: m["to"] for m in mapping["mappings"]}
-    assert len(explicit) == len(mapping["mappings"])  # no duplicate 'from'
+    assert explicit == {}  # nothing remapped
 
-    # Resolve every v0.2.0 id: explicit successor, else identity (default).
-    for old in old_ids:
+    # Every prior id resolves to itself (the identity default) and to a real id.
+    for old in new_ids:
         successors = explicit.get(old, [old])
-        assert len(successors) == 1, old  # exactly one successor
-        assert successors[0] in new_ids, (old, successors)  # resolves to a real id
-
-    # Totality: every explicit 'from' is a genuine v0.2.0 id (no dangling entries).
-    assert set(explicit) <= old_ids
+        assert len(successors) == 1, old
+        assert successors[0] == old
+        assert successors[0] in new_ids
 
 
 def test_numbering_scheme_is_data(artifacts: Path) -> None:
@@ -277,3 +266,68 @@ def test_manifest_verse_fields_traceable_to_a_source(artifacts: Path) -> None:
     source_ids = {s["id"] for s in _read_json(artifacts / "sources.json")}
     for field in ("text_uthmani", "text_simple", "text_no_tashkeel", "text_normalised"):
         assert provenance[field]["source_id"] in source_ids
+
+
+def test_manifest_records_output_checksums(artifacts: Path) -> None:
+    from pipeline.paths import sha256_bytes
+
+    manifest = _read_json(artifacts / "manifest.json")
+    checksums = manifest["checksums"]
+
+    # Every emitted file except the manifest itself is listed, with sha256 + size.
+    assert "manifest.json" not in checksums
+    on_disk = {
+        p.relative_to(artifacts).as_posix()
+        for p in artifacts.rglob("*")
+        if p.is_file() and p.name != "manifest.json"
+    }
+    assert set(checksums) == on_disk
+
+    # Each recorded sha256 and byte size matches the file on disk exactly.
+    for rel, entry in checksums.items():
+        data = (artifacts / rel).read_bytes()
+        assert entry["sha256"] == sha256_bytes(data), rel
+        assert entry["bytes"] == len(data), rel
+
+    # The big artifacts are covered.
+    for rel in ("tokens.jsonl", "verses.jsonl", "surahs.json", "sources.json"):
+        assert rel in checksums
+
+
+def test_verify_accepts_a_clean_build_and_rejects_tampering(artifacts: Path) -> None:
+    from pipeline.verify import verify
+
+    assert verify(artifacts) == []
+
+    # Corrupt one byte of a big artifact and confirm verify names it.
+    tokens = artifacts / "tokens.jsonl"
+    original = tokens.read_bytes()
+    try:
+        mutated = bytearray(original)
+        mutated[1000] ^= 0x01
+        tokens.write_bytes(mutated)
+        errors = verify(artifacts)
+        assert errors, "verify should report the corruption"
+        assert any("tokens.jsonl" in e and "sha256" in e for e in errors)
+    finally:
+        tokens.write_bytes(original)
+
+    # A clean directory verifies again once restored.
+    assert verify(artifacts) == []
+
+
+def test_v030_and_v040_token_ids_are_identical() -> None:
+    # The gate before deleting v0.3.0: v0.4.0 is a metadata-only rebuild, so its
+    # token id set must be identical. Skips once v0.3.0 has been removed.
+    from pipeline.paths import OUT_DIR
+
+    prev = OUT_DIR / "v0.3.0" / "tokens.jsonl"
+    cur = OUT_DIR / "v0.4.0" / "tokens.jsonl"
+    if not prev.exists():
+        pytest.skip("v0.3.0 removed after verification")
+    assert cur.exists(), "v0.4.0 must be built"
+
+    prev_ids = {json.loads(line)["id"] for line in prev.read_text(encoding="utf-8").splitlines() if line}
+    cur_ids = {json.loads(line)["id"] for line in cur.read_text(encoding="utf-8").splitlines() if line}
+    assert len(cur_ids) == 77881
+    assert prev_ids == cur_ids

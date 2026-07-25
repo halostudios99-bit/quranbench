@@ -8,6 +8,16 @@ import { canonicaliseUthmani } from './normalise.js';
 // only when a result is materialised. The corpus is tiny (~77k tokens, a few
 // MB), so plain typed arrays and Maps beat any cleverness here.
 
+/**
+ * A half-open handle interval `[start, end)`. Because tokens are stored in
+ * corpus order, every surah and every segment occupies one contiguous block of
+ * handles, so a scope resolves to a range check rather than a membership scan.
+ */
+export interface HandleRange {
+  start: number;
+  end: number;
+}
+
 export interface SearchIndex {
   corpus: Corpus;
   version: string;
@@ -29,6 +39,10 @@ export interface SearchIndex {
   segmentById: Map<string, Segment>;
   /** surah number → handles (in document order). */
   surahTokens: Map<number, number[]>;
+  /** surah number → contiguous handle range. Scope resolution is a range check. */
+  surahRange: Map<number, HandleRange>;
+  /** segment id → contiguous handle range. Segment-scope resolution is a range check. */
+  segmentRange: Map<string, HandleRange>;
   /** segment id → first-appearance ordinal, for stable result ordering. */
   segmentOrder: Map<string, number>;
   /** Active numbering scheme id (manifest.numbering.active). */
@@ -55,6 +69,8 @@ export function buildIndex(corpus: Corpus): SearchIndex {
   const normalised = new Map<string, number[]>();
   const segmentTokens = new Map<string, number[]>();
   const surahTokens = new Map<number, number[]>();
+  const surahRange = new Map<number, HandleRange>();
+  const segmentRange = new Map<string, HandleRange>();
   const segmentOrder = new Map<string, number>();
 
   for (let i = 0; i < n; i++) {
@@ -72,6 +88,16 @@ export function buildIndex(corpus: Corpus): SearchIndex {
     const surahList = surahTokens.get(t.surah);
     if (surahList) surahList.push(i);
     else surahTokens.set(t.surah, [i]);
+
+    // Tokens are in corpus order, so a surah's (and a segment's) handles are a
+    // contiguous block; widening the end as we go yields its half-open range.
+    const sr = surahRange.get(t.surah);
+    if (sr) sr.end = i + 1;
+    else surahRange.set(t.surah, { start: i, end: i + 1 });
+
+    const segr = segmentRange.get(t.segment_id);
+    if (segr) segr.end = i + 1;
+    else segmentRange.set(t.segment_id, { start: i, end: i + 1 });
   }
 
   const activeScheme = corpus.manifest.numbering.active;
@@ -101,6 +127,8 @@ export function buildIndex(corpus: Corpus): SearchIndex {
     segmentTokens,
     segmentById,
     surahTokens,
+    surahRange,
+    segmentRange,
     segmentOrder,
     activeScheme,
     refIndex,

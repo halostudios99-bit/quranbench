@@ -45,11 +45,11 @@ from .numbering import (
     assign_ordinals,
 )
 from .parse import parse_metadata, parse_text
-from .paths import OUT_DIR, SOURCES_DIR, sha256_file
+from .paths import OUT_DIR, SOURCES_DIR, sha256_bytes, sha256_file
 from .sources import SEGMENTATION_SOURCE_ID, SOURCES
 from .tokens import Token, segment_basmala, segment_verse
 
-PREVIOUS_VERSION = "0.2.0"
+PREVIOUS_VERSION = "0.3.0"
 
 FIELD_PROVENANCE: dict[str, Any] = {
     "text_uthmani": {"source_id": "tanzil-uthmani", "transform": []},
@@ -357,48 +357,30 @@ def build_identifiers() -> dict[str, Any]:
     }
 
 
-def _build_mapping(tokens: list[dict[str, Any]]) -> dict[str, Any]:
-    """The real v0.2.0 -> v0.3.0 identifier mapping.
+def _build_mapping() -> dict[str, Any]:
+    """The v0.3.0 -> v0.4.0 identifier mapping: a pure identity.
 
-    v0.2.0 addressed the separated basmala as ayah 0 (``:0:``); v0.3.0 addresses
-    it by the named ``basmala`` slot. Every basmala token id therefore changes and
-    is listed here explicitly, per docs/extensibility.md §4. All other token ids
-    are unchanged and resolve to themselves by the documented default below, so
-    the mapping is total without listing 77,000 unchanged rows.
+    v0.4.0 is a metadata-only release — it adds output checksums to the manifest
+    and changes nothing about segmentation, token count or identifiers. No token
+    or verse id moves, so there are no explicit entries: every prior id resolves
+    to itself by the identity default, making the mapping total with zero rows.
     """
-    mappings: list[dict[str, Any]] = []
-    for t in tokens:
-        if t["slot"] != BASMALA_SLOT:
-            continue
-        old_id = token_id(t["surah"], "0", t["position"])
-        mappings.append(
-            {
-                "from": old_id,
-                "status": "renamed",
-                "to": [t["id"]],
-                "reason": (
-                    "separated surah-opening basmala re-addressed from ayah 0 to "
-                    "the named 'basmala' segment slot"
-                ),
-            }
-        )
     return {
         "from_version": PREVIOUS_VERSION,
         "to_version": CORPUS_VERSION,
         "note": (
-            "The separated surah-opening basmala moves from the ordinal slot 0 "
-            "(':0:') to the named slot 'basmala', so no permanent identifier "
-            "asserts that it is or is not verse zero. All other token and verse "
-            "ids are unchanged."
+            "Metadata-only release: output checksums were added to manifest.json. "
+            "No identifier changed, so no id is remapped and every prior id resolves "
+            "to itself."
         ),
         "default_resolution": "identity",
         "default_resolution_note": (
-            "Any v0.2.0 id not listed in 'mappings' is unchanged in v0.3.0 and "
-            "resolves to itself. Only ids whose form changed are listed, per the "
-            "identifier policy (docs/extensibility.md §4). This makes the mapping "
-            "total: every v0.2.0 id resolves to exactly one v0.3.0 successor."
+            f"Every v{PREVIOUS_VERSION} id is unchanged in v{CORPUS_VERSION} and "
+            "resolves to itself. No ids changed form, so 'mappings' is empty. This "
+            "makes the mapping total: every prior id resolves to exactly one "
+            "successor (itself)."
         ),
-        "mappings": mappings,
+        "mappings": [],
     }
 
 
@@ -598,6 +580,26 @@ def _write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
             fh.write(json.dumps(row, ensure_ascii=False) + "\n")
 
 
+MANIFEST_NAME = "manifest.json"
+
+
+def compute_output_checksums(out_dir: Path) -> dict[str, dict[str, Any]]:
+    """sha256 + byte size for every emitted artifact, keyed by POSIX-relative
+    path, excluding the manifest itself (a manifest cannot checksum its own final
+    bytes). This is what lets a third party verify a published corpus byte-for-byte.
+    """
+    checksums: dict[str, dict[str, Any]] = {}
+    for path in sorted(out_dir.rglob("*")):
+        if not path.is_file():
+            continue
+        rel = path.relative_to(out_dir).as_posix()
+        if rel == MANIFEST_NAME:
+            continue
+        data = path.read_bytes()
+        checksums[rel] = {"sha256": sha256_bytes(data), "bytes": len(data)}
+    return checksums
+
+
 def build(out_root: Path = OUT_DIR) -> Path:
     fetch_all()
 
@@ -625,12 +627,17 @@ def build(out_root: Path = OUT_DIR) -> Path:
     _write_json(out_dir / "mapping" / "mapping.schema.json", _mapping_schema())
     _write_json(
         out_dir / "mapping" / f"v{PREVIOUS_VERSION}-to-v{CORPUS_VERSION}.json",
-        _build_mapping(assembled.tokens),
+        _build_mapping(),
     )
     _write_json(out_dir / "numbering" / "numbering.schema.json", _numbering_schema())
     for scheme in SCHEMES:
         _write_json(out_dir / "numbering" / f"{scheme.id}.json", scheme.record())
-    _write_json(out_dir / "manifest.json", manifest)
+
+    # Every non-manifest artifact is now on disk; checksum them and record the
+    # block in the manifest, written last so it can cover the final bytes of all
+    # its siblings. The manifest excludes itself.
+    manifest["checksums"] = compute_output_checksums(out_dir)
+    _write_json(out_dir / MANIFEST_NAME, manifest)
 
     print(
         f"built {out_dir}\n"

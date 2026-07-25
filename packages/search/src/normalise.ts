@@ -1,6 +1,6 @@
 // Arabic normalisation, replicating the corpus pipeline's `text_normalised`
 // derivation so that query input is normalised identically to indexed forms.
-// The rules mirror manifest.normalisation_rules for corpus v0.3.0. A test
+// The rules mirror manifest.normalisation_rules for corpus v0.4.0. A test
 // asserts this reproduces every stored token.text_normalised; if the pipeline's
 // rules change, that test fails rather than search drifting silently.
 

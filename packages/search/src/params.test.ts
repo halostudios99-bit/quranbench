@@ -10,7 +10,7 @@ import {
 describe('computation parameters', () => {
   it('serialises defaults to a short stable string', () => {
     expect(serialiseParams(DEFAULT_PARAMS)).toBe(
-      'text=tanzil-uthmani;corpus=0.3.0;numbering=kufan;basmala=1;waqf=0;tashkeel=0;norm=normalised',
+      'text=tanzil-uthmani;corpus=0.4.0;numbering=kufan;basmala=1;waqf=0;tashkeel=0;norm=normalised',
     );
   });
 
