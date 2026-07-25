@@ -22,11 +22,18 @@ export async function resolve(specifier, context, nextResolve) {
       return { url: pathToFileURL(withExt).href, shortCircuit: true };
     }
   }
-  if (specifier.endsWith('.js') && (specifier.startsWith('./') || specifier.startsWith('../'))) {
+  if (specifier.startsWith('./') || specifier.startsWith('../')) {
     const abs = fileURLToPath(new URL(specifier, context.parentURL));
-    const ts = abs.replace(/\.js$/, '.ts');
-    if (existsSync(ts)) {
-      return { url: pathToFileURL(ts).href, shortCircuit: true };
+    // ./x.js → ./x.ts
+    const jsToTs = abs.replace(/\.js$/, '.ts');
+    if (specifier.endsWith('.js') && existsSync(jsToTs)) {
+      return { url: pathToFileURL(jsToTs).href, shortCircuit: true };
+    }
+    // extensionless ./x → ./x.ts or ./x/index.ts (Next/bundler style)
+    if (!/\.[mc]?[jt]s$/.test(specifier)) {
+      for (const cand of [`${abs}.ts`, path.join(abs, 'index.ts')]) {
+        if (existsSync(cand)) return { url: pathToFileURL(cand).href, shortCircuit: true };
+      }
     }
   }
   return nextResolve(specifier, context);

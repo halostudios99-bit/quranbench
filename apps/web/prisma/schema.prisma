@@ -115,6 +115,10 @@ model Investigation {
   claim           String
   query           String
   counterEvidence String
+  // Long-form editorial prose. The structured slots above carry the argument;
+  // this preserves the article body an investigation was seeded from. Optional —
+  // a structured investigation need not have prose.
+  body            String?
   status          InvestigationStatus @default(DRAFT)
 
   // Pins may reference a corpus version older than the one now loaded. When a pin

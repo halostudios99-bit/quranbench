@@ -1,0 +1,1035 @@
+{
+  "author": "seed",
+  "investigations": [
+    {
+      "slug": "ablution",
+      "title": "Ablution",
+      "claim": "Ablution is pre-requisite of salat and must be performed by believers as Quran is a deatiled guidance for believers and Allah has not missed out anything from Quran.",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«2542 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"Ablution is pre-requisite of salat and must be performed by believers as Quran is a deatiled guidance for believers and Allah has not missed out anything from Quran.\" — confirm or rewrite it.\nFlagged by the audit (2) — resolve before publishing:\n• [high] Arabic \"وضوء\" has 1/1 word(s) not found in the corpus, even allowing for spelling variation. (line 8)\n• [medium] Surah name \"Al-Maida\" does not match surah 27 (An-Naml). (line 45)\nCould not be checked automatically (1):\n• Transliteration/gloss \"Ablution\" for \"وضوء\" could not be confirmed. (line 8)",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:5:6:1",
+          "segmentId": "quran:tanzil-uthmani:5:6",
+          "note": "verse 5:6"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:27:4:1",
+          "segmentId": "quran:tanzil-uthmani:27:4",
+          "note": "verse 27:4"
+        }
+      ],
+      "annotations": [
+        {
+          "actor": "EDITORIAL",
+          "type": "audit",
+          "targetType": "SEGMENT",
+          "targetKey": "quran:tanzil-uthmani:27:4",
+          "value": "[ablution] Surah name \"Al-Maida\" does not match surah 27 (An-Naml)."
+        }
+      ]
+    },
+    {
+      "slug": "al-aqsa-mosque",
+      "title": "Al-Aqsa Mosque",
+      "claim": "Masjid Al Aqsa and the wailing wall is a disputed territory between jews and muslims of today but who are the rightful inheitors of such a disputed place and this dispute can only be solved in the light of Quran since it is the criteron over complicated matters.",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«6909 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"Masjid Al Aqsa and the wailing wall is a disputed territory between jews and muslims of today but who are the rightful inheitors of such a disputed place and this dispute can only be solved in the light of Quran since it is the criteron over complicated matters.\" — confirm or rewrite it.\nThe audit flagged nothing in this article.",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:3:96:1",
+          "segmentId": "quran:tanzil-uthmani:3:96",
+          "note": "verse 3:96"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:125:1",
+          "segmentId": "quran:tanzil-uthmani:2:125",
+          "note": "verse 2:125"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:144:1",
+          "segmentId": "quran:tanzil-uthmani:2:144",
+          "note": "verse 2:144"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:148:1",
+          "segmentId": "quran:tanzil-uthmani:2:148",
+          "note": "verse 2:148"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:10:87:1",
+          "segmentId": "quran:tanzil-uthmani:10:87",
+          "note": "verse 10:87"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:17:7:1",
+          "segmentId": "quran:tanzil-uthmani:17:7",
+          "note": "verse 17:7"
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "slug": "angels-made-from-light",
+      "title": "Angels made from Light",
+      "claim": "Quran clearly states when angels were ordered to prostrate before Adam, All of them prostrated except Satan and he was among the Angels which explains many unanswered questions regarding who angels really are.",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«4418 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"Quran clearly states when angels were ordered to prostrate before Adam, All of them prostrated except Satan and he was among the Angels which explains many unanswered questions regarding who angels really are.\" — confirm or rewrite it.\nThe audit flagged nothing in this article.",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:24:35:1",
+          "segmentId": "quran:tanzil-uthmani:24:35",
+          "note": "verse 24:35"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:34:1",
+          "segmentId": "quran:tanzil-uthmani:2:34",
+          "note": "verse 2:34"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:7:11:1",
+          "segmentId": "quran:tanzil-uthmani:7:11",
+          "note": "verse 7:11"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:18:50:1",
+          "segmentId": "quran:tanzil-uthmani:18:50",
+          "note": "verse 18:50"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:20:116:1",
+          "segmentId": "quran:tanzil-uthmani:20:116",
+          "note": "verse 20:116"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:17:95:1",
+          "segmentId": "quran:tanzil-uthmani:17:95",
+          "note": "verse 17:95"
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "slug": "death-of-jesus",
+      "title": "Death of Jesus",
+      "claim": "The Quranic perspective of what happened to jesus is different than any mainstream view or story which will be highlighted in this article.",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«10168 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"The Quranic perspective of what happened to jesus is different than any mainstream view or story which will be highlighted in this article.\" — confirm or rewrite it.\nFlagged by the audit (1) — resolve before publishing:\n• [high] Arabic \"مُتَوَفي\" has 1/1 word(s) not found in the corpus, even allowing for spelling variation. (line 62)",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:4:158:1",
+          "segmentId": "quran:tanzil-uthmani:4:158",
+          "note": "verse 4:158"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:253:1",
+          "segmentId": "quran:tanzil-uthmani:2:253",
+          "note": "verse 2:253"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:7:176:1",
+          "segmentId": "quran:tanzil-uthmani:7:176",
+          "note": "verse 7:176"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:3:144:1",
+          "segmentId": "quran:tanzil-uthmani:3:144",
+          "note": "verse 3:144"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:3:55:1",
+          "segmentId": "quran:tanzil-uthmani:3:55",
+          "note": "verse 3:55"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:3:193:1",
+          "segmentId": "quran:tanzil-uthmani:3:193",
+          "note": "verse 3:193"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:4:15:1",
+          "segmentId": "quran:tanzil-uthmani:4:15",
+          "note": "verse 4:15"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:4:97:1",
+          "segmentId": "quran:tanzil-uthmani:4:97",
+          "note": "verse 4:97"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:7:37:1",
+          "segmentId": "quran:tanzil-uthmani:7:37",
+          "note": "verse 7:37"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:7:126:1",
+          "segmentId": "quran:tanzil-uthmani:7:126",
+          "note": "verse 7:126"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:8:50:1",
+          "segmentId": "quran:tanzil-uthmani:8:50",
+          "note": "verse 8:50"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:10:46:1",
+          "segmentId": "quran:tanzil-uthmani:10:46",
+          "note": "verse 10:46"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:10:104:1",
+          "segmentId": "quran:tanzil-uthmani:10:104",
+          "note": "verse 10:104"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:12:101:1",
+          "segmentId": "quran:tanzil-uthmani:12:101",
+          "note": "verse 12:101"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:13:40:1",
+          "segmentId": "quran:tanzil-uthmani:13:40",
+          "note": "verse 13:40"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:16:32:1",
+          "segmentId": "quran:tanzil-uthmani:16:32",
+          "note": "verse 16:32"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:16:70:1",
+          "segmentId": "quran:tanzil-uthmani:16:70",
+          "note": "verse 16:70"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:32:11:1",
+          "segmentId": "quran:tanzil-uthmani:32:11",
+          "note": "verse 32:11"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:40:77:1",
+          "segmentId": "quran:tanzil-uthmani:40:77",
+          "note": "verse 40:77"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:47:27:1",
+          "segmentId": "quran:tanzil-uthmani:47:27",
+          "note": "verse 47:27"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:5:116:1",
+          "segmentId": "quran:tanzil-uthmani:5:116",
+          "note": "verse 5:116-117"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:5:117:1",
+          "segmentId": "quran:tanzil-uthmani:5:117",
+          "note": "verse 5:116-117"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:4:157:1",
+          "segmentId": "quran:tanzil-uthmani:4:157",
+          "note": "verse 4:157"
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "slug": "divorce-according-to-quran",
+      "title": "Divorce according to Quran",
+      "claim": "Divorce according to Quran",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«16363 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"Divorce according to Quran\" — confirm or rewrite it.\nThe audit flagged nothing in this article.",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:10:37:1",
+          "segmentId": "quran:tanzil-uthmani:10:37",
+          "note": "verse 10:37"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:6:105:1",
+          "segmentId": "quran:tanzil-uthmani:6:105",
+          "note": "verse 6:105"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:6:114:1",
+          "segmentId": "quran:tanzil-uthmani:6:114",
+          "note": "verse 6:114"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:18:54:1",
+          "segmentId": "quran:tanzil-uthmani:18:54",
+          "note": "verse 18:54"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:7:52:1",
+          "segmentId": "quran:tanzil-uthmani:7:52",
+          "note": "verse 7:52"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:6:115:1",
+          "segmentId": "quran:tanzil-uthmani:6:115",
+          "note": "verse 6:115"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:6:112:1",
+          "segmentId": "quran:tanzil-uthmani:6:112",
+          "note": "verse 6:112"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:6:113:1",
+          "segmentId": "quran:tanzil-uthmani:6:113",
+          "note": "verse 6:113"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:101:1",
+          "segmentId": "quran:tanzil-uthmani:2:101",
+          "note": "verse 2:101"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:3:187:1",
+          "segmentId": "quran:tanzil-uthmani:3:187",
+          "note": "verse 3:187"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:226:1",
+          "segmentId": "quran:tanzil-uthmani:2:226",
+          "note": "verse 2:226"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:4:35:1",
+          "segmentId": "quran:tanzil-uthmani:4:35",
+          "note": "verse 4:35"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:227:1",
+          "segmentId": "quran:tanzil-uthmani:2:227",
+          "note": "verse 2:227"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:65:1:1",
+          "segmentId": "quran:tanzil-uthmani:65:1",
+          "note": "verse 65:1"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:228:1",
+          "segmentId": "quran:tanzil-uthmani:2:228",
+          "note": "verse 2:228"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:65:4:1",
+          "segmentId": "quran:tanzil-uthmani:65:4",
+          "note": "verse 65:4"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:229:1",
+          "segmentId": "quran:tanzil-uthmani:2:229",
+          "note": "verse 2:229"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:65:2:1",
+          "segmentId": "quran:tanzil-uthmani:65:2",
+          "note": "verse 65:2"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:234:1",
+          "segmentId": "quran:tanzil-uthmani:2:234",
+          "note": "verse 2:234"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:235:1",
+          "segmentId": "quran:tanzil-uthmani:2:235",
+          "note": "verse 2:235"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:236:1",
+          "segmentId": "quran:tanzil-uthmani:2:236",
+          "note": "verse 2:236"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:237:1",
+          "segmentId": "quran:tanzil-uthmani:2:237",
+          "note": "verse 2:237"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:170:1",
+          "segmentId": "quran:tanzil-uthmani:2:170",
+          "note": "verse 2:170"
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "slug": "first-revelation",
+      "title": "First Revelation",
+      "claim": "Muhammad's First Revelation",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«5984 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"Muhammad's First Revelation\" — confirm or rewrite it.\nThe audit flagged nothing in this article.",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:6:38:1",
+          "segmentId": "quran:tanzil-uthmani:6:38",
+          "note": "verse 6:38"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:53:5:1",
+          "segmentId": "quran:tanzil-uthmani:53:5",
+          "note": "verse 53:5"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:53:6:1",
+          "segmentId": "quran:tanzil-uthmani:53:6",
+          "note": "verse 53:6"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:53:7:1",
+          "segmentId": "quran:tanzil-uthmani:53:7",
+          "note": "verse 53:7"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:53:8:1",
+          "segmentId": "quran:tanzil-uthmani:53:8",
+          "note": "verse 53:8"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:53:9:1",
+          "segmentId": "quran:tanzil-uthmani:53:9",
+          "note": "verse 53:9"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:53:10:1",
+          "segmentId": "quran:tanzil-uthmani:53:10",
+          "note": "verse 53:10"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:53:11:1",
+          "segmentId": "quran:tanzil-uthmani:53:11",
+          "note": "verse 53:11"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:53:12:1",
+          "segmentId": "quran:tanzil-uthmani:53:12",
+          "note": "verse 53:12"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:53:13:1",
+          "segmentId": "quran:tanzil-uthmani:53:13",
+          "note": "verse 53:13"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:97:1",
+          "segmentId": "quran:tanzil-uthmani:2:97",
+          "note": "verse 2:97"
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "slug": "five-prayers-timings",
+      "title": "Five Prayers & Timings",
+      "claim": "Five Prayers & Timings",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«6514 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"Five Prayers & Timings\" — confirm or rewrite it.\nThe audit flagged nothing in this article.",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:4:103:1",
+          "segmentId": "quran:tanzil-uthmani:4:103",
+          "note": "verse 4:103"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:24:58:1",
+          "segmentId": "quran:tanzil-uthmani:24:58",
+          "note": "verse 24:58"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:17:78:1",
+          "segmentId": "quran:tanzil-uthmani:17:78",
+          "note": "verse 17:78"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:30:18:1",
+          "segmentId": "quran:tanzil-uthmani:30:18",
+          "note": "verse 30:18"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:238:1",
+          "segmentId": "quran:tanzil-uthmani:2:238",
+          "note": "verse 2:238"
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "slug": "homosexuality",
+      "title": "Homosexuality",
+      "claim": "Homosexuals are people attracted to one's own sex, Sharia law is without doubt man made, satanic and in contraction with quranic laws.",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«6112 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"Homosexuals are people attracted to one's own sex, Sharia law is without doubt man made, satanic and in contraction with quranic laws.\" — confirm or rewrite it.\nThe audit flagged nothing in this article.\nCould not be checked automatically (4):\n• \"Sahih Bukhari 8:82:820\" looks like an external citation, not a Quran verse — not checkable against the corpus. (line 49)\n• \"Abu Dawud 38:444\" looks like an external citation, not a Quran verse — not checkable against the corpus. (line 51)\n• \"Tirmidhi 1:152\" looks like an external citation, not a Quran verse — not checkable against the corpus. (line 55)\n• \"Ibn Majah 3:20:2561\" looks like an external citation, not a Quran verse — not checkable against the corpus. (line 57)",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:4:15:1",
+          "segmentId": "quran:tanzil-uthmani:4:15",
+          "note": "verse 4:15"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:4:16:1",
+          "segmentId": "quran:tanzil-uthmani:4:16",
+          "note": "verse 4:16"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:24:4:1",
+          "segmentId": "quran:tanzil-uthmani:24:4",
+          "note": "verse 24:4"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:256:1",
+          "segmentId": "quran:tanzil-uthmani:2:256",
+          "note": "verse 2:256"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:11:91:1",
+          "segmentId": "quran:tanzil-uthmani:11:91",
+          "note": "verse 11:91"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:18:20:1",
+          "segmentId": "quran:tanzil-uthmani:18:20",
+          "note": "verse 18:20"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:19:46:1",
+          "segmentId": "quran:tanzil-uthmani:19:46",
+          "note": "verse 19:46"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:26:116:1",
+          "segmentId": "quran:tanzil-uthmani:26:116",
+          "note": "verse 26:116"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:36:18:1",
+          "segmentId": "quran:tanzil-uthmani:36:18",
+          "note": "verse 36:18"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:44:20:1",
+          "segmentId": "quran:tanzil-uthmani:44:20",
+          "note": "verse 44:20"
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "slug": "live-chat",
+      "title": "Live Chat",
+      "claim": "",
+      "claimExtracted": false,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«251 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nCLAIM NOT EXTRACTED — write one falsifiable sentence.\nThe audit flagged nothing in this article.",
+      "pins": [],
+      "annotations": []
+    },
+    {
+      "slug": "pre-islamic-divorce",
+      "title": "Pre-Islamic divorce",
+      "claim": "Pre-Islamic Divorce & Similarities with Hadiths",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«8566 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"Pre-Islamic Divorce & Similarities with Hadiths\" — confirm or rewrite it.\nThe audit flagged nothing in this article.",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:58:1:1",
+          "segmentId": "quran:tanzil-uthmani:58:1",
+          "note": "verse 58:1"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:58:2:1",
+          "segmentId": "quran:tanzil-uthmani:58:2",
+          "note": "verse 58:2"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:58:3:1",
+          "segmentId": "quran:tanzil-uthmani:58:3",
+          "note": "verse 58:3"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:58:4:1",
+          "segmentId": "quran:tanzil-uthmani:58:4",
+          "note": "verse 58:4"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:5:63:1",
+          "segmentId": "quran:tanzil-uthmani:5:63",
+          "note": "verse 5:63"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:42:21:1",
+          "segmentId": "quran:tanzil-uthmani:42:21",
+          "note": "verse 42:21"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:204:1",
+          "segmentId": "quran:tanzil-uthmani:2:204",
+          "note": "verse 2:204"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:230:1",
+          "segmentId": "quran:tanzil-uthmani:2:230",
+          "note": "verse 2:230"
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "slug": "return-of-jesus-and-dajjal",
+      "title": "Return of Jesus and Dajjal",
+      "claim": "Return of jesus and dajjal (Anti-Christ) is nothing more than a clear lie and myth spread by disbelievers according to Quranic prespective.",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«8673 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"Return of jesus and dajjal (Anti-Christ) is nothing more than a clear lie and myth spread by disbelievers according to Quranic prespective.\" — confirm or rewrite it.\nThe audit flagged nothing in this article.\nCould not be checked automatically (2):\n• \"Matthew 24:36\" looks like an external citation, not a Quran verse — not checkable against the corpus. (line 163)\n• \"Revelation 1:7\" looks like an external citation, not a Quran verse — not checkable against the corpus. (line 166)",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:43:61:1",
+          "segmentId": "quran:tanzil-uthmani:43:61",
+          "note": "verse 43:61"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:4:159:1",
+          "segmentId": "quran:tanzil-uthmani:4:159",
+          "note": "verse 4:159"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:27:82:1",
+          "segmentId": "quran:tanzil-uthmani:27:82",
+          "note": "verse 27:82"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:44:10:1",
+          "segmentId": "quran:tanzil-uthmani:44:10",
+          "note": "verse 44:10-11"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:44:11:1",
+          "segmentId": "quran:tanzil-uthmani:44:11",
+          "note": "verse 44:10-11"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:21:96:1",
+          "segmentId": "quran:tanzil-uthmani:21:96",
+          "note": "verse 21:96-97"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:21:97:1",
+          "segmentId": "quran:tanzil-uthmani:21:97",
+          "note": "verse 21:96-97"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:7:187:1",
+          "segmentId": "quran:tanzil-uthmani:7:187",
+          "note": "verse 7:187"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:31:34:1",
+          "segmentId": "quran:tanzil-uthmani:31:34",
+          "note": "verse 31:34"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:33:63:1",
+          "segmentId": "quran:tanzil-uthmani:33:63",
+          "note": "verse 33:63"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:43:85:1",
+          "segmentId": "quran:tanzil-uthmani:43:85",
+          "note": "verse 43:85"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:89:22:1",
+          "segmentId": "quran:tanzil-uthmani:89:22",
+          "note": "verse 89:22"
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "slug": "salat-positions",
+      "title": "Salat Positions",
+      "claim": "The Quran mentions three positions to be observed during Salat and they are Standing, Bowing and Prostrating.",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«9714 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"The Quran mentions three positions to be observed during Salat and they are Standing, Bowing and Prostrating.\" — confirm or rewrite it.\nThe audit flagged nothing in this article.",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:2:238:1",
+          "segmentId": "quran:tanzil-uthmani:2:238",
+          "note": "verse 2:238"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:5:6:1",
+          "segmentId": "quran:tanzil-uthmani:5:6",
+          "note": "verse 5:6"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:3:39:1",
+          "segmentId": "quran:tanzil-uthmani:3:39",
+          "note": "verse 3:39"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:73:20:1",
+          "segmentId": "quran:tanzil-uthmani:73:20",
+          "note": "verse 73:20"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:43:1",
+          "segmentId": "quran:tanzil-uthmani:2:43",
+          "note": "verse 2:43"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:125:1",
+          "segmentId": "quran:tanzil-uthmani:2:125",
+          "note": "verse 2:125"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:48:29:1",
+          "segmentId": "quran:tanzil-uthmani:48:29",
+          "note": "verse 48:29"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:3:113:1",
+          "segmentId": "quran:tanzil-uthmani:3:113",
+          "note": "verse 3:113"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:4:102:1",
+          "segmentId": "quran:tanzil-uthmani:4:102",
+          "note": "verse 4:102"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:20:14:1",
+          "segmentId": "quran:tanzil-uthmani:20:14",
+          "note": "verse 20:14"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:46:9:1",
+          "segmentId": "quran:tanzil-uthmani:46:9",
+          "note": "verse 46:9"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:33:38:1",
+          "segmentId": "quran:tanzil-uthmani:33:38",
+          "note": "verse 33:38"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:4:142:1",
+          "segmentId": "quran:tanzil-uthmani:4:142",
+          "note": "verse 4:142"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:4:103:1",
+          "segmentId": "quran:tanzil-uthmani:4:103",
+          "note": "verse 4:103"
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "slug": "salat-words",
+      "title": "Salat Words",
+      "claim": "Quran clearly states when angels were ordered to prostrate before Adam, All of them prostrated except Satan and he was among the Angels which explains many unanswered questions regarding who angels really are.",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«4363 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"Quran clearly states when angels were ordered to prostrate before Adam, All of them prostrated except Satan and he was among the Angels which explains many unanswered questions regarding who angels really are.\" — confirm or rewrite it.\nThe audit flagged nothing in this article.",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:24:35:1",
+          "segmentId": "quran:tanzil-uthmani:24:35",
+          "note": "verse 24:35"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:34:1",
+          "segmentId": "quran:tanzil-uthmani:2:34",
+          "note": "verse 2:34"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:7:11:1",
+          "segmentId": "quran:tanzil-uthmani:7:11",
+          "note": "verse 7:11"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:18:50:1",
+          "segmentId": "quran:tanzil-uthmani:18:50",
+          "note": "verse 18:50"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:20:116:1",
+          "segmentId": "quran:tanzil-uthmani:20:116",
+          "note": "verse 20:116"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:17:95:1",
+          "segmentId": "quran:tanzil-uthmani:17:95",
+          "note": "verse 17:95"
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "slug": "salat",
+      "title": "Salat",
+      "claim": "Allah is asking a question to those who seek books other than Quran as source of law i.e hadith belivers.",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«7275 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"Allah is asking a question to those who seek books other than Quran as source of law i.e hadith belivers.\" — confirm or rewrite it.\nFlagged by the audit (3) — resolve before publishing:\n• [high] Quoted Arabic beside 24:35 does not match that verse — it matches 6:38. (line 33)\n• [high] Root claim: article says the root of \"Salat (صلاة)\" is \"تصل\", but the corpus root is ص ل و. (line 46)\n• [medium] Surah name \"Al-Anam\" does not match surah 24 (An-Noor). (line 33)",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:6:114:1",
+          "segmentId": "quran:tanzil-uthmani:6:114",
+          "note": "verse 6:114"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:24:35:1",
+          "segmentId": "quran:tanzil-uthmani:24:35",
+          "note": "verse 24:35"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:43:1",
+          "segmentId": "quran:tanzil-uthmani:2:43",
+          "note": "verse 2:43"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:9:84:1",
+          "segmentId": "quran:tanzil-uthmani:9:84",
+          "note": "verse 9:84"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:9:103:1",
+          "segmentId": "quran:tanzil-uthmani:9:103",
+          "note": "verse 9:103"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:157:1",
+          "segmentId": "quran:tanzil-uthmani:2:157",
+          "note": "verse 2:157"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:156:1",
+          "segmentId": "quran:tanzil-uthmani:2:156",
+          "note": "verse 2:156-157"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:33:43:1",
+          "segmentId": "quran:tanzil-uthmani:33:43",
+          "note": "verse 33:43"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:33:56:1",
+          "segmentId": "quran:tanzil-uthmani:33:56",
+          "note": "verse 33:56"
+        }
+      ],
+      "annotations": [
+        {
+          "actor": "EDITORIAL",
+          "type": "audit",
+          "targetType": "SEGMENT",
+          "targetKey": "quran:tanzil-uthmani:24:35",
+          "value": "[salat] Quoted Arabic beside 24:35 does not match that verse — it matches 6:38."
+        },
+        {
+          "actor": "EDITORIAL",
+          "type": "audit",
+          "targetType": "SEGMENT",
+          "targetKey": "quran:tanzil-uthmani:24:35",
+          "value": "[salat] Surah name \"Al-Anam\" does not match surah 24 (An-Noor)."
+        }
+      ]
+    },
+    {
+      "slug": "shirk-in-salat",
+      "title": "Shirk in Salat",
+      "claim": "Shirk does not only mean to just assosiate someone or something with GOD but to serve or call upon any other entity other than GOD himself.",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«5152 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"Shirk does not only mean to just assosiate someone or something with GOD but to serve or call upon any other entity other than GOD himself.\" — confirm or rewrite it.\nFlagged by the audit (2) — resolve before publishing:\n• [high] Quoted Arabic beside 33:52 does not match that verse — it matches 35:22. (line 13)\n• [medium] Arabic \"التَّحِيَّاتُ لِلّٰهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ، اَلسَّ…\" has 5/29 word(s) not found in the corpus, even allowing for spelling variation. (line 31)",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:33:52:1",
+          "segmentId": "quran:tanzil-uthmani:33:52",
+          "note": "verse 33:52"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:13:14:1",
+          "segmentId": "quran:tanzil-uthmani:13:14",
+          "note": "verse 13:14"
+        }
+      ],
+      "annotations": [
+        {
+          "actor": "EDITORIAL",
+          "type": "audit",
+          "targetType": "SEGMENT",
+          "targetKey": "quran:tanzil-uthmani:33:52",
+          "value": "[shirk-in-salat] Quoted Arabic beside 33:52 does not match that verse — it matches 35:22."
+        }
+      ]
+    },
+    {
+      "slug": "the-beast",
+      "title": "The Beast",
+      "claim": "",
+      "claimExtracted": false,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«56 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nCLAIM NOT EXTRACTED — write one falsifiable sentence.\nThe audit flagged nothing in this article.",
+      "pins": [],
+      "annotations": []
+    },
+    {
+      "slug": "true-islam-from-quran",
+      "title": "Home",
+      "claim": "",
+      "claimExtracted": false,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«115 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nCLAIM NOT EXTRACTED — write one falsifiable sentence.\nThe audit flagged nothing in this article.",
+      "pins": [],
+      "annotations": []
+    },
+    {
+      "slug": "zakat",
+      "title": "Zakat",
+      "claim": "Zakat is mentioned in Quran next to Salat and is second most compulsory duty on a believer.",
+      "claimExtracted": true,
+      "query": "",
+      "counterEvidence": "",
+      "body": "«9724 chars of preserved prose»",
+      "flaggedForReview": true,
+      "reviewReason": "Seeded from the quranandfaith.com archive and audited automatically against corpus 0.6.0. This is a DRAFT: before it can be published, supply a claim, a reproducible query, and counter-evidence — the publish gate enforces all three.\nClaim drafted from the opening: \"Zakat is mentioned in Quran next to Salat and is second most compulsory duty on a believer.\" — confirm or rewrite it.\nFlagged by the audit (2) — resolve before publishing:\n• [high] Arabic \"آتُو\" has 1/1 word(s) not found in the corpus, even allowing for spelling variation. (line 31)\n• [high] Root claim: article says the root of \"zakat\" is \"زَكَّىٰ\", but the corpus root is ز ك و. (line 31)",
+      "pins": [
+        {
+          "tokenId": "quran:tanzil-uthmani:2:43:1",
+          "segmentId": "quran:tanzil-uthmani:2:43",
+          "note": "verse 2:43"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:92:18:1",
+          "segmentId": "quran:tanzil-uthmani:92:18",
+          "note": "verse 92:18"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:215:1",
+          "segmentId": "quran:tanzil-uthmani:2:215",
+          "note": "verse 2:215"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:245:1",
+          "segmentId": "quran:tanzil-uthmani:2:245",
+          "note": "verse 2:245"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:6:141:1",
+          "segmentId": "quran:tanzil-uthmani:6:141",
+          "note": "verse 6:141"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:280:1",
+          "segmentId": "quran:tanzil-uthmani:2:280",
+          "note": "verse 2:280"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:9:60:1",
+          "segmentId": "quran:tanzil-uthmani:9:60",
+          "note": "verse 9:60"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:63:10:1",
+          "segmentId": "quran:tanzil-uthmani:63:10",
+          "note": "verse 63:10"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:263:1",
+          "segmentId": "quran:tanzil-uthmani:2:263",
+          "note": "verse 2:263"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:2:219:1",
+          "segmentId": "quran:tanzil-uthmani:2:219",
+          "note": "verse 2:219"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:17:27:1",
+          "segmentId": "quran:tanzil-uthmani:17:27",
+          "note": "verse 17:27"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:17:28:1",
+          "segmentId": "quran:tanzil-uthmani:17:28",
+          "note": "verse 17:28"
+        },
+        {
+          "tokenId": "quran:tanzil-uthmani:17:29:1",
+          "segmentId": "quran:tanzil-uthmani:17:29",
+          "note": "verse 17:29"
+        }
+      ],
+      "annotations": []
+    }
+  ]
+}
