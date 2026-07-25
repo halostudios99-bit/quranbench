@@ -1,0 +1,31 @@
+{
+  "name": "@quranbench/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@quranbench/corpus": "workspace:*",
+    "@quranbench/search": "workspace:*",
+    "next": "15.1.3",
+    "next-themes": "0.4.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.1",
+    "@playwright/test": "1.51.1",
+    "@types/react": "19.0.2",
+    "@types/react-dom": "19.0.2",
+    "tailwindcss": "3.4.17",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.49"
+  }
+}

@@ -244,11 +244,36 @@ describe('morphology queries (root / lemma / pos)', () => {
     }
   });
 
-  it('the string forms root:زكو and root:z-k-w return identical results', () => {
-    const ar = searchString(index, 'root:زكو');
-    const sl = searchString(index, 'root:z-k-w');
-    expect(ar.ok && sl.ok).toBe(true);
-    if (ar.ok && sl.ok) expect(ar.result.tokenIds).toEqual(sl.result.tokenIds);
+  it('every root string form — spaced, quoted, unspaced, slug — returns identical results', () => {
+    // The engine accepts all four at the API level (asserted above); this pins
+    // the *string parser* to the same, which the Part A defect broke. The old
+    // test only compared the two forms that happened to parse (unspaced, slug),
+    // so the suite stayed green while `root:ز ك و` and `root:"ز ك و"` errored.
+    const forms = ['root:ز ك و', 'root:"ز ك و"', 'root:زكو', 'root:z-k-w'];
+    const results = forms.map((f) => searchString(index, f));
+    for (const r of results) expect(r.ok).toBe(true);
+    const ids = results.map((r) => (r.ok ? r.result.tokenIds : null));
+    expect(ids[0]).toHaveLength(59);
+    for (const got of ids) expect(got).toEqual(ids[0]);
+  });
+
+  it('every root string form composes identically with AND surah:2', () => {
+    const forms = [
+      'root:ز ك و AND surah:2',
+      'root:"ز ك و" AND surah:2',
+      'root:زكو AND surah:2',
+      'root:z-k-w AND surah:2',
+    ];
+    const ids = forms.map((f) => {
+      const r = searchString(index, f);
+      expect(r.ok).toBe(true);
+      return r.ok ? r.result.tokenIds : null;
+    });
+    expect(ids[0]).toHaveLength(9);
+    for (const got of ids) {
+      expect(got).toEqual(ids[0]);
+      for (const id of got!) expect(id.startsWith('quran:tanzil-uthmani:2:')).toBe(true);
+    }
   });
 
   it('lemma: matches by dictionary form', () => {
@@ -304,6 +329,30 @@ describe('searchString', () => {
       for (const id of r.result.tokenIds) {
         expect(id.startsWith('quran:tanzil-uthmani:2:')).toBe(true);
       }
+    }
+  });
+
+  it('a quoted field value matches its bare equivalent, for every field prefix', () => {
+    // Quoting is the documented workaround for values with spaces; it must be a
+    // pure surface variant, never change results, and work for every prefix —
+    // not only root. Each pair must return the same token ids.
+    const pairs: Array<[string, string]> = [
+      ['normalised:الصلوة', 'normalised:"الصلوة"'],
+      ['exact:ٱلزَّكَوٰةَ', 'exact:"ٱلزَّكَوٰةَ"'],
+      ['prefix:الزكو', 'prefix:"الزكو"'],
+      ['suffix:الزكوة', 'suffix:"الزكوة"'],
+      ['pattern:الزك*', 'pattern:"الزك*"'],
+      ['surah:2', 'surah:"2"'],
+      ['segment:2:43-45', 'segment:"2:43-45"'],
+      ['root:زكو', 'root:"زكو"'],
+      ['pos:V', 'pos:"V"'],
+    ];
+    for (const [bare, quoted] of pairs) {
+      const a = searchString(index, bare);
+      const b = searchString(index, quoted);
+      expect(a.ok, `${bare} should parse`).toBe(true);
+      expect(b.ok, `${quoted} should parse`).toBe(true);
+      if (a.ok && b.ok) expect(b.result.tokenIds, `${quoted} == ${bare}`).toEqual(a.result.tokenIds);
     }
   });
 });

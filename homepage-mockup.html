@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quran Research Workbench — homepage mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf9f6; --panel:#ffffff; --soft:#f3f1ec; --line:#e3e0d8; --line2:#cfcbc0;
+  --ink:#1c1b18; --ink2:#5f5c54; --ink3:#8f8b81;
+  --accent:#1d6e56; --accent-bg:#e1f5ee; --accent-line:#9fe1cb;
+  --amber:#854f0b; --amber-bg:#faeeda;
+  --radius:8px;
+}
+@media (prefers-color-scheme: dark){
+:root{
+  --bg:#16150f; --panel:#1e1d17; --soft:#26251e; --line:#34332b; --line2:#45443a;
+  --ink:#f0eee6; --ink2:#a9a599; --ink3:#7d7a70;
+  --accent:#5dcaa5; --accent-bg:#0f2e26; --accent-line:#1d6e56;
+  --amber:#efa027; --amber-bg:#3a2a0f;
+}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,-apple-system,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+.ar{font-family:'Amiri Quran','Amiri',serif;direction:rtl}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px}
+
+nav{border-bottom:1px solid var(--line);background:var(--panel);position:sticky;top:0;z-index:10}
+.navin{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.brand span{color:var(--ink3);font-weight:400;font-size:13px;margin-left:8px}
+.links{display:flex;gap:26px;align-items:center}
+.links a{color:var(--ink2);text-decoration:none;font-size:14px}
+.links a:hover{color:var(--ink)}
+.links a.on{color:var(--ink);font-weight:500;border-bottom:2px solid var(--accent);padding-bottom:3px}
+
+.hero{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+h1{font-size:36px;font-weight:600;letter-spacing:-.02em;line-height:1.2;margin-bottom:12px}
+.sub{font-size:17px;color:var(--ink2);max-width:600px;margin-bottom:32px}
+.searchrow{display:flex;gap:10px;max-width:720px;margin-bottom:16px}
+.searchbox{flex:1;height:52px;border:1px solid var(--line2);border-radius:var(--radius);background:var(--panel);display:flex;align-items:center;padding:0 18px;gap:12px;font-size:16px;color:var(--ink3);cursor:text}
+.searchbox:hover{border-color:var(--accent)}
+.btn{height:52px;padding:0 26px;border-radius:var(--radius);background:var(--accent);color:#fff;border:0;font-size:15px;font-weight:500;font-family:inherit;cursor:pointer}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:13px;padding:6px 13px;border-radius:20px;background:var(--soft);color:var(--ink2);border:1px solid transparent;cursor:pointer}
+.chip:hover{border-color:var(--line2)}
+.chip.hi{background:var(--accent-bg);color:var(--accent);border-color:var(--accent-line)}
+
+section{padding:44px 0}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px}
+
+.verse{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:32px 28px;margin-bottom:20px}
+.vhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;flex-wrap:wrap;gap:10px}
+.tag{font-size:11px;padding:4px 10px;border-radius:20px;background:var(--accent-bg);color:var(--accent);font-weight:500}
+.tag.ext{background:var(--amber-bg);color:var(--amber)}
+.verseline{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;direction:rtl;margin-bottom:8px}
+.tok{font-family:'Amiri Quran','Amiri',serif;font-size:34px;line-height:1.9;padding:2px 10px;border-radius:6px;cursor:pointer;transition:background .12s}
+.tok:hover{background:var(--soft)}
+.tok.sel{background:var(--accent-bg);color:var(--accent)}
+.hint{font-size:13px;color:var(--ink3);text-align:center;margin-top:14px}
+
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.phead{padding:18px 24px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.pword{font-family:'Amiri Quran','Amiri',serif;font-size:38px}
+.tokid{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--ink3)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--line)}
+.stat{background:var(--panel);padding:16px 24px}
+.stat .k{font-size:12px;color:var(--ink3);margin-bottom:4px}
+.stat .v{font-size:21px;font-weight:500}
+.stat .v.ar{font-size:23px}
+.player{background:var(--soft);padding:16px 24px;border-top:1px solid var(--line)}
+.player .k{font-size:12px;color:var(--ink3);margin-bottom:9px}
+.pills{display:flex;gap:7px;flex-wrap:wrap}
+.pill{font-size:13px;padding:5px 12px;border-radius:var(--radius);background:var(--panel);border:1px solid var(--line)}
+.pill b{font-weight:500;color:var(--ink3);margin-left:5px}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card h3{font-size:16px;font-weight:600;margin-bottom:6px}
+.card p{font-size:14px;color:var(--ink2)}
+.card .n{font-size:26px;font-weight:600;color:var(--accent);margin-bottom:4px}
+
+footer{border-top:1px solid var(--line);background:var(--panel);padding:26px 0;margin-top:20px}
+.prov{display:flex;gap:32px;flex-wrap:wrap;font-size:13px;color:var(--ink3)}
+.prov b{font-weight:500;color:var(--ink2)}
+.note{margin-top:18px;font-size:12px;color:var(--ink3)}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap navin">
+  <div class="brand">Bayyina<span>working title</span></div>
+  <div class="links">
+    <a href="#">Read</a>
+    <a href="#" class="on">Words</a>
+    <a href="#">Roots</a>
+    <a href="#">Search lab</a>
+    <a href="#">Compare</a>
+    <a href="#">Investigations</a>
+    <a href="#">Method</a>
+    <a href="#">Data</a>
+  </div>
+</div></nav>
+
+<div class="wrap">
+
+<div class="hero">
+  <h1>Search the Quran by its own words</h1>
+  <p class="sub">Every word, every root, every occurrence — with the method shown for each result, so you can reproduce it yourself.</p>
+  <div class="searchrow">
+    <div class="searchbox">Arabic word, root, or concept…</div>
+    <button class="btn">Search</button>
+  </div>
+  <div class="chips">
+    <span class="chip hi">root: ز ك و</span>
+    <span class="chip">zakat NEAR/10 salah</span>
+    <span class="chip">pattern: مف*ول</span>
+    <span class="chip">english: "mercy"</span>
+    <span class="chip">first + last occurrence</span>
+  </div>
+</div>
+
+<section>
+  <div class="eyebrow">Try it — click any word</div>
+  <div class="verse">
+    <div class="vhead">
+      <div style="font-size:14px;color:var(--ink2)">Al-Baqarah 2:43</div>
+      <span class="tag">Quranic text · Tanzil Uthmani</span>
+    </div>
+    <div class="verseline" id="line"></div>
+    <div class="hint">Every token has a permanent address and its own page.</div>
+  </div>
+
+  <div class="panel">
+    <div class="phead">
+      <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap">
+        <span class="pword ar" id="pw"></span>
+        <span class="tokid" id="pid"></span>
+      </div>
+      <span class="tag">Quranic text</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="k">Root</div><div class="v ar" id="s1"></div></div>
+      <div class="stat"><div class="k">Occurrences of this form</div><div class="v" id="s2"></div></div>
+      <div class="stat"><div class="k">Forms from this root</div><div class="v" id="s3"></div></div>
+      <div class="stat"><div class="k">Distinct renderings</div><div class="v" id="s4"></div></div>
+    </div>
+    <div class="player">
+      <div class="k">Translated as — <span style="color:var(--amber)">external layer, not scripture</span></div>
+      <div class="pills" id="pills"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cards">
+    <div class="card"><div class="n">77,430</div><h3>Word pages</h3><p>One permanent page per token. Occurrences, neighbours, translation variance.</p></div>
+    <div class="card"><div class="n">~1,600</div><h3>Root pages</h3><p>Every derived form and its full distribution across the Quran.</p></div>
+    <div class="card"><div class="n">Open</div><h3>Data and API</h3><p>Downloadable, versioned, reproducible. Built to be built on.</p></div>
+  </div>
+</section>
+
+</div>
+
+<footer><div class="wrap">
+  <div class="prov">
+    <span>Text: <b>Tanzil Uthmani v1.1</b></span>
+    <span>Translations: <b>public domain editions only</b></span>
+    <span>Corpus: <b>v0.1 · open data</b></span>
+    <span>Tashkeel counted: <b>no</b></span>
+  </div>
+  <div class="note">Mockup only. Figures shown in the word panel are placeholders and have not been verified.</div>
+</div></footer>
+
+<script>
+const DATA=[
+ {w:"وَأَقِيمُوا۟",id:"quran:2:43:1",root:"ق و م",occ:"6",forms:"57",rend:"5",t:[["establish","4"],["keep up","2"],["observe","3"],["perform","1"]]},
+ {w:"ٱلصَّلَوٰةَ",id:"quran:2:43:2",root:"ص ل و",occ:"67",forms:"12",rend:"4",t:[["prayer","41"],["the prayer","18"],["worship","5"],["salah","3"]]},
+ {w:"وَءَاتُوا۟",id:"quran:2:43:3",root:"أ ت ي",occ:"9",forms:"31",rend:"4",t:[["give","6"],["pay","2"],["render","1"]]},
+ {w:"ٱلزَّكَوٰةَ",id:"quran:2:43:4",root:"ز ك و",occ:"32",forms:"9",rend:"6",t:[["alms","4"],["charity","11"],["poor-rate","6"],["purification","3"],["zakat","8"]]},
+ {w:"وَٱرْكَعُوا۟",id:"quran:2:43:5",root:"ر ك ع",occ:"3",forms:"7",rend:"3",t:[["bow down","2"],["bow","1"]]},
+ {w:"مَعَ",id:"quran:2:43:6",root:"—",occ:"161",forms:"1",rend:"2",t:[["with","150"],["along with","11"]]},
+ {w:"ٱلرَّٰكِعِينَ",id:"quran:2:43:7",root:"ر ك ع",occ:"4",forms:"7",rend:"3",t:[["those who bow","3"],["the worshippers","1"]]}
+];
+const line=document.getElementById('line');
+DATA.forEach((d,i)=>{
+  const s=document.createElement('span');
+  s.className='tok'; s.textContent=d.w; s.onclick=()=>pick(i);
+  line.appendChild(s);
+});
+function pick(i){
+  const d=DATA[i];
+  document.querySelectorAll('.tok').forEach((e,j)=>e.classList.toggle('sel',i===j));
+  pw.textContent=d.w; pid.textContent=d.id;
+  s1.textContent=d.root; s2.textContent=d.occ; s3.textContent=d.forms; s4.textContent=d.rend;
+  pills.innerHTML=d.t.map(x=>'<span class="pill">'+x[0]+'<b>'+x[1]+'</b></span>').join('');
+}
+pick(3);
+</script>
+</body>
+</html>

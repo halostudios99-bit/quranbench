@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Self-hosted Arabic fonts. `font-display: optional` means a slow or missing
+ * font never causes a layout shift — the fallback Arabic is kept for that load.
+ * Drop the subsetted woff2 files into /public/fonts and the src resolves; until
+ * then the system serif Arabic fallback renders (see --font-quran below).
+ */
+@font-face {
+  font-family: 'KFGQPC Uthmanic Script HAFS';
+  src: url('/fonts/uthmanic-hafs.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: optional;
+}
+@font-face {
+  font-family: 'Amiri Quran';
+  src: url('/fonts/amiri-quran.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: optional;
+}
+@font-face {
+  font-family: 'Amiri';
+  src: url('/fonts/amiri-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: optional;
+}
+
+:root {
+  /* Latin UI: Inter if self-hosted later, else the system stack. */
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Quranic text: KFGQPC Uthmanic, then Amiri Quran, then system serif Arabic. */
+  --font-quran: 'KFGQPC Uthmanic Script HAFS', 'Amiri Quran', 'Noto Naskh Arabic', 'Geeza Pro', serif;
+  /* Arabic UI text. */
+  --font-arabic-ui: 'Amiri', 'Noto Naskh Arabic', 'Geeza Pro', serif;
+
+  --radius: 8px;
+
+  /* Light mode — warm off-white paper, never pure #fff. */
+  --bg: #faf9f6;
+  --panel: #ffffff;
+  --soft: #f3f1ec;
+  --line: #e3e0d8;
+  --line2: #cfcbc0;
+  --ink: #1c1b18;
+  --ink2: #5f5c54;
+  --ink3: #726e64;
+  --accent: #1d6e56;
+  --accent-bg: #e1f5ee;
+  --accent-line: #9fe1cb;
+  --on-accent: #ffffff;
+
+  /* Provenance layers — structural colour, one per rendered layer. */
+  --prov-quran-fg: #1d6e56;
+  --prov-quran-bg: #e1f5ee;
+  --prov-quran-line: #9fe1cb;
+  --prov-computed-fg: #5f5c54;
+  --prov-computed-bg: #f3f1ec;
+  --prov-computed-line: #cfcbc0;
+  --prov-external-fg: #2d5c9e;
+  --prov-external-bg: #e5eefb;
+  --prov-external-line: #a9c6f0;
+  --prov-translation-fg: #5f5c54;
+  --prov-translation-bg: #f3f1ec;
+  --prov-translation-line: #cfcbc0;
+  --prov-editorial-fg: #854f0b;
+  --prov-editorial-bg: #faeeda;
+  --prov-editorial-line: #e6cfa3;
+  --prov-community-fg: #6b4a9e;
+  --prov-community-bg: #efe8fa;
+  --prov-community-line: #cdb9ef;
+}
+
+/* Explicit dark selection, and system-dark when the user has not chosen light. */
+:root[data-theme='dark'],
+:root[data-theme='dark'] :root {
+  color-scheme: dark;
+}
+[data-theme='dark'] {
+  --bg: #16150f;
+  --panel: #1e1d17;
+  --soft: #26251e;
+  --line: #34332b;
+  --line2: #45443a;
+  --ink: #f0eee6;
+  --ink2: #a9a599;
+  --ink3: #8a877c;
+  --accent: #5dcaa5;
+  --accent-bg: #0f2e26;
+  --accent-line: #1d6e56;
+  --on-accent: #16150f;
+
+  --prov-quran-fg: #5dcaa5;
+  --prov-quran-bg: #0f2e26;
+  --prov-quran-line: #1d6e56;
+  --prov-computed-fg: #a9a599;
+  --prov-computed-bg: #26251e;
+  --prov-computed-line: #45443a;
+  --prov-external-fg: #86b0ec;
+  --prov-external-bg: #14243d;
+  --prov-external-line: #2d5c9e;
+  --prov-translation-fg: #a9a599;
+  --prov-translation-bg: #26251e;
+  --prov-translation-line: #45443a;
+  --prov-editorial-fg: #efa027;
+  --prov-editorial-bg: #3a2a0f;
+  --prov-editorial-line: #6b4f17;
+  --prov-community-fg: #b79ae8;
+  --prov-community-bg: #241a3a;
+  --prov-community-line: #4b3a75;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #16150f;
+    --panel: #1e1d17;
+    --soft: #26251e;
+    --line: #34332b;
+    --line2: #45443a;
+    --ink: #f0eee6;
+    --ink2: #a9a599;
+    --ink3: #8a877c;
+    --accent: #5dcaa5;
+    --accent-bg: #0f2e26;
+    --accent-line: #1d6e56;
+    --on-accent: #16150f;
+
+    --prov-quran-fg: #5dcaa5;
+    --prov-quran-bg: #0f2e26;
+    --prov-quran-line: #1d6e56;
+    --prov-computed-fg: #a9a599;
+    --prov-computed-bg: #26251e;
+    --prov-computed-line: #45443a;
+    --prov-external-fg: #86b0ec;
+    --prov-external-bg: #14243d;
+    --prov-external-line: #2d5c9e;
+    --prov-translation-fg: #a9a599;
+    --prov-translation-bg: #26251e;
+    --prov-translation-line: #45443a;
+    --prov-editorial-fg: #efa027;
+    --prov-editorial-bg: #3a2a0f;
+    --prov-editorial-line: #6b4f17;
+    --prov-community-fg: #b79ae8;
+    --prov-community-bg: #241a3a;
+    --prov-community-line: #4b3a75;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Theme toggle: a 200ms colour transition, no layout, respects reduced-motion. */
+  transition:
+    background-color 200ms linear,
+    color 200ms linear;
+}
+
+/* Quranic text: never below 24px, line-height >= 2.0, no letter-spacing,
+   no justification. Enforced here so no page author can weaken it. */
+.quran {
+  font-family: var(--font-quran);
+  direction: rtl;
+  line-height: 2;
+  letter-spacing: normal;
+  text-align: start;
+  text-align-last: start;
+  word-spacing: 0.05em;
+  font-feature-settings: 'kern' off;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Token styling lives in one rule, not a long class string repeated across
+   thousands of tokens — that keeps a full-surah document small. The highlight is
+   an instant background change, never a transition: the Arabic appears, it does
+   not perform (design-system §3). Touch target >= 44px. */
+.qb-token {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding-inline: 8px;
+  border-radius: 6px;
+  color: var(--ink);
+}
+.qb-token[data-size='reading'] {
+  font-size: 30px;
+}
+.qb-token[data-size='compact'] {
+  font-size: 26px;
+}
+.qb-token:hover,
+.qb-token:focus-visible {
+  background: var(--soft);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Motion: transform/opacity only, 120–300ms; disabled under reduced-motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

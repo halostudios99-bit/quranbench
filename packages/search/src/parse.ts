@@ -24,6 +24,7 @@ type Lexeme =
   | { kind: 'followed_by'; pos: number }
   | { kind: 'near'; distance: number; pos: number }
   | { kind: 'quoted'; value: string; pos: number }
+  | { kind: 'field'; field: string; value: string; pos: number }
   | { kind: 'word'; value: string; pos: number };
 
 class ParseFailure {
@@ -50,6 +51,15 @@ const KNOWN_FIELDS = new Set([
 
 function isBoundary(ch: string): boolean {
   return ch === ' ' || ch === '\t' || ch === '\n' || ch === '\r' || ch === '(' || ch === ')' || ch === '"';
+}
+
+function isSpace(ch: string): boolean {
+  return ch === ' ' || ch === '\t' || ch === '\n' || ch === '\r';
+}
+
+/** A single Arabic-script letter — a root morpheme in the spaced form `ز ك و`. */
+function isSingleArabicLetter(s: string): boolean {
+  return [...s].length === 1 && /\p{Script=Arabic}/u.test(s);
 }
 
 function lex(input: string): Lexeme[] {
@@ -88,58 +98,108 @@ function lex(input: string): Lexeme[] {
     while (i < input.length && !isBoundary(input[i]!)) i++;
     const raw = input.slice(start, i);
     const upper = raw.toUpperCase();
-    if (upper === 'AND') out.push({ kind: 'and', pos: start });
-    else if (upper === 'OR') out.push({ kind: 'or', pos: start });
-    else if (upper === 'NOT') out.push({ kind: 'not', pos: start });
-    else if (upper === 'FOLLOWED_BY') out.push({ kind: 'followed_by', pos: start });
-    else if (upper.startsWith('NEAR/')) {
+    if (upper === 'AND') {
+      out.push({ kind: 'and', pos: start });
+      continue;
+    }
+    if (upper === 'OR') {
+      out.push({ kind: 'or', pos: start });
+      continue;
+    }
+    if (upper === 'NOT') {
+      out.push({ kind: 'not', pos: start });
+      continue;
+    }
+    if (upper === 'FOLLOWED_BY') {
+      out.push({ kind: 'followed_by', pos: start });
+      continue;
+    }
+    if (upper.startsWith('NEAR/')) {
       const rest = raw.slice(5);
       if (!/^\d+$/.test(rest)) fail(`malformed NEAR operator '${raw}' (expected NEAR/<number>)`, start);
       out.push({ kind: 'near', distance: Number(rest), pos: start });
-    } else {
-      out.push({ kind: 'word', value: raw, pos: start });
+      continue;
     }
+
+    // Field-prefixed term: `field:value`, `field:"quoted value"`, or the spaced
+    // root form `root:ز ك و`. Recognising the value here — not in the parser —
+    // is what lets a value containing spaces stay a single lexeme instead of
+    // fragmenting into stray words that then read as "unexpected token".
+    const colon = raw.indexOf(':');
+    const field = colon === -1 ? '' : raw.slice(0, colon).toLowerCase();
+    if (colon !== -1 && KNOWN_FIELDS.has(field)) {
+      let value = raw.slice(colon + 1);
+      if (value === '' && input[i] === '"') {
+        // `field:"..."` — the word stopped at the opening quote (a boundary).
+        const qStart = i;
+        i++;
+        value = '';
+        while (i < input.length && input[i] !== '"') {
+          value += input[i];
+          i++;
+        }
+        if (i >= input.length) fail('unterminated quoted string', qStart);
+        i++; // closing quote
+      } else if (field === 'root' && isSingleArabicLetter(value)) {
+        // A root is conventionally written as space-separated single letters
+        // (`ز ك و`). Absorb a trailing run of single letters into the value so
+        // the spaced form is one term; a multi-letter word or an operator ends it.
+        for (;;) {
+          let j = i;
+          while (j < input.length && isSpace(input[j]!)) j++;
+          const tokStart = j;
+          while (j < input.length && !isBoundary(input[j]!)) j++;
+          const nextTok = input.slice(tokStart, j);
+          if (nextTok !== '' && isSingleArabicLetter(nextTok)) {
+            value += ' ' + nextTok;
+            i = j;
+          } else break;
+        }
+      }
+      out.push({ kind: 'field', field, value, pos: start });
+      continue;
+    }
+
+    out.push({ kind: 'word', value: raw, pos: start });
   }
   return out;
 }
 
+/** Turn a lexed `field:value` into a typed query. The value is already whole. */
+function classifyField(field: string, value: string, pos: number): Query {
+  if (value === '') fail(`empty value for '${field}:'`, pos);
+  switch (field) {
+    case 'pattern':
+      return { type: 'pattern', pattern: value };
+    case 'normalised':
+    case 'normalized':
+      return { type: 'normalised', text: value };
+    case 'exact':
+      return { type: 'exact', text: value };
+    case 'prefix':
+      return { type: 'prefix', text: value };
+    case 'suffix':
+      return { type: 'suffix', text: value };
+    case 'surah':
+      return { type: 'scoped', scope: parseSurahScope(value, pos), query: { type: 'all' } };
+    case 'segment':
+      return { type: 'scoped', scope: parseSegmentScope(value, pos), query: { type: 'all' } };
+    case 'root':
+      return { type: 'root', root: value };
+    case 'lemma':
+      return { type: 'lemma', lemma: value };
+    case 'pos':
+      return { type: 'pos', pos: value };
+    default:
+      // Unreachable: the lexer only emits a field lexeme for a KNOWN_FIELDS name.
+      return fail(`unknown field '${field}:'`, pos);
+  }
+}
+
+/** A bare word (no known field prefix): a verse reference, else a normalised term. */
 function classifyWord(value: string, pos: number): Query {
-  const colon = value.indexOf(':');
-  if (colon !== -1) {
-    const field = value.slice(0, colon).toLowerCase();
-    const rest = value.slice(colon + 1);
-    if (KNOWN_FIELDS.has(field)) {
-      if (rest === '') fail(`empty value for '${field}:'`, pos);
-      switch (field) {
-        case 'pattern':
-          return { type: 'pattern', pattern: rest };
-        case 'normalised':
-        case 'normalized':
-          return { type: 'normalised', text: rest };
-        case 'exact':
-          return { type: 'exact', text: rest };
-        case 'prefix':
-          return { type: 'prefix', text: rest };
-        case 'suffix':
-          return { type: 'suffix', text: rest };
-        case 'surah':
-          return { type: 'scoped', scope: parseSurahScope(rest, pos), query: { type: 'all' } };
-        case 'segment':
-          return { type: 'scoped', scope: parseSegmentScope(rest, pos), query: { type: 'all' } };
-        case 'root':
-          return { type: 'root', root: rest };
-        case 'lemma':
-          return { type: 'lemma', lemma: rest };
-        case 'pos':
-          return { type: 'pos', pos: rest };
-      }
-    }
-  }
-  // Not a known field. A verse reference, else a bare normalised term.
   if (parseReference(value)) return { type: 'reference', ref: value };
-  if (colon !== -1) {
-    fail(`unknown field or malformed reference '${value}'`, pos);
-  }
+  if (value.indexOf(':') !== -1) fail(`unknown field or malformed reference '${value}'`, pos);
   return { type: 'normalised', text: value };
 }
 
@@ -250,6 +310,9 @@ class Parser {
         if (lex.value === '') fail('empty quoted term', lex.pos);
         return { type: 'exact', text: lex.value };
       }
+      case 'field':
+        this.next();
+        return classifyField(lex.field, lex.value, lex.pos);
       case 'word':
         this.next();
         return classifyWord(lex.value, lex.pos);
