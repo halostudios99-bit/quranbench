@@ -11,6 +11,7 @@ import {
   getRootOccurrences,
   getTextEdition,
 } from '@/server/corpus';
+import { citingInvestigations } from '@/server/research';
 
 export const revalidate = 604800;
 export const dynamicParams = true;
@@ -52,12 +53,14 @@ export default async function RootOccurrencePage({ params }: Params) {
   if (page > occurrences.pageCount) notFound();
 
   const view = describeRoot(root);
+  const citing = await citingInvestigations('ROOT', root.root_slug);
   return (
     <RootPage
       view={view}
       occurrences={occurrences}
       edition={getTextEdition()}
       corpusVersion={getCorpus().version}
+      citing={citing}
     />
   );
 }

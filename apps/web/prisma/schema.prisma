@@ -1,0 +1,350 @@
+// quranbench application database.
+//
+// The corpus is NOT here. Tokens, morphology, roots and verses live in versioned
+// build artifacts loaded into RAM (see CLAUDE.md). This database holds only the
+// application layer: accounts and the user-generated research built on top of the
+// corpus — investigations, evidence, responses, annotations, collections.
+//
+// The entity model in docs/extensibility.md is generic on purpose: an EvidencePin
+// references a corpus atom by opaque id + segmentation scheme + corpus version and
+// never copies text; an Annotation is a typed assertion attached to a corpus span
+// by an Actor. Adding a second corpus later is new artifacts, not a migration.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Accounts ────────────────────────────────────────────────────────────────
+// Pseudonymous but persistent (docs/extensibility.md §3). A stable public handle
+// carries reputation; the real name is optional. Contributor terms are accepted
+// at signup and recorded with version + timestamp — a user cannot create content
+// without a recorded acceptance, enforced in the data layer.
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  emailVerified DateTime?
+  handle        String    @unique
+  displayName   String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  sessions         Session[]
+  termsAcceptances ContributorTermsAcceptance[]
+  investigations   Investigation[]
+  revisions        InvestigationRevision[]
+  responses        Response[]
+  annotations      Annotation[]
+  collections      Collection[]
+  savedSearches    SavedSearch[]
+  reports          ModerationReport[]
+
+  @@index([handle])
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String   @unique
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+// Append-only. A user may re-accept a newer terms version; every acceptance is
+// kept with the exact version string and moment it happened.
+model ContributorTermsAcceptance {
+  id         String   @id @default(cuid())
+  userId     String
+  version    String
+  acceptedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, version])
+  @@index([userId])
+}
+
+// ─── Investigations (Claims) ──────────────────────────────────────────────────
+// An Investigation is docs/extensibility.md's Claim: a falsifiable statement with
+// a fixed structure — claim, evidence, query, counter-evidence, responses, status,
+// byline, revision history. The head row holds the current state; every edit
+// appends an immutable InvestigationRevision. Never destructively edited.
+
+enum InvestigationStatus {
+  DRAFT
+  OPEN
+  CONTESTED
+  REVISED
+  WITHDRAWN
+}
+
+model Investigation {
+  id       String @id @default(cuid())
+  authorId String
+  slug     String @unique
+
+  claim           String
+  query           String
+  counterEvidence String
+  status          InvestigationStatus @default(DRAFT)
+
+  // Pins may reference a corpus version older than the one now loaded. When a pin
+  // cannot resolve, the investigation is flagged for review — never silently
+  // dropped (docs prompt-10). Cleared when all pins resolve again.
+  flaggedForReview Boolean @default(false)
+  reviewReason     String?
+
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  author    User                    @relation(fields: [authorId], references: [id])
+  pins      EvidencePin[]
+  responses Response[]
+  revisions InvestigationRevision[]
+  citations Citation[]
+
+  @@index([authorId])
+  @@index([status])
+}
+
+// Append-only snapshot of the investigation head at each edit. Publishing and
+// every subsequent revision writes a new row; rows are never updated or deleted.
+model InvestigationRevision {
+  id              String              @id @default(cuid())
+  investigationId String
+  revision        Int
+  authorId        String
+  claim           String
+  query           String
+  counterEvidence String
+  status          InvestigationStatus
+  note            String?
+  createdAt       DateTime            @default(now())
+
+  investigation Investigation @relation(fields: [investigationId], references: [id], onDelete: Cascade)
+  author        User          @relation(fields: [authorId], references: [id])
+
+  @@unique([investigationId, revision])
+  @@index([investigationId])
+}
+
+// A pin references one corpus atom by opaque token id + segmentation scheme +
+// corpus version. It NEVER stores Arabic text. Belongs to an investigation or to
+// a response (responses must cite evidence). Exactly one owner is set.
+model EvidencePin {
+  id              String  @id @default(cuid())
+  investigationId String?
+  responseId      String?
+
+  tokenId       String
+  segmentId     String?
+  scheme        String   @default("tanzil-uthmani")
+  corpusVersion String
+  note          String?
+  createdAt     DateTime @default(now())
+
+  investigation Investigation? @relation(fields: [investigationId], references: [id], onDelete: Cascade)
+  response      Response?      @relation(fields: [responseId], references: [id], onDelete: Cascade)
+
+  @@index([investigationId])
+  @@index([responseId])
+  @@index([tokenId])
+}
+
+// The publish-time projection that makes bidirectional linking a single indexed
+// lookup instead of a scan over every investigation. One row per (investigation,
+// target) where target is the pinned token and its derived root / segment / surah.
+// Word pages query kind=TOKEN key=<tokenId>; root pages query kind=ROOT key=<slug>.
+enum CitationKind {
+  TOKEN
+  ROOT
+  SEGMENT
+  SURAH
+}
+
+model Citation {
+  id              String       @id @default(cuid())
+  investigationId String
+  kind            CitationKind
+  key             String
+  corpusVersion   String
+  createdAt       DateTime     @default(now())
+
+  investigation Investigation @relation(fields: [investigationId], references: [id], onDelete: Cascade)
+
+  @@unique([investigationId, kind, key])
+  @@index([kind, key])
+}
+
+// ─── Responses ────────────────────────────────────────────────────────────────
+// Structured, not free-form (docs/extensibility.md §7): a response declares a
+// type and must cite evidence. Discussion attaches to the claim, never to people.
+
+enum ResponseType {
+  DISPUTES
+  SUPPORTS
+  CLARIFIES
+  ADDS_EVIDENCE
+}
+
+model Response {
+  id              String       @id @default(cuid())
+  investigationId String
+  authorId        String
+  type            ResponseType
+  body            String
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  investigation Investigation @relation(fields: [investigationId], references: [id], onDelete: Cascade)
+  author        User          @relation(fields: [authorId], references: [id])
+  pins          EvidencePin[]
+
+  @@index([investigationId])
+  @@index([authorId])
+}
+
+// ─── Annotation (generic) ─────────────────────────────────────────────────────
+// A typed assertion attached to a corpus token or segment span by an Actor. The
+// UI provenance tag reads straight off `actor`. Modelled now, populated for the
+// Quran only — none are seeded in this prompt.
+
+enum ActorType {
+  PIPELINE
+  EXTERNAL
+  EDITORIAL
+  COMMUNITY
+}
+
+enum AnnotationTarget {
+  TOKEN
+  SEGMENT
+}
+
+model Annotation {
+  id            String           @id @default(cuid())
+  authorId      String?
+  actor         ActorType
+  type          String
+  targetType    AnnotationTarget
+  targetKey     String
+  spanStart     Int?
+  spanEnd       Int?
+  value         String
+  confidence    Float?
+  corpusVersion String
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+
+  author User? @relation(fields: [authorId], references: [id])
+
+  @@index([targetType, targetKey])
+  @@index([actor])
+}
+
+// ─── Personal work ────────────────────────────────────────────────────────────
+
+model Collection {
+  id          String   @id @default(cuid())
+  ownerId     String
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  owner User             @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  items CollectionItem[]
+
+  @@index([ownerId])
+}
+
+model CollectionItem {
+  id           String   @id @default(cuid())
+  collectionId String
+  kind         String
+  key          String
+  note         String?
+  createdAt    DateTime @default(now())
+
+  collection Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+
+  @@index([collectionId])
+}
+
+model SavedSearch {
+  id            String   @id @default(cuid())
+  ownerId       String
+  title         String
+  query         String
+  corpusVersion String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  owner User @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  @@index([ownerId])
+}
+
+// ─── Moderation ───────────────────────────────────────────────────────────────
+// The report action writes to this queue. Data model only in this prompt — no
+// moderation UI. Every action is a durable, auditable row.
+
+enum ReportTargetType {
+  INVESTIGATION
+  RESPONSE
+}
+
+enum ReportStatus {
+  OPEN
+  REVIEWING
+  RESOLVED
+  DISMISSED
+}
+
+model ModerationReport {
+  id         String           @id @default(cuid())
+  reporterId String?
+  targetType ReportTargetType
+  targetId   String
+  reason     String
+  detail     String?
+  status     ReportStatus     @default(OPEN)
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+
+  reporter User? @relation(fields: [reporterId], references: [id])
+
+  @@index([status])
+  @@index([targetType, targetId])
+}
+
+// ─── Rate limiting ────────────────────────────────────────────────────────────
+// One row per rate-limited action. Counting rows in a trailing window is the
+// limiter; old rows are prunable. Kept from day one (docs/extensibility.md §7).
+
+enum ActionKind {
+  SIGNUP
+  PUBLISH
+  RESPONSE
+  REPORT
+}
+
+model ActionEvent {
+  id        String     @id @default(cuid())
+  kind      ActionKind
+  subject   String
+  createdAt DateTime   @default(now())
+
+  @@index([kind, subject, createdAt])
+}

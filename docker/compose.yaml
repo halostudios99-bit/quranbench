@@ -1,0 +1,29 @@
+# Local Postgres for development. The application database only — the corpus is
+# never in Postgres (it is loaded into RAM from build artifacts, see CLAUDE.md).
+#
+#   docker compose -f docker/compose.yaml up -d
+#
+# Then point apps/web at it with DATABASE_URL (see apps/web/.env.example) and run
+# `pnpm --filter @quranbench/web prisma migrate dev`.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: quranbench-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: quranbench
+      POSTGRES_PASSWORD: quranbench
+      POSTGRES_DB: quranbench
+    ports:
+      - '5432:5432'
+    volumes:
+      - quranbench-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U quranbench -d quranbench']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  quranbench-postgres:

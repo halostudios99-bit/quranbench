@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import { CitingInvestigations } from '@/components/CitingInvestigations';
 import { JsonLd } from '@/components/JsonLd';
 import { OccurrenceChips } from '@/components/OccurrenceChips';
 import { ProvenanceTag } from '@/components/ProvenanceTag';
@@ -15,6 +16,7 @@ import {
   getTextEdition,
   getVerseTranslations,
 } from '@/server/corpus';
+import { citingInvestigations } from '@/server/research';
 
 // ~77,430 word pages: too many to statically generate, so on-demand ISR with a
 // week-long revalidate. A page is built the first time it is requested, then
@@ -120,6 +122,7 @@ export default async function WordPage({ params }: Params) {
   const morph = token.morphology;
   const edition = getTextEdition();
   const corpusVersion = getCorpus().version;
+  const citing = await citingInvestigations('TOKEN', token.id);
   // Verse-level: how each edition renders the whole verse containing this token.
   // A separated basmala is not a counted verse, so it has no translation line.
   const verseTranslations = getVerseTranslations(view.segmentId);
@@ -504,6 +507,11 @@ export default async function WordPage({ params }: Params) {
             </a>
           </Section>
         ) : null}
+
+        <CitingInvestigations
+          items={citing}
+          subject="this word"
+        />
       </div>
 
       <footer className="mt-8 border-t border-line pt-5 text-[12px] leading-relaxed text-ink3">

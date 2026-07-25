@@ -1,3 +1,4 @@
+import { CitingInvestigations } from '@/components/CitingInvestigations';
 import { JsonLd } from '@/components/JsonLd';
 import { ProvenanceTag } from '@/components/ProvenanceTag';
 import { ReaderVerse } from '@/components/ReaderVerse';
@@ -5,6 +6,7 @@ import { VerseActions } from '@/components/VerseActions';
 import { rootHref, rootOccurrencesHref } from '@/lib/addressing';
 import type { ProvenanceLayer } from '@/lib/provenance';
 import { absoluteUrl } from '@/lib/site';
+import type { CitingInvestigation } from '@/server/domain/types';
 import type {
   OccurrenceRef,
   RootOccurrencePage,
@@ -21,6 +23,7 @@ interface RootPageProps {
   occurrences: RootOccurrencePage;
   edition: string;
   corpusVersion: string;
+  citing: CitingInvestigation[];
 }
 
 function Section({
@@ -61,6 +64,7 @@ export function RootPage({
   occurrences,
   edition,
   corpusVersion,
+  citing,
 }: RootPageProps) {
   const { root } = view;
   const slug = root.root_slug;
@@ -316,6 +320,8 @@ export function RootPage({
             </nav>
           ) : null}
         </Section>
+
+        <CitingInvestigations items={citing} subject="this root" />
       </div>
 
       <footer className="mt-8 border-t border-line pt-5 text-[12px] leading-relaxed text-ink3">

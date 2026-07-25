@@ -12,6 +12,7 @@ import {
   getRootOccurrences,
   getTextEdition,
 } from '@/server/corpus';
+import { citingInvestigations } from '@/server/research';
 
 // ~1,650 root pages: on-demand ISR with a week-long revalidate, like word pages.
 export const revalidate = 604800;
@@ -53,12 +54,14 @@ export default async function RootSlugPage({ params }: Params) {
 
   const view = describeRoot(root);
   const occurrences = getRootOccurrences(root, 1, ROOT_OCCURRENCES_PER_PAGE);
+  const citing = await citingInvestigations('ROOT', root.root_slug);
   return (
     <RootPage
       view={view}
       occurrences={occurrences}
       edition={getTextEdition()}
       corpusVersion={getCorpus().version}
+      citing={citing}
     />
   );
 }
