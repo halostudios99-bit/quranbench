@@ -26,6 +26,7 @@ export type {
   ReferenceQuery,
   RootQuery,
   LemmaQuery,
+  PosQuery,
   Scope,
   SearchResult,
   ParseError,

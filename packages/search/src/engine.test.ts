@@ -5,9 +5,9 @@ import { buildIndex, type SearchIndex } from './build-index.js';
 import { normaliseArabic } from './normalise.js';
 import { resolveReference } from './reference.js';
 import { search, searchString } from './search.js';
-import { UnsupportedQueryError, type Query } from './types.js';
+import type { Query } from './types.js';
 
-// Documented, hand-verified figures for corpus v0.4.0. Derived from the
+// Documented, hand-verified figures for corpus v0.5.0. Derived from the
 // artifacts directly (not from the code under test), and asserted as stable.
 const EXACT_ZAKAT = 24; // text_uthmani ٱلزَّكَوٰةَ (fatha ending), NFC-exact
 const NORM_ZAKAT = 26; // text_normalised الزكوه (adds the 2 kasra-ending forms)
@@ -46,8 +46,8 @@ describe('exact query', () => {
 
   it('carries the corpus version and computation params for reproducibility', () => {
     const r = search(index, { type: 'exact', text: 'ٱلزَّكَوٰةَ' });
-    expect(r.corpusVersion).toBe('0.4.0');
-    expect(r.params.corpusVersion).toBe('0.4.0');
+    expect(r.corpusVersion).toBe('0.5.0');
+    expect(r.params.corpusVersion).toBe('0.5.0');
     expect(r.params.numberingScheme).toBe('kufan');
     expect(r.segmentIds.length).toBeGreaterThan(0);
   });
@@ -221,10 +221,65 @@ describe('basmala parameter', () => {
   });
 });
 
-describe('unimplemented morphology queries', () => {
-  it('throw rather than fabricating matches', () => {
-    expect(() => search(index, { type: 'root', root: 'ز ك و' })).toThrow(UnsupportedQueryError);
-    expect(() => search(index, { type: 'lemma', lemma: 'زكاة' })).toThrow(UnsupportedQueryError);
+describe('morphology queries (root / lemma / pos)', () => {
+  it('root: accepts the spaced-Arabic, unspaced and slug forms identically', () => {
+    const spaced = search(index, { type: 'root', root: 'ز ك و' });
+    const unspaced = search(index, { type: 'root', root: 'زكو' });
+    const slug = search(index, { type: 'root', root: 'z-k-w' });
+    expect(spaced.totalMatches).toBeGreaterThan(0);
+    expect(unspaced.tokenIds).toEqual(spaced.tokenIds);
+    expect(slug.tokenIds).toEqual(spaced.tokenIds);
+    // Every matched token indeed carries that root.
+    for (const id of spaced.tokenIds) {
+      expect(index.tokens[index.byId.get(id)!]!.morphology.root).toBe('ز ك و');
+    }
+  });
+
+  it('the root of ٱلزَّكَوٰةَ is ز ك و', () => {
+    const zakat = search(index, { type: 'exact', text: 'ٱلزَّكَوٰةَ' });
+    for (const id of zakat.tokenIds) {
+      const m = index.tokens[index.byId.get(id)!]!.morphology;
+      expect(m.root).toBe('ز ك و');
+      expect(m.root_slug).toBe('z-k-w');
+    }
+  });
+
+  it('the string forms root:زكو and root:z-k-w return identical results', () => {
+    const ar = searchString(index, 'root:زكو');
+    const sl = searchString(index, 'root:z-k-w');
+    expect(ar.ok && sl.ok).toBe(true);
+    if (ar.ok && sl.ok) expect(ar.result.tokenIds).toEqual(sl.result.tokenIds);
+  });
+
+  it('lemma: matches by dictionary form', () => {
+    const r = search(index, { type: 'lemma', lemma: 'زَكاة' });
+    expect(r.totalMatches).toBeGreaterThan(0);
+    for (const id of r.tokenIds) {
+      expect(index.tokens[index.byId.get(id)!]!.morphology.lemma).toBe('زَكاة');
+    }
+  });
+
+  it('pos: matches by head part of speech, and every match has that pos', () => {
+    const verbs = search(index, { type: 'pos', pos: 'V' });
+    expect(verbs.totalMatches).toBeGreaterThan(0);
+    for (const id of verbs.tokenIds.slice(0, 200)) {
+      expect(index.tokens[index.byId.get(id)!]!.morphology.pos).toBe('V');
+    }
+  });
+
+  it('an unknown root or pos returns no matches rather than throwing', () => {
+    expect(search(index, { type: 'root', root: 'x-x-x-x-x' }).totalMatches).toBe(0);
+    expect(search(index, { type: 'pos', pos: 'NOTAPOS' }).totalMatches).toBe(0);
+  });
+
+  it('tokens with no root expose null (never an empty string)', () => {
+    let checked = 0;
+    for (const token of corpus.tokens) {
+      const root = token.morphology.root;
+      expect(root === null || (typeof root === 'string' && root.length > 0)).toBe(true);
+      if (root === null) checked++;
+    }
+    expect(checked).toBeGreaterThan(0);
   });
 });
 

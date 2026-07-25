@@ -32,12 +32,16 @@ def test_writes_expected_files(artifacts: Path) -> None:
         "identifiers.json",
         "manifest.json",
         "mapping/mapping.schema.json",
-        "mapping/v0.3.0-to-v0.4.0.json",
+        "mapping/v0.4.0-to-v0.5.0.json",
         "numbering/numbering.schema.json",
         "numbering/kufan.json",
+        "morphology/roots.json",
+        "morphology/LICENSE",
+        "morphology/ATTRIBUTION.md",
+        "morphology/alignment-report.md",
     ):
         assert (artifacts / name).exists(), name
-    assert artifacts.name == "v0.4.0"
+    assert artifacts.name == "v0.5.0"
 
 
 def test_verse_artifact_counts_and_ids(artifacts: Path) -> None:
@@ -102,8 +106,8 @@ def test_sources_artifact_matches_entity_model(artifacts: Path) -> None:
 
 def test_manifest_is_self_describing(artifacts: Path) -> None:
     manifest = _read_json(artifacts / "manifest.json")
-    assert manifest["corpus_version"] == "0.4.0"
-    assert manifest["previous_version"] == "0.3.0"
+    assert manifest["corpus_version"] == "0.5.0"
+    assert manifest["previous_version"] == "0.4.0"
     assert manifest["work_id"] == "quran"
     assert manifest["segmentation_scheme"] == "tanzil-uthmani"
     assert manifest["identifier_format"] == "quran:tanzil-uthmani:<surah>:<segment>:<position>"
@@ -223,22 +227,22 @@ def test_mapping_is_identity_with_no_entries(artifacts: Path) -> None:
     assert "mappings" in schema["properties"]
     assert "default_resolution" in schema["properties"]
 
-    # v0.4.0 is a metadata-only release: no identifier moved, so the mapping is a
-    # pure identity default with zero explicit entries.
-    mapping = _read_json(artifacts / "mapping" / "v0.3.0-to-v0.4.0.json")
-    assert mapping["from_version"] == "0.3.0"
-    assert mapping["to_version"] == "0.4.0"
+    # v0.5.0 is an annotation-only release: no identifier moved, so the mapping is
+    # a pure identity default with zero explicit entries.
+    mapping = _read_json(artifacts / "mapping" / "v0.4.0-to-v0.5.0.json")
+    assert mapping["from_version"] == "0.4.0"
+    assert mapping["to_version"] == "0.5.0"
     assert mapping["default_resolution"] == "identity"
     assert mapping["mappings"] == []
 
 
 def test_mapping_is_total_by_identity(artifacts: Path) -> None:
-    # With an identity default and no explicit entries, every v0.3.0 id resolves
+    # With an identity default and no explicit entries, every v0.4.0 id resolves
     # to itself — a total mapping over the prior version's identifiers.
     tokens = _read_jsonl(artifacts / "tokens.jsonl")
     new_ids = {t["id"] for t in tokens}
 
-    mapping = _read_json(artifacts / "mapping" / "v0.3.0-to-v0.4.0.json")
+    mapping = _read_json(artifacts / "mapping" / "v0.4.0-to-v0.5.0.json")
     explicit = {m["from"]: m["to"] for m in mapping["mappings"]}
     assert explicit == {}  # nothing remapped
 
@@ -316,16 +320,17 @@ def test_verify_accepts_a_clean_build_and_rejects_tampering(artifacts: Path) -> 
     assert verify(artifacts) == []
 
 
-def test_v030_and_v040_token_ids_are_identical() -> None:
-    # The gate before deleting v0.3.0: v0.4.0 is a metadata-only rebuild, so its
-    # token id set must be identical. Skips once v0.3.0 has been removed.
+def test_v040_and_v050_token_ids_are_identical() -> None:
+    # v0.5.0 is an annotation-only rebuild: morphology adds a field but resegments
+    # nothing, so the token id set must be identical to v0.4.0. Skips once v0.4.0
+    # has been removed.
     from pipeline.paths import OUT_DIR
 
-    prev = OUT_DIR / "v0.3.0" / "tokens.jsonl"
-    cur = OUT_DIR / "v0.4.0" / "tokens.jsonl"
+    prev = OUT_DIR / "v0.4.0" / "tokens.jsonl"
+    cur = OUT_DIR / "v0.5.0" / "tokens.jsonl"
     if not prev.exists():
-        pytest.skip("v0.3.0 removed after verification")
-    assert cur.exists(), "v0.4.0 must be built"
+        pytest.skip("v0.4.0 removed after verification")
+    assert cur.exists(), "v0.5.0 must be built"
 
     prev_ids = {json.loads(line)["id"] for line in prev.read_text(encoding="utf-8").splitlines() if line}
     cur_ids = {json.loads(line)["id"] for line in cur.read_text(encoding="utf-8").splitlines() if line}

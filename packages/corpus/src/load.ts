@@ -7,13 +7,14 @@ import type {
   Corpus,
   Manifest,
   NumberingScheme,
+  Root,
   Segment,
   Source,
   Surah,
   Token,
 } from './types.js';
 
-export const DEFAULT_CORPUS_VERSION = '0.4.0';
+export const DEFAULT_CORPUS_VERSION = '0.5.0';
 
 /**
  * Thrown when an artifact fails validation. A corrupted or schema-drifted corpus
@@ -81,7 +82,10 @@ const TOKEN_KEYS = [
   'char_end',
   'following_marks',
   'is_basmala',
+  'morphology',
 ] as const;
+
+const ROOT_KEYS = ['root', 'root_slug', 'lemmas', 'occurrences', 'token_ids'] as const;
 
 const SEGMENT_KEYS = [
   'id',
@@ -272,7 +276,28 @@ export function loadCorpus(
     if (typeof row['is_basmala'] !== 'boolean') {
       fail(`${paths.tokens} row ${i + 1}: is_basmala must be a boolean`);
     }
+    const morph = row['morphology'];
+    if (!isObject(morph)) fail(`${paths.tokens} row ${i + 1}: morphology must be an object`);
+    if (typeof morph['pos'] !== 'string') {
+      fail(`${paths.tokens} row ${i + 1}: morphology.pos must be a string`);
+    }
+    if (!Array.isArray(morph['segments'])) {
+      fail(`${paths.tokens} row ${i + 1}: morphology.segments must be an array`);
+    }
     return row as unknown as Token;
+  });
+
+  const rootsPath = join(dir, 'morphology', 'roots.json');
+  const rootsText = readText(rootsPath);
+  verifyBytes('morphology/roots.json', rootsText);
+  checksums['morphology/roots.json'] = sha256(rootsText);
+  const rootsRaw = parseJson(rootsPath, rootsText);
+  if (!Array.isArray(rootsRaw)) fail(`${rootsPath}: expected an array`);
+  const roots: Root[] = rootsRaw.map((row, i) => {
+    if (!isObject(row)) fail(`${rootsPath}[${i}]: expected an object`);
+    requireKeys(`${rootsPath}[${i}]`, row, ROOT_KEYS);
+    if (!Array.isArray(row['token_ids'])) fail(`${rootsPath}[${i}]: token_ids must be an array`);
+    return row as unknown as Root;
   });
 
   // Cross-check the loaded shapes against the manifest's declared counts. A
@@ -309,6 +334,7 @@ export function loadCorpus(
     surahs,
     segments,
     tokens,
+    roots,
     numbering,
     checksums,
   };

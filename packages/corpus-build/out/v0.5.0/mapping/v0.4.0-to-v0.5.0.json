@@ -1,0 +1,8 @@
+{
+  "from_version": "0.4.0",
+  "to_version": "0.5.0",
+  "note": "Annotation-only release: a morphology block (root, lemma, pos, features, segments) was added to every token from the Leeds QAC. No identifier changed, so no id is remapped and every prior id resolves to itself.",
+  "default_resolution": "identity",
+  "default_resolution_note": "Every v0.4.0 id is unchanged in v0.5.0 and resolves to itself. No ids changed form, so 'mappings' is empty. This makes the mapping total: every prior id resolves to exactly one successor (itself).",
+  "mappings": []
+}

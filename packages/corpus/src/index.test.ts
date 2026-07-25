@@ -26,7 +26,7 @@ describe('loadCorpus', () => {
   });
 
   it('loads the declared counts exactly', () => {
-    // Documented figures from corpus v0.4.0's manifest.
+    // Documented figures from corpus v0.5.0's manifest.
     expect(corpus.tokens.length).toBe(77881);
     expect(corpus.segments.length).toBe(6236);
     expect(corpus.surahs.length).toBe(114);

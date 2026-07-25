@@ -44,12 +44,13 @@ from .numbering import (
     Segment,
     assign_ordinals,
 )
+from .morphology import annotate, render_report, report_stats
 from .parse import parse_metadata, parse_text
-from .paths import OUT_DIR, SOURCES_DIR, sha256_bytes, sha256_file
-from .sources import SEGMENTATION_SOURCE_ID, SOURCES
+from .paths import DATA_DIR, OUT_DIR, SOURCES_DIR, sha256_bytes, sha256_file
+from .sources import MORPHOLOGY_SOURCE_ID, SEGMENTATION_SOURCE_ID, SOURCES
 from .tokens import Token, segment_basmala, segment_verse
 
-PREVIOUS_VERSION = "0.3.0"
+PREVIOUS_VERSION = "0.4.0"
 
 FIELD_PROVENANCE: dict[str, Any] = {
     "text_uthmani": {"source_id": "tanzil-uthmani", "transform": []},
@@ -89,6 +90,10 @@ TOKEN_FIELD_PROVENANCE: dict[str, Any] = {
             "normalise-alif-maqsura",
         ],
     },
+    # The morphology block (root, lemma, pos, features, segments) is an annotation
+    # from the Leeds QAC, aligned onto the token — never derived from Tanzil. Its
+    # provenance is the morphology source; it does not touch the text_* fields.
+    "morphology": {"source_id": MORPHOLOGY_SOURCE_ID, "transform": ["align-leeds-qac"]},
 }
 
 
@@ -358,19 +363,20 @@ def build_identifiers() -> dict[str, Any]:
 
 
 def _build_mapping() -> dict[str, Any]:
-    """The v0.3.0 -> v0.4.0 identifier mapping: a pure identity.
+    """The v0.4.0 -> v0.5.0 identifier mapping: a pure identity.
 
-    v0.4.0 is a metadata-only release — it adds output checksums to the manifest
-    and changes nothing about segmentation, token count or identifiers. No token
-    or verse id moves, so there are no explicit entries: every prior id resolves
-    to itself by the identity default, making the mapping total with zero rows.
+    v0.5.0 layers Leeds QAC morphology onto tokens as an annotation. Token ids,
+    positions and surface text are unchanged — morphology adds a field, it does
+    not resegment. No token or verse id moves, so there are no explicit entries:
+    every prior id resolves to itself by the identity default, a total mapping.
     """
     return {
         "from_version": PREVIOUS_VERSION,
         "to_version": CORPUS_VERSION,
         "note": (
-            "Metadata-only release: output checksums were added to manifest.json. "
-            "No identifier changed, so no id is remapped and every prior id resolves "
+            "Annotation-only release: a morphology block (root, lemma, pos, "
+            "features, segments) was added to every token from the Leeds QAC. No "
+            "identifier changed, so no id is remapped and every prior id resolves "
             "to itself."
         ),
         "default_resolution": "identity",
@@ -600,10 +606,113 @@ def compute_output_checksums(out_dir: Path) -> dict[str, dict[str, Any]]:
     return checksums
 
 
+MORPHOLOGY_DIR = "morphology"
+
+
+def _morphology_manifest(summary: dict[str, Any]) -> dict[str, Any]:
+    """The manifest's morphology block: what was ingested, how it aligned, and the
+    licence consequence — so a reader knows the provenance and copyleft from the
+    manifest alone."""
+    return {
+        "source_id": MORPHOLOGY_SOURCE_ID,
+        "layer": "annotation",
+        "note": (
+            "Leeds Quranic Arabic Corpus morphology (via the mustafa0x fork of QAC "
+            "v0.4), aligned onto tokens as an annotation. Token ids, positions and "
+            "surface text are unchanged. root is the spaced-Arabic form; root_slug is "
+            "its URL transliteration; per-field provenance is token_field_provenance."
+        ),
+        "licence": "GPL-2.0-or-later",
+        "licence_note": (
+            "This data is GPL. Any artifact carrying it (tokens.jsonl, "
+            "morphology/roots.json) is therefore GPL-2.0-or-later. The underlying "
+            "Tanzil text remains available under CC-BY in verses.jsonl and the "
+            "token text_* fields. See docs/licensing.md and morphology/ATTRIBUTION.md."
+        ),
+        "alignment": {
+            "leeds_words": summary["leeds_words"],
+            "aligned_leeds_words": summary["aligned_leeds_words"],
+            "align_rate": round(summary["align_rate"], 6),
+            "exact": summary["exact"],
+            "normalised": summary["normalised"],
+            "extended": summary["extended"],
+            "merged_words": summary["merged_words"],
+            "basmala_copied": summary["basmala_copied"],
+            "failed": summary["failed"],
+            "unaligned_our": summary["unaligned_our"],
+        },
+        "roots": {
+            "distinct": summary["distinct_roots"],
+            "tokens_with_root": summary["tokens_with_root"],
+            "tokens_without_root": summary["tokens_without_root"],
+            "artifact": f"{MORPHOLOGY_DIR}/roots.json",
+        },
+        "report": f"{MORPHOLOGY_DIR}/alignment-report.md",
+    }
+
+
+def _attribution_md(sources: list[dict[str, Any]]) -> str:
+    m = next(s for s in sources if s["id"] == MORPHOLOGY_SOURCE_ID)
+    return (
+        "# Attribution — morphology\n\n"
+        "The morphological annotation in this corpus (the `morphology` block on each "
+        "token in `tokens.jsonl`, and `roots.json`) is derived from the **Quranic "
+        "Arabic Corpus** (QAC).\n\n"
+        "- **Original work:** Quranic Arabic Corpus, morphology release v0.4\n"
+        "- **Author:** Kais Dukes\n"
+        "- **Publisher:** Language Research Group, University of Leeds\n"
+        "- **Original URL:** http://corpus.quran.com/\n"
+        "- **Licence:** GNU General Public License (GPL) — see `LICENSE` in this "
+        "directory (GPL-2.0-or-later).\n\n"
+        "It was ingested via a GPL redistribution that converts the QAC's Buckwalter "
+        "transliteration to Arabic script and applies documented corrections:\n\n"
+        f"- **Redistribution:** {m['name']}\n"
+        "- **Repository:** https://github.com/mustafa0x/quran-morphology\n"
+        "- **Pinned commit:** `8f38b39016824284f9ed16ae15069ff9102c4acf`\n"
+        f"- **File:** `quran-morphology.txt`\n"
+        f"- **SHA-256:** `{m['sha256']}`\n\n"
+        "The list of changes the fork makes to the original QAC is recorded in that "
+        "repository's `README.md` and `scripts/apply-changes.py`.\n\n"
+        "## What a redistributor must do\n\n"
+        "Because this data is GPL, it carries copyleft: if you redistribute the "
+        "morphology (or any file that embeds it), you must do so under the GPL, keep "
+        "this attribution and licence, and make the corresponding source form "
+        "available. The alignment onto quranbench token ids is performed by "
+        "`packages/corpus-build/pipeline/morphology.py`. See `docs/licensing.md`.\n"
+    )
+
+
+def _write_morphology(
+    out_dir: Path,
+    sources: list[dict[str, Any]],
+    roots_records: list[dict[str, Any]],
+    report_md: str,
+) -> None:
+    morph_dir = out_dir / MORPHOLOGY_DIR
+    morph_dir.mkdir(parents=True, exist_ok=True)
+    _write_json(morph_dir / "roots.json", roots_records)
+    (morph_dir / "LICENSE").write_text(
+        (DATA_DIR / "GPL-2.0.txt").read_text(encoding="utf-8"), encoding="utf-8"
+    )
+    (morph_dir / "ATTRIBUTION.md").write_text(_attribution_md(sources), encoding="utf-8")
+    (morph_dir / "alignment-report.md").write_text(report_md, encoding="utf-8")
+
+
 def build(out_root: Path = OUT_DIR) -> Path:
     fetch_all()
 
     assembled = assemble()
+
+    # Morphology is an annotation layer: align the Leeds QAC onto the assembled
+    # tokens and attach a `morphology` block to each. Token ids/positions/text are
+    # untouched — a fact asserted by tests. Alignment is verified, and every
+    # divergence enumerated in the emitted report.
+    blocks, roots_records, stats = annotate(assembled.tokens, _read("quran-morphology.txt"))
+    for token in assembled.tokens:
+        token["morphology"] = blocks[token["id"]]
+    summary = report_stats(stats, roots_records)
+    report_md = render_report(stats, roots_records)
+
     surahs = build_surah_records(assembled.verses, assembled.basmala)
     sources = build_source_records()
     manifest = build_manifest(
@@ -615,6 +724,7 @@ def build(out_root: Path = OUT_DIR) -> Path:
         assembled.marks_excluded,
         assembled.ordinal_maps,
     )
+    manifest["morphology"] = _morphology_manifest(summary)
 
     out_dir = out_root / f"v{CORPUS_VERSION}"
     (out_dir / "mapping").mkdir(parents=True, exist_ok=True)
@@ -632,6 +742,7 @@ def build(out_root: Path = OUT_DIR) -> Path:
     _write_json(out_dir / "numbering" / "numbering.schema.json", _numbering_schema())
     for scheme in SCHEMES:
         _write_json(out_dir / "numbering" / f"{scheme.id}.json", scheme.record())
+    _write_morphology(out_dir, sources, roots_records, report_md)
 
     # Every non-manifest artifact is now on disk; checksum them and record the
     # block in the manifest, written last so it can cover the final bytes of all
@@ -647,7 +758,11 @@ def build(out_root: Path = OUT_DIR) -> Path:
         f"  numbering active={manifest['numbering']['active']} "
         f"verse_counts={manifest['numbering']['verse_counts']}\n"
         f"  basmala separated from {manifest['basmala']['separated_from_surahs']} surahs\n"
-        f"  waqf marks excluded: {manifest['token_segmentation']['waqf_marks_excluded']}"
+        f"  waqf marks excluded: {manifest['token_segmentation']['waqf_marks_excluded']}\n"
+        f"  morphology: {summary['distinct_roots']} roots, "
+        f"{summary['aligned_leeds_words']}/{summary['leeds_words']} Leeds words aligned "
+        f"({100 * summary['align_rate']:.4f}%), "
+        f"{summary['tokens_without_root']} tokens with no root"
     )
     return out_dir
 

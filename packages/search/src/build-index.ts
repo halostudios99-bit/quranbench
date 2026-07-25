@@ -1,6 +1,6 @@
 import type { Corpus, Segment, Token } from '@quranbench/corpus';
 
-import { canonicaliseUthmani } from './normalise.js';
+import { canonicaliseUthmani, normaliseArabic } from './normalise.js';
 
 // The in-memory search index. Built once from a loaded Corpus at process boot.
 // Internally a token is a small integer — its position in the corpus document
@@ -33,6 +33,16 @@ export interface SearchIndex {
   exact: Map<string, number[]>;
   /** normalised form → handles. */
   normalised: Map<string, number[]>;
+  /** spaced-Arabic root (`ز ك و`) → handles. */
+  root: Map<string, number[]>;
+  /** root slug (`z-k-w`) → spaced-Arabic root, from roots.json. */
+  rootBySlug: Map<string, string>;
+  /** exact lemma → handles. */
+  lemma: Map<string, number[]>;
+  /** normalised lemma → handles (diacritic-insensitive lemma lookup). */
+  lemmaNormalised: Map<string, number[]>;
+  /** head part-of-speech → handles. */
+  pos: Map<string, number[]>;
   /** segment id → handles (in document order). */
   segmentTokens: Map<string, number[]>;
   /** verse segment id → segment record (basmala segments are absent). */
@@ -67,6 +77,10 @@ export function buildIndex(corpus: Corpus): SearchIndex {
   const byId = new Map<string, number>();
   const exact = new Map<string, number[]>();
   const normalised = new Map<string, number[]>();
+  const root = new Map<string, number[]>();
+  const lemma = new Map<string, number[]>();
+  const lemmaNormalised = new Map<string, number[]>();
+  const pos = new Map<string, number[]>();
   const segmentTokens = new Map<string, number[]>();
   const surahTokens = new Map<number, number[]>();
   const surahRange = new Map<number, HandleRange>();
@@ -82,6 +96,16 @@ export function buildIndex(corpus: Corpus): SearchIndex {
     push(exact, canonicaliseUthmani(t.text_uthmani), i);
     push(normalised, t.text_normalised, i);
     push(segmentTokens, t.segment_id, i);
+
+    // Morphology indices, built in the same pass. A token's head root/lemma/pos
+    // come from its morphology block (the head stem); clitics have no root.
+    const m = t.morphology;
+    if (m.root) push(root, m.root, i);
+    if (m.lemma) {
+      push(lemma, m.lemma, i);
+      push(lemmaNormalised, normaliseArabic(m.lemma), i);
+    }
+    push(pos, m.pos, i);
 
     if (!segmentOrder.has(t.segment_id)) segmentOrder.set(t.segment_id, segmentOrder.size);
 
@@ -99,6 +123,12 @@ export function buildIndex(corpus: Corpus): SearchIndex {
     if (segr) segr.end = i + 1;
     else segmentRange.set(t.segment_id, { start: i, end: i + 1 });
   }
+
+  // The slug→root map comes from roots.json, where the build emitted the
+  // authoritative transliteration. Search never re-derives a slug, so the two
+  // languages cannot drift.
+  const rootBySlug = new Map<string, string>();
+  for (const r of corpus.roots) rootBySlug.set(r.root_slug, r.root);
 
   const activeScheme = corpus.manifest.numbering.active;
   const refIndex = new Map<number, Map<number, Segment>>();
@@ -124,6 +154,11 @@ export function buildIndex(corpus: Corpus): SearchIndex {
     byId,
     exact,
     normalised,
+    root,
+    rootBySlug,
+    lemma,
+    lemmaNormalised,
+    pos,
     segmentTokens,
     segmentById,
     surahTokens,

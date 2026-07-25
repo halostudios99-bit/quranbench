@@ -43,6 +43,9 @@ const KNOWN_FIELDS = new Set([
   'suffix',
   'surah',
   'segment',
+  'root',
+  'lemma',
+  'pos',
 ]);
 
 function isBoundary(ch: string): boolean {
@@ -123,6 +126,12 @@ function classifyWord(value: string, pos: number): Query {
           return { type: 'scoped', scope: parseSurahScope(rest, pos), query: { type: 'all' } };
         case 'segment':
           return { type: 'scoped', scope: parseSegmentScope(rest, pos), query: { type: 'all' } };
+        case 'root':
+          return { type: 'root', root: rest };
+        case 'lemma':
+          return { type: 'lemma', lemma: rest };
+        case 'pos':
+          return { type: 'pos', pos: rest };
       }
     }
   }

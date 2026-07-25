@@ -65,10 +65,32 @@ SOURCES: tuple[Source, ...] = (
         filename="quran-metadata.xml",
         role="metadata",
     ),
+    # The Quranic Arabic Corpus morphology (Leeds, Kais Dukes), GPL. Ingested via
+    # the mustafa0x fork, which converts the Buckwalter transliteration of QAC v0.4
+    # to Arabic script and applies documented corrections (see morphology/ATTRIBUTION.md).
+    # Copyleft propagates: any artifact carrying this data is GPL-2.0-or-later. Pinned
+    # to an immutable commit so the download is reproducible and checksum-stable.
+    Source(
+        id="leeds-qac-morphology",
+        name="Quranic Arabic Corpus — Morphology (mustafa0x fork of Leeds QAC v0.4)",
+        publisher="Kais Dukes / University of Leeds (fork: mustafa0x)",
+        edition="QAC 0.4 (mustafa0x fork, commit 8f38b39)",
+        year=2011,
+        url=(
+            "https://raw.githubusercontent.com/mustafa0x/quran-morphology/"
+            "8f38b39016824284f9ed16ae15069ff9102c4acf/quran-morphology.txt"
+        ),
+        licence="GPL-2.0-or-later",
+        filename="quran-morphology.txt",
+        role="morphology",
+    ),
 )
 
 # The edition whose segmentation defines canonical verse identities.
 SEGMENTATION_SOURCE_ID = "tanzil-uthmani"
+
+# The source id whose morphological annotation is layered onto tokens.
+MORPHOLOGY_SOURCE_ID = "leeds-qac-morphology"
 
 SOURCES_BY_ID: dict[str, Source] = {s.id: s for s in SOURCES}
 

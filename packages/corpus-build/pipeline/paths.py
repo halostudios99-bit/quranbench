@@ -9,6 +9,9 @@ from pathlib import Path
 PACKAGE_ROOT = Path(__file__).resolve().parent.parent
 SOURCES_DIR = PACKAGE_ROOT / "sources"
 OUT_DIR = PACKAGE_ROOT / "out"
+#: Committed, version-controlled package assets (e.g. the GPL licence text copied
+#: into Leeds-derived output). Distinct from ``sources/`` (gitignored downloads).
+DATA_DIR = PACKAGE_ROOT / "pipeline" / "data"
 CHECKSUMS_FILE = SOURCES_DIR / "checksums.json"
 
 

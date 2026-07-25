@@ -9,8 +9,8 @@ dependencies.
 ```bash
 cd packages/corpus-build
 python -m pipeline.fetch      # download + checksum-verify sources into sources/
-python -m pipeline.build      # write out/v0.4.0/
-python -m pipeline.verify out/v0.4.0   # confirm artifacts match manifest checksums
+python -m pipeline.build      # write out/v0.5.0/
+python -m pipeline.verify out/v0.5.0   # confirm artifacts match manifest checksums
 ```
 
 `build` runs `fetch` first, so `python -m pipeline.build` alone is enough for a
@@ -35,18 +35,22 @@ files are absent the source-dependent tests skip with an instruction to fetch.
 
 ## Output
 
-`out/v0.4.0/` — `sources.json`, `surahs.json`, `verses.jsonl`, `tokens.jsonl`,
+`out/v0.5.0/` — `sources.json`, `surahs.json`, `verses.jsonl`, `tokens.jsonl`,
 `identifiers.json`, `manifest.json`, `mapping/` (version-to-version identifier
-mapping schema + the identity `v0.3.0-to-v0.4.0.json`), and `numbering/` (the verse
-numbering schemes as data). Every text field's provenance and every normalisation
-rule applied is recorded in `manifest.json`, along with a `checksums` block giving
-the sha256 and byte size of every other emitted file; the artifacts are
-reproducible from the manifest and the checksummed sources, and verifiable
-byte-for-byte against the manifest.
+mapping schema + the identity `v0.4.0-to-v0.5.0.json`), `numbering/` (the verse
+numbering schemes as data), and `morphology/` (`roots.json`, the GPL `LICENSE`
+and `ATTRIBUTION.md` for the Leeds data, and `alignment-report.md`). Every text
+field's provenance and every normalisation rule applied is recorded in
+`manifest.json`, along with a `checksums` block giving the sha256 and byte size of
+every other emitted file; the artifacts are reproducible from the manifest and the
+checksummed sources, and verifiable byte-for-byte against the manifest.
 
-v0.4.0 is a metadata-only rebuild of v0.3.0: it adds the output `checksums` block
-and nothing else. Segmentation, the 77,881-token count and every identifier are
-unchanged, so `mapping/v0.3.0-to-v0.4.0.json` is a pure identity with no entries.
+v0.5.0 is an annotation-only rebuild of v0.4.0: it layers the Leeds Quranic Arabic
+Corpus morphology onto every token as a `morphology` block (root, lemma, pos,
+features, segments) and emits `morphology/roots.json`. Segmentation, the
+77,881-token count and every identifier are unchanged, so
+`mapping/v0.4.0-to-v0.5.0.json` is a pure identity with no entries. The morphology
+is GPL — see `docs/licensing.md` and `pipeline/morphology.py`.
 
 The surah-opening basmala is stored once per surah in `surahs.json` (with its own
 token range) rather than merged into verse 1 — see `pipeline/basmala.py`. It is
@@ -62,6 +66,6 @@ segment slot. See `docs/numbering.md` and `pipeline/numbering.py`.
 
 ## Scope
 
-Verses and whitespace-delimited word tokens. Morphological (prefix/suffix)
-segmentation, roots and translations are later stages and are intentionally
-absent.
+Verses, whitespace-delimited word tokens, and the Leeds QAC morphology layered on
+as an annotation (roots, lemmas, part-of-speech, per-morpheme segmentation).
+Translations are a later stage and are intentionally absent.

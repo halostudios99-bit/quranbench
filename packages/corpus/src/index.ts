@@ -5,7 +5,10 @@
 export type {
   Corpus,
   Manifest,
+  Morphology,
+  MorphSegment,
   NumberingScheme,
+  Root,
   Segment,
   Source,
   Surah,

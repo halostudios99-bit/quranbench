@@ -91,6 +91,22 @@ const CASES: Case[] = [
     },
   },
   { label: 'reference', budgetMs: 10, query: { type: 'reference', ref: '2:255' } },
+  { label: 'root (spaced)', budgetMs: 10, query: { type: 'root', root: 'ز ك و' } },
+  { label: 'root (slug)', budgetMs: 10, query: { type: 'root', root: 'z-k-w' } },
+  { label: 'lemma', budgetMs: 10, query: { type: 'lemma', lemma: 'زَكاة' } },
+  { label: 'pos', budgetMs: 10, query: { type: 'pos', pos: 'V' } },
+  {
+    // A root query scoped to a surah must stay under 1ms, like other scoped terms.
+    label: 'scoped-root',
+    budgetMs: 1,
+    query: {
+      type: 'and',
+      clauses: [
+        { type: 'scoped', scope: { surahs: [2] }, query: { type: 'all' } },
+        { type: 'root', root: 'ز ك و' },
+      ],
+    },
+  },
 ];
 
 function percentile(samples: number[], p: number): number {

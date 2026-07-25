@@ -41,14 +41,21 @@ quranbench/
 The Python pipeline outputs a versioned, checksummed directory:
 
 ```
-out/v0.1.0/
-  tokens.jsonl        one record per token
+out/v0.5.0/
+  tokens.jsonl        one record per token (incl. its morphology annotation)
   verses.jsonl
   surahs.json
-  roots.json
-  translations/       one file per translation edition
+  morphology/         Leeds-QAC-derived data, isolated with its own licence:
+    roots.json          one record per root
+    LICENSE             GPL-2.0-or-later (the morphology is GPL)
+    ATTRIBUTION.md      source, author, version, URL
+    alignment-report.md how every Leeds word maps to a token id
+  translations/       one file per translation edition (later)
   manifest.json       version, checksums, source editions, build parameters
 ```
+
+The morphology is GPL and lives in its own directory; the `morphology` block it
+adds to `tokens.jsonl` makes that file GPL as a whole. See `docs/licensing.md`.
 
 `manifest.json` records exactly which text edition, which morphology release, whether tashkeel was retained, and how prefixes were segmented. Every computed result displayed in the UI must be traceable to a manifest.
 
@@ -69,7 +76,7 @@ Artifacts are immutable once released. Corrections produce a new version.
 To verify a downloaded artifact directory, from `packages/corpus-build/`:
 
 ```
-python -m pipeline.verify out/v0.4.0
+python -m pipeline.verify out/v0.5.0
 ```
 
 It re-hashes every listed file, flags any that differ in bytes or size, and flags any file present on disk but absent from the block (or listed but missing). It prints `OK` and exits `0` when everything matches, and exits non-zero on the first sign of tampering. No build step and no trust in the loader is required — the standard library computes the same sha256 the manifest records.

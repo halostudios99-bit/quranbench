@@ -1,7 +1,19 @@
 import type { HandleRange, SearchIndex } from './build-index.js';
 import { canonicaliseUthmani, normaliseArabic } from './normalise.js';
 import { resolveReference } from './reference.js';
-import { UnsupportedQueryError, type Query, type Scope } from './types.js';
+import type { Query, Scope } from './types.js';
+
+/**
+ * Resolve a `root:` input to the spaced-Arabic key the root index is built on.
+ * Accepts the slug (`z-k-w`), the spaced form (`ز ك و`), or the unspaced form
+ * (`زكو`). A slug is ASCII, so it never collides with an Arabic root.
+ */
+function rootKey(index: SearchIndex, input: string): string | undefined {
+  const s = input.trim();
+  if (/^[a-z0-9-]+$/i.test(s)) return index.rootBySlug.get(s.toLowerCase());
+  const letters = [...s].filter((ch) => !/\s/.test(ch));
+  return letters.length ? letters.join(' ') : undefined;
+}
 
 // The evaluator. Every query reduces to a set of token handles (integer indices
 // into index.tokens). Set algebra composes booleans; positional joins over
@@ -272,8 +284,20 @@ export function evaluate(index: SearchIndex, query: Query): Set<number> {
       }
       return out;
     }
-    case 'root':
-    case 'lemma':
-      throw new UnsupportedQueryError(query.type);
+    case 'root': {
+      const key = rootKey(index, query.root);
+      const postings = key === undefined ? undefined : index.root.get(key);
+      return new Set(postings ?? []);
+    }
+    case 'lemma': {
+      const exactPostings = index.lemma.get(query.lemma);
+      if (exactPostings) return new Set(exactPostings);
+      const normPostings = index.lemmaNormalised.get(normaliseArabic(query.lemma));
+      return new Set(normPostings ?? []);
+    }
+    case 'pos': {
+      const postings = index.pos.get(query.pos);
+      return new Set(postings ?? []);
+    }
   }
 }

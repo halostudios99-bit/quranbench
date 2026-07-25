@@ -88,16 +88,25 @@ export interface ReferenceQuery {
   ref: string;
 }
 
-// --- Not yet implemented: morphology is not ingested (see spec). ---------
-// The types exist so callers and results have a stable shape; evaluating them
-// throws rather than returning fabricated matches.
+// --- Morphology queries (Prompt 06). --------------------------------------
+/**
+ * Match every token sharing a root. `root` accepts the spaced-Arabic form
+ * (`ز ك و`), the unspaced form (`زكو`), or the URL transliteration slug
+ * (`z-k-w`) — all resolve to the same postings.
+ */
 export interface RootQuery {
   type: 'root';
   root: string;
 }
+/** Match every token sharing a lemma (dictionary form). */
 export interface LemmaQuery {
   type: 'lemma';
   lemma: string;
+}
+/** Match every token whose head part-of-speech is `pos` (e.g. `V`, `PN`, `N`). */
+export interface PosQuery {
+  type: 'pos';
+  pos: string;
 }
 
 export type Query =
@@ -115,7 +124,8 @@ export type Query =
   | MatchAllQuery
   | ReferenceQuery
   | RootQuery
-  | LemmaQuery;
+  | LemmaQuery
+  | PosQuery;
 
 /**
  * A search result. It carries everything needed to reproduce the query: the
@@ -144,10 +154,14 @@ export type ParseResult =
   | { ok: true; query: Query }
   | { ok: false; error: ParseError };
 
-/** Thrown by the engine for query types that are declared but not implemented. */
+/**
+ * Reserved for query types that are declared in the tree but not yet evaluable.
+ * As of v0.5.0 every query type — including root, lemma and pos — is implemented,
+ * so the engine never throws this; it is kept as a stable extension point.
+ */
 export class UnsupportedQueryError extends Error {
   constructor(type: string) {
-    super(`query type '${type}' is not implemented: morphology is not ingested yet`);
+    super(`query type '${type}' is not implemented`);
     this.name = 'UnsupportedQueryError';
   }
 }

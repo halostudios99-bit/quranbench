@@ -66,6 +66,44 @@ export interface Segment {
   leading_marks: string[];
 }
 
+/**
+ * One sub-word morpheme of a token: a prefix, the stem, or a suffix. `text` is
+ * the morpheme's Leeds surface form; concatenating a token's segment texts
+ * reproduces its morphological surface. `root`/`root_slug`/`lemma` are present
+ * only where the morpheme carries them (stems have roots; clitics have lemmas).
+ */
+export interface MorphSegment {
+  text: string;
+  type: 'prefix' | 'stem' | 'suffix';
+  pos: string;
+  /** Spaced-Arabic root, e.g. `ز ك و`. Present on root-bearing stems only. */
+  root?: string;
+  /** URL transliteration of `root`, e.g. `z-k-w`. */
+  root_slug?: string;
+  lemma?: string;
+  features: Record<string, unknown>;
+}
+
+/**
+ * A token's morphological annotation (Leeds QAC, GPL — see the manifest's
+ * `morphology` block and docs/licensing.md). An annotation layer: it never
+ * changes the token's id, position or text. Word-level `root`/`lemma`/`pos`/
+ * `features` are taken from the token's head stem; `segments` is the full
+ * prefix/stem/suffix breakdown.
+ */
+export interface Morphology {
+  /** Spaced-Arabic root, or null for particles, pronouns, proper nouns, muqaṭṭaʿāt. */
+  root: string | null;
+  root_slug: string | null;
+  lemma: string | null;
+  pos: string;
+  features: Record<string, unknown>;
+  segments: MorphSegment[];
+  morphology_source: string;
+  /** How the Leeds word aligned onto this token (provenance of the annotation). */
+  alignment: string;
+}
+
 /** An addressable atom — a whitespace-delimited word. tokens.jsonl. */
 export interface Token {
   id: string;
@@ -81,6 +119,21 @@ export interface Token {
   char_end: number;
   following_marks: string[];
   is_basmala: boolean;
+  morphology: Morphology;
+}
+
+/**
+ * One root and every token it appears in. morphology/roots.json.
+ * `root` is the spaced-Arabic identity form; `root_slug` its URL transliteration.
+ */
+export interface Root {
+  root: string;
+  root_slug: string;
+  /** Distinct lemmas under this root, most frequent first. */
+  lemmas: string[];
+  occurrences: number;
+  /** Token ids carrying this root, in corpus order. */
+  token_ids: string[];
 }
 
 /** A verse-counting tradition, expressed as data. numbering/<id>.json. */
@@ -139,6 +192,8 @@ export interface Manifest {
     applies_to: string[];
     detail: string;
   }>;
+  /** Morphology provenance: source, alignment summary, root counts, licence. */
+  morphology?: Record<string, unknown>;
 }
 
 /**
@@ -154,6 +209,8 @@ export interface Corpus {
   /** Counted verse rows only. See Segment. */
   segments: Segment[];
   tokens: Token[];
+  /** One record per root (morphology/roots.json), most frequent first. */
+  roots: Root[];
   numbering: Map<string, NumberingScheme>;
   /** sha256 of each loaded artifact file, computed at load time. */
   checksums: Record<string, string>;
