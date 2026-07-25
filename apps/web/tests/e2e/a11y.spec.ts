@@ -18,6 +18,10 @@ const PATHS = [
   '/compare?v=2:255',
   '/compare?v=112:1-4',
   '/compare?q=mercy',
+  '/data',
+  '/method',
+  '/identifiers',
+  '/offline',
 ];
 
 for (const path of PATHS) {

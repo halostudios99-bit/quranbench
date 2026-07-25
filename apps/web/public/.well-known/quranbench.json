@@ -1,0 +1,25 @@
+{
+  "name": "quranbench",
+  "description": "An open Quran research workbench. Every Arabic word is a permanent, addressable research object.",
+  "homepage": "https://quranbench.com",
+  "api": {
+    "base": "https://quranbench.com/api/v1",
+    "openapi": "https://quranbench.com/api/v1/openapi.json",
+    "manifest": "https://quranbench.com/api/v1/manifest",
+    "versions": "https://quranbench.com/api/v1/versions",
+    "auth": "none",
+    "rate_limit_per_minute": 600
+  },
+  "dataset": {
+    "index": "https://quranbench.com/data",
+    "licences": {
+      "text": "CC-BY-3.0 (Tanzil Uthmani)",
+      "morphology": "GPL-2.0-or-later (Leeds Quranic Arabic Corpus)",
+      "translations": "public-domain editions, per edition"
+    }
+  },
+  "identifier_policy": "https://quranbench.com/identifiers",
+  "method": "https://quranbench.com/method",
+  "mcp": "https://quranbench.com/docs/mcp",
+  "ai_usage": "Crawling and grounding are welcomed. Cite the corpus version returned with every response."
+}

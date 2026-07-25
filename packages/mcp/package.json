@@ -1,0 +1,25 @@
+{
+  "name": "@quranbench/mcp",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Model Context Protocol server for quranbench — a thin wrapper over the public API.",
+  "bin": {
+    "quranbench-mcp": "./src/index.ts"
+  },
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./client": "./src/client.ts",
+    "./tools": "./src/tools.ts",
+    "./server": "./src/server.ts"
+  },
+  "scripts": {
+    "start": "node --experimental-strip-types src/index.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.24.1"
+  }
+}

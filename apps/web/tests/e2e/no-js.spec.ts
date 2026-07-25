@@ -30,6 +30,34 @@ for (const { path, heading } of PAGES) {
   });
 }
 
+// The infrastructure pages (Part C/D) carry no Arabic tokens, so they are
+// checked separately: their substance must still be in the server HTML.
+test('the data page lists downloads and a citation without JavaScript', async ({
+  page,
+}) => {
+  await page.goto('/data');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    /Download the dataset/,
+  );
+  await expect(
+    page.getByRole('link', { name: 'verses.jsonl' }).first(),
+  ).toBeVisible();
+  // One citation per published version — assert the first is server-rendered.
+  await expect(page.getByText(/Quran corpus, version/).first()).toBeVisible();
+  await expect(page.getByText(/sha256\(manifest\.json\)=/).first()).toBeVisible();
+});
+
+test('the method page renders its explanation without JavaScript', async ({
+  page,
+}) => {
+  await page.goto('/method');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    /How this is built/,
+  );
+  await expect(page.getByText(/Known limitations/)).toBeVisible();
+  await expect(page.getByText(/verse-level/i).first()).toBeVisible();
+});
+
 test('surah navigation links work without JavaScript', async ({ page }) => {
   await page.goto('/2/43');
   await page.getByRole('link', { name: /^All of/ }).click();
