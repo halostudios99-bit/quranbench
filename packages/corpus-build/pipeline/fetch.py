@@ -1,0 +1,69 @@
+"""Stage 1 — fetch.
+
+Download every upstream ``Source`` into ``sources/`` and verify each against the
+SHA-256 recorded in ``sources/checksums.json``. A file already present with a
+matching checksum is left untouched. A checksum mismatch is a hard error — the
+pipeline never silently re-downloads or overwrites over a bad hash.
+"""
+
+from __future__ import annotations
+
+import json
+import sys
+import urllib.request
+from pathlib import Path
+
+from .paths import CHECKSUMS_FILE, SOURCES_DIR, sha256_file
+from .sources import SOURCES, Source
+
+
+class ChecksumError(RuntimeError):
+    pass
+
+
+def load_checksums() -> dict[str, str]:
+    data = json.loads(CHECKSUMS_FILE.read_text(encoding="utf-8"))
+    return {k: v for k, v in data.items() if not k.startswith("_")}
+
+
+def _download(url: str, dest: Path) -> None:
+    req = urllib.request.Request(url, headers={"User-Agent": "quranbench-corpus-build"})
+    with urllib.request.urlopen(req, timeout=60) as resp:  # noqa: S310 (trusted upstream)
+        dest.write_bytes(resp.read())
+
+
+def fetch_source(source: Source, expected: dict[str, str]) -> str:
+    dest = SOURCES_DIR / source.filename
+    want = expected.get(source.filename)
+    if want is None:
+        raise ChecksumError(f"no recorded checksum for {source.filename}")
+
+    if dest.exists() and sha256_file(dest) == want:
+        return "cached"
+
+    _download(source.url, dest)
+    got = sha256_file(dest)
+    if got != want:
+        raise ChecksumError(
+            f"checksum mismatch for {source.filename}: expected {want}, got {got}"
+        )
+    return "downloaded"
+
+
+def fetch_all() -> dict[str, str]:
+    SOURCES_DIR.mkdir(parents=True, exist_ok=True)
+    expected = load_checksums()
+    results: dict[str, str] = {}
+    for source in SOURCES:
+        results[source.id] = fetch_source(source, expected)
+    return results
+
+
+def main() -> int:
+    for source_id, status in fetch_all().items():
+        print(f"{status:>10}  {source_id}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

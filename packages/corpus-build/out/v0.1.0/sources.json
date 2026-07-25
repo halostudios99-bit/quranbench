@@ -1,0 +1,35 @@
+[
+  {
+    "id": "tanzil-uthmani",
+    "name": "Tanzil Quran Text (Uthmani)",
+    "publisher": "Tanzil Project",
+    "edition": "Uthmani 1.1",
+    "year": null,
+    "url": "https://tanzil.net/pub/download/index.php?quranType=uthmani&outType=txt-2&agree=true",
+    "licence": "CC-BY-3.0",
+    "role": "text-edition",
+    "sha256": "bf4f57b968d03f4131c070b1e285da9be0e0a108a21c910e872801ca273312c8"
+  },
+  {
+    "id": "tanzil-simple",
+    "name": "Tanzil Quran Text (Simple)",
+    "publisher": "Tanzil Project",
+    "edition": "Simple 1.1",
+    "year": null,
+    "url": "https://tanzil.net/pub/download/index.php?quranType=simple&outType=txt-2&agree=true",
+    "licence": "CC-BY-3.0",
+    "role": "text-edition",
+    "sha256": "f3268cfe7a400add8a8024fe23368d66f58cc8baa51773fe94e323625c66344b"
+  },
+  {
+    "id": "tanzil-metadata",
+    "name": "Tanzil Quran Metadata",
+    "publisher": "Tanzil Project",
+    "edition": "1.0",
+    "year": 2009,
+    "url": "https://tanzil.net/res/text/metadata/quran-data.xml",
+    "licence": "CC-BY-3.0",
+    "role": "metadata",
+    "sha256": "8867c1d88191472adec9db694b3cd9f135b1a2ef580574d32cf888dcb22c5c7a"
+  }
+]

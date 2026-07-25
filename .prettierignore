@@ -1,0 +1,6 @@
+node_modules
+.next
+dist
+pnpm-lock.yaml
+packages/corpus-build/out
+packages/corpus-build/sources

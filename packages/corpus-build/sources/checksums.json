@@ -1,0 +1,6 @@
+{
+  "_comment": "SHA-256 of each raw upstream file. fetch.py verifies downloads against these and skips re-downloading a file that already matches. Never edit by hand to match a bad download.",
+  "tanzil-uthmani.txt": "bf4f57b968d03f4131c070b1e285da9be0e0a108a21c910e872801ca273312c8",
+  "tanzil-simple.txt": "f3268cfe7a400add8a8024fe23368d66f58cc8baa51773fe94e323625c66344b",
+  "quran-metadata.xml": "8867c1d88191472adec9db694b3cd9f135b1a2ef580574d32cf888dcb22c5c7a"
+}
