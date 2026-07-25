@@ -231,6 +231,121 @@ a {
   text-decoration: none;
 }
 
+/* ── Token tooltip (TokenTooltip.tsx) ──────────────────────────────────────
+   A floating popover on desktop, a bottom sheet on mobile. The tooltip fades;
+   the Arabic never moves. Colour is all through custom properties. */
+.qb-tt-popover {
+  position: fixed;
+  z-index: 60;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  max-width: min(20rem, calc(100vw - 16px));
+  padding: 10px 12px;
+  border: 0.5px solid var(--line2);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--ink);
+  box-shadow: 0 6px 24px -8px rgba(0, 0, 0, 0.35);
+  /* Hidden until positioned, then a 120ms opacity-only fade (no glyph motion). */
+  opacity: 0;
+  transition: opacity 120ms linear;
+  pointer-events: auto;
+}
+.qb-tt-popover[data-shown='true'] {
+  opacity: 1;
+}
+.qb-tt-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.qb-tt-translit {
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink);
+}
+.qb-tt-gloss {
+  font-size: 14px;
+  color: var(--ink);
+}
+.qb-tt-root {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-block-start: 2px;
+  font-size: 13px;
+  color: var(--accent);
+}
+.qb-tt-root:hover {
+  text-decoration: underline;
+}
+.qb-tt-root-label {
+  color: var(--ink3);
+}
+.qb-tt-root-ar {
+  font-size: 18px;
+  line-height: 1;
+}
+.qb-tt-root-count {
+  color: var(--ink3);
+}
+.qb-tt-src {
+  margin-block-start: 4px;
+  font-size: 11px;
+  color: var(--ink3);
+}
+
+.qb-tt-sheet-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-end;
+  background: rgba(0, 0, 0, 0.4);
+}
+.qb-tt-sheet {
+  width: 100%;
+  padding: 12px 20px calc(20px + env(safe-area-inset-bottom));
+  border-start-start-radius: 16px;
+  border-start-end-radius: 16px;
+  background: var(--panel);
+  color: var(--ink);
+  box-shadow: 0 -8px 32px -8px rgba(0, 0, 0, 0.4);
+  animation: qb-sheet-up 300ms cubic-bezier(0.2, 0, 0, 1);
+}
+@keyframes qb-sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.qb-tt-grip {
+  width: 36px;
+  height: 4px;
+  margin: 0 auto 12px;
+  border-radius: 2px;
+  background: var(--line2);
+}
+.qb-tt-sheet-word {
+  display: inline-block;
+  margin-block-start: 12px;
+  font-size: 14px;
+  color: var(--accent);
+}
+.qb-tt-sheet-close {
+  display: block;
+  width: 100%;
+  margin-block-start: 12px;
+  padding: 10px;
+  border: 0.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--ink2);
+  font-size: 14px;
+}
+
 /* Motion: transform/opacity only, 120–300ms; disabled under reduced-motion. */
 @media (prefers-reduced-motion: reduce) {
   *,

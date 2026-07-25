@@ -1,0 +1,31 @@
+{
+  "scheme": "tanzil-uthmani",
+  "format": "quran:tanzil-uthmani:<surah>:<segment>:<position>",
+  "components": [
+    "work",
+    "scheme",
+    "surah",
+    "segment",
+    "position"
+  ],
+  "position_1_based": true,
+  "segment_slot": {
+    "detail": "The <segment> component addresses a segment within a surah. It is one of two kinds, both first-class parts of this scheme.",
+    "ordinal": {
+      "detail": "A decimal ordinal ayah number, e.g. 43 in quran:tanzil-uthmani:2:43. Ordinary verses use ordinal slots. The ordinal corresponds to the active numbering scheme (see manifest.numbering); it is an attribute, not the identity — a different scheme may number the same segment differently.",
+      "example": "quran:tanzil-uthmani:2:43:4"
+    },
+    "named_slots": {
+      "detail": "A named, non-ordinal slot. A named slot asserts no counting position, so no numbering tradition is baked into the identifier.",
+      "slots": {
+        "basmala": "The separated surah-opening basmala, e.g. quran:tanzil-uthmani:2:basmala:1. Deliberately not numbered: whether it is a verse, and if so which, is left to each numbering scheme as data. Al-Fatiha's basmala is verse 1:1 and uses an ordinal slot, not this named slot; surah 9 has no basmala and therefore no such slot."
+      }
+    }
+  },
+  "guarantees": {
+    "opaque_and_permanent": true,
+    "position_is_attribute_not_identity": true,
+    "detail": "The identity string encodes (surah, segment, position) under a named segmentation scheme, but the ordinal number a segment carries is an attribute of the token, not its identity. A token that moves, splits or merges in a later corpus version receives an explicit successor or tombstone in mapping/."
+  },
+  "basmala_note": "A separated surah-opening basmala is addressed by the named 'basmala' slot, never an ordinal. Al-Fatiha's basmala is verse 1:1. Surah 9 has no basmala segment."
+}

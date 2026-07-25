@@ -21,10 +21,14 @@ import re
 from dataclasses import dataclass, field
 from typing import Any
 
+from .glosses import WordAnnotation
 from .identifiers import token_id
-from .sources import MORPHOLOGY_SOURCE_ID
+from .sources import GLOSS_SOURCE_ID, MORPHOLOGY_SOURCE_ID, TRANSLITERATION_SOURCE_ID
 from .translit import spaced as spaced_root
 from .translit import to_slug
+from .translit_word import transliterate as compute_translit
+
+COMPUTED_TRANSLITERATION_SOURCE = "computed-din31635"
 
 # --- feature vocabulary (from the fork's morphology-terms-ar.json) ------------
 # Nominal sub-parts-of-speech: when one heads a nominal stem it IS the pos;
@@ -85,6 +89,9 @@ class LeedsWord:
     verse: int
     word: int
     segments: list[Segment]
+    #: The word's English gloss and transliteration (pipeline.glosses), attached
+    #: after parsing from the positional QAC annotation files. Absent until set.
+    annotation: WordAnnotation | None = None
 
     @property
     def surface(self) -> str:
@@ -243,7 +250,42 @@ class Annotation:
     lemma: str | None
 
 
-def _build_block(segments: list[Segment], kind: str) -> Annotation:
+def _gloss_translit_fields(
+    segments: list[Segment], annotation: WordAnnotation | None
+) -> dict[str, Any]:
+    """The gloss + transliteration fields of a token's morphology block.
+
+    Gloss and transliteration are the Leeds/QAC word annotation where the word
+    aligned to one; transliteration falls back to the documented computed scheme
+    (``pipeline.translit_word``) when no Leeds transliteration exists, recording
+    which source produced it. Both are ``None``-not-empty when truly absent.
+    """
+    if annotation is not None and annotation.gloss != "":
+        gloss: str | None = annotation.gloss
+        gloss_source: str | None = GLOSS_SOURCE_ID
+    else:
+        gloss, gloss_source = None, None
+
+    if annotation is not None and annotation.transliteration != "":
+        translit: str | None = annotation.transliteration
+        translit_source = TRANSLITERATION_SOURCE_ID
+    else:
+        surface = "".join(s.text for s in segments)
+        computed = compute_translit(surface)
+        translit = computed if computed else None
+        translit_source = COMPUTED_TRANSLITERATION_SOURCE if translit else None
+
+    return {
+        "gloss": gloss,
+        "gloss_source": gloss_source,
+        "transliteration": translit,
+        "transliteration_source": translit_source,
+    }
+
+
+def _build_block(
+    segments: list[Segment], kind: str, annotation: WordAnnotation | None
+) -> Annotation:
     prim = _primary_stem(segments)
     root_raw = prim.root if prim else None
     lemma = prim.lemma if prim else None
@@ -260,6 +302,10 @@ def _build_block(segments: list[Segment], kind: str) -> Annotation:
         "pos": pos,
         "features": _ordered_features(features),
         "segments": [s.record() for s in segments],
+        **_gloss_translit_fields(segments, annotation),
+        # Denormalised from roots.json for the hover tooltip's root link; filled in
+        # a post-pass once every root's total is known. None for rootless tokens.
+        "root_occurrences": None,
         "morphology_source": MORPHOLOGY_SOURCE_ID,
         "alignment": kind,
     }
@@ -281,6 +327,11 @@ class AlignmentStats:
     merged_words: int = 0
     merged_tokens: int = 0
     basmala_copied: int = 0
+    gloss_present: int = 0
+    gloss_absent: list[str] = field(default_factory=list)
+    translit_leeds: int = 0
+    translit_computed: int = 0
+    translit_absent: list[str] = field(default_factory=list)
     failed: list[tuple[str, str, str]] = field(default_factory=list)
     unaligned_our: list[str] = field(default_factory=list)
     merged_detail: list[tuple[str, str, list[str]]] = field(default_factory=list)
@@ -303,8 +354,13 @@ def _split_segments(segments: list[Segment], first_surface: str) -> tuple[list[S
 def annotate(
     token_records: list[dict[str, Any]],
     morphology_text: str,
+    word_annotations: dict[tuple[int, int, int], WordAnnotation] | None = None,
 ) -> tuple[dict[str, dict[str, Any]], list[dict[str, Any]], AlignmentStats]:
     """Align Leeds words to our tokens and build a morphology block for each.
+
+    ``word_annotations`` (from ``pipeline.glosses``) supplies each Leeds word's
+    gloss and transliteration, carried onto the token(s) that word aligns to — the
+    same word→token alignment, reused rather than recomputed.
 
     Returns ``(blocks_by_token_id, roots_records, stats)``. Raises nothing on
     ordinary discrepancies — they are recorded in ``stats`` — but a structural
@@ -312,6 +368,10 @@ def annotate(
     as an unaligned entry to be inspected, never a silent drop.
     """
     morph = parse_morphology(morphology_text)
+    if word_annotations:
+        for words in morph.values():
+            for lw in words:
+                lw.annotation = word_annotations.get((lw.surah, lw.verse, lw.word))
 
     # our tokens grouped by (surah, slot), in position order.
     by_seg: dict[tuple[int, str], list[dict[str, Any]]] = {}
@@ -334,9 +394,15 @@ def annotate(
         if lemma is not None:
             entry["lemmas"][lemma] = entry["lemmas"].get(lemma, 0) + 1
 
-    def assign(token: dict[str, Any], segments: list[Segment], kind: str) -> None:
-        ann = _build_block(segments, kind)
+    def assign(
+        token: dict[str, Any],
+        segments: list[Segment],
+        kind: str,
+        annotation: WordAnnotation | None,
+    ) -> None:
+        ann = _build_block(segments, kind, annotation)
         blocks[token["id"]] = ann.block
+        _count_annotation(ann.block, token["id"], stats)
         record_root(ann.root_raw, ann.lemma, token["id"])
         roots_in_word = {s.root for s in segments if s.root is not None}
         if len(roots_in_word) > 1:
@@ -372,6 +438,7 @@ def annotate(
                     stats.failed.append((token["id"], surface, token["text_uthmani"]))
                     continue
                 blocks[token["id"]] = block
+                _count_annotation(block, token["id"], stats)
                 record_root(_raw_root_of(block), block["lemma"], token["id"])
                 stats.basmala_copied += 1
 
@@ -388,7 +455,31 @@ def annotate(
             stats.unaligned_our.append(t["id"])
 
     roots_records = _build_roots_records(roots, token_records)
+
+    # Denormalise each root's total occurrence count onto its tokens' blocks, so
+    # the hover tooltip can show "root · N occurrences" without a lookup. Source of
+    # truth stays roots.json; a test asserts the two agree.
+    occ_by_slug = {r["root_slug"]: r["occurrences"] for r in roots_records}
+    for block in blocks.values():
+        slug = block.get("root_slug")
+        if slug is not None:
+            block["root_occurrences"] = occ_by_slug.get(slug)
+
     return blocks, roots_records, stats
+
+
+def _count_annotation(block: dict[str, Any], token_id_str: str, stats: AlignmentStats) -> None:
+    if block.get("gloss"):
+        stats.gloss_present += 1
+    else:
+        stats.gloss_absent.append(token_id_str)
+    source = block.get("transliteration_source")
+    if source == TRANSLITERATION_SOURCE_ID:
+        stats.translit_leeds += 1
+    elif source == COMPUTED_TRANSLITERATION_SOURCE:
+        stats.translit_computed += 1
+    else:
+        stats.translit_absent.append(token_id_str)
 
 
 def _align_verse(
@@ -409,15 +500,15 @@ def _align_verse(
         ot = our_toks[i]
         ou = ot["text_uthmani"]
         if ou == surface:
-            assign(ot, lw.segments, "exact")
+            assign(ot, lw.segments, "exact", lw.annotation)
             stats.exact += 1
             i += 1
         elif afold(ou) == afold(surface):
-            assign(ot, lw.segments, "normalised")
+            assign(ot, lw.segments, "normalised", lw.annotation)
             stats.normalised += 1
             i += 1
         elif afold_ext(ou) == afold_ext(surface):
-            assign(ot, lw.segments, "extended")
+            assign(ot, lw.segments, "extended", lw.annotation)
             stats.extended += 1
             stats.extended_detail.append((ot["id"], surface, ou))
             i += 1
@@ -457,8 +548,8 @@ def _assign_merged(
         else:  # pragma: no cover — no such case in the corpus
             stats.failed.append((f"{surah}:{slot}:{lw.word}", lw.surface, a["text_uthmani"]))
             return
-    assign(a, left, "merged")
-    assign(b, right, "merged")
+    assign(a, left, "merged", lw.annotation)
+    assign(b, right, "merged", lw.annotation)
     stats.merged_words += 1
     stats.merged_tokens += 2
     stats.merged_detail.append((f"{surah}:{slot}:{lw.word}", lw.surface, [a["text_uthmani"], b["text_uthmani"]]))
@@ -478,6 +569,13 @@ def _copy_basmala(template: dict[str, Any]) -> dict[str, Any]:
         "pos": template["pos"],
         "features": dict(template["features"]),
         "segments": [dict(s) for s in template["segments"]],
+        # The separated basmala's words are al-Fatiha's basmala words, so its gloss
+        # and transliteration are copied verbatim from the 1:1 template.
+        "gloss": template["gloss"],
+        "gloss_source": template["gloss_source"],
+        "transliteration": template["transliteration"],
+        "transliteration_source": template["transliteration_source"],
+        "root_occurrences": template.get("root_occurrences"),
         "morphology_source": MORPHOLOGY_SOURCE_ID,
         "alignment": "basmala-copied",
     }
@@ -526,6 +624,11 @@ def report_stats(stats: AlignmentStats, roots_records: list[dict[str, Any]]) -> 
         "distinct_roots": len(roots_records),
         "tokens_with_root": tokens_with_root,
         "tokens_without_root": stats.our_tokens - tokens_with_root,
+        "gloss_present": stats.gloss_present,
+        "gloss_absent": len(stats.gloss_absent),
+        "translit_leeds": stats.translit_leeds,
+        "translit_computed": stats.translit_computed,
+        "translit_absent": len(stats.translit_absent),
     }
 
 
@@ -614,5 +717,105 @@ def render_report(stats: AlignmentStats, roots_records: list[dict[str, Any]]) ->
     w("| --- | --- | --- |")
     for r in roots_records[:10]:
         w(f"| {r['root']} | {r['root_slug']} | {r['occurrences']} |")
+    w("")
+    return "\n".join(lines)
+
+
+# --- gloss + transliteration report -------------------------------------------
+def _pos_sample(
+    blocks: dict[str, dict[str, Any]],
+    token_records: list[dict[str, Any]],
+    per_pos: int,
+    max_total: int,
+) -> list[dict[str, Any]]:
+    """Up to ``per_pos`` glossed tokens for each part of speech, in corpus order,
+    capped at ``max_total`` — an honest cross-section for judging gloss quality."""
+    by_id = {t["id"]: t for t in token_records}
+    seen: dict[str, int] = {}
+    sample: list[dict[str, Any]] = []
+    for tid, block in blocks.items():
+        if not block.get("gloss"):
+            continue
+        pos = block.get("pos", "?")
+        if seen.get(pos, 0) >= per_pos:
+            continue
+        seen[pos] = seen.get(pos, 0) + 1
+        tok = by_id.get(tid, {})
+        sample.append(
+            {
+                "id": tid,
+                "pos": pos,
+                "text": tok.get("text_uthmani", ""),
+                "translit": block.get("transliteration") or "",
+                "gloss": block["gloss"],
+            }
+        )
+        if len(sample) >= max_total:
+            break
+    return sample
+
+
+def render_gloss_report(
+    stats: AlignmentStats,
+    blocks: dict[str, dict[str, Any]],
+    token_records: list[dict[str, Any]],
+) -> str:
+    lines: list[str] = []
+    w = lines.append
+    total = stats.our_tokens
+    w("# Word gloss + transliteration report\n")
+    w(
+        "Generated by `pipeline.morphology`. The terse English gloss and the Latin "
+        "transliteration are from the Quranic Arabic Corpus (Kais Dukes; see "
+        "`GLOSS-ATTRIBUTION.md`), carried onto token ids by the **same** word→token "
+        "alignment as the morphology — not a second aligner. Both are an annotation "
+        "layer: token ids, positions and surface text are unchanged.\n"
+    )
+    w("## Coverage\n")
+    w(f"- our tokens: **{total}**")
+    w(
+        f"- tokens with a gloss: **{stats.gloss_present}** "
+        f"({100 * stats.gloss_present / total:.2f}%)"
+    )
+    w(
+        f"- tokens with no gloss (None, not empty): **{len(stats.gloss_absent)}** "
+        f"({100 * len(stats.gloss_absent) / total:.2f}%)"
+    )
+    w(f"- transliteration from the QAC (Leeds): **{stats.translit_leeds}**")
+    w(
+        f"- transliteration from the computed DIN-31635 fallback: "
+        f"**{stats.translit_computed}**"
+    )
+    w(f"- tokens with no transliteration at all: **{len(stats.translit_absent)}**\n")
+
+    if stats.gloss_absent:
+        w("## Tokens with no gloss\n")
+        w(
+            "Every token here has a morphology block but no aligned Leeds gloss "
+            "(e.g. a merged-word remainder). Listed in full, never dropped silently.\n"
+        )
+        for tid in stats.gloss_absent:
+            w(f"- `{tid}`")
+        w("")
+    if stats.translit_absent:
+        w("## Tokens with no transliteration\n")
+        for tid in stats.translit_absent:
+            w(f"- `{tid}`")
+        w("")
+
+    sample = _pos_sample(blocks, token_records, per_pos=15, max_total=220)
+    w(f"## Honest quality sample ({len(sample)} tokens across parts of speech)\n")
+    w(
+        "The Leeds glosses are deliberately terse and interlinear — bracketed "
+        "helper words, sentence fragments, occasional awkwardness (\"and (do) not\"). "
+        "They read as a word-by-word crib, not fluent English, and they are shown "
+        "with that provenance, never as unattributed fact. They are someone else's "
+        "data and are shipped verbatim, not rewritten. Judge for yourself:\n"
+    )
+    w("| token | pos | translit | gloss |")
+    w("| --- | --- | --- | --- |")
+    for row in sample:
+        gloss = row["gloss"].replace("|", "\\|")
+        w(f"| {row['text']} | {row['pos']} | {row['translit']} | {gloss} |")
     w("")
     return "\n".join(lines)

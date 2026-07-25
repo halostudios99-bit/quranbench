@@ -30,6 +30,26 @@ test('root page: distribution and lemma sections render', async ({ page }) => {
   ).toBeVisible();
 });
 
+test("root with a Lane's Lexicon entry renders the Meaning section", async ({
+  page,
+}) => {
+  await page.goto('/root/z-k-w');
+  await expect(page.getByRole('heading', { name: 'Meaning' })).toBeVisible();
+  await expect(page.getByText(/Edward William Lane/)).toBeVisible();
+  // The full entry ships in the HTML behind a native expander (crawlable, no-JS).
+  const expander = page.locator('details summary', { hasText: /full entry/i });
+  await expect(expander).toBeVisible();
+});
+
+test('root with no Lane entry shows an explicit no-entry message', async ({
+  page,
+}) => {
+  // د ب ر (root:d-b-r) is genuinely absent from this Perseus digitisation of Lane.
+  await page.goto('/root/d-b-r');
+  await expect(page.getByRole('heading', { name: 'Meaning' })).toBeVisible();
+  await expect(page.getByText(/No entry in Lane/i)).toBeVisible();
+});
+
 test('Arabic spaced root redirects to the canonical slug', async ({ page }) => {
   await page.goto(ARABIC_ZKW);
   await expect(page).toHaveURL(/\/root\/z-k-w$/);

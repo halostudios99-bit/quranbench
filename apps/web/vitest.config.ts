@@ -3,6 +3,9 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
+  // Components use the automatic JSX runtime (like the Next build), so a test that
+  // renders one to static markup needs esbuild to emit jsx-runtime calls too.
+  esbuild: { jsx: 'automatic' },
   test: {
     include: ['tests/unit/**/*.test.ts', 'src/**/*.test.ts'],
     exclude: ['**/node_modules/**', '**/.next/**', 'tests/e2e/**'],

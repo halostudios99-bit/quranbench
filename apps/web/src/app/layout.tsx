@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 
 import { ActionController } from '@/components/ActionController';
 import { ServiceWorker } from '@/components/ServiceWorker';
+import { TokenTooltip } from '@/components/TokenTooltip';
 import { SiteFooter } from '@/components/SiteFooter';
 import { SiteHeader } from '@/components/SiteHeader';
 import { ThemeProvider } from '@/components/ThemeProvider';
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
           <SiteFooter />
           <ActionController />
+          <TokenTooltip />
           <ServiceWorker />
         </ThemeProvider>
       </body>

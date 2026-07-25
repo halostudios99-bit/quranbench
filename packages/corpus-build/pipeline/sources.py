@@ -84,6 +84,45 @@ SOURCES: tuple[Source, ...] = (
         filename="quran-morphology.txt",
         role="morphology",
     ),
+    # The Leeds QAC's terse per-word English gloss and per-word transliteration,
+    # taken from the corpus author's own backend (Kais Dukes, kaisdukes/
+    # quranic-corpus-api), pinned to an immutable commit. Both files are strictly
+    # positional — one line per word in canonical mushaf order — matching the
+    # 77,429 distinct word-locations of the morphology file exactly, which is how
+    # they align onto our token ids (see pipeline/glosses.py). The QAC content is
+    # GPL (corpus.quran.com/download states "License: GNU General Public License");
+    # the caveat that this specific repo carries no LICENSE file of its own is
+    # recorded honestly in morphology/GLOSS-ATTRIBUTION.md. Copyleft propagates:
+    # any artifact carrying this data is GPL-2.0-or-later, as tokens.jsonl already is.
+    Source(
+        id="qac-word-gloss",
+        name="Quranic Arabic Corpus — word-by-word English gloss (Kais Dukes)",
+        publisher="Kais Dukes / University of Leeds",
+        edition="QAC (quranic-corpus-api, commit 17a9062)",
+        year=2011,
+        url=(
+            "https://raw.githubusercontent.com/kaisdukes/quranic-corpus-api/"
+            "17a9062416eccc332111ef3e84f74072d709e187/"
+            "src/main/resources/data/translation/word-by-word.txt"
+        ),
+        licence="GPL-2.0-or-later",
+        filename="qac-word-gloss.txt",
+        role="word-gloss",
+    ),
+    Source(
+        id="qac-word-transliteration",
+        name="Quranic Arabic Corpus — word-by-word transliteration (Kais Dukes)",
+        publisher="Kais Dukes / University of Leeds",
+        edition="QAC (quranic-corpus-api, commit 17a9062)",
+        year=2011,
+        url=(
+            "https://raw.githubusercontent.com/kaisdukes/quranic-corpus-api/"
+            "17a9062416eccc332111ef3e84f74072d709e187/regression/phonetic.txt"
+        ),
+        licence="GPL-2.0-or-later",
+        filename="qac-word-transliteration.txt",
+        role="word-transliteration",
+    ),
 )
 
 # The edition whose segmentation defines canonical verse identities.
@@ -91,6 +130,10 @@ SEGMENTATION_SOURCE_ID = "tanzil-uthmani"
 
 # The source id whose morphological annotation is layered onto tokens.
 MORPHOLOGY_SOURCE_ID = "leeds-qac-morphology"
+
+# The QAC word-gloss and word-transliteration annotation sources.
+GLOSS_SOURCE_ID = "qac-word-gloss"
+TRANSLITERATION_SOURCE_ID = "qac-word-transliteration"
 
 SOURCES_BY_ID: dict[str, Source] = {s.id: s for s in SOURCES}
 

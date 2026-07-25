@@ -48,6 +48,77 @@ function Section({
   );
 }
 
+// Lane's Lexicon entry, split into a short preview and the full article. The full
+// text lives in the server-rendered HTML (inside <details>) so crawlers read the
+// whole entry; a reader sees the preview and expands with a native, JS-free control.
+function LaneMeaning({ view }: { view: RootView }) {
+  const lane = view.lane;
+  if (!lane) {
+    return (
+      <Section
+        title="Meaning"
+        provenance="external"
+        note="Lane's Lexicon · CC BY-SA 3.0"
+      >
+        <p className="text-[14px] text-ink2">
+          No entry in Lane's <em>Arabic-English Lexicon</em> for the root{' '}
+          <span lang="ar" dir="rtl" className="quran text-[20px]">
+            {view.root.root}
+          </span>
+          . Lane (d. 1876) died before completing the lexicon, and its later
+          volumes are thin or absent — this root falls in that gap. Its absence
+          here means only that Lane has no article for it, not that it has no
+          meaning.
+        </p>
+      </Section>
+    );
+  }
+  const paras = lane.text.split('\n\n').filter((p) => p.trim().length > 0);
+  const preview = paras.slice(0, 1);
+  const rest = paras.slice(1);
+  return (
+    <Section
+      title="Meaning"
+      provenance="external"
+      note="Lane's Lexicon · CC BY-SA 3.0"
+    >
+      <p className="mb-3 text-[13px] text-ink3">
+        From Edward William Lane, <em>An Arabic-English Lexicon</em>{' '}
+        (1863–1893), under the root{' '}
+        <span lang="ar" dir="rtl" className="quran text-[18px]">
+          {lane.headword_ar}
+        </span>
+        . Digitised by the Perseus Project (Tufts); Arabic decoded from
+        Perseus's transliteration.
+      </p>
+      <div
+        dir="ltr"
+        className="lane-entry text-[14px] leading-relaxed text-ink"
+      >
+        {preview.map((p, i) => (
+          <p key={i} className="mb-2">
+            {p}
+          </p>
+        ))}
+        {rest.length > 0 ? (
+          <details className="mt-1">
+            <summary className="cursor-pointer text-[13px] text-accent hover:underline">
+              Show the full entry ({paras.length} passages)
+            </summary>
+            <div className="mt-2">
+              {rest.map((p, i) => (
+                <p key={i} className="mb-2">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </details>
+        ) : null}
+      </div>
+    </Section>
+  );
+}
+
 function RefLink({ o, label }: { o: OccurrenceRef; label: string }) {
   return (
     <a href={o.wordHref} className="text-accent hover:underline">
@@ -181,6 +252,8 @@ export function RootPage({
             </div>
           </dl>
         </Section>
+
+        <LaneMeaning view={view} />
 
         <Section
           title={`Derived forms · ${view.distinctForms}`}

@@ -99,6 +99,21 @@ export interface Morphology {
   pos: string;
   features: Record<string, unknown>;
   segments: MorphSegment[];
+  /**
+   * Terse per-word English gloss from the Quranic Arabic Corpus (Kais Dukes),
+   * carried on by the same alignment as the morphology. `null`, never empty, when
+   * a token has no aligned gloss. Shown with provenance, never as unattributed fact.
+   */
+  gloss: string | null;
+  /** Source id of the gloss (present when `gloss` is). */
+  gloss_source: string | null;
+  /** Latin transliteration of the word (QAC where available, else computed). */
+  transliteration: string | null;
+  /** Which source produced the transliteration: the QAC, or the computed scheme. */
+  transliteration_source: string | null;
+  /** The root's total occurrence count, denormalised from roots.json for the
+   * hover tooltip's root link. `null` for rootless tokens. */
+  root_occurrences: number | null;
   morphology_source: string;
   /** How the Leeds word aligned onto this token (provenance of the annotation). */
   alignment: string;
@@ -134,6 +149,28 @@ export interface Root {
   occurrences: number;
   /** Token ids carrying this root, in corpus order. */
   token_ids: string[];
+}
+
+/**
+ * One root's entry in Lane's Lexicon (lexicon/lane.json), an external annotation
+ * mapped onto a root. CC BY-SA 3.0 (Perseus/Tufts digitisation of Lane, 1863–93).
+ * Coverage is uneven — a root with no entry simply has no record here, and the UI
+ * says so explicitly rather than showing a blank.
+ */
+export interface LaneEntry {
+  root_slug: string;
+  /** Spaced-Arabic root this entry is filed under. */
+  root: string;
+  /** The article's headword in Arabic (decoded from Lane's transliteration). */
+  headword_ar: string;
+  /** Lane's Buckwalter root key, for provenance. */
+  headword_bw: string;
+  /** How the root matched Lane: "direct" | "geminate". */
+  match: string;
+  source_id: string;
+  licence: string;
+  /** The article text: English prose with inline Arabic, decoded to Arabic script. */
+  text: string;
 }
 
 /**
@@ -256,6 +293,10 @@ export interface Manifest {
   }>;
   /** Morphology provenance: source, alignment summary, root counts, licence. */
   morphology?: Record<string, unknown>;
+  /** Word gloss + transliteration: source, coverage, licence (v0.8.0+). */
+  glosses?: Record<string, unknown>;
+  /** Lane's Lexicon: source, coverage fraction, licence (v0.8.0+). */
+  lexicon?: Record<string, unknown>;
   /** Translation editions: alignment method, licences, per-edition metadata. */
   translations?: TranslationsManifest;
 }
@@ -275,6 +316,8 @@ export interface Corpus {
   tokens: Token[];
   /** One record per root (morphology/roots.json), most frequent first. */
   roots: Root[];
+  /** Lane's Lexicon entries by root slug (lexicon/lane.json). Empty on older versions. */
+  lexicon: Map<string, LaneEntry>;
   /** Verse-level translation editions, in manifest order. Empty on older versions. */
   translations: LoadedTranslation[];
   numbering: Map<string, NumberingScheme>;

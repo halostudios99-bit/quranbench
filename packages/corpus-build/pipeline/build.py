@@ -44,15 +44,23 @@ from .numbering import (
     Segment,
     assign_ordinals,
 )
-from .morphology import annotate, render_report, report_stats
+from .glosses import load_word_annotations
+from . import lexicon as lexicon_mod
+from .morphology import annotate, render_gloss_report, render_report, report_stats
 from .parse import parse_metadata, parse_text
 from .paths import DATA_DIR, OUT_DIR, SOURCES_DIR, sha256_bytes, sha256_file
-from .sources import MORPHOLOGY_SOURCE_ID, SEGMENTATION_SOURCE_ID, SOURCES
+from .sources import (
+    GLOSS_SOURCE_ID,
+    MORPHOLOGY_SOURCE_ID,
+    SEGMENTATION_SOURCE_ID,
+    SOURCES,
+    TRANSLITERATION_SOURCE_ID,
+)
 from .tarball import is_distribution_file, write_full_tarball
 from .tokens import Token, segment_basmala, segment_verse
 from . import translations as translations_mod
 
-PREVIOUS_VERSION = "0.6.0"
+PREVIOUS_VERSION = "0.7.0"
 
 FIELD_PROVENANCE: dict[str, Any] = {
     "text_uthmani": {"source_id": "tanzil-uthmani", "transform": []},
@@ -96,6 +104,15 @@ TOKEN_FIELD_PROVENANCE: dict[str, Any] = {
     # from the Leeds QAC, aligned onto the token — never derived from Tanzil. Its
     # provenance is the morphology source; it does not touch the text_* fields.
     "morphology": {"source_id": MORPHOLOGY_SOURCE_ID, "transform": ["align-leeds-qac"]},
+    # The word gloss and transliteration (inside the morphology block) are the QAC
+    # word annotation, carried on by the same alignment. Transliteration falls back
+    # to a computed DIN-31635 romanisation where no Leeds value exists (recorded per
+    # token in transliteration_source).
+    "morphology.gloss": {"source_id": GLOSS_SOURCE_ID, "transform": ["align-qac-word"]},
+    "morphology.transliteration": {
+        "source_id": TRANSLITERATION_SOURCE_ID,
+        "transform": ["align-qac-word", "or-computed-din31635"],
+    },
 }
 
 
@@ -413,20 +430,20 @@ def build_identifiers() -> dict[str, Any]:
 
 
 def _build_mapping() -> dict[str, Any]:
-    """The v0.6.0 -> v0.7.0 identifier mapping: a pure identity.
+    """The v0.7.0 -> v0.8.0 identifier mapping: a pure identity.
 
-    v0.7.0 adds one more verse-level translation edition (Talal Itani's ClearQuran,
-    display-only). Like every translation it aligns to existing verse ids (an
-    identity mapping) and never touches tokens; token and verse ids, positions and
-    surface text are unchanged. No id moves, so there are no explicit entries: every
-    prior id resolves to itself by the identity default.
+    v0.8.0 adds annotation layers only — a per-word English gloss and
+    transliteration inside each token's morphology block, and Lane's Lexicon entries
+    mapped onto roots. Annotations never touch token or verse ids, positions or
+    surface text. No id moves, so there are no explicit entries: every prior id
+    resolves to itself by the identity default.
     """
     return {
         "from_version": PREVIOUS_VERSION,
         "to_version": CORPUS_VERSION,
         "note": (
-            "Translation edition added (Talal Itani, display-only): aligned to "
-            "existing verse ids. No token or verse identifier changed, so no id is "
+            "Annotation layers added (word gloss + transliteration on tokens; Lane's "
+            "Lexicon on roots). No token or verse identifier changed, so no id is "
             "remapped and every prior id resolves to itself."
         ),
         "default_resolution": "identity",
@@ -703,6 +720,41 @@ def _morphology_manifest(summary: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _glosses_manifest(summary: dict[str, Any]) -> dict[str, Any]:
+    """The manifest's glosses block: what the word gloss + transliteration are,
+    their coverage, and the licence consequence — traceable from the manifest alone."""
+    return {
+        "gloss_source_id": GLOSS_SOURCE_ID,
+        "transliteration_source_id": TRANSLITERATION_SOURCE_ID,
+        "layer": "annotation",
+        "note": (
+            "Terse per-word English gloss and per-word transliteration from the "
+            "Quranic Arabic Corpus (Kais Dukes), carried onto tokens by the same "
+            "word→token alignment as the morphology. Stored inside each token's "
+            "morphology block as gloss/gloss_source and "
+            "transliteration/transliteration_source. Annotation layer: token ids, "
+            "positions and surface text are unchanged."
+        ),
+        "licence": "GPL-2.0-or-later",
+        "licence_note": (
+            "Same GPL Quranic Arabic Corpus content as the morphology. The upstream "
+            "repository (kaisdukes/quranic-corpus-api) carries no LICENSE file of its "
+            "own; the content is the GPL corpus.quran.com data by the corpus author. "
+            "See morphology/GLOSS-ATTRIBUTION.md."
+        ),
+        "coverage": {
+            "tokens": summary["our_tokens"],
+            "gloss_present": summary["gloss_present"],
+            "gloss_absent": summary["gloss_absent"],
+            "transliteration_leeds": summary["translit_leeds"],
+            "transliteration_computed": summary["translit_computed"],
+            "transliteration_absent": summary["translit_absent"],
+        },
+        "computed_transliteration_scheme": "DIN 31635 (fallback; pipeline/translit_word.py)",
+        "report": f"{MORPHOLOGY_DIR}/gloss-report.md",
+    }
+
+
 def _attribution_md(sources: list[dict[str, Any]]) -> str:
     m = next(s for s in sources if s["id"] == MORPHOLOGY_SOURCE_ID)
     return (
@@ -734,11 +786,208 @@ def _attribution_md(sources: list[dict[str, Any]]) -> str:
     )
 
 
+def _gloss_attribution_md(sources: list[dict[str, Any]]) -> str:
+    g = next(s for s in sources if s["id"] == GLOSS_SOURCE_ID)
+    t = next(s for s in sources if s["id"] == TRANSLITERATION_SOURCE_ID)
+    return (
+        "# Attribution — word gloss + transliteration\n\n"
+        "The terse per-word **English gloss** (`morphology.gloss` on each token) and "
+        "the per-word **transliteration** (`morphology.transliteration`) are derived "
+        "from the **Quranic Arabic Corpus** (QAC), the same GPL work as the "
+        "morphology.\n\n"
+        "- **Original work:** Quranic Arabic Corpus, corpus.quran.com\n"
+        "- **Author:** Kais Dukes, Language Research Group, University of Leeds\n"
+        "- **Licence:** GNU General Public License. corpus.quran.com/download states "
+        "verbatim: “License: GNU General Public License”, and lists "
+        "“Word-by-word analysis” and “English translation” among the "
+        "data it covers. The morphology `LICENSE` (GPL-2.0-or-later) in this "
+        "directory is that same licence.\n\n"
+        "## Where the files came from, and an honest licence caveat\n\n"
+        "The gloss and transliteration are published as data files in the corpus "
+        "author's own backend repository, `kaisdukes/quranic-corpus-api`, pinned to "
+        "an immutable commit:\n\n"
+        f"- **Gloss file:** `{g['name']}`\n"
+        f"  - URL: {g['url']}\n"
+        f"  - SHA-256: `{g['sha256']}`\n"
+        f"- **Transliteration file:** `{t['name']}`\n"
+        f"  - URL: {t['url']}\n"
+        f"  - SHA-256: `{t['sha256']}`\n\n"
+        "Honest caveat: that repository does **not** carry a `LICENSE` file of its "
+        "own, so at the repository level GitHub reports no licence. The *content*, "
+        "however, is unambiguously the GPL corpus.quran.com data by the corpus's own "
+        "author, which is the strongest provenance available for this annotation. We "
+        "record it under the same GPL-2.0-or-later as the morphology and attribute it "
+        "to the QAC; copyleft propagates to any artifact that carries it.\n\n"
+        "## How it is aligned\n\n"
+        "Both files are strictly positional — one line per word in canonical "
+        "mushaf order — with no `surah:verse:word` key. Their 77,429 lines line up "
+        "1:1 with the 77,429 distinct word-locations of the morphology file in the "
+        "same order, so line *i* is the gloss/transliteration of the morphology's "
+        "*i*-th distinct word. From there the **same** word→token alignment as the "
+        "morphology carries them onto token ids (`pipeline/glosses.py`, "
+        "`pipeline/morphology.py`). Coverage and every gap are enumerated in "
+        "`gloss-report.md`.\n"
+    )
+
+
+LEXICON_DIR = "lexicon"
+LANE_SOURCE_ID = "lane-lexicon"
+
+# The Perseus availability statement embedded verbatim in every Lane TEI file —
+# the file-level licence terms, recorded exactly as required.
+_PERSEUS_AVAILABILITY = (
+    "This text may be freely distributed, subject to the following restrictions: "
+    "(1) You credit Perseus, as follows, whenever you use the document: “Text "
+    "provided by Perseus Digital Library, with funding from The U.S. Department of "
+    "Education and The Max Planck Society.” (2) You leave this availability "
+    "statement intact. (3) You offer Perseus any modifications you make."
+)
+LANE_LICENCE = "CC-BY-SA-3.0"
+
+
+def _read_lane_files() -> dict[str, str]:
+    lane_dir = SOURCES_DIR / "lane"
+    files: dict[str, str] = {}
+    for name in lexicon_mod.LANE_FILES:
+        files[name] = (lane_dir / f"{name}.xml").read_text(encoding="utf-8")
+    return files
+
+
+def _lane_source_record(files: dict[str, str]) -> dict[str, Any]:
+    """One consolidated sources.json record for Lane's Lexicon. The aggregate
+    sha256 is over the sorted per-file hashes, so it pins the exact set of TEI
+    files ingested (each file's own hash is in sources/checksums.json)."""
+    per_file = sorted(sha256_bytes(x.encode("utf-8")) for x in files.values())
+    aggregate = sha256_bytes("\n".join(per_file).encode("utf-8"))
+    return {
+        "id": LANE_SOURCE_ID,
+        "name": "Lane's Arabic-English Lexicon (Perseus/Tufts TEI)",
+        "publisher": "Perseus Digital Library, Tufts University (text: E. W. Lane)",
+        "edition": f"laneslexicon/lexicon_xml originals, commit {lexicon_mod.LANE_COMMIT[:7]}",
+        "year": 1863,
+        "url": "https://github.com/laneslexicon/lexicon_xml",
+        "licence": LANE_LICENCE,
+        "role": "lexicon",
+        "sha256": aggregate,
+    }
+
+
+def _lane_attribution_md() -> str:
+    return (
+        "# Attribution — Lane's Lexicon\n\n"
+        "The **Meaning** section on each root page is from **Edward William Lane's "
+        "*An Arabic-English Lexicon*** (London: Williams and Norgate, 1863–1893), "
+        "the standard classical Arabic–English lexicon. Lane (d. 1876) is long in "
+        "the public domain.\n\n"
+        "The digitisation is the **Perseus Digital Library** (Tufts University) TEI "
+        "text, taken from the `laneslexicon/lexicon_xml` mirror of Perseus's "
+        "`originals`, pinned to commit "
+        f"`{lexicon_mod.LANE_COMMIT}`.\n\n"
+        "## Licence\n\n"
+        f"- **Site-level licence (Perseus):** {LANE_LICENCE} "
+        "(Creative Commons Attribution-ShareAlike 3.0 United States) — "
+        "<https://creativecommons.org/licenses/by-sa/3.0/us/>\n"
+        "- **File-level terms (embedded in each TEI file):** “"
+        f"{_PERSEUS_AVAILABILITY}”\n\n"
+        "Both are attribution + share-alike, so this text is displayable **and** "
+        "redistributable (unlike a NoDerivatives edition). When you redistribute it, "
+        "keep this attribution and the Perseus availability statement, credit Perseus "
+        "and its funders as quoted above, and pass on the same share-alike terms.\n\n"
+        "## How roots are matched, and coverage\n\n"
+        "Perseus stores Arabic in a Buckwalter transliteration; we decode each "
+        "article's root key to Arabic and match it to the corpus's roots by a folded "
+        "radical fingerprint (`pipeline/lexicon.py`). Coverage is uneven because Lane "
+        "died before finishing and the later letters were assembled posthumously by "
+        "Stanley Lane-Poole; the exact fraction of roots with an entry, and every "
+        "root without one, are listed in `coverage-report.md`. Where a root has no "
+        "entry, the root page says so explicitly.\n"
+    )
+
+
+def _lane_license_md() -> str:
+    return (
+        "# Lane's Lexicon — licence\n\n"
+        f"Licence string: **{LANE_LICENCE}** (CC BY-SA 3.0 United States), the "
+        "Perseus Digital Library site-level licence for this text: "
+        "<https://creativecommons.org/licenses/by-sa/3.0/us/>\n\n"
+        "Each source TEI file additionally embeds Perseus's own availability "
+        "statement, reproduced here verbatim:\n\n"
+        f"> {_PERSEUS_AVAILABILITY}\n\n"
+        "Text: Edward William Lane, *An Arabic-English Lexicon* (1863–1893), "
+        "public domain. Digitisation: Perseus Digital Library, Tufts University "
+        "(XML cleanup by Alpheios Technical Services, LLC). See `LANE-ATTRIBUTION.md`.\n"
+    )
+
+
+def _lexicon_manifest(stats: lexicon_mod.LexiconStats) -> dict[str, Any]:
+    return {
+        "source_id": LANE_SOURCE_ID,
+        "layer": "external-annotation",
+        "note": (
+            "Edward William Lane's Arabic-English Lexicon (Perseus/Tufts TEI), mapped "
+            "onto roots. Each matched root gains a Meaning entry; token/verse/root "
+            "ids are unchanged. Arabic in the entries is decoded from the source's "
+            "Buckwalter transliteration to Arabic script."
+        ),
+        "licence": LANE_LICENCE,
+        "licence_note": (
+            "CC BY-SA 3.0 US (Perseus site licence) plus the embedded Perseus "
+            "availability statement (attribution + share-alike). Displayable and "
+            "redistributable. See lexicon/LANE-ATTRIBUTION.md."
+        ),
+        "coverage": {
+            "corpus_roots": stats.corpus_roots,
+            "roots_with_entry": stats.matched,
+            "roots_without_entry": len(stats.missing),
+            "coverage_fraction": round(stats.matched / stats.corpus_roots, 4)
+            if stats.corpus_roots
+            else 0.0,
+            "matched_direct": stats.direct,
+            "matched_geminate": stats.geminate,
+            "fold_collisions": stats.fold_collisions,
+            "lane_articles_parsed": stats.lane_roots,
+        },
+        "artifact": f"{LEXICON_DIR}/lane.json",
+        "report": f"{LEXICON_DIR}/coverage-report.md",
+    }
+
+
+def _write_lexicon(
+    out_dir: Path,
+    entries: dict[str, lexicon_mod.LaneEntry],
+    stats: lexicon_mod.LexiconStats,
+) -> None:
+    lex_dir = out_dir / LEXICON_DIR
+    lex_dir.mkdir(parents=True, exist_ok=True)
+    # One record per matched root, in corpus root order isn't available here; sort
+    # by slug for a stable, diff-friendly artifact.
+    records = [
+        {
+            "root_slug": e.root_slug,
+            "root": e.root,
+            "headword_ar": e.headword_ar,
+            "headword_bw": e.headword_bw,
+            "match": e.match,
+            "source_id": LANE_SOURCE_ID,
+            "licence": LANE_LICENCE,
+            "text": e.text,
+        }
+        for e in sorted(entries.values(), key=lambda x: x.root_slug)
+    ]
+    _write_json(lex_dir / "lane.json", records)
+    (lex_dir / "coverage-report.md").write_text(
+        lexicon_mod.render_report(stats), encoding="utf-8"
+    )
+    (lex_dir / "LANE-ATTRIBUTION.md").write_text(_lane_attribution_md(), encoding="utf-8")
+    (lex_dir / "LICENSE.md").write_text(_lane_license_md(), encoding="utf-8")
+
+
 def _write_morphology(
     out_dir: Path,
     sources: list[dict[str, Any]],
     roots_records: list[dict[str, Any]],
     report_md: str,
+    gloss_report_md: str,
 ) -> None:
     morph_dir = out_dir / MORPHOLOGY_DIR
     morph_dir.mkdir(parents=True, exist_ok=True)
@@ -748,6 +997,10 @@ def _write_morphology(
     )
     (morph_dir / "ATTRIBUTION.md").write_text(_attribution_md(sources), encoding="utf-8")
     (morph_dir / "alignment-report.md").write_text(report_md, encoding="utf-8")
+    (morph_dir / "GLOSS-ATTRIBUTION.md").write_text(
+        _gloss_attribution_md(sources), encoding="utf-8"
+    )
+    (morph_dir / "gloss-report.md").write_text(gloss_report_md, encoding="utf-8")
 
 
 def _write_translations(out_dir: Path, processed: ProcessedTranslations) -> None:
@@ -769,14 +1022,30 @@ def build(out_root: Path = OUT_DIR) -> Path:
     assembled = assemble()
 
     # Morphology is an annotation layer: align the Leeds QAC onto the assembled
-    # tokens and attach a `morphology` block to each. Token ids/positions/text are
-    # untouched — a fact asserted by tests. Alignment is verified, and every
-    # divergence enumerated in the emitted report.
-    blocks, roots_records, stats = annotate(assembled.tokens, _read("quran-morphology.txt"))
+    # tokens and attach a `morphology` block to each. The QAC word gloss and
+    # transliteration ride the same word→token alignment (v0.8.0): they are
+    # positional files, keyed back to word-locations via the morphology file order.
+    # Token ids/positions/text are untouched — a fact asserted by tests. Alignment
+    # is verified, and every divergence enumerated in the emitted reports.
+    word_annotations = load_word_annotations(
+        _read("quran-morphology.txt"),
+        _read("qac-word-gloss.txt"),
+        _read("qac-word-transliteration.txt"),
+    )
+    blocks, roots_records, stats = annotate(
+        assembled.tokens, _read("quran-morphology.txt"), word_annotations
+    )
     for token in assembled.tokens:
         token["morphology"] = blocks[token["id"]]
     summary = report_stats(stats, roots_records)
     report_md = render_report(stats, roots_records)
+    gloss_report_md = render_gloss_report(stats, blocks, assembled.tokens)
+
+    # Lane's Lexicon (v0.8.0): map classical dictionary entries onto roots as an
+    # external annotation. Coverage is uneven and reported; roots without an entry
+    # are enumerated, never left as a blank that reads as "no meaning".
+    lane_files = _read_lane_files()
+    lane_entries, lane_stats = lexicon_mod.build_lexicon(lane_files, roots_records)
 
     # Verse-level translation editions (v0.6.0). Parsed and aligned onto the
     # already-assembled verse rows by verse id — an identity mapping that never
@@ -785,7 +1054,11 @@ def build(out_root: Path = OUT_DIR) -> Path:
     processed_translations = process_translations(assembled.verses)
 
     surahs = build_surah_records(assembled.verses, assembled.basmala)
-    sources = build_source_records() + processed_translations.source_records
+    sources = (
+        build_source_records()
+        + processed_translations.source_records
+        + [_lane_source_record(lane_files)]
+    )
     manifest = build_manifest(
         sources,
         surahs,
@@ -796,6 +1069,8 @@ def build(out_root: Path = OUT_DIR) -> Path:
         assembled.ordinal_maps,
     )
     manifest["morphology"] = _morphology_manifest(summary)
+    manifest["glosses"] = _glosses_manifest(summary)
+    manifest["lexicon"] = _lexicon_manifest(lane_stats)
     manifest["translations"] = translations_mod.manifest_block(
         processed_translations.source_records, processed_translations.line_counts
     )
@@ -817,7 +1092,8 @@ def build(out_root: Path = OUT_DIR) -> Path:
     _write_json(out_dir / "numbering" / "numbering.schema.json", _numbering_schema())
     for scheme in SCHEMES:
         _write_json(out_dir / "numbering" / f"{scheme.id}.json", scheme.record())
-    _write_morphology(out_dir, sources, roots_records, report_md)
+    _write_morphology(out_dir, sources, roots_records, report_md, gloss_report_md)
+    _write_lexicon(out_dir, lane_entries, lane_stats)
 
     # Every non-manifest artifact is now on disk; checksum them and record the
     # block in the manifest, written last so it can cover the final bytes of all
@@ -846,6 +1122,13 @@ def build(out_root: Path = OUT_DIR) -> Path:
         f"{summary['aligned_leeds_words']}/{summary['leeds_words']} Leeds words aligned "
         f"({100 * summary['align_rate']:.4f}%), "
         f"{summary['tokens_without_root']} tokens with no root\n"
+        f"  glosses: {summary['gloss_present']} tokens glossed, "
+        f"{summary['gloss_absent']} without; transliteration "
+        f"{summary['translit_leeds']} Leeds / {summary['translit_computed']} computed\n"
+        f"  lexicon (Lane): {lane_stats.matched}/{lane_stats.corpus_roots} roots "
+        f"({100 * lane_stats.matched / lane_stats.corpus_roots:.1f}%), "
+        f"{len(lane_stats.missing)} without an entry, "
+        f"{lane_stats.fold_collisions} fold collisions\n"
         f"  translations: {len(processed_translations.line_counts)} editions "
         f"({', '.join(processed_translations.line_counts)})"
     )

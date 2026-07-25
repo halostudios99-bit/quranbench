@@ -1,0 +1,477 @@
+{
+  "corpus_version": "0.8.0",
+  "previous_version": "0.7.0",
+  "work_id": "quran",
+  "built_at": "2026-07-25T23:07:13+00:00",
+  "generator": "quranbench/packages/corpus-build",
+  "segmentation_scheme": "tanzil-uthmani",
+  "identifier_format": "quran:tanzil-uthmani:<surah>:<segment>:<position>",
+  "counts": {
+    "surahs": 114,
+    "verses": 6236,
+    "tokens": 77881
+  },
+  "numbering": {
+    "active": "kufan",
+    "default": "kufan",
+    "available": [
+      "kufan"
+    ],
+    "verse_counts": {
+      "kufan": 6236
+    },
+    "note": "Numbering is a recorded parameter, not a fact baked into identifiers. Each scheme is a data file in numbering/; the active scheme's counted segments are the rows of verses.jsonl. See docs/numbering.md."
+  },
+  "basmala_handling": "separated",
+  "basmala": {
+    "canonical": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+    "uthmani_variants": [
+      "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+      "بِّسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+    ],
+    "simple_variants": [
+      "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+      "بِّسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"
+    ],
+    "separated_from_surahs": 112,
+    "no_basmala_surahs": [
+      9
+    ],
+    "basmala_is_verse_surahs": [
+      1
+    ]
+  },
+  "token_segmentation": {
+    "rule": "whitespace-delimited words; morphology not applied",
+    "waqf_marks_excluded": 4578,
+    "non_token_ranges": [
+      "U+06D6..U+06ED",
+      "U+0660..U+0669",
+      "U+06F0..U+06F9"
+    ]
+  },
+  "source_download_options": {
+    "tanzil-uthmani": {
+      "marks": true,
+      "sajdah": true,
+      "rub": true,
+      "url": "https://tanzil.net/pub/download/index.php?quranType=uthmani&outType=txt-2&marks=true&sajdah=true&rub=true&agree=true"
+    }
+  },
+  "sources": [
+    {
+      "id": "tanzil-uthmani",
+      "sha256": "4b91f9e6e8ac645d039e4ed85b3be492e795232a31cd22d668ac58238722e26f"
+    },
+    {
+      "id": "tanzil-simple",
+      "sha256": "f3268cfe7a400add8a8024fe23368d66f58cc8baa51773fe94e323625c66344b"
+    },
+    {
+      "id": "tanzil-metadata",
+      "sha256": "8867c1d88191472adec9db694b3cd9f135b1a2ef580574d32cf888dcb22c5c7a"
+    },
+    {
+      "id": "leeds-qac-morphology",
+      "sha256": "742bfac59941b2cb09736d5b7aae694af50792261fb8450cbf6afafcc340645f"
+    },
+    {
+      "id": "qac-word-gloss",
+      "sha256": "f732efe12ed56c36c2f94525ed28f4b4e9a4290bdf31a2640bc210d6a9e015d5"
+    },
+    {
+      "id": "qac-word-transliteration",
+      "sha256": "192f3fc996cafb3a32ade640a115fe4e09101f5ec79b1c89a8ac2ac24195495b"
+    },
+    {
+      "id": "en-itani",
+      "sha256": "e350741efd066aa04dace31402a46eadd4e38732159c099dd36afcc512111631"
+    },
+    {
+      "id": "en-pickthall",
+      "sha256": "0dbb55fa4daeb93aa6bc030441aec750ebf6a5d5235d0f4695f1f30666a72107"
+    },
+    {
+      "id": "en-rodwell",
+      "sha256": "523cde1948b2bf1109c7e36944b36592cec4ed8eeb3d05736f66b46eb24350e6"
+    },
+    {
+      "id": "en-palmer",
+      "sha256": "6513aa2b54fbef73d25e24d786e1d1c10584690c9ec581e7c6aa8caaa3a7534e"
+    },
+    {
+      "id": "lane-lexicon",
+      "sha256": "061662edb1c3f7e40859ae8d837f9efd633528bf1ea168fd7f2bcfd0882d42c8"
+    }
+  ],
+  "field_provenance": {
+    "text_uthmani": {
+      "source_id": "tanzil-uthmani",
+      "transform": []
+    },
+    "text_simple": {
+      "source_id": "tanzil-simple",
+      "transform": []
+    },
+    "text_no_tashkeel": {
+      "source_id": "tanzil-uthmani",
+      "transform": [
+        "strip-tashkeel"
+      ]
+    },
+    "text_normalised": {
+      "source_id": "tanzil-uthmani",
+      "transform": [
+        "strip-tashkeel",
+        "remove-tatweel",
+        "unify-alef",
+        "normalise-ta-marbuta",
+        "normalise-alif-maqsura"
+      ]
+    },
+    "surah_names": {
+      "source_id": "tanzil-metadata",
+      "transform": []
+    }
+  },
+  "token_field_provenance": {
+    "text_uthmani": {
+      "source_id": "tanzil-uthmani",
+      "transform": []
+    },
+    "text_simple": {
+      "source_id": "tanzil-uthmani",
+      "transform": [
+        "to-simple"
+      ]
+    },
+    "text_no_tashkeel": {
+      "source_id": "tanzil-uthmani",
+      "transform": [
+        "strip-tashkeel"
+      ]
+    },
+    "text_normalised": {
+      "source_id": "tanzil-uthmani",
+      "transform": [
+        "strip-tashkeel",
+        "remove-tatweel",
+        "unify-alef",
+        "normalise-ta-marbuta",
+        "normalise-alif-maqsura"
+      ]
+    },
+    "morphology": {
+      "source_id": "leeds-qac-morphology",
+      "transform": [
+        "align-leeds-qac"
+      ]
+    },
+    "morphology.gloss": {
+      "source_id": "qac-word-gloss",
+      "transform": [
+        "align-qac-word"
+      ]
+    },
+    "morphology.transliteration": {
+      "source_id": "qac-word-transliteration",
+      "transform": [
+        "align-qac-word",
+        "or-computed-din31635"
+      ]
+    }
+  },
+  "normalisation_rules": [
+    {
+      "id": "strip-tashkeel",
+      "description": "Remove Arabic diacritical marks.",
+      "applies_to": [
+        "text_no_tashkeel",
+        "text_normalised"
+      ],
+      "detail": "Delete codepoints in ranges: U+0610..U+061A, U+064B..U+065F, U+0670..U+0670, U+06D6..U+06DC, U+06DF..U+06E8, U+06EA..U+06ED."
+    },
+    {
+      "id": "remove-tatweel",
+      "description": "Remove tatweel (kashida) elongation.",
+      "applies_to": [
+        "text_normalised"
+      ],
+      "detail": "Delete U+0640."
+    },
+    {
+      "id": "unify-alef",
+      "description": "Unify alef variants to bare alef.",
+      "applies_to": [
+        "text_normalised"
+      ],
+      "detail": "U+0622->U+0627, U+0623->U+0627, U+0625->U+0627, U+0671->U+0627"
+    },
+    {
+      "id": "normalise-ta-marbuta",
+      "description": "Map teh marbuta to heh.",
+      "applies_to": [
+        "text_normalised"
+      ],
+      "detail": "U+0629->U+0647"
+    },
+    {
+      "id": "normalise-alif-maqsura",
+      "description": "Map alef maksura to yeh.",
+      "applies_to": [
+        "text_normalised"
+      ],
+      "detail": "U+0649->U+064A"
+    },
+    {
+      "id": "to-simple",
+      "description": "Plain-orthography form: remove Quranic recitation/pause signs and unify alef wasla to bare alef, keeping harakat. Applied to derive token text_simple, which cannot be sourced from the Simple edition because the editions do not tokenise word-for-word.",
+      "applies_to": [
+        "token.text_simple"
+      ],
+      "detail": "Delete codepoints in ranges: U+0610..U+061A, U+06D6..U+06ED; delete U+0640; map U+0671->U+0627."
+    }
+  ],
+  "morphology": {
+    "source_id": "leeds-qac-morphology",
+    "layer": "annotation",
+    "note": "Leeds Quranic Arabic Corpus morphology (via the mustafa0x fork of QAC v0.4), aligned onto tokens as an annotation. Token ids, positions and surface text are unchanged. root is the spaced-Arabic form; root_slug is its URL transliteration; per-field provenance is token_field_provenance.",
+    "licence": "GPL-2.0-or-later",
+    "licence_note": "This data is GPL. Any artifact carrying it (tokens.jsonl, morphology/roots.json) is therefore GPL-2.0-or-later. The underlying Tanzil text remains available under CC-BY in verses.jsonl and the token text_* fields. See docs/licensing.md and morphology/ATTRIBUTION.md.",
+    "alignment": {
+      "leeds_words": 77429,
+      "aligned_leeds_words": 77429,
+      "align_rate": 1.0,
+      "exact": 77106,
+      "normalised": 317,
+      "extended": 2,
+      "merged_words": 4,
+      "basmala_copied": 448,
+      "failed": 0,
+      "unaligned_our": 0
+    },
+    "roots": {
+      "distinct": 1651,
+      "tokens_with_root": 50716,
+      "tokens_without_root": 27165,
+      "artifact": "morphology/roots.json"
+    },
+    "report": "morphology/alignment-report.md"
+  },
+  "glosses": {
+    "gloss_source_id": "qac-word-gloss",
+    "transliteration_source_id": "qac-word-transliteration",
+    "layer": "annotation",
+    "note": "Terse per-word English gloss and per-word transliteration from the Quranic Arabic Corpus (Kais Dukes), carried onto tokens by the same word→token alignment as the morphology. Stored inside each token's morphology block as gloss/gloss_source and transliteration/transliteration_source. Annotation layer: token ids, positions and surface text are unchanged.",
+    "licence": "GPL-2.0-or-later",
+    "licence_note": "Same GPL Quranic Arabic Corpus content as the morphology. The upstream repository (kaisdukes/quranic-corpus-api) carries no LICENSE file of its own; the content is the GPL corpus.quran.com data by the corpus author. See morphology/GLOSS-ATTRIBUTION.md.",
+    "coverage": {
+      "tokens": 77881,
+      "gloss_present": 77881,
+      "gloss_absent": 0,
+      "transliteration_leeds": 77881,
+      "transliteration_computed": 0,
+      "transliteration_absent": 0
+    },
+    "computed_transliteration_scheme": "DIN 31635 (fallback; pipeline/translit_word.py)",
+    "report": "morphology/gloss-report.md"
+  },
+  "lexicon": {
+    "source_id": "lane-lexicon",
+    "layer": "external-annotation",
+    "note": "Edward William Lane's Arabic-English Lexicon (Perseus/Tufts TEI), mapped onto roots. Each matched root gains a Meaning entry; token/verse/root ids are unchanged. Arabic in the entries is decoded from the source's Buckwalter transliteration to Arabic script.",
+    "licence": "CC-BY-SA-3.0",
+    "licence_note": "CC BY-SA 3.0 US (Perseus site licence) plus the embedded Perseus availability statement (attribution + share-alike). Displayable and redistributable. See lexicon/LANE-ATTRIBUTION.md.",
+    "coverage": {
+      "corpus_roots": 1651,
+      "roots_with_entry": 1564,
+      "roots_without_entry": 87,
+      "coverage_fraction": 0.9473,
+      "matched_direct": 1411,
+      "matched_geminate": 153,
+      "fold_collisions": 0,
+      "lane_articles_parsed": 5315
+    },
+    "artifact": "lexicon/lane.json",
+    "report": "lexicon/coverage-report.md"
+  },
+  "translations": {
+    "alignment": "verse-level",
+    "alignment_note": "Each edition is aligned to the corpus by verse identifier only. Word-level alignment data does not exist for these editions and is never fabricated. A translation line's id is the verse id from verses.jsonl (identity mapping).",
+    "licensing_note": "Each edition records whether it is redistributable. Public-domain editions are both displayed and shipped in the dataset downloads. Display-only editions (e.g. Talal Itani's ClearQuran, CC BY-NC-ND 4.0) are served to readers but excluded from every download and the full tarball, because their licence forbids open redistribution. Tanzil's translation collection is NOT used as a licence basis: its Terms of Use restrict the collection to non-commercial use and forbid redistribution. See docs/translations-report.md for details.",
+    "retrieval_source": {
+      "name": "fawazahmed0/quran-api",
+      "licence": "Unlicense (public-domain dedication)",
+      "commit": "6be8e17f2a0c13b1f33b1c3057f73cb28d5e848e",
+      "url": "https://github.com/fawazahmed0/quran-api"
+    },
+    "editions": [
+      {
+        "id": "en-itani",
+        "language": "English",
+        "language_code": "en",
+        "translator": "Talal Itani",
+        "year": 2012,
+        "licence": "CC BY-NC-ND 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "redistributable": false,
+        "verses": 6236,
+        "artifact": "translations/en-itani.jsonl",
+        "licence_file": "translations/en-itani.LICENSE.md",
+        "source_id": "en-itani"
+      },
+      {
+        "id": "en-pickthall",
+        "language": "English",
+        "language_code": "en",
+        "translator": "Marmaduke Pickthall",
+        "year": 1930,
+        "licence": "Public Domain",
+        "licence_url": "https://en.wikisource.org/wiki/The_Meaning_of_the_Glorious_Koran_(1930)",
+        "redistributable": true,
+        "verses": 6236,
+        "artifact": "translations/en-pickthall.jsonl",
+        "licence_file": "translations/en-pickthall.LICENSE.md",
+        "source_id": "en-pickthall"
+      },
+      {
+        "id": "en-rodwell",
+        "language": "English",
+        "language_code": "en",
+        "translator": "John Medows Rodwell",
+        "year": 1861,
+        "licence": "Public Domain",
+        "licence_url": "https://en.wikisource.org/wiki/The_Koran_(Rodwell)",
+        "redistributable": true,
+        "verses": 6236,
+        "artifact": "translations/en-rodwell.jsonl",
+        "licence_file": "translations/en-rodwell.LICENSE.md",
+        "source_id": "en-rodwell"
+      },
+      {
+        "id": "en-palmer",
+        "language": "English",
+        "language_code": "en",
+        "translator": "Edward Henry Palmer",
+        "year": 1880,
+        "licence": "Public Domain",
+        "licence_url": "https://en.wikisource.org/wiki/The_Qur%27an_(Palmer)",
+        "redistributable": true,
+        "verses": 6236,
+        "artifact": "translations/en-palmer.jsonl",
+        "licence_file": "translations/en-palmer.LICENSE.md",
+        "source_id": "en-palmer"
+      }
+    ]
+  },
+  "checksums": {
+    "identifiers.json": {
+      "sha256": "ad691b421f7bcf700c3865ba1026d67358eee1106df13670a7d3e28fc6a731ae",
+      "bytes": 1894
+    },
+    "lexicon/LANE-ATTRIBUTION.md": {
+      "sha256": "cd462cd41ebc8114a713fc0f8ac62866cc307a2a7aae63d501d5556d22d18c6d",
+      "bytes": 1928
+    },
+    "lexicon/LICENSE.md": {
+      "sha256": "ad6f0640b00edab11c18c210bc885e68304e7311d3cdc8ae940316c25c9fd0bf",
+      "bytes": 907
+    },
+    "lexicon/coverage-report.md": {
+      "sha256": "e1bffebf0660cbeaae1447d6580d1bf3d792919d121522d78749d9f66402efc5",
+      "bytes": 2055
+    },
+    "lexicon/lane.json": {
+      "sha256": "2ac8de704c515a1dd3a063101b523e0d33a2ad86dc9f5afb2ce32ec8821bc83b",
+      "bytes": 19129992
+    },
+    "mapping/mapping.schema.json": {
+      "sha256": "26eeb699088f17adb9d0ea0bda44cf7bc19d9e6afa8cc80fd4819b89e4776c51",
+      "bytes": 1732
+    },
+    "mapping/v0.7.0-to-v0.8.0.json": {
+      "sha256": "ae66e1d08d47c1275c6385af9b29968a51fe7bc40976759418ccff36615cbc7f",
+      "bytes": 540
+    },
+    "morphology/ATTRIBUTION.md": {
+      "sha256": "6582fc699af560b2ff4a647c1ba5986195a3bc08fe383c18b74eb9fbb35d0c81",
+      "bytes": 1516
+    },
+    "morphology/GLOSS-ATTRIBUTION.md": {
+      "sha256": "95069e0f497350ad841cd8d2f43722aff0a5a65c80ad3eac43aa5db462b67262",
+      "bytes": 2581
+    },
+    "morphology/LICENSE": {
+      "sha256": "edaef632cbb643e4e7a221717a6c441a4c1a7c918e6e4d56debc3d8739b233f6",
+      "bytes": 17984
+    },
+    "morphology/alignment-report.md": {
+      "sha256": "e99dee1e032fb2e19b8fea3311b542833e5027e08f01a2fb4d009ab58118b4ec",
+      "bytes": 2618
+    },
+    "morphology/gloss-report.md": {
+      "sha256": "89869017c8c9c792f1d5e8bae872f0e27d504b2955d1e3de2aa505fd85129611",
+      "bytes": 11081
+    },
+    "morphology/roots.json": {
+      "sha256": "b482fea1fa5dafa6de649af20196d621d82adf53d49289171eb69443ef8ac860",
+      "bytes": 2256194
+    },
+    "numbering/kufan.json": {
+      "sha256": "43f70350303e536dbc42541a49e05b0488ee66c5b0c3fe85be455587747538e7",
+      "bytes": 906
+    },
+    "numbering/numbering.schema.json": {
+      "sha256": "31dfd3ef638e02b71f37a95e655af0dcf32af0fcb8f0457111ea97220a3262fa",
+      "bytes": 1464
+    },
+    "sources.json": {
+      "sha256": "cd706e7bd35b907ae0d9955e54d602d44ed617f6f0dd60135c5ecd4d8efd0f5c",
+      "bytes": 7963
+    },
+    "surahs.json": {
+      "sha256": "b4f4992a245c4780abe60e98acf16549e592b01d265d1393146e2cbf84241a68",
+      "bytes": 95361
+    },
+    "tokens.jsonl": {
+      "sha256": "7f014cdf703a10325ca20d530abd3f4f7ddf3e440bb79a26c3a61c54e815389f",
+      "bytes": 75541382
+    },
+    "translations/en-itani.LICENSE.md": {
+      "sha256": "3f6d8db1a0ef8c16cfc417ff48024df972a8578ea47410e357ca0a2afa8a0ad2",
+      "bytes": 1549
+    },
+    "translations/en-itani.jsonl": {
+      "sha256": "fbe92e876fdf6342c1cd45685a4ace4dbc5e96dd54ef79936dd021d55cd994fb",
+      "bytes": 1389627
+    },
+    "translations/en-palmer.LICENSE.md": {
+      "sha256": "82b68ac668616d5c60a676d88c27578ba46450270a84035cd1075b5cd5d9e160",
+      "bytes": 1134
+    },
+    "translations/en-palmer.jsonl": {
+      "sha256": "7131a1c14f4ab442c606a469f146445fa3816908d78531f930a61c91728f45e7",
+      "bytes": 1406638
+    },
+    "translations/en-pickthall.LICENSE.md": {
+      "sha256": "3578d854d006aa6b50d3906398a7f02f82e7b91e8f771cf96d3277c52306a12d",
+      "bytes": 1134
+    },
+    "translations/en-pickthall.jsonl": {
+      "sha256": "f84f0a5c532ae0e760c47b1e8bdf87955c2d77accc0e8e5987ea973dbbfc4327",
+      "bytes": 1455945
+    },
+    "translations/en-rodwell.LICENSE.md": {
+      "sha256": "f1a3bc6c8c85729307d353d19049eb6054ca158f95891c24d74a8e13e4319176",
+      "bytes": 1046
+    },
+    "translations/en-rodwell.jsonl": {
+      "sha256": "c5d200eb830cff6af30a14f4ca2f68ffa72c37071171bdafb09f7ad61105424b",
+      "bytes": 1455181
+    },
+    "verses.jsonl": {
+      "sha256": "987aa84729fc0890480c9f2c946772b42fc95a4aadb638d906089294fd3a85e8",
+      "bytes": 5625732
+    }
+  }
+}

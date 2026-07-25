@@ -13,6 +13,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
+from .lexicon import LANE_FILES, lane_raw_url
 from .paths import CHECKSUMS_FILE, SOURCES_DIR, sha256_file
 from .sources import SOURCES, Source
 from .translations import TRANSLATIONS, Translation
@@ -59,6 +60,17 @@ def fetch_translation(translation: Translation, expected: dict[str, str]) -> str
     return _fetch_file(translation.url, translation.filename, expected)
 
 
+def fetch_lane(expected: dict[str, str]) -> dict[str, str]:
+    """Fetch every Lane's Lexicon TEI file into ``sources/lane/`` (see
+    pipeline.lexicon). Checksum keys are POSIX-relative (``lane/<name>.xml``)."""
+    (SOURCES_DIR / "lane").mkdir(parents=True, exist_ok=True)
+    results: dict[str, str] = {}
+    for name in LANE_FILES:
+        rel = f"lane/{name}.xml"
+        results[rel] = _fetch_file(lane_raw_url(name), rel, expected)
+    return results
+
+
 def fetch_all() -> dict[str, str]:
     SOURCES_DIR.mkdir(parents=True, exist_ok=True)
     expected = load_checksums()
@@ -67,6 +79,7 @@ def fetch_all() -> dict[str, str]:
         results[source.id] = fetch_source(source, expected)
     for translation in TRANSLATIONS:
         results[translation.id] = fetch_translation(translation, expected)
+    results.update(fetch_lane(expected))
     return results
 
 

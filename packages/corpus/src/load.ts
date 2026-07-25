@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 import type {
   Corpus,
+  LaneEntry,
   LoadedTranslation,
   Manifest,
   NumberingScheme,
@@ -15,7 +16,7 @@ import type {
   Token,
 } from './types.js';
 
-export const DEFAULT_CORPUS_VERSION = '0.7.0';
+export const DEFAULT_CORPUS_VERSION = '0.8.0';
 
 /**
  * Thrown when an artifact fails validation. A corrupted or schema-drifted corpus
@@ -63,7 +64,11 @@ function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
-function requireKeys(where: string, obj: Record<string, unknown>, keys: readonly string[]): void {
+function requireKeys(
+  where: string,
+  obj: Record<string, unknown>,
+  keys: readonly string[],
+): void {
   for (const key of keys) {
     if (!(key in obj)) fail(`${where}: missing required field '${key}'`);
   }
@@ -86,7 +91,13 @@ const TOKEN_KEYS = [
   'morphology',
 ] as const;
 
-const ROOT_KEYS = ['root', 'root_slug', 'lemmas', 'occurrences', 'token_ids'] as const;
+const ROOT_KEYS = [
+  'root',
+  'root_slug',
+  'lemmas',
+  'occurrences',
+  'token_ids',
+] as const;
 
 const SEGMENT_KEYS = [
   'id',
@@ -137,17 +148,29 @@ function parseJsonl(path: string, text: string): Record<string, unknown>[] {
     try {
       parsed = JSON.parse(line);
     } catch (cause) {
-      fail(`artifact '${path}' line ${i + 1}: invalid JSON: ${(cause as Error).message}`);
+      fail(
+        `artifact '${path}' line ${i + 1}: invalid JSON: ${(cause as Error).message}`,
+      );
     }
-    if (!isObject(parsed)) fail(`artifact '${path}' line ${i + 1}: expected an object`);
+    if (!isObject(parsed))
+      fail(`artifact '${path}' line ${i + 1}: expected an object`);
     rows.push(parsed);
   }
   return rows;
 }
 
-function validateManifest(path: string, raw: unknown, expectedVersion: string): Manifest {
+function validateManifest(
+  path: string,
+  raw: unknown,
+  expectedVersion: string,
+): Manifest {
   if (!isObject(raw)) fail(`${path}: manifest must be an object`);
-  requireKeys(path, raw, ['corpus_version', 'counts', 'numbering', 'segmentation_scheme']);
+  requireKeys(path, raw, [
+    'corpus_version',
+    'counts',
+    'numbering',
+    'segmentation_scheme',
+  ]);
 
   const version = raw['corpus_version'];
   if (version !== expectedVersion) {
@@ -159,18 +182,22 @@ function validateManifest(path: string, raw: unknown, expectedVersion: string): 
   const counts = raw['counts'];
   if (!isObject(counts)) fail(`${path}: counts must be an object`);
   for (const key of ['surahs', 'verses', 'tokens'] as const) {
-    if (typeof counts[key] !== 'number') fail(`${path}: counts.${key} must be a number`);
+    if (typeof counts[key] !== 'number')
+      fail(`${path}: counts.${key} must be a number`);
   }
 
   const numbering = raw['numbering'];
   if (!isObject(numbering)) fail(`${path}: numbering must be an object`);
-  if (typeof numbering['active'] !== 'string') fail(`${path}: numbering.active must be a string`);
-  if (!Array.isArray(numbering['available'])) fail(`${path}: numbering.available must be an array`);
+  if (typeof numbering['active'] !== 'string')
+    fail(`${path}: numbering.active must be a string`);
+  if (!Array.isArray(numbering['available']))
+    fail(`${path}: numbering.available must be an array`);
 
   // Checked after the version guard so a version mismatch is still reported as
   // such rather than as a missing checksums block.
   const checksums = raw['checksums'];
-  if (!isObject(checksums)) fail(`${path}: manifest.checksums must be an object`);
+  if (!isObject(checksums))
+    fail(`${path}: manifest.checksums must be an object`);
 
   return raw as unknown as Manifest;
 }
@@ -197,7 +224,11 @@ export function loadCorpus(
   };
 
   const manifestText = readText(paths.manifest);
-  const manifest = validateManifest(paths.manifest, parseJson(paths.manifest, manifestText), version);
+  const manifest = validateManifest(
+    paths.manifest,
+    parseJson(paths.manifest, manifestText),
+    version,
+  );
 
   // Byte-level verification: every artifact must match the sha256 and size the
   // manifest records for it. Structural checks below run in addition — this
@@ -206,7 +237,8 @@ export function loadCorpus(
   const expectedChecksums = manifest.checksums;
   function verifyBytes(relKey: string, text: string): void {
     const expected = expectedChecksums[relKey];
-    if (!expected) fail(`manifest has no checksum entry for artifact '${relKey}'`);
+    if (!expected)
+      fail(`manifest has no checksum entry for artifact '${relKey}'`);
     const actualSha = sha256(text);
     if (actualSha !== expected.sha256) {
       fail(
@@ -215,11 +247,15 @@ export function loadCorpus(
     }
     const actualBytes = Buffer.byteLength(text, 'utf8');
     if (actualBytes !== expected.bytes) {
-      fail(`artifact '${relKey}' size mismatch: manifest ${expected.bytes} bytes, file ${actualBytes} bytes`);
+      fail(
+        `artifact '${relKey}' size mismatch: manifest ${expected.bytes} bytes, file ${actualBytes} bytes`,
+      );
     }
   }
 
-  const checksums: Record<string, string> = { 'manifest.json': sha256(manifestText) };
+  const checksums: Record<string, string> = {
+    'manifest.json': sha256(manifestText),
+  };
 
   const sourcesText = readText(paths.sources);
   verifyBytes('sources.json', sourcesText);
@@ -261,7 +297,8 @@ export function loadCorpus(
   const versesRaw = parseJsonl(paths.verses, versesText);
   const segments: Segment[] = versesRaw.map((row, i) => {
     requireKeys(`${paths.verses} row ${i + 1}`, row, SEGMENT_KEYS);
-    if (!isObject(row['ordinals'])) fail(`${paths.verses} row ${i + 1}: ordinals must be an object`);
+    if (!isObject(row['ordinals']))
+      fail(`${paths.verses} row ${i + 1}: ordinals must be an object`);
     return row as unknown as Segment;
   });
 
@@ -278,12 +315,15 @@ export function loadCorpus(
       fail(`${paths.tokens} row ${i + 1}: is_basmala must be a boolean`);
     }
     const morph = row['morphology'];
-    if (!isObject(morph)) fail(`${paths.tokens} row ${i + 1}: morphology must be an object`);
+    if (!isObject(morph))
+      fail(`${paths.tokens} row ${i + 1}: morphology must be an object`);
     if (typeof morph['pos'] !== 'string') {
       fail(`${paths.tokens} row ${i + 1}: morphology.pos must be a string`);
     }
     if (!Array.isArray(morph['segments'])) {
-      fail(`${paths.tokens} row ${i + 1}: morphology.segments must be an array`);
+      fail(
+        `${paths.tokens} row ${i + 1}: morphology.segments must be an array`,
+      );
     }
     return row as unknown as Token;
   });
@@ -297,9 +337,36 @@ export function loadCorpus(
   const roots: Root[] = rootsRaw.map((row, i) => {
     if (!isObject(row)) fail(`${rootsPath}[${i}]: expected an object`);
     requireKeys(`${rootsPath}[${i}]`, row, ROOT_KEYS);
-    if (!Array.isArray(row['token_ids'])) fail(`${rootsPath}[${i}]: token_ids must be an array`);
+    if (!Array.isArray(row['token_ids']))
+      fail(`${rootsPath}[${i}]: token_ids must be an array`);
     return row as unknown as Root;
   });
+
+  // Lane's Lexicon (v0.8.0+): external annotation mapped onto roots. Present only
+  // when the manifest declares it; loaded, checksum-verified, indexed by root slug.
+  const lexicon = new Map<string, LaneEntry>();
+  const lexiconArtifact = manifest.lexicon?.['artifact'];
+  if (typeof lexiconArtifact === 'string') {
+    const lexPath = join(dir, lexiconArtifact);
+    const lexText = readText(lexPath);
+    verifyBytes(lexiconArtifact, lexText);
+    checksums[lexiconArtifact] = sha256(lexText);
+    const lexRaw = parseJson(lexPath, lexText);
+    if (!Array.isArray(lexRaw)) fail(`${lexPath}: expected an array`);
+    const rootSlugs = new Set(roots.map((r) => r.root_slug));
+    for (let i = 0; i < lexRaw.length; i++) {
+      const row = lexRaw[i];
+      if (!isObject(row)) fail(`${lexPath}[${i}]: expected an object`);
+      requireKeys(`${lexPath}[${i}]`, row, ['root_slug', 'root', 'text']);
+      const slug = row['root_slug'];
+      if (typeof slug !== 'string')
+        fail(`${lexPath}[${i}]: root_slug must be a string`);
+      // A Lane entry must map onto a real corpus root — never a dangling annotation.
+      if (!rootSlugs.has(slug))
+        fail(`${lexPath}[${i}]: '${slug}' is not a corpus root`);
+      lexicon.set(slug, row as unknown as LaneEntry);
+    }
+  }
 
   // Verse-level translation editions (v0.6.0+). Each edition declared in the
   // manifest is loaded, checksum-verified, and indexed by verse id. A missing or
@@ -319,10 +386,13 @@ export function loadCorpus(
       requireKeys(`${editionPath} row ${i + 1}`, row, ['id', 'text']);
       const id = row['id'];
       const text = row['text'];
-      if (typeof id !== 'string') fail(`${editionPath} row ${i + 1}: id must be a string`);
-      if (typeof text !== 'string') fail(`${editionPath} row ${i + 1}: text must be a string`);
+      if (typeof id !== 'string')
+        fail(`${editionPath} row ${i + 1}: id must be a string`);
+      if (typeof text !== 'string')
+        fail(`${editionPath} row ${i + 1}: text must be a string`);
       // Identity mapping: every translation line addresses a real corpus verse.
-      if (!verseIds.has(id)) fail(`${editionPath} row ${i + 1}: '${id}' is not a corpus verse id`);
+      if (!verseIds.has(id))
+        fail(`${editionPath} row ${i + 1}: '${id}' is not a corpus verse id`);
       byVerseId.set(id, text);
     }
     if (byVerseId.size !== edition.verses) {
@@ -336,13 +406,19 @@ export function loadCorpus(
   // Cross-check the loaded shapes against the manifest's declared counts. A
   // mismatch means the artifacts and manifest disagree — refuse to load.
   if (tokens.length !== manifest.counts.tokens) {
-    fail(`token count ${tokens.length} does not match manifest.counts.tokens ${manifest.counts.tokens}`);
+    fail(
+      `token count ${tokens.length} does not match manifest.counts.tokens ${manifest.counts.tokens}`,
+    );
   }
   if (segments.length !== manifest.counts.verses) {
-    fail(`verse count ${segments.length} does not match manifest.counts.verses ${manifest.counts.verses}`);
+    fail(
+      `verse count ${segments.length} does not match manifest.counts.verses ${manifest.counts.verses}`,
+    );
   }
   if (surahs.length !== manifest.counts.surahs) {
-    fail(`surah count ${surahs.length} does not match manifest.counts.surahs ${manifest.counts.surahs}`);
+    fail(
+      `surah count ${surahs.length} does not match manifest.counts.surahs ${manifest.counts.surahs}`,
+    );
   }
 
   // Referential integrity: every token belongs to a segment id, and its declared
@@ -356,7 +432,9 @@ export function loadCorpus(
     // Basmala tokens live in segments that are not verse rows; only verify
     // ordinary (numeric-slot) tokens resolve to a counted segment.
     if (token.slot !== 'basmala' && !segmentIds.has(token.segment_id)) {
-      fail(`token '${token.id}' references unknown segment '${token.segment_id}'`);
+      fail(
+        `token '${token.id}' references unknown segment '${token.segment_id}'`,
+      );
     }
   }
 
@@ -368,6 +446,7 @@ export function loadCorpus(
     segments,
     tokens,
     roots,
+    lexicon,
     translations,
     numbering,
     checksums,

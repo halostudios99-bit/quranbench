@@ -302,6 +302,24 @@ export default async function WordPage({ params }: Params) {
         >
           {morph.root || morph.lemma || morph.pos ? (
             <>
+              <dl className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <Field label="Gloss">
+                  {morph.gloss ? (
+                    <span>{morph.gloss}</span>
+                  ) : (
+                    <span className="text-ink3">—</span>
+                  )}
+                </Field>
+                <Field label="Transliteration">
+                  {morph.transliteration ? (
+                    <span lang="ar-Latn" className="italic">
+                      {morph.transliteration}
+                    </span>
+                  ) : (
+                    <span className="text-ink3">—</span>
+                  )}
+                </Field>
+              </dl>
               <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
                 <Field label="Root">
                   {root ? (

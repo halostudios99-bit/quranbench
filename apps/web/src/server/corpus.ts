@@ -5,6 +5,7 @@ import { resolve } from 'node:path';
 import {
   loadCorpus,
   type Corpus,
+  type LaneEntry,
   type LoadedTranslation,
   type Root,
   type Segment,
@@ -395,6 +396,11 @@ export function getRootBySlug(slug: string): Root | undefined {
   return state().rootBySlug.get(slug);
 }
 
+/** Lane's Lexicon entry for a root, or null when Lane has none (uneven coverage). */
+export function getLaneEntry(slug: string): LaneEntry | null {
+  return state().corpus.lexicon.get(slug) ?? null;
+}
+
 /** Resolve a pasted Arabic root form (spaced or not) to its record, for redirect. */
 export function findRootByArabic(text: string): Root | undefined {
   const s = state();
@@ -432,6 +438,8 @@ export interface RootView {
   lemmas: RootLemmaCount[];
   /** Distinct verses the root appears in — the length of the paginated list. */
   verseCount: number;
+  /** Lane's Lexicon entry for this root, or null where Lane has no entry. */
+  lane: LaneEntry | null;
 }
 
 /** Everything a root page renders except the paginated occurrence list itself. */
@@ -503,6 +511,7 @@ export function describeRoot(root: Root): RootView {
     last: occurrenceRef(tokens[tokens.length - 1]!),
     lemmas,
     verseCount: verseIds.size,
+    lane: getLaneEntry(root.root_slug),
   };
 }
 

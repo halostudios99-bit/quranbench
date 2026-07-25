@@ -1,0 +1,171 @@
+[
+  {
+    "id": "tanzil-uthmani",
+    "name": "Tanzil Quran Text (Uthmani)",
+    "publisher": "Tanzil Project",
+    "edition": "Uthmani 1.1",
+    "year": null,
+    "url": "https://tanzil.net/pub/download/index.php?quranType=uthmani&outType=txt-2&marks=true&sajdah=true&rub=true&agree=true",
+    "licence": "CC-BY-3.0",
+    "role": "text-edition",
+    "sha256": "4b91f9e6e8ac645d039e4ed85b3be492e795232a31cd22d668ac58238722e26f"
+  },
+  {
+    "id": "tanzil-simple",
+    "name": "Tanzil Quran Text (Simple)",
+    "publisher": "Tanzil Project",
+    "edition": "Simple 1.1",
+    "year": null,
+    "url": "https://tanzil.net/pub/download/index.php?quranType=simple&outType=txt-2&agree=true",
+    "licence": "CC-BY-3.0",
+    "role": "text-edition",
+    "sha256": "f3268cfe7a400add8a8024fe23368d66f58cc8baa51773fe94e323625c66344b"
+  },
+  {
+    "id": "tanzil-metadata",
+    "name": "Tanzil Quran Metadata",
+    "publisher": "Tanzil Project",
+    "edition": "1.0",
+    "year": 2009,
+    "url": "https://tanzil.net/res/text/metadata/quran-data.xml",
+    "licence": "CC-BY-3.0",
+    "role": "metadata",
+    "sha256": "8867c1d88191472adec9db694b3cd9f135b1a2ef580574d32cf888dcb22c5c7a"
+  },
+  {
+    "id": "leeds-qac-morphology",
+    "name": "Quranic Arabic Corpus — Morphology (mustafa0x fork of Leeds QAC v0.4)",
+    "publisher": "Kais Dukes / University of Leeds (fork: mustafa0x)",
+    "edition": "QAC 0.4 (mustafa0x fork, commit 8f38b39)",
+    "year": 2011,
+    "url": "https://raw.githubusercontent.com/mustafa0x/quran-morphology/8f38b39016824284f9ed16ae15069ff9102c4acf/quran-morphology.txt",
+    "licence": "GPL-2.0-or-later",
+    "role": "morphology",
+    "sha256": "742bfac59941b2cb09736d5b7aae694af50792261fb8450cbf6afafcc340645f"
+  },
+  {
+    "id": "qac-word-gloss",
+    "name": "Quranic Arabic Corpus — word-by-word English gloss (Kais Dukes)",
+    "publisher": "Kais Dukes / University of Leeds",
+    "edition": "QAC (quranic-corpus-api, commit 17a9062)",
+    "year": 2011,
+    "url": "https://raw.githubusercontent.com/kaisdukes/quranic-corpus-api/17a9062416eccc332111ef3e84f74072d709e187/src/main/resources/data/translation/word-by-word.txt",
+    "licence": "GPL-2.0-or-later",
+    "role": "word-gloss",
+    "sha256": "f732efe12ed56c36c2f94525ed28f4b4e9a4290bdf31a2640bc210d6a9e015d5"
+  },
+  {
+    "id": "qac-word-transliteration",
+    "name": "Quranic Arabic Corpus — word-by-word transliteration (Kais Dukes)",
+    "publisher": "Kais Dukes / University of Leeds",
+    "edition": "QAC (quranic-corpus-api, commit 17a9062)",
+    "year": 2011,
+    "url": "https://raw.githubusercontent.com/kaisdukes/quranic-corpus-api/17a9062416eccc332111ef3e84f74072d709e187/regression/phonetic.txt",
+    "licence": "GPL-2.0-or-later",
+    "role": "word-transliteration",
+    "sha256": "192f3fc996cafb3a32ade640a115fe4e09101f5ec79b1c89a8ac2ac24195495b"
+  },
+  {
+    "id": "en-itani",
+    "name": "Quran in English (ClearQuran)",
+    "publisher": "Talal Itani",
+    "edition": "Talal Itani (2012)",
+    "year": 2012,
+    "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@6be8e17f2a0c13b1f33b1c3057f73cb28d5e848e/editions/eng-talalitani.min.json",
+    "licence": "CC BY-NC-ND 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "licence_note": "Displayed with permission of the licence; NOT redistributable in the dataset. ClearQuran by Talal Itani is released under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0). The NonCommercial and NoDerivatives terms are incompatible with an openly-redistributable dataset, so this edition is served to readers but excluded from every download and from the full tarball. Licence terms read at the URL above.",
+    "redistributable": false,
+    "translator": "Talal Itani",
+    "language": "English",
+    "language_code": "en",
+    "role": "translation",
+    "retrieval_source": {
+      "name": "fawazahmed0/quran-api",
+      "licence": "Unlicense (public-domain dedication)",
+      "commit": "6be8e17f2a0c13b1f33b1c3057f73cb28d5e848e",
+      "url": "https://github.com/fawazahmed0/quran-api"
+    },
+    "sha256": "e350741efd066aa04dace31402a46eadd4e38732159c099dd36afcc512111631"
+  },
+  {
+    "id": "en-pickthall",
+    "name": "The Meaning of the Glorious Koran",
+    "publisher": "Public domain",
+    "edition": "Marmaduke Pickthall (1930)",
+    "year": 1930,
+    "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@6be8e17f2a0c13b1f33b1c3057f73cb28d5e848e/editions/eng-mohammedmarmadu.min.json",
+    "licence": "Public Domain",
+    "licence_url": "https://en.wikisource.org/wiki/The_Meaning_of_the_Glorious_Koran_(1930)",
+    "licence_note": "Public domain worldwide. Translator Marmaduke Pickthall died 1936 (life+70 term expired 2007); first published 1930, before 1 Jan 1931, so also public domain in the United States.",
+    "redistributable": true,
+    "translator": "Marmaduke Pickthall",
+    "language": "English",
+    "language_code": "en",
+    "role": "translation",
+    "retrieval_source": {
+      "name": "fawazahmed0/quran-api",
+      "licence": "Unlicense (public-domain dedication)",
+      "commit": "6be8e17f2a0c13b1f33b1c3057f73cb28d5e848e",
+      "url": "https://github.com/fawazahmed0/quran-api"
+    },
+    "sha256": "0dbb55fa4daeb93aa6bc030441aec750ebf6a5d5235d0f4695f1f30666a72107"
+  },
+  {
+    "id": "en-rodwell",
+    "name": "The Koran",
+    "publisher": "Public domain",
+    "edition": "John Medows Rodwell (1861)",
+    "year": 1861,
+    "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@6be8e17f2a0c13b1f33b1c3057f73cb28d5e848e/editions/eng-johnmedowsrodwe.min.json",
+    "licence": "Public Domain",
+    "licence_url": "https://en.wikisource.org/wiki/The_Koran_(Rodwell)",
+    "licence_note": "Public domain worldwide. Translator John Medows Rodwell died 1900 (life+70 term expired 1970); first published 1861, so also public domain in the United States.",
+    "redistributable": true,
+    "translator": "John Medows Rodwell",
+    "language": "English",
+    "language_code": "en",
+    "role": "translation",
+    "retrieval_source": {
+      "name": "fawazahmed0/quran-api",
+      "licence": "Unlicense (public-domain dedication)",
+      "commit": "6be8e17f2a0c13b1f33b1c3057f73cb28d5e848e",
+      "url": "https://github.com/fawazahmed0/quran-api"
+    },
+    "sha256": "523cde1948b2bf1109c7e36944b36592cec4ed8eeb3d05736f66b46eb24350e6"
+  },
+  {
+    "id": "en-palmer",
+    "name": "The Qur'an (Sacred Books of the East, vols. VI & IX)",
+    "publisher": "Public domain",
+    "edition": "Edward Henry Palmer (1880)",
+    "year": 1880,
+    "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@6be8e17f2a0c13b1f33b1c3057f73cb28d5e848e/editions/eng-edwardhenrypalm.min.json",
+    "licence": "Public Domain",
+    "licence_url": "https://en.wikisource.org/wiki/The_Qur%27an_(Palmer)",
+    "licence_note": "Public domain worldwide. Translator Edward Henry Palmer died 1882 (life+70 term expired 1952); first published 1880, so also public domain in the United States.",
+    "redistributable": true,
+    "translator": "Edward Henry Palmer",
+    "language": "English",
+    "language_code": "en",
+    "role": "translation",
+    "retrieval_source": {
+      "name": "fawazahmed0/quran-api",
+      "licence": "Unlicense (public-domain dedication)",
+      "commit": "6be8e17f2a0c13b1f33b1c3057f73cb28d5e848e",
+      "url": "https://github.com/fawazahmed0/quran-api"
+    },
+    "sha256": "6513aa2b54fbef73d25e24d786e1d1c10584690c9ec581e7c6aa8caaa3a7534e"
+  },
+  {
+    "id": "lane-lexicon",
+    "name": "Lane's Arabic-English Lexicon (Perseus/Tufts TEI)",
+    "publisher": "Perseus Digital Library, Tufts University (text: E. W. Lane)",
+    "edition": "laneslexicon/lexicon_xml originals, commit 51e0794",
+    "year": 1863,
+    "url": "https://github.com/laneslexicon/lexicon_xml",
+    "licence": "CC-BY-SA-3.0",
+    "role": "lexicon",
+    "sha256": "061662edb1c3f7e40859ae8d837f9efd633528bf1ea168fd7f2bcfd0882d42c8"
+  }
+]

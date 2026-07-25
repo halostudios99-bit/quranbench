@@ -28,7 +28,9 @@ export default defineConfig({
     {
       name: 'mobile-light',
       use: { ...devices['Pixel 5'], colorScheme: 'light' },
-      testMatch: /render\.spec\.ts/,
+      // Render across viewports, plus the tooltip's coarse-pointer (bottom-sheet)
+      // path, which only exists on a touch device.
+      testMatch: /(render|tooltip)\.spec\.ts/,
     },
     {
       name: 'mobile-dark',

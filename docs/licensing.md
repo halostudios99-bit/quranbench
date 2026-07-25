@@ -12,7 +12,10 @@ redistribute them. It is written for a human, not a lawyer; it is not legal advi
 | `surahs.json` | surah metadata, basmala text | Tanzil | **CC BY 3.0** |
 | token `text_*` fields | per-token Arabic forms | Tanzil (Uthmani) | **CC BY 3.0** |
 | token `morphology` block | root, lemma, pos, features, segments | Leeds QAC (mustafa0x fork) | **GPL-2.0-or-later** |
+| token `morphology.gloss` | terse per-word English gloss | Quranic Arabic Corpus (Kais Dukes) | **GPL-2.0-or-later** |
+| token `morphology.transliteration` | per-word transliteration | QAC (Kais Dukes); computed fallback | **GPL-2.0-or-later** |
 | `morphology/roots.json` | roots and their occurrences | Leeds QAC | **GPL-2.0-or-later** |
+| `lexicon/lane.json` | Lane's Lexicon entries, by root | Perseus/Tufts digitisation of E. W. Lane | **CC BY-SA 3.0** |
 | pipeline code (`packages/…`) | the software | this project | (its own repo licence) |
 | `translations/*.jsonl` (public-domain) | verse-level translation editions | public-domain works, via fawazahmed0/quran-api | **Public Domain** (per edition) |
 | `translations/en-itani.*` | Talal Itani / ClearQuran — **display-only** | Talal Itani | **CC BY-NC-ND 4.0** (not redistributable) |
@@ -55,6 +58,35 @@ SHA-256, distinct from the CC-BY Tanzil entries.
 
 The alignment of that data onto quranbench token ids is described, and every
 divergence enumerated, in `out/<version>/morphology/alignment-report.md`.
+
+## The word gloss and transliteration
+
+Each token's `morphology` block also carries a terse **English gloss**
+(`gloss`) and a **transliteration** (`transliteration`), both from the Quranic
+Arabic Corpus (Kais Dukes, University of Leeds). Like the morphology they are
+**GPL** — the same copyleft work — so embedding them in `tokens.jsonl` does not
+change its licence status (it is already GPL). They are taken from the corpus
+author's own backend, `kaisdukes/quranic-corpus-api`, pinned to an immutable
+commit. One honest caveat: that repository carries no `LICENSE` file of its own,
+though its content is unambiguously the GPL corpus.quran.com data by the corpus's
+author. This is recorded in `out/<version>/morphology/GLOSS-ATTRIBUTION.md`, and
+coverage plus a candid quality sample are in `.../morphology/gloss-report.md`.
+Where a transliteration has no QAC value it falls back to a documented computed
+scheme (DIN 31635), recorded per token in `transliteration_source`.
+
+## Lane's Lexicon (CC BY-SA 3.0)
+
+Each root page's **Meaning** section is from Edward William Lane's *An
+Arabic-English Lexicon* (1863–1893), long in the public domain. The digitisation
+is the **Perseus Digital Library** (Tufts) TEI text, via the
+`laneslexicon/lexicon_xml` mirror pinned to a commit. Perseus's site-level
+licence is **CC BY-SA 3.0 US**; each file also embeds Perseus's own availability
+statement (credit Perseus and its funders, keep the statement, offer
+modifications back). Both are attribution + share-alike, so this text is
+displayable **and** redistributable — it ships in the dataset downloads, unlike
+the display-only Itani translation. `lexicon/lane.json` and its `LICENSE.md` /
+`LANE-ATTRIBUTION.md` carry the terms; coverage (which of the 1,651 roots have an
+entry) is reported in `lexicon/coverage-report.md`.
 
 ## Translations: redistributable vs display-only
 
