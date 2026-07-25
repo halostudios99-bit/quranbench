@@ -4,6 +4,7 @@
 
 import type {
   AddRevisionInput,
+  Credential,
   CreateInvestigationInput,
   CreateReportInput,
   CreateResponseInput,
@@ -22,6 +23,8 @@ import {
   type Investigation,
   type InvestigationRevision,
   type Response,
+  type SessionRecord,
+  type TermsAcceptance,
   type User,
 } from './types';
 
@@ -34,6 +37,16 @@ interface ActionRow {
   kind: ActionKind;
   subject: string;
   at: Date;
+}
+interface SessionRow {
+  tokenHash: string;
+  userId: string;
+  expiresAt: Date;
+}
+interface VerificationRow {
+  tokenHash: string;
+  userId: string;
+  expiresAt: Date;
 }
 interface Report {
   id: string;
@@ -50,6 +63,9 @@ export class InMemoryStore implements Store {
   private now = () => new Date();
 
   private users: User[] = [];
+  private passwordHashes = new Map<string, string>();
+  private sessions: SessionRow[] = [];
+  private verifications: VerificationRow[] = [];
   private acceptances: Acceptance[] = [];
   private investigations: Investigation[] = [];
   private revisions: InvestigationRevision[] = [];
@@ -77,6 +93,7 @@ export class InMemoryStore implements Store {
       createdAt: this.now(),
     };
     this.users.push(user);
+    this.passwordHashes.set(user.id, input.passwordHash);
     return user;
   }
   async getUser(id: string) {
@@ -96,6 +113,48 @@ export class InMemoryStore implements Store {
   }
   async hasAcceptedTerms(userId: string) {
     return this.acceptances.some((a) => a.userId === userId);
+  }
+  async listTermsAcceptances(userId: string): Promise<TermsAcceptance[]> {
+    return this.acceptances
+      .filter((a) => a.userId === userId)
+      .map((a) => ({ version: a.version, acceptedAt: a.acceptedAt }))
+      .sort((a, b) => b.acceptedAt.getTime() - a.acceptedAt.getTime());
+  }
+  async findCredential(email: string): Promise<Credential | null> {
+    const user = this.users.find((u) => u.email === email);
+    if (!user) return null;
+    const passwordHash = this.passwordHashes.get(user.id);
+    if (!passwordHash) return null;
+    return { user, passwordHash };
+  }
+  async markEmailVerified(userId: string, verifiedAt: Date) {
+    const user = this.users.find((u) => u.id === userId);
+    if (user) user.emailVerified = verifiedAt;
+  }
+
+  async createSession(userId: string, tokenHash: string, expiresAt: Date) {
+    this.sessions.push({ tokenHash, userId, expiresAt });
+  }
+  async getSession(tokenHash: string): Promise<SessionRecord | null> {
+    const row = this.sessions.find((s) => s.tokenHash === tokenHash);
+    return row ? { userId: row.userId, expiresAt: row.expiresAt } : null;
+  }
+  async deleteSession(tokenHash: string) {
+    this.sessions = this.sessions.filter((s) => s.tokenHash !== tokenHash);
+  }
+  async deleteUserSessions(userId: string) {
+    this.sessions = this.sessions.filter((s) => s.userId !== userId);
+  }
+
+  async createEmailVerificationToken(userId: string, tokenHash: string, expiresAt: Date) {
+    this.verifications.push({ tokenHash, userId, expiresAt });
+  }
+  async consumeEmailVerificationToken(tokenHash: string, now: Date): Promise<string | null> {
+    const row = this.verifications.find((v) => v.tokenHash === tokenHash);
+    if (!row) return null;
+    this.verifications = this.verifications.filter((v) => v.tokenHash !== tokenHash);
+    if (row.expiresAt.getTime() <= now.getTime()) return null;
+    return row.userId;
   }
 
   async createInvestigation(
@@ -130,6 +189,12 @@ export class InMemoryStore implements Store {
   async listInvestigations(statuses: Investigation['status'][]) {
     return this.investigations
       .filter((i) => statuses.includes(i.status))
+      .sort((a, b) => b.updatedAt.getTime() - a.updatedAt.getTime());
+  }
+  async listInvestigationsByAuthor(authorId: string) {
+    return this.investigations
+      .filter((i) => i.authorId === authorId)
+      .map((i) => ({ ...i }))
       .sort((a, b) => b.updatedAt.getTime() - a.updatedAt.getTime());
   }
   async updateInvestigationHead(id: string, patch: InvestigationHeadPatch) {

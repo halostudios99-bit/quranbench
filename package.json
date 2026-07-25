@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test": "vitest run",
+    "test:all": "vitest run && pnpm --filter ./apps/web test && pnpm --filter ./apps/web test:e2e",
     "test:watch": "vitest",
     "lint": "eslint .",
     "format": "prettier --check .",

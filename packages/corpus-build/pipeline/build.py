@@ -48,6 +48,7 @@ from .morphology import annotate, render_report, report_stats
 from .parse import parse_metadata, parse_text
 from .paths import DATA_DIR, OUT_DIR, SOURCES_DIR, sha256_bytes, sha256_file
 from .sources import MORPHOLOGY_SOURCE_ID, SEGMENTATION_SOURCE_ID, SOURCES
+from .tarball import is_distribution_file, write_full_tarball
 from .tokens import Token, segment_basmala, segment_verse
 from . import translations as translations_mod
 
@@ -623,17 +624,19 @@ def _write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
 MANIFEST_NAME = "manifest.json"
 
 
-def compute_output_checksums(out_dir: Path) -> dict[str, dict[str, Any]]:
+def compute_output_checksums(out_dir: Path, version: str) -> dict[str, dict[str, Any]]:
     """sha256 + byte size for every emitted artifact, keyed by POSIX-relative
     path, excluding the manifest itself (a manifest cannot checksum its own final
-    bytes). This is what lets a third party verify a published corpus byte-for-byte.
+    bytes) and the derived full-dataset tarball + sidecar (which embed the manifest,
+    so listing them here would be circular). This is what lets a third party verify
+    a published corpus byte-for-byte.
     """
     checksums: dict[str, dict[str, Any]] = {}
     for path in sorted(out_dir.rglob("*")):
         if not path.is_file():
             continue
         rel = path.relative_to(out_dir).as_posix()
-        if rel == MANIFEST_NAME:
+        if rel == MANIFEST_NAME or is_distribution_file(rel, version):
             continue
         data = path.read_bytes()
         checksums[rel] = {"sha256": sha256_bytes(data), "bytes": len(data)}
@@ -804,8 +807,13 @@ def build(out_root: Path = OUT_DIR) -> Path:
     # Every non-manifest artifact is now on disk; checksum them and record the
     # block in the manifest, written last so it can cover the final bytes of all
     # its siblings. The manifest excludes itself.
-    manifest["checksums"] = compute_output_checksums(out_dir)
+    manifest["checksums"] = compute_output_checksums(out_dir, CORPUS_VERSION)
     _write_json(out_dir / MANIFEST_NAME, manifest)
+
+    # Finally, the full-dataset distribution tarball. Built after the manifest so
+    # the archive contains it; self-described by a .sha256 sidecar rather than the
+    # manifest (see pipeline/tarball.py).
+    write_full_tarball(out_dir, CORPUS_VERSION)
 
     print(
         f"built {out_dir}\n"

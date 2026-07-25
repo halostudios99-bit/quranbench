@@ -50,6 +50,18 @@ export interface User {
   createdAt: Date;
 }
 
+/** A persisted session, keyed by the SHA-256 of the raw cookie token. */
+export interface SessionRecord {
+  userId: string;
+  expiresAt: Date;
+}
+
+/** One recorded contributor-terms acceptance. Append-only in the store. */
+export interface TermsAcceptance {
+  version: string;
+  acceptedAt: Date;
+}
+
 export interface Investigation {
   id: string;
   authorId: string;

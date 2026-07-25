@@ -14,6 +14,7 @@ redistribute them. It is written for a human, not a lawyer; it is not legal advi
 | token `morphology` block | root, lemma, pos, features, segments | Leeds QAC (mustafa0x fork) | **GPL-2.0-or-later** |
 | `morphology/roots.json` | roots and their occurrences | Leeds QAC | **GPL-2.0-or-later** |
 | pipeline code (`packages/…`) | the software | this project | (its own repo licence) |
+| `apps/web/public/fonts/*.woff2` | Amiri Quran + Amiri fonts | aliftype/amiri (Khaled Hosny & the Amiri project) | **SIL OFL 1.1** |
 
 The **Quranic text is never modified** and is always attributed to Tanzil (see the
 project's non-negotiable rules). Normalised and segmented forms are separate,
@@ -52,6 +53,23 @@ SHA-256, distinct from the CC-BY Tanzil entries.
 
 The alignment of that data onto quranbench token ids is described, and every
 divergence enumerated, in `out/<version>/morphology/alignment-report.md`.
+
+## The fonts
+
+Quranic text renders in **Amiri Quran** and Arabic UI text in **Amiri**, both from
+the Amiri project (copyright the Amiri project / **Khaled Hosny** & contributors),
+released under the **SIL Open Font License, Version 1.1**. We take them from the
+official OFL release (<https://github.com/aliftype/amiri/releases>, tag `1.003`,
+`Amiri-1.003.zip`), subset them to the Arabic Unicode ranges, and **self-host** the
+resulting `amiri-quran.woff2` and `amiri-regular.woff2` in
+`apps/web/public/fonts/`. The unmodified OFL text ships alongside them at
+`apps/web/public/fonts/OFL.txt`. No Google Fonts request is made for Arabic; there
+are no external font requests at runtime.
+
+The OFL permits redistribution (including subsetting and embedding) with the
+licence carried alongside — which is why this project uses Amiri rather than the
+KFGQPC Uthmanic fonts, whose licence does not permit the redistribution a
+downloadable dataset requires. See `docs/design-system.md` §1.
 
 ## If you redistribute
 

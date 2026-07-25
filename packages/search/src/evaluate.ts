@@ -15,20 +15,121 @@ function rootKey(index: SearchIndex, input: string): string | undefined {
   return letters.length ? letters.join(' ') : undefined;
 }
 
-// The evaluator. Every query reduces to a set of token handles (integer indices
-// into index.tokens). Set algebra composes booleans; positional joins over
-// sorted handle lists give proximity and adjacency without scanning the corpus.
+// The evaluator. Every query reduces to a sorted, duplicate-free list of token
+// handles (integer indices into index.tokens). Working in sorted handle space —
+// not sets — is what keeps the whole surface fast: the posting lists are already
+// in ascending corpus order, so the terminal queries are zero-copy, set algebra
+// is a linear merge, and the caller never has to sort. A `pos:V` match of ~19k
+// handles then costs a merge, not a 19k-element Set construction plus a re-sort.
+//
+// All postings in the index are built by pushing handles as i increases, so
+// every posting list is already sorted ascending and unique. Every operation
+// here preserves that invariant, so results compose without an intermediate sort.
 
-function sorted(set: Set<number>): number[] {
-  return [...set].sort((a, b) => a - b);
+/** Intersect two sorted, unique handle lists. */
+function intersectSorted(a: number[], b: number[]): number[] {
+  const out: number[] = [];
+  let i = 0;
+  let j = 0;
+  while (i < a.length && j < b.length) {
+    const x = a[i]!;
+    const y = b[j]!;
+    if (x === y) {
+      out.push(x);
+      i++;
+      j++;
+    } else if (x < y) i++;
+    else j++;
+  }
+  return out;
 }
 
-function unionPostings(index: SearchIndex, keys: Iterable<string>): Set<number> {
-  const out = new Set<number>();
-  for (const key of keys) {
-    const postings = index.normalised.get(key);
-    if (postings) for (const h of postings) out.add(h);
+/** Union of two sorted, unique handle lists. */
+function unionSorted(a: number[], b: number[]): number[] {
+  const out: number[] = [];
+  let i = 0;
+  let j = 0;
+  while (i < a.length && j < b.length) {
+    const x = a[i]!;
+    const y = b[j]!;
+    if (x === y) {
+      out.push(x);
+      i++;
+      j++;
+    } else if (x < y) {
+      out.push(x);
+      i++;
+    } else {
+      out.push(y);
+      j++;
+    }
   }
+  while (i < a.length) out.push(a[i++]!);
+  while (j < b.length) out.push(b[j++]!);
+  return out;
+}
+
+/**
+ * Union of many sorted, unique handle lists. A balanced pairwise merge (log k
+ * passes, each linear in the total) — not a running fold — so a suffix or
+ * pattern query that matches hundreds of keys never re-copies a growing
+ * accumulator once per key.
+ */
+function unionSortedMany(lists: number[][]): number[] {
+  if (lists.length === 0) return [];
+  let level = lists;
+  while (level.length > 1) {
+    const next: number[][] = [];
+    for (let i = 0; i < level.length; i += 2) {
+      next.push(i + 1 < level.length ? unionSorted(level[i]!, level[i + 1]!) : level[i]!);
+    }
+    level = next;
+  }
+  return level[0]!;
+}
+
+/** Set difference a \ b over sorted, unique handle lists. */
+function differenceSorted(a: number[], b: number[]): number[] {
+  const out: number[] = [];
+  let i = 0;
+  let j = 0;
+  while (i < a.length) {
+    if (j >= b.length) {
+      out.push(a[i]!);
+      i++;
+      continue;
+    }
+    const x = a[i]!;
+    const y = b[j]!;
+    if (x === y) {
+      i++;
+      j++;
+    } else if (x < y) {
+      out.push(x);
+      i++;
+    } else j++;
+  }
+  return out;
+}
+
+/** The whole corpus, [0, n), minus a sorted, unique exclusion list. */
+function complement(n: number, excluded: number[]): number[] {
+  const out: number[] = [];
+  let j = 0;
+  for (let h = 0; h < n; h++) {
+    if (j < excluded.length && excluded[j] === h) {
+      j++;
+      continue;
+    }
+    out.push(h);
+  }
+  return out;
+}
+
+/** The whole corpus as a sorted handle list. */
+function allHandles(n: number): number[] {
+  const out = new Array<number>(n);
+  for (let h = 0; h < n; h++) out[h] = h;
   return out;
 }
 
@@ -41,6 +142,16 @@ function patternToRegExp(pattern: string): RegExp {
   }
   src += '$';
   return new RegExp(src);
+}
+
+/** Union the postings of every matching key into one sorted, unique list. */
+function unionPostings(index: SearchIndex, keys: string[]): number[] {
+  const lists: number[][] = [];
+  for (const key of keys) {
+    const postings = index.normalised.get(key);
+    if (postings) lists.push(postings);
+  }
+  return unionSortedMany(lists);
 }
 
 // Scope resolution is set intersection over contiguous handle ranges, never a
@@ -132,13 +243,20 @@ function inIntervals(intervals: HandleRange[], handle: number): boolean {
   return false;
 }
 
+/** Materialise sorted, disjoint intervals to a sorted handle list. */
+function intervalsToHandles(intervals: HandleRange[]): number[] {
+  const out: number[] = [];
+  for (const iv of intervals) for (let h = iv.start; h < iv.end; h++) out.push(h);
+  return out;
+}
+
 function proximityJoin(
   index: SearchIndex,
   a: number[],
   b: number[],
   distance: number,
   crossSegment: boolean,
-): Set<number> {
+): number[] {
   const out = new Set<number>();
   let lo = 0;
   for (const y of b) {
@@ -155,31 +273,35 @@ function proximityJoin(
     }
     if (paired) out.add(y);
   }
-  return out;
+  return [...out].sort((p, q) => p - q);
 }
 
-function adjacencyJoin(index: SearchIndex, left: Set<number>, right: number[]): Set<number> {
+function adjacencyJoin(index: SearchIndex, left: number[], right: number[]): number[] {
+  const leftSet = new Set(left);
   const out = new Set<number>();
   for (const r of right) {
     const l = r - 1;
-    if (l >= 0 && left.has(l) && index.segmentIdOf[l] === index.segmentIdOf[r]) {
+    if (l >= 0 && leftSet.has(l) && index.segmentIdOf[l] === index.segmentIdOf[r]) {
       out.add(l);
       out.add(r);
     }
   }
-  return out;
+  return [...out].sort((p, q) => p - q);
 }
 
-/** Evaluate a query to the set of matching token handles. */
-export function evaluate(index: SearchIndex, query: Query): Set<number> {
+/**
+ * Evaluate a query to a sorted, duplicate-free list of matching token handles.
+ * Every branch returns handles in ascending order, so the caller never sorts and
+ * set algebra composes by linear merge. Terminal posting lists are returned by
+ * reference and must be treated as read-only.
+ */
+export function evaluateHandles(index: SearchIndex, query: Query): number[] {
   switch (query.type) {
     case 'exact': {
-      const postings = index.exact.get(canonicaliseUthmani(query.text));
-      return new Set(postings ?? []);
+      return index.exact.get(canonicaliseUthmani(query.text)) ?? [];
     }
     case 'normalised': {
-      const postings = index.normalised.get(normaliseArabic(query.text));
-      return new Set(postings ?? []);
+      return index.normalised.get(normaliseArabic(query.text)) ?? [];
     }
     case 'prefix': {
       const needle = normaliseArabic(query.text);
@@ -200,22 +322,22 @@ export function evaluate(index: SearchIndex, query: Query): Set<number> {
       return unionPostings(index, keys);
     }
     case 'proximity': {
-      const a = sorted(evaluate(index, query.left));
-      const b = sorted(evaluate(index, query.right));
+      const a = evaluateHandles(index, query.left);
+      const b = evaluateHandles(index, query.right);
       return proximityJoin(index, a, b, query.distance, query.crossSegment ?? false);
     }
     case 'adjacency': {
-      const left = evaluate(index, query.left);
-      const right = sorted(evaluate(index, query.right));
+      const left = evaluateHandles(index, query.left);
+      const right = evaluateHandles(index, query.right);
       return adjacencyJoin(index, left, right);
     }
     case 'and': {
-      if (query.clauses.length === 0) return new Set();
+      if (query.clauses.length === 0) return [];
       // `A AND NOT B` is the set difference A \ B. Evaluating NOT on its own
       // materialises the whole-corpus complement of B (O(n)); folding it into
       // the AND as an exclusion avoids that — the negated clause is evaluated
       // directly and its members removed. Positive clauses still intersect
-      // smallest-first.
+      // smallest-first, which minimises the size carried through the fold.
       const positives: Query[] = [];
       const negatives: Query[] = [];
       for (const c of query.clauses) {
@@ -223,81 +345,73 @@ export function evaluate(index: SearchIndex, query: Query): Set<number> {
         else positives.push(c);
       }
 
-      let base: Set<number>;
+      let base: number[];
       if (positives.length > 0) {
-        const sets = positives.map((c) => evaluate(index, c)).sort((x, y) => x.size - y.size);
-        const [first, ...rest] = sets;
-        base = new Set<number>();
-        for (const h of first!) {
-          if (rest.every((s) => s.has(h))) base.add(h);
+        const lists = positives
+          .map((c) => evaluateHandles(index, c))
+          .sort((x, y) => x.length - y.length);
+        base = lists[0]!;
+        for (let k = 1; k < lists.length && base.length > 0; k++) {
+          base = intersectSorted(base, lists[k]!);
         }
       } else {
         // Only negated clauses: the base is the whole corpus (unavoidably O(n)).
-        base = new Set<number>();
-        for (let i = 0; i < index.tokens.length; i++) base.add(i);
+        base = allHandles(index.tokens.length);
       }
 
       if (negatives.length === 0) return base;
-      const excluded = new Set<number>();
-      for (const neg of negatives) for (const h of evaluate(index, neg)) excluded.add(h);
-      const out = new Set<number>();
-      for (const h of base) if (!excluded.has(h)) out.add(h);
-      return out;
+      const excluded = unionSortedMany(negatives.map((neg) => evaluateHandles(index, neg)));
+      return differenceSorted(base, excluded);
     }
     case 'or': {
-      const out = new Set<number>();
-      for (const clause of query.clauses) {
-        for (const h of evaluate(index, clause)) out.add(h);
-      }
-      return out;
+      return unionSortedMany(query.clauses.map((clause) => evaluateHandles(index, clause)));
     }
     case 'not': {
-      const excluded = evaluate(index, query.clause);
-      const out = new Set<number>();
-      for (let i = 0; i < index.tokens.length; i++) if (!excluded.has(i)) out.add(i);
-      return out;
+      const excluded = evaluateHandles(index, query.clause);
+      return complement(index.tokens.length, excluded);
     }
     case 'scoped': {
       const intervals = scopeIntervals(index, query.scope);
-      const out = new Set<number>();
       // A bare scope (`surah:2`) has an `all` inner: materialise the intervals
-      // directly, never touching a handle outside the scope.
-      if (query.query.type === 'all') {
-        for (const iv of intervals) for (let h = iv.start; h < iv.end; h++) out.add(h);
-        return out;
-      }
-      const inner = evaluate(index, query.query);
-      for (const h of inner) if (inIntervals(intervals, h)) out.add(h);
+      // directly, in order, never touching a handle outside the scope.
+      if (query.query.type === 'all') return intervalsToHandles(intervals);
+      const inner = evaluateHandles(index, query.query);
+      const out: number[] = [];
+      for (const h of inner) if (inIntervals(intervals, h)) out.push(h);
       return out;
     }
     case 'all': {
-      const out = new Set<number>();
-      for (let i = 0; i < index.tokens.length; i++) out.add(i);
-      return out;
+      return allHandles(index.tokens.length);
     }
     case 'reference': {
       const segments = resolveReference(index, query.ref) ?? [];
-      const out = new Set<number>();
+      const lists: number[][] = [];
       for (const segment of segments) {
         const handles = index.segmentTokens.get(segment.id);
-        if (handles) for (const h of handles) out.add(h);
+        if (handles) lists.push(handles);
       }
-      return out;
+      return unionSortedMany(lists);
     }
     case 'root': {
       const key = rootKey(index, query.root);
-      const postings = key === undefined ? undefined : index.root.get(key);
-      return new Set(postings ?? []);
+      return (key === undefined ? undefined : index.root.get(key)) ?? [];
     }
     case 'lemma': {
       const exactPostings = index.lemma.get(query.lemma);
-      if (exactPostings) return new Set(exactPostings);
-      const normPostings = index.lemmaNormalised.get(normaliseArabic(query.lemma));
-      return new Set(normPostings ?? []);
+      if (exactPostings) return exactPostings;
+      return index.lemmaNormalised.get(normaliseArabic(query.lemma)) ?? [];
     }
     case 'pos': {
-      const postings = index.pos.get(query.pos);
-      return new Set(postings ?? []);
+      return index.pos.get(query.pos) ?? [];
     }
   }
+}
+
+/**
+ * Evaluate a query to the set of matching token handles. Thin wrapper over
+ * {@link evaluateHandles} for callers that want a Set; the handle list it wraps
+ * is already sorted and unique.
+ */
+export function evaluate(index: SearchIndex, query: Query): Set<number> {
+  return new Set(evaluateHandles(index, query));
 }

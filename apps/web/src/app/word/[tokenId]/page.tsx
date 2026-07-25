@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import ReactDOM from 'react-dom';
 
 import { CitingInvestigations } from '@/components/CitingInvestigations';
 import { JsonLd } from '@/components/JsonLd';
@@ -117,6 +118,13 @@ export default async function WordPage({ params }: Params) {
   const { tokenId } = await params;
   const view = describeToken(decodeURIComponent(tokenId));
   if (!view) notFound();
+
+  // LCP element on this route is the large Arabic word: preload the subset.
+  ReactDOM.preload('/fonts/amiri-quran.woff2', {
+    as: 'font',
+    type: 'font/woff2',
+    crossOrigin: 'anonymous',
+  });
 
   const { token, surah, ref, verseRef, ordinal, root, sameForm } = view;
   const morph = token.morphology;
@@ -437,7 +445,10 @@ export default async function WordPage({ params }: Params) {
               correspondence is <strong>verse-level</strong>: no word-level
               alignment of translations exists for these editions, so we do not
               claim which English word renders this Arabic word.{' '}
-              <a href={`/compare?v=${verseRef}`} className="text-accent underline">
+              <a
+                href={`/compare?v=${verseRef}`}
+                className="text-accent underline"
+              >
                 Compare the editions →
               </a>
             </p>
@@ -508,10 +519,7 @@ export default async function WordPage({ params }: Params) {
           </Section>
         ) : null}
 
-        <CitingInvestigations
-          items={citing}
-          subject="this word"
-        />
+        <CitingInvestigations items={citing} subject="this word" />
       </div>
 
       <footer className="mt-8 border-t border-line pt-5 text-[12px] leading-relaxed text-ink3">

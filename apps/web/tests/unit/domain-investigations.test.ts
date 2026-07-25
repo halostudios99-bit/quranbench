@@ -58,8 +58,15 @@ const gateway: CorpusGateway = {
 let store: InMemoryStore;
 
 async function seedAuthor(handle = 'ibn-test'): Promise<string> {
-  const user = await store.createUser({ email: `${handle}@example.com`, handle });
+  const user = await store.createUser({
+    email: `${handle}@example.com`,
+    handle,
+    passwordHash: 'test-hash',
+  });
   await store.recordTermsAcceptance(user.id, CONTRIBUTOR_TERMS_VERSION, new Date());
+  // Publishing requires a verified email; seeded authors are verified so the
+  // existing publish-gate tests exercise the other conditions, not verification.
+  await store.markEmailVerified(user.id, new Date());
   return user.id;
 }
 
@@ -85,7 +92,11 @@ beforeEach(() => {
 
 describe('contributor-terms gate', () => {
   it('blocks a user without a recorded acceptance from creating content', async () => {
-    const user = await store.createUser({ email: 'x@example.com', handle: 'x-user' });
+    const user = await store.createUser({
+      email: 'x@example.com',
+      handle: 'x-user',
+      passwordHash: 'test-hash',
+    });
     await expect(assertCanContribute(store, user.id)).rejects.toBeInstanceOf(
       TermsNotAcceptedError,
     );
@@ -102,6 +113,36 @@ describe('contributor-terms gate', () => {
 });
 
 describe('publish gate (data-layer, not form)', () => {
+  it('cannot publish before the author verifies their email', async () => {
+    // A fully valid draft by an author whose only missing prerequisite is a
+    // verified email: publishing must fail, and nothing goes public.
+    const user = await store.createUser({
+      email: 'unverified@example.com',
+      handle: 'unverified',
+      passwordHash: 'test-hash',
+    });
+    await store.recordTermsAcceptance(user.id, CONTRIBUTOR_TERMS_VERSION, new Date());
+    const inv = await createInvestigation(
+      store,
+      gateway,
+      draft(user.id, { slug: 'unverified-cannot-publish' }),
+    );
+    const blocked = await publishInvestigation(store, gateway, {
+      investigationId: inv.id,
+      actorId: user.id,
+    });
+    expect(blocked).toMatchObject({ ok: false, code: 'unverified' });
+    expect((await store.getInvestigation(inv.id))!.status).toBe('DRAFT');
+
+    // After verifying, the same draft publishes.
+    await store.markEmailVerified(user.id, new Date());
+    const ok = await publishInvestigation(store, gateway, {
+      investigationId: inv.id,
+      actorId: user.id,
+    });
+    expect(ok.ok).toBe(true);
+  });
+
   it('fails when the claim is missing', async () => {
     const authorId = await seedAuthor();
     const inv = await createInvestigation(store, gateway, draft(authorId, { claim: '' }));
@@ -305,6 +346,7 @@ describe('responses', () => {
     const stranger = await store.createUser({
       email: 's@example.com',
       handle: 'stranger',
+      passwordHash: 'test-hash',
     });
     await expect(
       createResponse(store, gateway, {

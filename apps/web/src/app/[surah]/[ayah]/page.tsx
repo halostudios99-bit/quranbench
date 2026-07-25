@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import ReactDOM from 'react-dom';
 
 import { ReaderVerse } from '@/components/ReaderVerse';
 import { TranslationSettings } from '@/components/TranslationSettings';
@@ -61,6 +62,13 @@ export default async function VersePage({ params }: Params) {
   const single = from === to;
   const ref = referenceLabel(number, from, to);
 
+  // LCP element on this route is the Arabic verse text: preload the subset.
+  ReactDOM.preload('/fonts/amiri-quran.woff2', {
+    as: 'font',
+    type: 'font/woff2',
+    crossOrigin: 'anonymous',
+  });
+
   const editions = listTranslationEditions();
   const shown = await selectedTranslationEditions(editions.map((e) => e.id));
 
@@ -86,7 +94,12 @@ export default async function VersePage({ params }: Params) {
       <header className="mb-6 flex flex-wrap items-end justify-between gap-3">
         <h1 className="text-[22px] font-semibold tracking-tight text-ink">
           {surah.name_en} {ref}
-          {!single ? <span className="font-normal text-ink3"> · verses {from}–{to}</span> : null}
+          {!single ? (
+            <span className="font-normal text-ink3">
+              {' '}
+              · verses {from}–{to}
+            </span>
+          ) : null}
         </h1>
         {editions.length > 0 ? (
           <div className="flex items-center gap-3 text-[13px]">
@@ -124,7 +137,10 @@ export default async function VersePage({ params }: Params) {
         ))}
       </div>
 
-      <nav aria-label="Verse navigation" className="mt-8 flex items-center justify-between gap-4">
+      <nav
+        aria-label="Verse navigation"
+        className="mt-8 flex items-center justify-between gap-4"
+      >
         {prevOrdinal ? (
           <a
             href={verseHref(number, prevOrdinal)}
@@ -136,7 +152,10 @@ export default async function VersePage({ params }: Params) {
         ) : (
           <span />
         )}
-        <a href={surahHref(number)} className="text-[14px] text-ink3 hover:text-ink2">
+        <a
+          href={surahHref(number)}
+          className="text-[14px] text-ink3 hover:text-ink2"
+        >
           All of {surah.name_en}
         </a>
         {nextOrdinal ? (

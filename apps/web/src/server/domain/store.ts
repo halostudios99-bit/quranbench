@@ -17,6 +17,8 @@ import type {
   ReportTargetType,
   Response,
   ResponseType,
+  SessionRecord,
+  TermsAcceptance,
   User,
 } from './types';
 
@@ -24,6 +26,14 @@ export interface CreateUserInput {
   email: string;
   handle: string;
   displayName?: string | null;
+  /** scrypt hash from domain/password.ts. The raw password never reaches the store. */
+  passwordHash: string;
+}
+
+/** An email + its password hash, for sign-in credential checks. */
+export interface Credential {
+  user: User;
+  passwordHash: string;
 }
 
 export interface CreateInvestigationInput {
@@ -83,6 +93,26 @@ export interface Store {
     acceptedAt: Date,
   ): Promise<void>;
   hasAcceptedTerms(userId: string): Promise<boolean>;
+  /** Every acceptance on file for a user, newest first — for the account page. */
+  listTermsAcceptances(userId: string): Promise<TermsAcceptance[]>;
+  /** The email + password hash for a sign-in check, or null if no such account. */
+  findCredential(email: string): Promise<Credential | null>;
+  markEmailVerified(userId: string, verifiedAt: Date): Promise<void>;
+
+  // ── Sessions ────────────────────────────────────────────────────────────────
+  createSession(userId: string, tokenHash: string, expiresAt: Date): Promise<void>;
+  getSession(tokenHash: string): Promise<SessionRecord | null>;
+  deleteSession(tokenHash: string): Promise<void>;
+  deleteUserSessions(userId: string): Promise<void>;
+
+  // ── Email verification tokens ────────────────────────────────────────────────
+  createEmailVerificationToken(
+    userId: string,
+    tokenHash: string,
+    expiresAt: Date,
+  ): Promise<void>;
+  /** Consume a token: return its user id and delete it, or null if invalid/expired. */
+  consumeEmailVerificationToken(tokenHash: string, now: Date): Promise<string | null>;
 
   // ── Investigations ────────────────────────────────────────────────────────
   createInvestigation(
@@ -92,6 +122,8 @@ export interface Store {
   getInvestigation(id: string): Promise<Investigation | null>;
   getInvestigationBySlug(slug: string): Promise<Investigation | null>;
   listInvestigations(statuses: Investigation['status'][]): Promise<Investigation[]>;
+  /** Every investigation by one author, any status — the account page needs drafts too. */
+  listInvestigationsByAuthor(authorId: string): Promise<Investigation[]>;
   updateInvestigationHead(
     id: string,
     patch: InvestigationHeadPatch,

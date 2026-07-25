@@ -15,18 +15,28 @@ describe('createAccount', () => {
   const base = {
     email: 'Aisha@Example.com',
     handle: 'Aisha',
+    password: 'a-strong-passphrase',
     acceptTermsVersion: CONTRIBUTOR_TERMS_VERSION,
     clientId: '203.0.113.7',
   };
 
-  it('creates the user and records a terms acceptance at signup', async () => {
+  it('creates the user and records a terms acceptance with version at signup', async () => {
     const result = await createAccount(store, base);
     expect(result.ok).toBe(true);
     if (result.ok) {
       expect(result.user.email).toBe('aisha@example.com'); // normalised
       expect(result.user.handle).toBe('aisha');
       expect(await store.hasAcceptedTerms(result.user.id)).toBe(true);
+      const acceptances = await store.listTermsAcceptances(result.user.id);
+      expect(acceptances).toHaveLength(1);
+      expect(acceptances[0]!.version).toBe(CONTRIBUTOR_TERMS_VERSION);
+      expect(acceptances[0]!.acceptedAt).toBeInstanceOf(Date);
     }
+  });
+
+  it('rejects a password shorter than the minimum', async () => {
+    const result = await createAccount(store, { ...base, password: 'short' });
+    expect(result).toMatchObject({ ok: false, code: 'invalid' });
   });
 
   it('refuses signup that does not accept the current terms version', async () => {

@@ -12,9 +12,18 @@ This is 80% of perceived quality. Get it right before anything else.
 
 **Fonts**
 
-- Quranic text: KFGQPC Uthmanic Script HAFS, fallback Amiri Quran
+- Quranic text: Amiri Quran, fallback system serif Arabic (Noto Naskh, Geeza Pro)
 - Arabic UI text: Amiri, fallback system Arabic
 - Latin UI: Inter or system stack
+
+Amiri Quran and Amiri are self-hosted under the SIL Open Font License 1.1
+(`apps/web/public/fonts/`, licence at `OFL.txt`; see `docs/licensing.md`).
+
+We chose Amiri over KFGQPC Uthmanic Script HAFS deliberately. The OFL permits
+redistribution — including subsetting and shipping the fonts with a downloadable
+dataset — whereas KFGQPC's licence does not permit redistribution. This project
+ships an open dataset, so every part of it must be licence-consistent and freely
+redistributable; a non-redistributable font would break that promise.
 
 **Sizing and rhythm**
 

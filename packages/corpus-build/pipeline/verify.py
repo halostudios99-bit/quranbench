@@ -18,6 +18,7 @@ from pathlib import Path
 
 from .build import MANIFEST_NAME
 from .paths import sha256_bytes
+from .tarball import is_distribution_file
 
 
 def verify(out_dir: Path) -> list[str]:
@@ -36,6 +37,8 @@ def verify(out_dir: Path) -> list[str]:
     checksums = manifest.get("checksums")
     if not isinstance(checksums, dict):
         return [f"{MANIFEST_NAME} has no 'checksums' block"]
+
+    version = manifest.get("corpus_version", "")
 
     # Every listed artifact must exist and match.
     for rel, expected in sorted(checksums.items()):
@@ -61,7 +64,9 @@ def verify(out_dir: Path) -> list[str]:
         if not path.is_file():
             continue
         rel = path.relative_to(out_dir).as_posix()
-        if rel == MANIFEST_NAME:
+        # The manifest and the derived full-dataset tarball + sidecar are
+        # intentionally not self-listed in the checksum block.
+        if rel == MANIFEST_NAME or is_distribution_file(rel, version):
             continue
         if rel not in checksums:
             errors.append(f"{rel}: present on disk but not listed in manifest")

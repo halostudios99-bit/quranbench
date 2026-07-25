@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
+import ReactDOM from 'react-dom';
 
 import { SurahReader } from '@/components/SurahReader';
 import { parseSurahParam, surahHref, surahPageHref } from '@/lib/addressing';
@@ -62,6 +63,13 @@ export default async function SurahPagePage({ params }: Params) {
   const resolved = resolve(surahParam, pageParam);
   if (!resolved) notFound();
   const { surah, page, pageCount } = resolved;
+
+  // LCP element on this route is the Arabic surah text: preload the subset.
+  ReactDOM.preload('/fonts/amiri-quran.woff2', {
+    as: 'font',
+    type: 'font/woff2',
+    crossOrigin: 'anonymous',
+  });
 
   const all = getSurahVerses(surah.number);
   const { start, end } = pageSlice(page, VERSES_PER_PAGE);

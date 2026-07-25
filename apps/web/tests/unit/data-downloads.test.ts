@@ -9,13 +9,14 @@ import {
 } from '@/lib/citation';
 import {
   currentVersion,
+  fullTarball,
   isKnownVersion,
   listArtifacts,
   listVersions,
   manifestSha256,
   resolveArtifact,
 } from '@/server/artifacts';
-import { licenceGroups } from '@/server/api/downloads';
+import { fullDownload, licenceGroups } from '@/server/api/downloads';
 import { manifestResponse } from '@/server/api/core';
 
 // Part C acceptance: the checksums shown on /data match the bytes on disk, and
@@ -57,6 +58,46 @@ describe('/data checksums match the artifacts on disk', () => {
       expect(group.licence).toBeTruthy();
       expect(group.licence_url).toMatch(/^https?:\/\//);
     }
+  });
+});
+
+describe('every version offers a full-dataset tarball with a matching checksum', () => {
+  it('the tarball is resolvable and its sha256 matches the bytes on disk', () => {
+    for (const version of listVersions()) {
+      const tarball = fullTarball(version);
+      expect(tarball, `${version} full tarball`).not.toBeNull();
+
+      // The tarball is served through the same download route as any artifact,
+      // even though it is not listed in the manifest checksum block.
+      const resolved = resolveArtifact(version, tarball!.path);
+      expect(resolved, `${version} tarball resolvable`).not.toBeNull();
+
+      const bytes = readFileSync(resolved!.absolutePath);
+      expect(bytes.length, `${version} tarball size`).toBe(tarball!.bytes);
+      const sha = createHash('sha256').update(bytes).digest('hex');
+      expect(sha, `${version} tarball sha256`).toBe(tarball!.sha256);
+    }
+  });
+
+  it('is offered on /data as a GPL whole with a download href', () => {
+    const version = currentVersion();
+    const full = fullDownload(version);
+    expect(full).not.toBeNull();
+    expect(full!.filename).toBe(`quranbench-corpus-v${version}.tar.gz`);
+    expect(full!.href).toBe(
+      `/api/v1/download/${version}/quranbench-corpus-v${version}.tar.gz`,
+    );
+    // The aggregate carries the GPL of the embedded Leeds morphology.
+    expect(full!.licence).toMatch(/GPL/);
+    expect(full!.sha256).toMatch(/^[0-9a-f]{64}$/);
+    expect(full!.bytes).toBeGreaterThan(0);
+  });
+
+  it('the tarball is not double-counted as a per-file artifact', () => {
+    const version = currentVersion();
+    const paths = listArtifacts(version).map((a) => a.path);
+    expect(paths).not.toContain(`quranbench-corpus-v${version}.tar.gz`);
+    expect(paths).not.toContain(`quranbench-corpus-v${version}.tar.gz.sha256`);
   });
 });
 

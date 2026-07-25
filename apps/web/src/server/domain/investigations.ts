@@ -101,6 +101,7 @@ export async function reviewEvidence(
 export type PublishCode =
   | 'not_found'
   | 'terms'
+  | 'unverified'
   | 'rate_limited'
   | 'claim'
   | 'counter_evidence'
@@ -130,6 +131,16 @@ export async function publishInvestigation(
       ok: false,
       code: 'terms',
       message: 'Contributor terms must be accepted before publishing.',
+    };
+
+  // Email verification is a publish prerequisite: an unverified author may draft
+  // freely but cannot make anything public.
+  const actor = await store.getUser(input.actorId);
+  if (!actor?.emailVerified)
+    return {
+      ok: false,
+      code: 'unverified',
+      message: 'Verify your email address before publishing.',
     };
 
   const claim = investigation.claim.trim();

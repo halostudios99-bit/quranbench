@@ -125,6 +125,51 @@ export const prismaStore: Store = {
     });
     return count > 0;
   },
+  async listTermsAcceptances(userId) {
+    const rows = await prisma.contributorTermsAcceptance.findMany({
+      where: { userId },
+      orderBy: { acceptedAt: 'desc' },
+    });
+    return rows.map((r) => ({ version: r.version, acceptedAt: r.acceptedAt }));
+  },
+  async findCredential(email) {
+    const r = await prisma.user.findUnique({ where: { email } });
+    if (!r) return null;
+    return { user: toUser(r), passwordHash: r.passwordHash as string };
+  },
+  async markEmailVerified(userId, verifiedAt) {
+    await prisma.user.update({
+      where: { id: userId },
+      data: { emailVerified: verifiedAt },
+    });
+  },
+
+  async createSession(userId, tokenHash, expiresAt) {
+    await prisma.session.create({ data: { userId, tokenHash, expiresAt } });
+  },
+  async getSession(tokenHash) {
+    const r = await prisma.session.findUnique({ where: { tokenHash } });
+    return r ? { userId: r.userId, expiresAt: r.expiresAt } : null;
+  },
+  async deleteSession(tokenHash) {
+    await prisma.session.deleteMany({ where: { tokenHash } });
+  },
+  async deleteUserSessions(userId) {
+    await prisma.session.deleteMany({ where: { userId } });
+  },
+
+  async createEmailVerificationToken(userId, tokenHash, expiresAt) {
+    await prisma.emailVerificationToken.create({
+      data: { userId, tokenHash, expiresAt },
+    });
+  },
+  async consumeEmailVerificationToken(tokenHash, now) {
+    const row = await prisma.emailVerificationToken.findUnique({ where: { tokenHash } });
+    if (!row) return null;
+    await prisma.emailVerificationToken.delete({ where: { tokenHash } });
+    if (row.expiresAt.getTime() <= now.getTime()) return null;
+    return row.userId;
+  },
 
   async createInvestigation(input: CreateInvestigationInput, corpusVersion) {
     const created = await prisma.investigation.create({
@@ -159,6 +204,13 @@ export const prismaStore: Store = {
   async listInvestigations(statuses) {
     const rows = await prisma.investigation.findMany({
       where: { status: { in: statuses } },
+      orderBy: { updatedAt: 'desc' },
+    });
+    return rows.map(toInvestigation);
+  },
+  async listInvestigationsByAuthor(authorId) {
+    const rows = await prisma.investigation.findMany({
+      where: { authorId },
       orderBy: { updatedAt: 'desc' },
     });
     return rows.map(toInvestigation);

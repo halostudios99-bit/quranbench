@@ -87,6 +87,46 @@ export function listArtifacts(version: string): ArtifactFile[] {
     .sort((a, b) => a.path.localeCompare(b.path));
 }
 
+/** The full-dataset distribution tarball filename for a version. */
+export function fullTarballName(version: string): string {
+  return `quranbench-corpus-v${version}.tar.gz`;
+}
+
+function fullTarballShaName(version: string): string {
+  return `${fullTarballName(version)}.sha256`;
+}
+
+export interface FullTarball {
+  /** Tarball filename, relative to the version dir. */
+  path: string;
+  /** sha256 from the `.sha256` sidecar. */
+  sha256: string;
+  bytes: number;
+}
+
+/**
+ * The full-dataset tarball for a version, or null if it was not built. Unlike the
+ * per-file artifacts this is a derived distribution file: it is deliberately not
+ * listed in the manifest (it embeds the manifest) and is self-described by its
+ * `.sha256` sidecar, which is the sha256 this returns.
+ */
+export function fullTarball(version: string): FullTarball | null {
+  if (!isKnownVersion(version)) return null;
+  const dir = versionDir(version);
+  const name = fullTarballName(version);
+  const tarPath = join(dir, name);
+  const shaPath = join(dir, fullTarballShaName(version));
+  try {
+    const stat = statSync(tarPath);
+    if (!stat.isFile()) return null;
+    const sha256 = readFileSync(shaPath, 'utf8').trim().split(/\s+/)[0] ?? '';
+    if (!/^[0-9a-f]{64}$/.test(sha256)) return null;
+    return { path: name, sha256, bytes: stat.size };
+  } catch {
+    return null;
+  }
+}
+
 export interface ResolvedArtifact {
   absolutePath: string;
   bytes: number;
@@ -110,7 +150,12 @@ export function resolveArtifact(
 
   const declared = new Set(listArtifacts(version).map((a) => a.path));
   const rel = relPath.split(sep).join('/');
-  if (rel !== 'manifest.json' && !declared.has(rel)) return null;
+  // The manifest and the full-dataset tarball + sidecar are served but are not
+  // listed in the manifest's own checksum block (see fullTarball).
+  const isDistribution =
+    rel === fullTarballName(version) || rel === fullTarballShaName(version);
+  if (rel !== 'manifest.json' && !isDistribution && !declared.has(rel))
+    return null;
 
   try {
     const stat = statSync(target);
@@ -126,5 +171,7 @@ export function artifactContentType(relPath: string): string {
   if (relPath.endsWith('.json')) return 'application/json; charset=utf-8';
   if (relPath.endsWith('.jsonl')) return 'application/x-ndjson; charset=utf-8';
   if (relPath.endsWith('.md')) return 'text/markdown; charset=utf-8';
+  if (relPath.endsWith('.tar.gz')) return 'application/gzip';
+  if (relPath.endsWith('.sha256')) return 'text/plain; charset=utf-8';
   return 'application/octet-stream';
 }

@@ -1,4 +1,5 @@
 import { SITE_NAME } from '@/lib/site';
+import { HeaderAuth } from './HeaderAuth';
 import { ThemeToggle } from './ThemeToggle';
 
 // Only routes that exist this prompt are linked, so no navigation is a dead end.
@@ -25,6 +26,7 @@ export function SiteHeader() {
               {link.label}
             </a>
           ))}
+          <HeaderAuth />
           <ThemeToggle />
         </nav>
       </div>

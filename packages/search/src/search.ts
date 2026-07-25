@@ -1,5 +1,5 @@
 import type { SearchIndex } from './build-index.js';
-import { evaluate } from './evaluate.js';
+import { evaluateHandles } from './evaluate.js';
 import { withDefaults, type ComputationParams } from './params.js';
 import { parseQuery } from './parse.js';
 import type { ParseError, Query, SearchResult } from './types.js';
@@ -19,24 +19,26 @@ export function search(
 ): SearchResult {
   const resolved: ComputationParams = { ...withDefaults(params), corpusVersion: index.version };
 
-  const handles = evaluate(index, query);
+  // evaluateHandles returns handles already sorted ascending and unique, so the
+  // basmala filter below preserves order and no sort is needed here.
+  const handles = evaluateHandles(index, query);
 
-  const ordered: number[] = [];
-  for (const h of handles) {
-    if (!resolved.includeBasmala && index.isBasmala[h]) continue;
-    ordered.push(h);
-  }
-  ordered.sort((a, b) => a - b);
+  const ordered: number[] = resolved.includeBasmala
+    ? handles
+    : handles.filter((h) => !index.isBasmala[h]);
 
   const tokenIds: string[] = new Array(ordered.length);
   const segmentIds: string[] = [];
-  const seenSegments = new Set<string>();
+  // Tokens are in corpus order and every segment is a contiguous handle block,
+  // so distinct segments appear as adjacent runs in the sorted result: a run
+  // break is a new segment. This avoids a per-token Set over ~19k matches.
+  let lastSegment = '';
   for (let i = 0; i < ordered.length; i++) {
     const token = index.tokens[ordered[i]!]!;
     tokenIds[i] = token.id;
-    if (!seenSegments.has(token.segment_id)) {
-      seenSegments.add(token.segment_id);
+    if (token.segment_id !== lastSegment) {
       segmentIds.push(token.segment_id);
+      lastSegment = token.segment_id;
     }
   }
 

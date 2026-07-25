@@ -290,6 +290,14 @@
       "sha256": "26eeb699088f17adb9d0ea0bda44cf7bc19d9e6afa8cc80fd4819b89e4776c51",
       "bytes": 1732
     },
+    "mapping/v0.3.0-to-v0.4.0.json": {
+      "sha256": "5c5bb838ed758ec87fff7d58c7e3937e78cb7ce9b95e3bc188710ec38474af69",
+      "bytes": 503
+    },
+    "mapping/v0.4.0-to-v0.5.0.json": {
+      "sha256": "f08ea8e7a62ab3a09411b36892d7192e0e37a9acdce45ba965aa313bfe3480bd",
+      "bytes": 562
+    },
     "mapping/v0.5.0-to-v0.6.0.json": {
       "sha256": "fccd06c2a124776d81284eda246e255c32a820b3c7487014c9634509e430ce26",
       "bytes": 561

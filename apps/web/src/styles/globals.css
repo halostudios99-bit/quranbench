@@ -3,18 +3,11 @@
 @tailwind utilities;
 
 /*
- * Self-hosted Arabic fonts. `font-display: optional` means a slow or missing
- * font never causes a layout shift — the fallback Arabic is kept for that load.
- * Drop the subsetted woff2 files into /public/fonts and the src resolves; until
- * then the system serif Arabic fallback renders (see --font-quran below).
+ * Self-hosted Arabic fonts (Amiri Quran + Amiri, SIL OFL 1.1). The woff2 files
+ * in /public/fonts are subsetted to the Arabic ranges only; see public/fonts/
+ * OFL.txt for the licence. `font-display: optional` means a slow or missing font
+ * never causes a layout shift — the fallback Arabic is kept for that load.
  */
-@font-face {
-  font-family: 'KFGQPC Uthmanic Script HAFS';
-  src: url('/fonts/uthmanic-hafs.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: optional;
-}
 @font-face {
   font-family: 'Amiri Quran';
   src: url('/fonts/amiri-quran.woff2') format('woff2');
@@ -34,9 +27,8 @@
   /* Latin UI: Inter if self-hosted later, else the system stack. */
   --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     sans-serif;
-  /* Quranic text: KFGQPC Uthmanic, then Amiri Quran, then system serif Arabic. */
-  --font-quran: 'KFGQPC Uthmanic Script HAFS', 'Amiri Quran',
-    'Noto Naskh Arabic', 'Geeza Pro', serif;
+  /* Quranic text: Amiri Quran (self-hosted, OFL), then system serif Arabic. */
+  --font-quran: 'Amiri Quran', 'Noto Naskh Arabic', 'Geeza Pro', serif;
   /* Arabic UI text. */
   --font-arabic-ui: 'Amiri', 'Noto Naskh Arabic', 'Geeza Pro', serif;
 

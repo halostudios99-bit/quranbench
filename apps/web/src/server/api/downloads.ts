@@ -1,6 +1,11 @@
 import 'server-only';
 
-import { listArtifacts, type ArtifactFile } from '@/server/artifacts';
+import {
+  fullTarball,
+  fullTarballName,
+  listArtifacts,
+  type ArtifactFile,
+} from '@/server/artifacts';
 
 // Per-licence separation of the dataset (Part C): a downloader must be able to
 // take only the parts they can legally use. The Quran text is CC-BY (Tanzil);
@@ -74,6 +79,37 @@ export function licenceGroups(version: string): LicenceGroup[] {
       total_bytes: buckets[id].reduce((sum, f) => sum + f.bytes, 0),
     }))
     .filter((g) => g.files.length > 0);
+}
+
+export interface FullDownload {
+  filename: string;
+  href: string;
+  sha256: string;
+  bytes: number;
+  licence: string;
+  licence_url: string;
+  note: string;
+}
+
+/**
+ * The full-dataset tarball offering for a version, or null if it was not built.
+ * The whole archive is GPL: it embeds tokens.jsonl and morphology/ (the Leeds
+ * QAC), whose copyleft propagates to the aggregate — the same rule downloads.ts
+ * applies to the individual GPL files above.
+ */
+export function fullDownload(version: string): FullDownload | null {
+  const tarball = fullTarball(version);
+  if (!tarball) return null;
+  const morphology = GROUP_META.morphology;
+  return {
+    filename: fullTarballName(version),
+    href: downloadHref(version, tarball.path),
+    sha256: tarball.sha256,
+    bytes: tarball.bytes,
+    licence: morphology.licence,
+    licence_url: morphology.licence_url,
+    note: 'The complete artifact set for this version in a single archive: text, morphology, translations, numbering, mappings and the manifest. Because it embeds the GPL Leeds morphology (tokens.jsonl and morphology/), the tarball as a whole is GPL-2.0-or-later. Verify it against the published sha256 before use. For CC-BY-only text, take the per-file text group instead.',
+  };
 }
 
 export function downloadHref(version: string, path: string): string {

@@ -43,6 +43,9 @@ def test_writes_expected_files(artifacts: Path) -> None:
         "translations/en-pickthall.LICENSE.md",
         "translations/en-rodwell.jsonl",
         "translations/en-palmer.jsonl",
+        # Full-dataset distribution tarball + its sidecar checksum.
+        "quranbench-corpus-v0.6.0.tar.gz",
+        "quranbench-corpus-v0.6.0.tar.gz.sha256",
     ):
         assert (artifacts / name).exists(), name
     assert artifacts.name == "v0.6.0"
@@ -278,16 +281,21 @@ def test_manifest_verse_fields_traceable_to_a_source(artifacts: Path) -> None:
 
 def test_manifest_records_output_checksums(artifacts: Path) -> None:
     from pipeline.paths import sha256_bytes
+    from pipeline.tarball import is_distribution_file
 
     manifest = _read_json(artifacts / "manifest.json")
     checksums = manifest["checksums"]
 
-    # Every emitted file except the manifest itself is listed, with sha256 + size.
+    # Every emitted file except the manifest itself and the derived full-dataset
+    # tarball + sidecar (self-described, not self-listed) is recorded with
+    # sha256 + size.
     assert "manifest.json" not in checksums
     on_disk = {
         p.relative_to(artifacts).as_posix()
         for p in artifacts.rglob("*")
-        if p.is_file() and p.name != "manifest.json"
+        if p.is_file()
+        and p.name != "manifest.json"
+        and not is_distribution_file(p.relative_to(artifacts).as_posix(), "0.6.0")
     }
     assert set(checksums) == on_disk
 

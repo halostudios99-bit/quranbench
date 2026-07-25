@@ -14,6 +14,7 @@ import {
 import {
   downloadHref,
   formatBytes,
+  fullDownload,
   licenceGroups,
 } from '@/server/api/downloads';
 
@@ -103,6 +104,7 @@ export default function DataPage() {
         const manifest = readManifest(version);
         const sha = manifestSha256(version);
         const groups = licenceGroups(version);
+        const full = fullDownload(version);
         const citation = buildCitation({
           version,
           manifestSha256: sha,
@@ -139,6 +141,46 @@ export default function DataPage() {
               </p>
               <Mono>{sha}</Mono>
             </div>
+
+            {full ? (
+              <div className="mb-6">
+                <div className="mb-2 flex flex-wrap items-center gap-2">
+                  <h3 className="text-[15px] font-semibold text-ink">
+                    Full dataset (single archive)
+                  </h3>
+                  <span className="rounded border border-line px-1.5 py-0.5 font-ui text-[11px] text-ink2">
+                    {full.licence}
+                  </span>
+                  <a
+                    href={full.licence_url}
+                    className="font-ui text-[11px] text-accent underline"
+                  >
+                    licence
+                  </a>
+                </div>
+                <p className="mb-3 max-w-prose text-[13px] leading-relaxed text-ink3">
+                  {full.note}
+                </p>
+                <ul className="flex flex-col rounded-lg border border-line">
+                  <li className="flex flex-wrap items-center justify-between gap-2 px-3 py-2.5">
+                    <div className="min-w-0">
+                      <a
+                        href={full.href}
+                        className="font-ui text-[13px] text-accent underline"
+                        download
+                      >
+                        {full.filename}
+                      </a>
+                      <div className="mt-0.5">
+                        <Mono>
+                          {full.sha256.slice(0, 16)}… · {formatBytes(full.bytes)}
+                        </Mono>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            ) : null}
 
             {groups.map((group) => (
               <div key={group.id} className="mb-5">

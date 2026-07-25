@@ -21,6 +21,8 @@ import {
   type Investigation,
   type InvestigationRevision,
   type Response,
+  type TermsAcceptance,
+  type User,
 } from './domain/types';
 import { tokenRefLabel, wordHref } from '@/lib/addressing';
 import { prismaStore } from './store-prisma';
@@ -52,6 +54,18 @@ export function createAccount(input: accounts.CreateAccountInput) {
   return accounts.createAccount(store, input);
 }
 
+export function verifyCredentials(email: string, password: string) {
+  return accounts.verifyCredentials(store, email, password);
+}
+
+export function issueEmailVerification(userId: string) {
+  return accounts.issueEmailVerification(store, userId);
+}
+
+export function verifyEmailToken(token: string) {
+  return accounts.verifyEmailToken(store, token);
+}
+
 export function createInvestigation(input: CreateInvestigationInput) {
   return investigations.createInvestigation(store, corpusGateway, input);
 }
@@ -76,6 +90,23 @@ export function report(input: CreateReportInput & { clientId: string }) {
 
 export function listPublishedInvestigations(): Promise<Investigation[]> {
   return safe(() => store.listInvestigations(PUBLISHED_STATUSES), []);
+}
+
+export interface AccountView {
+  user: User;
+  termsAcceptances: TermsAcceptance[];
+  investigations: Investigation[];
+}
+
+/** Everything the account page shows for a signed-in user. */
+export async function getAccountView(userId: string): Promise<AccountView | null> {
+  const user = await safe(() => store.getUser(userId), null);
+  if (!user) return null;
+  const [termsAcceptances, investigations] = await Promise.all([
+    safe(() => store.listTermsAcceptances(userId), []),
+    safe(() => store.listInvestigationsByAuthor(userId), []),
+  ]);
+  return { user, termsAcceptances, investigations };
 }
 
 /** Citing investigations for a corpus target — the bidirectional-link query. */
