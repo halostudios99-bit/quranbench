@@ -1,0 +1,22 @@
+{
+  "id": "kufan",
+  "name": "Kūfan",
+  "full_name": "Kūfan (Kūfī) verse-counting tradition",
+  "source": {
+    "tradition": "Kūfan (al-Kūfa), transmitted from ʿAlī ibn Abī Ṭālib",
+    "reading": "Ḥafṣ ʿan ʿĀṣim",
+    "corresponds_to": "tanzil-uthmani",
+    "citation": "The Kūfan count of 6,236 āyāt, as reflected in the Ḥafṣ ʿan ʿĀṣim reading of the standard Uthmani muṣḥaf (the Tanzil Uthmani edition ingested here). It is the numbering used by the Madīna muṣḥaf and by most printed Qurʾāns in circulation today."
+  },
+  "is_default": true,
+  "rules": {
+    "order": "textual",
+    "reset_per": "surah",
+    "start_at": 1,
+    "counts": {
+      "verse": true,
+      "basmala": false
+    }
+  },
+  "note": "Assigns 1..N within each surah, in textual order, to ordinary verse segments. A separated surah-opening basmala receives no ordinal under this scheme."
+}

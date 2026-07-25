@@ -32,10 +32,12 @@ def test_writes_expected_files(artifacts: Path) -> None:
         "identifiers.json",
         "manifest.json",
         "mapping/mapping.schema.json",
-        "mapping/v0.1.0-to-v0.2.0.json",
+        "mapping/v0.2.0-to-v0.3.0.json",
+        "numbering/numbering.schema.json",
+        "numbering/kufan.json",
     ):
         assert (artifacts / name).exists(), name
-    assert artifacts.name == "v0.2.0"
+    assert artifacts.name == "v0.3.0"
 
 
 def test_verse_artifact_counts_and_ids(artifacts: Path) -> None:
@@ -50,7 +52,8 @@ def test_verse_artifact_counts_and_ids(artifacts: Path) -> None:
         "work_id",
         "source_id",
         "surah",
-        "ayah",
+        "slot",
+        "ordinals",
         "text_uthmani",
         "text_simple",
         "text_no_tashkeel",
@@ -59,6 +62,20 @@ def test_verse_artifact_counts_and_ids(artifacts: Path) -> None:
     }
     # No bare "2:43" identifiers — every id carries the segmentation scheme.
     assert all(v["id"].startswith("quran:tanzil-uthmani:") for v in verses)
+    # Ordinal is an attribute per scheme, not a hardcoded ayah field.
+    assert first["ordinals"] == {"kufan": 1}
+    assert "ayah" not in first
+
+
+def test_verse_ordinals_reproduce_the_kufan_count(artifacts: Path) -> None:
+    verses = _read_jsonl(artifacts / "verses.jsonl")
+    # The Kufan scheme numbers exactly the 6,236 verses in verses.jsonl.
+    numbered = [v for v in verses if "kufan" in v["ordinals"]]
+    assert len(numbered) == 6236
+    # Every verse's stable slot equals its Kufan ordinal, rendered as a string —
+    # the ordinal is the attribute, the slot is the identity.
+    for v in verses:
+        assert v["slot"] == str(v["ordinals"]["kufan"])
 
 
 def test_surah_artifact(artifacts: Path) -> None:
@@ -85,13 +102,24 @@ def test_sources_artifact_matches_entity_model(artifacts: Path) -> None:
 
 def test_manifest_is_self_describing(artifacts: Path) -> None:
     manifest = _read_json(artifacts / "manifest.json")
-    assert manifest["corpus_version"] == "0.2.0"
+    assert manifest["corpus_version"] == "0.3.0"
+    assert manifest["previous_version"] == "0.2.0"
     assert manifest["work_id"] == "quran"
     assert manifest["segmentation_scheme"] == "tanzil-uthmani"
+    assert manifest["identifier_format"] == "quran:tanzil-uthmani:<surah>:<segment>:<position>"
     assert manifest["counts"]["surahs"] == 114
     assert manifest["counts"]["verses"] == 6236
     assert manifest["counts"]["tokens"] > 0
     assert "built_at" in manifest
+
+
+def test_manifest_records_numbering(artifacts: Path) -> None:
+    manifest = _read_json(artifacts / "manifest.json")
+    numbering = manifest["numbering"]
+    assert numbering["active"] == "kufan"
+    assert numbering["default"] == "kufan"
+    assert numbering["available"] == ["kufan"]
+    assert numbering["verse_counts"] == {"kufan": 6236}
 
 
 def test_manifest_records_basmala_handling(artifacts: Path) -> None:
@@ -123,18 +151,18 @@ def test_surah_basmala_field(artifacts: Path) -> None:
     # Surah 9 has no basmala — explicitly absent, not an empty string.
     assert surahs[9]["basmala"] is None
 
-    # Al-Fatiha's basmala is verse 1:1 and is not separated.
+    # Al-Fatiha's basmala is verse 1:1, addressed by the ordinal slot "1".
     assert surahs[1]["basmala"] is not None
     assert surahs[1]["basmala"]["separated"] is False
-    assert surahs[1]["basmala"]["token_range"]["ayah"] == 1
+    assert surahs[1]["basmala"]["token_range"]["slot"] == "1"
 
-    # A normal surah: basmala separated, addressed as ayah 0, four labelled forms.
+    # A normal surah: basmala separated, addressed by the named 'basmala' slot.
     b2 = surahs[2]["basmala"]
     assert b2["separated"] is True
     assert b2["token_range"] == {
-        "ayah": 0,
-        "first_id": "quran:tanzil-uthmani:2:0:1",
-        "last_id": "quran:tanzil-uthmani:2:0:4",
+        "slot": "basmala",
+        "first_id": "quran:tanzil-uthmani:2:basmala:1",
+        "last_id": "quran:tanzil-uthmani:2:basmala:4",
         "count": 4,
     }
     for field in ("text_uthmani", "text_simple", "text_no_tashkeel", "text_normalised"):
@@ -144,25 +172,103 @@ def test_surah_basmala_field(artifacts: Path) -> None:
     assert len(separated) == 112
 
 
+def test_no_identifier_contains_ayah_zero(artifacts: Path) -> None:
+    tokens = _read_jsonl(artifacts / "tokens.jsonl")
+    verses = _read_jsonl(artifacts / "verses.jsonl")
+    surahs = _read_json(artifacts / "surahs.json")
+    for t in tokens:
+        assert ":0:" not in t["id"], t["id"]
+        assert ":0:" not in t["segment_id"], t["segment_id"]
+    for v in verses:
+        assert not v["id"].endswith(":0")
+        assert ":0:" not in v["id"], v["id"]
+    for s in surahs:
+        if s["basmala"]:
+            tr = s["basmala"]["token_range"]
+            assert ":0:" not in tr["first_id"]
+            assert ":0:" not in tr["last_id"]
+
+
+def test_fatiha_basmala_is_ordinal_not_a_named_slot(artifacts: Path) -> None:
+    tokens = _read_jsonl(artifacts / "tokens.jsonl")
+    fatiha_first_verse = [
+        t for t in tokens if t["surah"] == 1 and t["slot"] == "1"
+    ]
+    assert fatiha_first_verse, "surah 1 verse 1 tokens missing"
+    for t in fatiha_first_verse:
+        assert t["slot"] == "1"  # ordinal slot, not "basmala"
+        assert t["is_basmala"] is False
+        assert t["id"].startswith("quran:tanzil-uthmani:1:1:")
+    # And there is no named basmala slot anywhere in surah 1.
+    assert not [t for t in tokens if t["surah"] == 1 and t["slot"] == "basmala"]
+
+
 def test_identifiers_policy_is_machine_readable(artifacts: Path) -> None:
     ids = _read_json(artifacts / "identifiers.json")
     assert ids["scheme"] == "tanzil-uthmani"
-    assert ids["format"] == "quran:tanzil-uthmani:<surah>:<ayah>:<position>"
-    # Position is an attribute, not identity — the guarantee must be stated.
+    assert ids["format"] == "quran:tanzil-uthmani:<surah>:<segment>:<position>"
+    # Position/ordinal is an attribute, not identity — the guarantee must be stated.
     assert ids["guarantees"]["position_is_attribute_not_identity"] is True
     assert ids["guarantees"]["opaque_and_permanent"] is True
-    assert ids["basmala_ayah"] == 0
+    # Named segment slots are a documented, first-class part of the scheme.
+    assert "basmala" in ids["segment_slot"]["named_slots"]["slots"]
+    assert "ordinal" in ids["segment_slot"]
+    # The ayah-0 assertion is gone.
+    assert "basmala_ayah" not in ids
 
 
-def test_mapping_scaffold_and_schema(artifacts: Path) -> None:
+def test_mapping_is_real_and_documented(artifacts: Path) -> None:
     schema = _read_json(artifacts / "mapping" / "mapping.schema.json")
     assert schema["type"] == "object"
     assert "mappings" in schema["properties"]
+    assert "default_resolution" in schema["properties"]
 
-    scaffold = _read_json(artifacts / "mapping" / "v0.1.0-to-v0.2.0.json")
-    assert scaffold["from_version"] == "0.1.0"
-    assert scaffold["to_version"] == "0.2.0"
-    assert scaffold["mappings"] == []  # empty scaffold, populated by a future change
+    mapping = _read_json(artifacts / "mapping" / "v0.2.0-to-v0.3.0.json")
+    assert mapping["from_version"] == "0.2.0"
+    assert mapping["to_version"] == "0.3.0"
+    assert mapping["default_resolution"] == "identity"
+    # One entry per changed (basmala) token: 112 separated surahs x 4 tokens.
+    assert len(mapping["mappings"]) == 448
+    sample = mapping["mappings"][0]
+    assert sample["from"] == "quran:tanzil-uthmani:2:0:1"
+    assert sample["status"] == "renamed"
+    assert sample["to"] == ["quran:tanzil-uthmani:2:basmala:1"]
+
+
+def test_mapping_is_total_over_v0_2_0_token_ids(artifacts: Path) -> None:
+    # Reconstruct the v0.2.0 token id set from the v0.3.0 tokens: a basmala token
+    # was addressed as ayah 0; everything else had the same id it has now.
+    tokens = _read_jsonl(artifacts / "tokens.jsonl")
+    new_ids = {t["id"] for t in tokens}
+    old_ids = set()
+    for t in tokens:
+        if t["slot"] == "basmala":
+            old_ids.add(t["id"].replace(":basmala:", ":0:"))
+        else:
+            old_ids.add(t["id"])
+
+    mapping = _read_json(artifacts / "mapping" / "v0.2.0-to-v0.3.0.json")
+    explicit = {m["from"]: m["to"] for m in mapping["mappings"]}
+    assert len(explicit) == len(mapping["mappings"])  # no duplicate 'from'
+
+    # Resolve every v0.2.0 id: explicit successor, else identity (default).
+    for old in old_ids:
+        successors = explicit.get(old, [old])
+        assert len(successors) == 1, old  # exactly one successor
+        assert successors[0] in new_ids, (old, successors)  # resolves to a real id
+
+    # Totality: every explicit 'from' is a genuine v0.2.0 id (no dangling entries).
+    assert set(explicit) <= old_ids
+
+
+def test_numbering_scheme_is_data(artifacts: Path) -> None:
+    kufan = _read_json(artifacts / "numbering" / "kufan.json")
+    assert kufan["id"] == "kufan"
+    assert kufan["is_default"] is True
+    assert kufan["source"]["citation"]
+    rules = kufan["rules"]
+    assert rules["counts"]["verse"] is True
+    assert rules["counts"]["basmala"] is False
 
 
 def test_manifest_verse_fields_traceable_to_a_source(artifacts: Path) -> None:

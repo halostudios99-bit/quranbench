@@ -13,6 +13,6 @@ Tokens and verses. Morphology (prefix/suffix segmentation) and translations are
 later prompts.
 """
 
-CORPUS_VERSION = "0.2.0"
+CORPUS_VERSION = "0.3.0"
 WORK_ID = "quran"
 SEGMENTATION_SCHEME = "tanzil-uthmani"

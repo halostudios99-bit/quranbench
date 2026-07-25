@@ -1,0 +1,3593 @@
+{
+  "from_version": "0.2.0",
+  "to_version": "0.3.0",
+  "note": "The separated surah-opening basmala moves from the ordinal slot 0 (':0:') to the named slot 'basmala', so no permanent identifier asserts that it is or is not verse zero. All other token and verse ids are unchanged.",
+  "default_resolution": "identity",
+  "default_resolution_note": "Any v0.2.0 id not listed in 'mappings' is unchanged in v0.3.0 and resolves to itself. Only ids whose form changed are listed, per the identifier policy (docs/extensibility.md §4). This makes the mapping total: every v0.2.0 id resolves to exactly one v0.3.0 successor.",
+  "mappings": [
+    {
+      "from": "quran:tanzil-uthmani:2:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:2:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:2:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:2:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:2:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:2:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:2:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:2:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:3:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:3:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:3:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:3:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:3:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:3:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:3:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:3:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:4:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:4:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:4:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:4:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:4:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:4:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:4:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:4:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:5:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:5:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:5:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:5:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:5:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:5:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:5:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:5:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:6:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:6:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:6:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:6:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:6:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:6:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:6:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:6:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:7:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:7:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:7:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:7:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:7:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:7:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:7:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:7:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:8:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:8:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:8:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:8:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:8:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:8:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:8:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:8:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:10:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:10:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:10:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:10:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:10:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:10:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:10:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:10:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:11:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:11:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:11:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:11:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:11:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:11:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:11:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:11:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:12:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:12:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:12:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:12:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:12:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:12:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:12:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:12:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:13:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:13:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:13:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:13:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:13:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:13:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:13:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:13:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:14:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:14:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:14:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:14:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:14:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:14:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:14:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:14:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:15:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:15:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:15:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:15:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:15:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:15:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:15:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:15:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:16:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:16:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:16:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:16:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:16:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:16:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:16:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:16:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:17:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:17:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:17:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:17:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:17:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:17:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:17:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:17:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:18:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:18:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:18:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:18:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:18:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:18:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:18:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:18:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:19:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:19:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:19:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:19:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:19:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:19:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:19:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:19:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:20:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:20:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:20:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:20:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:20:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:20:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:20:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:20:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:21:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:21:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:21:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:21:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:21:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:21:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:21:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:21:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:22:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:22:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:22:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:22:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:22:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:22:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:22:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:22:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:23:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:23:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:23:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:23:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:23:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:23:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:23:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:23:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:24:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:24:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:24:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:24:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:24:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:24:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:24:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:24:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:25:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:25:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:25:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:25:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:25:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:25:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:25:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:25:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:26:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:26:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:26:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:26:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:26:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:26:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:26:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:26:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:27:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:27:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:27:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:27:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:27:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:27:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:27:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:27:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:28:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:28:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:28:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:28:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:28:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:28:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:28:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:28:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:29:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:29:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:29:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:29:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:29:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:29:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:29:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:29:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:30:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:30:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:30:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:30:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:30:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:30:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:30:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:30:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:31:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:31:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:31:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:31:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:31:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:31:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:31:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:31:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:32:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:32:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:32:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:32:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:32:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:32:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:32:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:32:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:33:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:33:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:33:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:33:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:33:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:33:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:33:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:33:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:34:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:34:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:34:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:34:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:34:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:34:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:34:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:34:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:35:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:35:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:35:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:35:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:35:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:35:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:35:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:35:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:36:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:36:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:36:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:36:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:36:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:36:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:36:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:36:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:37:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:37:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:37:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:37:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:37:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:37:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:37:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:37:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:38:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:38:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:38:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:38:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:38:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:38:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:38:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:38:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:39:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:39:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:39:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:39:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:39:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:39:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:39:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:39:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:40:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:40:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:40:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:40:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:40:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:40:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:40:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:40:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:41:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:41:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:41:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:41:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:41:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:41:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:41:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:41:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:42:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:42:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:42:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:42:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:42:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:42:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:42:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:42:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:43:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:43:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:43:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:43:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:43:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:43:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:43:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:43:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:44:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:44:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:44:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:44:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:44:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:44:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:44:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:44:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:45:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:45:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:45:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:45:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:45:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:45:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:45:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:45:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:46:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:46:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:46:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:46:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:46:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:46:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:46:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:46:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:47:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:47:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:47:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:47:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:47:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:47:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:47:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:47:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:48:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:48:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:48:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:48:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:48:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:48:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:48:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:48:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:49:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:49:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:49:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:49:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:49:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:49:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:49:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:49:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:50:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:50:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:50:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:50:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:50:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:50:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:50:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:50:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:51:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:51:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:51:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:51:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:51:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:51:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:51:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:51:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:52:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:52:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:52:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:52:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:52:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:52:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:52:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:52:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:53:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:53:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:53:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:53:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:53:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:53:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:53:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:53:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:54:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:54:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:54:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:54:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:54:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:54:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:54:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:54:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:55:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:55:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:55:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:55:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:55:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:55:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:55:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:55:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:56:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:56:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:56:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:56:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:56:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:56:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:56:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:56:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:57:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:57:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:57:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:57:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:57:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:57:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:57:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:57:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:58:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:58:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:58:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:58:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:58:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:58:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:58:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:58:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:59:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:59:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:59:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:59:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:59:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:59:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:59:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:59:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:60:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:60:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:60:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:60:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:60:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:60:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:60:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:60:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:61:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:61:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:61:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:61:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:61:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:61:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:61:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:61:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:62:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:62:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:62:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:62:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:62:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:62:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:62:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:62:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:63:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:63:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:63:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:63:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:63:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:63:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:63:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:63:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:64:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:64:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:64:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:64:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:64:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:64:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:64:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:64:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:65:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:65:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:65:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:65:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:65:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:65:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:65:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:65:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:66:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:66:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:66:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:66:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:66:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:66:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:66:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:66:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:67:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:67:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:67:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:67:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:67:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:67:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:67:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:67:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:68:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:68:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:68:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:68:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:68:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:68:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:68:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:68:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:69:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:69:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:69:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:69:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:69:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:69:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:69:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:69:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:70:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:70:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:70:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:70:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:70:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:70:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:70:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:70:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:71:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:71:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:71:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:71:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:71:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:71:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:71:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:71:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:72:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:72:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:72:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:72:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:72:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:72:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:72:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:72:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:73:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:73:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:73:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:73:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:73:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:73:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:73:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:73:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:74:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:74:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:74:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:74:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:74:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:74:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:74:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:74:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:75:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:75:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:75:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:75:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:75:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:75:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:75:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:75:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:76:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:76:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:76:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:76:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:76:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:76:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:76:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:76:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:77:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:77:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:77:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:77:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:77:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:77:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:77:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:77:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:78:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:78:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:78:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:78:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:78:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:78:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:78:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:78:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:79:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:79:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:79:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:79:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:79:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:79:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:79:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:79:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:80:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:80:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:80:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:80:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:80:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:80:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:80:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:80:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:81:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:81:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:81:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:81:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:81:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:81:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:81:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:81:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:82:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:82:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:82:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:82:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:82:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:82:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:82:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:82:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:83:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:83:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:83:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:83:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:83:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:83:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:83:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:83:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:84:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:84:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:84:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:84:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:84:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:84:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:84:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:84:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:85:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:85:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:85:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:85:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:85:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:85:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:85:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:85:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:86:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:86:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:86:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:86:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:86:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:86:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:86:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:86:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:87:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:87:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:87:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:87:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:87:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:87:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:87:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:87:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:88:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:88:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:88:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:88:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:88:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:88:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:88:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:88:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:89:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:89:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:89:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:89:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:89:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:89:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:89:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:89:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:90:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:90:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:90:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:90:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:90:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:90:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:90:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:90:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:91:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:91:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:91:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:91:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:91:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:91:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:91:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:91:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:92:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:92:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:92:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:92:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:92:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:92:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:92:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:92:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:93:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:93:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:93:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:93:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:93:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:93:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:93:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:93:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:94:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:94:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:94:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:94:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:94:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:94:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:94:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:94:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:95:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:95:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:95:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:95:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:95:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:95:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:95:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:95:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:96:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:96:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:96:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:96:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:96:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:96:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:96:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:96:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:97:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:97:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:97:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:97:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:97:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:97:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:97:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:97:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:98:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:98:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:98:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:98:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:98:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:98:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:98:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:98:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:99:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:99:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:99:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:99:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:99:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:99:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:99:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:99:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:100:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:100:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:100:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:100:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:100:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:100:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:100:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:100:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:101:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:101:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:101:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:101:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:101:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:101:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:101:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:101:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:102:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:102:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:102:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:102:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:102:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:102:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:102:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:102:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:103:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:103:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:103:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:103:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:103:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:103:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:103:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:103:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:104:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:104:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:104:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:104:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:104:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:104:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:104:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:104:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:105:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:105:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:105:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:105:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:105:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:105:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:105:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:105:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:106:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:106:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:106:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:106:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:106:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:106:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:106:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:106:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:107:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:107:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:107:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:107:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:107:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:107:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:107:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:107:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:108:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:108:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:108:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:108:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:108:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:108:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:108:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:108:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:109:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:109:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:109:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:109:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:109:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:109:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:109:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:109:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:110:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:110:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:110:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:110:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:110:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:110:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:110:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:110:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:111:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:111:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:111:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:111:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:111:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:111:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:111:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:111:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:112:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:112:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:112:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:112:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:112:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:112:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:112:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:112:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:113:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:113:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:113:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:113:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:113:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:113:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:113:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:113:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:114:0:1",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:114:basmala:1"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:114:0:2",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:114:basmala:2"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:114:0:3",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:114:basmala:3"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    },
+    {
+      "from": "quran:tanzil-uthmani:114:0:4",
+      "status": "renamed",
+      "to": [
+        "quran:tanzil-uthmani:114:basmala:4"
+      ],
+      "reason": "separated surah-opening basmala re-addressed from ayah 0 to the named 'basmala' segment slot"
+    }
+  ]
+}

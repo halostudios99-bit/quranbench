@@ -34,14 +34,22 @@ from .basmala import (
     split_uthmani,
 )
 from .fetch import fetch_all
-from .identifiers import BASMALA_AYAH, IDENTIFIER_FORMAT, surah_id, token_id, verse_id
+from .identifiers import BASMALA_SLOT, IDENTIFIER_FORMAT, segment_id, surah_id, token_id
 from .normalise import NORMALISATION_RULES, derive_text_fields, derive_token_fields
+from .numbering import (
+    BASMALA_KIND,
+    DEFAULT_SCHEME_ID,
+    SCHEMES,
+    VERSE_KIND,
+    Segment,
+    assign_ordinals,
+)
 from .parse import parse_metadata, parse_text
 from .paths import OUT_DIR, SOURCES_DIR, sha256_file
 from .sources import SEGMENTATION_SOURCE_ID, SOURCES
 from .tokens import Token, segment_basmala, segment_verse
 
-PREVIOUS_VERSION = "0.1.0"
+PREVIOUS_VERSION = "0.2.0"
 
 FIELD_PROVENANCE: dict[str, Any] = {
     "text_uthmani": {"source_id": "tanzil-uthmani", "transform": []},
@@ -105,6 +113,8 @@ class Assembled:
     #: surah -> (uthmani split, simple split); surah 9 maps to (absent, absent).
     basmala: dict[int, tuple[BasmalaSplit, BasmalaSplit]]
     marks_excluded: int
+    #: scheme id -> {(surah, slot): ordinal} for every counted segment.
+    ordinal_maps: dict[str, dict[tuple[int, str], int]]
 
 
 def assemble() -> Assembled:
@@ -115,10 +125,15 @@ def assemble() -> Assembled:
     if {(v.surah, v.ayah) for v in uthmani} != set(simple_by_key):
         raise ValueError("Uthmani and Simple editions disagree on the verse set")
 
-    verses: list[dict[str, Any]] = []
     tokens: list[Token] = []
     basmala: dict[int, tuple[BasmalaSplit, BasmalaSplit]] = {}
     marks_excluded = 0
+
+    # First pass: split off basmalas, tokenise, and record each surah's segments
+    # in textual order so a numbering scheme can be applied over them. A separated
+    # basmala precedes verse 1's own content in the source, so it heads the surah.
+    verse_rows: list[dict[str, Any]] = []
+    segments_by_surah: dict[int, list[Segment]] = {}
 
     for v in uthmani:
         simple_text = simple_by_key[(v.surah, v.ayah)]
@@ -127,19 +142,28 @@ def assemble() -> Assembled:
             s_split = split_simple(v.surah, simple_text)
             basmala[v.surah] = (u_split, s_split)
             u_text, s_text = u_split.verse_one, s_split.verse_one
+            surah_segments = segments_by_surah.setdefault(v.surah, [])
+            if u_split.separated:
+                surah_segments.append(
+                    Segment(v.surah, BASMALA_SLOT, BASMALA_KIND)
+                )
         else:
             u_text, s_text = v.text, simple_text
+            surah_segments = segments_by_surah.setdefault(v.surah, [])
 
-        seg = segment_verse(v.surah, v.ayah, u_text)
+        slot = str(v.ayah)
+        surah_segments.append(Segment(v.surah, slot, VERSE_KIND))
+
+        seg = segment_verse(v.surah, slot, u_text)
         marks_excluded += seg.marks_excluded
         tokens.extend(seg.tokens)
-        verses.append(
+        verse_rows.append(
             {
-                "id": verse_id(v.surah, v.ayah),
+                "id": segment_id(v.surah, slot),
                 "work_id": WORK_ID,
                 "source_id": SEGMENTATION_SOURCE_ID,
                 "surah": v.surah,
-                "ayah": v.ayah,
+                "slot": slot,
                 **derive_text_fields(u_text, s_text),
                 "leading_marks": seg.leading_marks,
             }
@@ -150,9 +174,53 @@ def assemble() -> Assembled:
             seg = segment_basmala(surah, u_split.basmala)
             tokens.extend(seg.tokens)
 
-    tokens.sort(key=lambda t: (t.surah, t.ayah, t.position))
+    # Apply every available numbering scheme as data. Ordinals are an attribute of
+    # a segment under a scheme, never part of its identity.
+    ordinal_maps = {s.id: assign_ordinals(s, segments_by_surah) for s in SCHEMES}
+
+    # verses.jsonl holds the segments the *active* scheme numbers. Each carries its
+    # ordinal under every scheme that counts it, keyed by scheme id.
+    active = ordinal_maps[DEFAULT_SCHEME_ID]
+    verses: list[dict[str, Any]] = []
+    for row in verse_rows:
+        key = (row["surah"], row["slot"])
+        if key not in active:
+            continue
+        ordinals = {
+            sid: omap[key] for sid, omap in ordinal_maps.items() if key in omap
+        }
+        verses.append(
+            {
+                "id": row["id"],
+                "work_id": row["work_id"],
+                "source_id": row["source_id"],
+                "surah": row["surah"],
+                "slot": row["slot"],
+                "ordinals": ordinals,
+                "text_uthmani": row["text_uthmani"],
+                "text_simple": row["text_simple"],
+                "text_no_tashkeel": row["text_no_tashkeel"],
+                "text_normalised": row["text_normalised"],
+                "leading_marks": row["leading_marks"],
+            }
+        )
+
+    tokens.sort(key=lambda t: (t.surah, ordinal_sort_key(t, active), t.position))
     token_records = [t.record() for t in tokens]
-    return Assembled(verses, token_records, basmala, marks_excluded)
+    return Assembled(verses, token_records, basmala, marks_excluded, ordinal_maps)
+
+
+def ordinal_sort_key(token: Token, active: dict[tuple[int, str], int]) -> tuple[int, int]:
+    """Sort tokens into reading order using the active scheme's ordinals.
+
+    A named-slot segment (the separated basmala) has no ordinal but sits at the
+    head of its surah in the source, so it sorts before ordinal 1. Returned as
+    ``(has_ordinal, ordinal)`` — named slots get ``(0, 0)``, verses ``(1, n)``.
+    """
+    ordinal = active.get((token.surah, token.slot))
+    if ordinal is None:
+        return (0, 0)
+    return (1, ordinal)
 
 
 def _basmala_field(
@@ -165,14 +233,16 @@ def _basmala_field(
         return None
 
     n = len(u_split.basmala.split(" "))
-    ayah = BASMALA_AYAH if u_split.separated else 1
+    # A separated basmala uses the named ``basmala`` slot; al-Fatiha's basmala is
+    # verse 1 and uses the ordinal slot "1".
+    slot = BASMALA_SLOT if u_split.separated else "1"
     return {
         "separated": u_split.separated,
         **derive_token_fields(u_split.basmala),
         "token_range": {
-            "ayah": ayah,
-            "first_id": token_id(surah, ayah, 1),
-            "last_id": token_id(surah, ayah, n),
+            "slot": slot,
+            "first_id": token_id(surah, slot, 1),
+            "last_id": token_id(surah, slot, n),
             "count": n,
         },
     }
@@ -234,23 +304,101 @@ def build_identifiers() -> dict[str, Any]:
     return {
         "scheme": SEGMENTATION_SOURCE_ID,
         "format": IDENTIFIER_FORMAT,
-        "components": ["work", "scheme", "surah", "ayah", "position"],
+        "components": ["work", "scheme", "surah", "segment", "position"],
         "position_1_based": True,
+        "segment_slot": {
+            "detail": (
+                "The <segment> component addresses a segment within a surah. It is "
+                "one of two kinds, both first-class parts of this scheme."
+            ),
+            "ordinal": {
+                "detail": (
+                    "A decimal ordinal ayah number, e.g. 43 in "
+                    "quran:tanzil-uthmani:2:43. Ordinary verses use ordinal slots. "
+                    "The ordinal corresponds to the active numbering scheme (see "
+                    "manifest.numbering); it is an attribute, not the identity — a "
+                    "different scheme may number the same segment differently."
+                ),
+                "example": "quran:tanzil-uthmani:2:43:4",
+            },
+            "named_slots": {
+                "detail": (
+                    "A named, non-ordinal slot. A named slot asserts no counting "
+                    "position, so no numbering tradition is baked into the identifier."
+                ),
+                "slots": {
+                    BASMALA_SLOT: (
+                        "The separated surah-opening basmala, e.g. "
+                        "quran:tanzil-uthmani:2:basmala:1. Deliberately not numbered: "
+                        "whether it is a verse, and if so which, is left to each "
+                        "numbering scheme as data. Al-Fatiha's basmala is verse 1:1 "
+                        "and uses an ordinal slot, not this named slot; surah 9 has "
+                        "no basmala and therefore no such slot."
+                    ),
+                },
+            },
+        },
         "guarantees": {
             "opaque_and_permanent": True,
             "position_is_attribute_not_identity": True,
             "detail": (
-                "The identity string encodes (surah, ayah, position) under a named "
-                "segmentation scheme, but position is an attribute of the token, not "
-                "its identity. A token that moves, splits or merges in a later corpus "
-                "version receives an explicit successor or tombstone in mapping/."
+                "The identity string encodes (surah, segment, position) under a "
+                "named segmentation scheme, but the ordinal number a segment carries "
+                "is an attribute of the token, not its identity. A token that moves, "
+                "splits or merges in a later corpus version receives an explicit "
+                "successor or tombstone in mapping/."
             ),
         },
-        "basmala_ayah": BASMALA_AYAH,
         "basmala_note": (
-            "A separated surah-opening basmala is addressed as ayah 0. Al-Fatiha's "
-            "basmala is verse 1:1 and keeps that identity."
+            "A separated surah-opening basmala is addressed by the named 'basmala' "
+            "slot, never an ordinal. Al-Fatiha's basmala is verse 1:1. Surah 9 has "
+            "no basmala segment."
         ),
+    }
+
+
+def _build_mapping(tokens: list[dict[str, Any]]) -> dict[str, Any]:
+    """The real v0.2.0 -> v0.3.0 identifier mapping.
+
+    v0.2.0 addressed the separated basmala as ayah 0 (``:0:``); v0.3.0 addresses
+    it by the named ``basmala`` slot. Every basmala token id therefore changes and
+    is listed here explicitly, per docs/extensibility.md §4. All other token ids
+    are unchanged and resolve to themselves by the documented default below, so
+    the mapping is total without listing 77,000 unchanged rows.
+    """
+    mappings: list[dict[str, Any]] = []
+    for t in tokens:
+        if t["slot"] != BASMALA_SLOT:
+            continue
+        old_id = token_id(t["surah"], "0", t["position"])
+        mappings.append(
+            {
+                "from": old_id,
+                "status": "renamed",
+                "to": [t["id"]],
+                "reason": (
+                    "separated surah-opening basmala re-addressed from ayah 0 to "
+                    "the named 'basmala' segment slot"
+                ),
+            }
+        )
+    return {
+        "from_version": PREVIOUS_VERSION,
+        "to_version": CORPUS_VERSION,
+        "note": (
+            "The separated surah-opening basmala moves from the ordinal slot 0 "
+            "(':0:') to the named slot 'basmala', so no permanent identifier "
+            "asserts that it is or is not verse zero. All other token and verse "
+            "ids are unchanged."
+        ),
+        "default_resolution": "identity",
+        "default_resolution_note": (
+            "Any v0.2.0 id not listed in 'mappings' is unchanged in v0.3.0 and "
+            "resolves to itself. Only ids whose form changed are listed, per the "
+            "identifier policy (docs/extensibility.md §4). This makes the mapping "
+            "total: every v0.2.0 id resolves to exactly one v0.3.0 successor."
+        ),
+        "mappings": mappings,
     }
 
 
@@ -258,12 +406,26 @@ def _mapping_schema() -> dict[str, Any]:
     return {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "corpus identifier version mapping",
+        "description": (
+            "Maps prior-version identifiers to their successors. Only ids whose "
+            "form changed are listed; per 'default_resolution', any id absent from "
+            "'mappings' is unchanged and resolves to itself, so the mapping is "
+            "total over the prior version's identifiers."
+        ),
         "type": "object",
-        "required": ["from_version", "to_version", "mappings"],
+        "required": ["from_version", "to_version", "default_resolution", "mappings"],
         "properties": {
             "from_version": {"type": "string"},
             "to_version": {"type": "string"},
             "note": {"type": "string"},
+            "default_resolution": {
+                "enum": ["identity"],
+                "description": (
+                    "How to resolve a prior-version id not present in 'mappings'. "
+                    "'identity' means it is unchanged and maps to itself."
+                ),
+            },
+            "default_resolution_note": {"type": "string"},
             "mappings": {
                 "type": "array",
                 "items": {
@@ -294,16 +456,19 @@ def _mapping_schema() -> dict[str, Any]:
     }
 
 
-def _mapping_scaffold() -> dict[str, Any]:
+def build_numbering(
+    ordinal_maps: dict[str, dict[tuple[int, str], int]],
+) -> dict[str, Any]:
     return {
-        "from_version": PREVIOUS_VERSION,
-        "to_version": CORPUS_VERSION,
+        "active": DEFAULT_SCHEME_ID,
+        "default": DEFAULT_SCHEME_ID,
+        "available": [s.id for s in SCHEMES],
+        "verse_counts": {sid: len(omap) for sid, omap in ordinal_maps.items()},
         "note": (
-            "v0.1.0 published no token layer, so no token ids need remapping. Verse "
-            "ids are unchanged. This file is the scaffold required by the identifier "
-            "policy; it is populated only when a future version changes segmentation."
+            "Numbering is a recorded parameter, not a fact baked into identifiers. "
+            "Each scheme is a data file in numbering/; the active scheme's counted "
+            "segments are the rows of verses.jsonl. See docs/numbering.md."
         ),
-        "mappings": [],
     }
 
 
@@ -314,6 +479,7 @@ def build_manifest(
     tokens: list[dict[str, Any]],
     basmala: dict[int, tuple[BasmalaSplit, BasmalaSplit]],
     marks_excluded: int,
+    ordinal_maps: dict[str, dict[tuple[int, str], int]],
 ) -> dict[str, Any]:
     separated = sum(1 for pair in basmala.values() if pair[0].separated)
     uthmani_source = next(s for s in sources if s["id"] == "tanzil-uthmani")
@@ -330,6 +496,7 @@ def build_manifest(
             "verses": len(verses),
             "tokens": len(tokens),
         },
+        "numbering": build_numbering(ordinal_maps),
         "basmala_handling": "separated",
         "basmala": {
             "canonical": CANONICAL_BASMALA,
@@ -377,6 +544,48 @@ def build_manifest(
     }
 
 
+def _numbering_schema() -> dict[str, Any]:
+    return {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "verse numbering scheme",
+        "description": (
+            "A numbering scheme as data: how a counting tradition assigns ordinal "
+            "verse numbers to a surah's segments. A new tradition is a new file of "
+            "this shape in numbering/, consumed by the same generic applier — never "
+            "new code. See docs/numbering.md."
+        ),
+        "type": "object",
+        "required": ["id", "name", "source", "is_default", "rules"],
+        "properties": {
+            "id": {"type": "string"},
+            "name": {"type": "string"},
+            "full_name": {"type": "string"},
+            "source": {
+                "type": "object",
+                "description": "Bibliographic citation for the tradition.",
+            },
+            "is_default": {"type": "boolean"},
+            "note": {"type": "string"},
+            "rules": {
+                "type": "object",
+                "required": ["order", "reset_per", "start_at", "counts"],
+                "properties": {
+                    "order": {"enum": ["textual"]},
+                    "reset_per": {"enum": ["surah"]},
+                    "start_at": {"type": "integer"},
+                    "counts": {
+                        "type": "object",
+                        "description": (
+                            "segment kind -> whether this scheme counts it as a verse"
+                        ),
+                        "additionalProperties": {"type": "boolean"},
+                    },
+                },
+            },
+        },
+    }
+
+
 def _write_json(path: Path, data: Any) -> None:
     path.write_text(
         json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
@@ -402,10 +611,12 @@ def build(out_root: Path = OUT_DIR) -> Path:
         assembled.tokens,
         assembled.basmala,
         assembled.marks_excluded,
+        assembled.ordinal_maps,
     )
 
     out_dir = out_root / f"v{CORPUS_VERSION}"
     (out_dir / "mapping").mkdir(parents=True, exist_ok=True)
+    (out_dir / "numbering").mkdir(parents=True, exist_ok=True)
     _write_json(out_dir / "sources.json", sources)
     _write_json(out_dir / "surahs.json", surahs)
     _write_jsonl(out_dir / "verses.jsonl", assembled.verses)
@@ -414,8 +625,11 @@ def build(out_root: Path = OUT_DIR) -> Path:
     _write_json(out_dir / "mapping" / "mapping.schema.json", _mapping_schema())
     _write_json(
         out_dir / "mapping" / f"v{PREVIOUS_VERSION}-to-v{CORPUS_VERSION}.json",
-        _mapping_scaffold(),
+        _build_mapping(assembled.tokens),
     )
+    _write_json(out_dir / "numbering" / "numbering.schema.json", _numbering_schema())
+    for scheme in SCHEMES:
+        _write_json(out_dir / "numbering" / f"{scheme.id}.json", scheme.record())
     _write_json(out_dir / "manifest.json", manifest)
 
     print(
@@ -423,6 +637,8 @@ def build(out_root: Path = OUT_DIR) -> Path:
         f"  surahs={manifest['counts']['surahs']} "
         f"verses={manifest['counts']['verses']} "
         f"tokens={manifest['counts']['tokens']}\n"
+        f"  numbering active={manifest['numbering']['active']} "
+        f"verse_counts={manifest['numbering']['verse_counts']}\n"
         f"  basmala separated from {manifest['basmala']['separated_from_surahs']} surahs\n"
         f"  waqf marks excluded: {manifest['token_segmentation']['waqf_marks_excluded']}"
     )

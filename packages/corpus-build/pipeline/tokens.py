@@ -26,7 +26,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from .identifiers import BASMALA_AYAH, token_id, verse_id
+from .identifiers import BASMALA_SLOT, segment_id, token_id
 from .normalise import derive_token_fields
 
 # Codepoints that never, on their own, constitute a token.
@@ -49,7 +49,10 @@ def is_mark_run(piece: str) -> bool:
 @dataclass
 class Token:
     surah: int
-    ayah: int
+    #: Segment slot within the surah: an ordinal ayah number as a string, or a
+    #: named slot such as ``"basmala"``. Never an integer, so the identity of a
+    #: named-slot token never resembles an ordinal.
+    slot: str
     position: int
     text: str
     char_start: int
@@ -59,10 +62,10 @@ class Token:
 
     def record(self) -> dict:
         return {
-            "id": token_id(self.surah, self.ayah, self.position),
-            "verse_id": verse_id(self.surah, self.ayah),
+            "id": token_id(self.surah, self.slot, self.position),
+            "segment_id": segment_id(self.surah, self.slot),
             "surah": self.surah,
-            "ayah": self.ayah,
+            "slot": self.slot,
             "position": self.position,
             **derive_token_fields(self.text),
             "char_start": self.char_start,
@@ -80,12 +83,14 @@ class SegmentedVerse:
 
 
 def segment_verse(
-    surah: int, ayah: int, text: str, *, is_basmala: bool = False
+    surah: int, slot: str, text: str, *, is_basmala: bool = False
 ) -> SegmentedVerse:
-    """Segment one verse (or a separated basmala) into tokens.
+    """Segment one segment (a verse or a separated basmala) into tokens.
 
-    Offsets are into ``text``. Assumes single-space separation and no leading or
-    trailing whitespace — both are asserted by the build against the real source.
+    ``slot`` is the segment slot within the surah — an ordinal ayah number as a
+    string, or a named slot. Offsets are into ``text``. Assumes single-space
+    separation and no leading or trailing whitespace — both are asserted by the
+    build against the real source.
     """
     tokens: list[Token] = []
     leading_marks: list[str] = []
@@ -94,7 +99,7 @@ def segment_verse(
     offset = 0
 
     if not text:
-        raise ValueError(f"{surah}:{ayah}: empty verse text")
+        raise ValueError(f"{surah}:{slot}: empty segment text")
 
     for piece in text.split(" "):
         start = offset
@@ -110,7 +115,7 @@ def segment_verse(
         tokens.append(
             Token(
                 surah=surah,
-                ayah=ayah,
+                slot=slot,
                 position=position,
                 text=piece,
                 char_start=start,
@@ -120,14 +125,15 @@ def segment_verse(
         )
 
     if not tokens:
-        raise ValueError(f"{surah}:{ayah}: verse segmented to zero tokens: {text!r}")
+        raise ValueError(f"{surah}:{slot}: segment produced zero tokens: {text!r}")
 
     return SegmentedVerse(tokens, leading_marks, marks_excluded)
 
 
 def segment_basmala(surah: int, text: str) -> SegmentedVerse:
-    """Tokens for a separated surah-opening basmala, addressed as ayah 0."""
-    seg = segment_verse(surah, BASMALA_AYAH, text, is_basmala=True)
+    """Tokens for a separated surah-opening basmala, addressed by the named
+    ``basmala`` segment slot — never an ordinal ayah number."""
+    seg = segment_verse(surah, BASMALA_SLOT, text, is_basmala=True)
     if seg.leading_marks or any(t.following_marks for t in seg.tokens):
         raise ValueError(f"surah {surah}: basmala unexpectedly carries marks: {text!r}")
     return seg
