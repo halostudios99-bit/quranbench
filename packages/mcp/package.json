@@ -2,6 +2,7 @@
   "name": "@quranbench/mcp",
   "version": "0.0.0",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "description": "Model Context Protocol server for quranbench — a thin wrapper over the public API.",
   "bin": {

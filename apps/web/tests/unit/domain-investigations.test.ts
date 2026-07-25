@@ -7,11 +7,13 @@ import type {
   CorpusGateway,
 } from '@/server/domain/corpus-gateway';
 import {
+  canViewInvestigation,
   createInvestigation,
   publishInvestigation,
   reviewEvidence,
   reviseInvestigation,
 } from '@/server/domain/investigations';
+import { PUBLISHED_STATUSES } from '@/server/domain/types';
 import { createResponse } from '@/server/domain/responses';
 import { InMemoryStore } from '@/server/domain/store-memory';
 import type { CreateInvestigationInput } from '@/server/domain/store';
@@ -357,5 +359,64 @@ describe('responses', () => {
         pins: [{ tokenId: 'quran:tanzil-uthmani:2:43:4' }],
       }),
     ).rejects.toBeInstanceOf(TermsNotAcceptedError);
+  });
+});
+
+describe('draft read visibility (a draft is not world-readable)', () => {
+  it('an anonymous viewer cannot read a draft', async () => {
+    const authorId = await seedAuthor();
+    const inv = await createInvestigation(store, gateway, draft(authorId));
+    expect(inv.status).toBe('DRAFT');
+    expect(canViewInvestigation(inv, null)).toBe(false);
+  });
+
+  it('a different signed-in user cannot read a draft', async () => {
+    const authorId = await seedAuthor();
+    const inv = await createInvestigation(store, gateway, draft(authorId));
+    const stranger = await store.createUser({
+      email: 'nosy@example.com',
+      handle: 'nosy',
+      passwordHash: 'test-hash',
+    });
+    expect(canViewInvestigation(inv, stranger.id)).toBe(false);
+  });
+
+  it('the author can read their own draft', async () => {
+    const authorId = await seedAuthor();
+    const inv = await createInvestigation(store, gateway, draft(authorId));
+    expect(canViewInvestigation(inv, authorId)).toBe(true);
+  });
+
+  it('everyone can read a published investigation', async () => {
+    const authorId = await seedAuthor();
+    const inv = await createInvestigation(store, gateway, draft(authorId));
+    const published = await publishInvestigation(store, gateway, {
+      investigationId: inv.id,
+      actorId: authorId,
+    });
+    expect(published.ok).toBe(true);
+    if (!published.ok) throw new Error('expected publish to succeed');
+    expect(published.investigation.status).toBe('OPEN');
+    expect(canViewInvestigation(published.investigation, null)).toBe(true);
+    expect(canViewInvestigation(published.investigation, 'someone-else')).toBe(true);
+  });
+
+  it('a draft never appears in the published listing', async () => {
+    const authorId = await seedAuthor();
+    await createInvestigation(store, gateway, draft(authorId));
+    const listed = await store.listInvestigations(PUBLISHED_STATUSES);
+    expect(listed).toHaveLength(0);
+  });
+
+  it('a draft never appears in the citation projection', async () => {
+    const authorId = await seedAuthor();
+    const inv = await createInvestigation(store, gateway, draft(authorId));
+    // Force citation rows for the draft (as publishing would) and confirm the
+    // projection still filters them out by status — word/root pages stay clean.
+    await store.replaceCitations(inv.id, [
+      { investigationId: inv.id, kind: 'ROOT', key: 'z-k-w', corpusVersion: gateway.version },
+    ]);
+    const citing = await store.findCitingInvestigations('ROOT', 'z-k-w');
+    expect(citing).toHaveLength(0);
   });
 });

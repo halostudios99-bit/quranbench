@@ -3,11 +3,12 @@ import { CLAIM_MAX_LENGTH } from './config';
 import type { CorpusGateway } from './corpus-gateway';
 import { checkRateLimit } from './rate-limit';
 import type { CreateInvestigationInput, Store } from './store';
-import type {
-  Citation,
-  EvidencePin,
-  Investigation,
-  InvestigationRevision,
+import {
+  isPublished,
+  type Citation,
+  type EvidencePin,
+  type Investigation,
+  type InvestigationRevision,
 } from './types';
 
 // ─── Creation ──────────────────────────────────────────────────────────────
@@ -39,6 +40,19 @@ export async function createInvestigation(
     note: 'created',
   });
   return investigation;
+}
+
+// ─── Read visibility ─────────────────────────────────────────────────────────
+// A published investigation is visible to everyone. A non-published one (DRAFT,
+// WITHDRAWN) is visible ONLY to its author. Everyone else — anonymous or a
+// different signed-in user — is treated exactly as if the row did not exist, so
+// existence is never leaked by the slug.
+
+export function canViewInvestigation(
+  investigation: Pick<Investigation, 'status' | 'authorId'>,
+  viewerId: string | null,
+): boolean {
+  return isPublished(investigation.status) || investigation.authorId === viewerId;
 }
 
 // ─── Evidence resolution ─────────────────────────────────────────────────────

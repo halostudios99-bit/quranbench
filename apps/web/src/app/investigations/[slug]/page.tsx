@@ -12,6 +12,7 @@ import {
 } from '@/lib/investigation-format';
 import type { ResolvedPin } from '@/server/research';
 import { getInvestigationView } from '@/server/research';
+import { getCurrentUser } from '@/server/auth';
 import type { ProvenanceLayer } from '@/lib/provenance';
 
 export const dynamic = 'force-dynamic';
@@ -22,7 +23,8 @@ interface Params {
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
-  const view = await getInvestigationView(slug);
+  const viewer = await getCurrentUser();
+  const view = await getInvestigationView(slug, viewer?.id ?? null);
   if (!view) return { title: 'Investigation not found' };
   return {
     title: view.investigation.claim,
@@ -90,7 +92,8 @@ function PinList({ pins }: { pins: ResolvedPin[] }) {
 
 export default async function InvestigationPage({ params }: Params) {
   const { slug } = await params;
-  const view = await getInvestigationView(slug);
+  const viewer = await getCurrentUser();
+  const view = await getInvestigationView(slug, viewer?.id ?? null);
   if (!view) notFound();
 
   const { investigation: inv, authorHandle, queryResult, corpusVersion } = view;

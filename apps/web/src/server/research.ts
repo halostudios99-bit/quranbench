@@ -158,12 +158,16 @@ export interface InvestigationView {
 
 export async function getInvestigationView(
   slug: string,
+  viewerId: string | null,
 ): Promise<InvestigationView | null> {
   const investigation = await safe(
     () => store.getInvestigationBySlug(slug),
     null,
   );
   if (!investigation) return null;
+  // A non-published draft is readable only by its author. Everyone else gets the
+  // same null (→ 404) as a missing slug, so existence is not leaked.
+  if (!investigations.canViewInvestigation(investigation, viewerId)) return null;
 
   const [author, pins, responseRows, revisions] = await Promise.all([
     safe(() => store.getUser(investigation.authorId), null),
