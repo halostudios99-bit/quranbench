@@ -1,9 +1,12 @@
 """Translation ingest — licensing and alignment invariants.
 
-The binding constraint: an edition is ingested only if its licence *clearly*
-permits redistribution. These tests fail the build if any ingested edition lacks
-such a licence, and assert the verse-level alignment is exact and identity-mapped
-to the existing corpus verse ids.
+The binding constraint: every ingested edition records whether it is
+redistributable. A *redistributable* edition's licence must clearly permit open
+redistribution; a *display-only* edition (served but excluded from downloads) must
+be marked ``redistributable=False`` and its licence must be one we would not
+redistribute. These tests fail the build if either invariant is violated, and
+assert the verse-level alignment is exact and identity-mapped to the corpus verse
+ids.
 """
 
 from __future__ import annotations
@@ -50,7 +53,7 @@ def permits_redistribution(licence: str) -> bool:
     return lc.startswith("cc-by") and "nc" not in lc and "nd" not in lc
 
 
-def test_every_ingested_edition_has_a_redistributable_licence(artifacts: Path) -> None:
+def test_every_ingested_edition_records_licence_and_redistributable(artifacts: Path) -> None:
     sources = _read_json(artifacts / "sources.json")
     editions = [s for s in sources if s["role"] == trans_mod.TRANSLATION_ROLE]
     assert editions, "at least one translation edition must be ingested"
@@ -63,14 +66,37 @@ def test_every_ingested_edition_has_a_redistributable_licence(artifacts: Path) -
         assert e.get("translator"), f"{e['id']} has no translator"
         assert e.get("year"), f"{e['id']} has no year"
         assert e.get("sha256"), f"{e['id']} has no checksum"
-        assert permits_redistribution(e["licence"]), (
-            f"{e['id']} licence '{e['licence']}' does not clearly permit redistribution"
-        )
+        assert "redistributable" in e, f"{e['id']} has no redistributable flag"
+        # The flag must be consistent with the licence: a redistributable edition's
+        # licence clearly permits it; a display-only edition's clearly does not.
+        if e["redistributable"]:
+            assert permits_redistribution(e["licence"]), (
+                f"{e['id']} is marked redistributable but licence '{e['licence']}' "
+                "does not clearly permit redistribution"
+            )
+        else:
+            assert not permits_redistribution(e["licence"]), (
+                f"{e['id']} is display-only yet its licence '{e['licence']}' would "
+                "permit redistribution — the flag should be True"
+            )
 
 
-def test_rejected_licences_are_actually_rejected() -> None:
-    # The guard is real, not a rubber stamp: the licences we rejected must fail it.
-    assert not permits_redistribution("CC BY-NC-ND 3.0")  # Itani / ClearQuran
+def test_itani_is_included_but_display_only(artifacts: Path) -> None:
+    # The one display-only edition this release adds: served to readers, checksummed,
+    # but licensed CC BY-NC-ND (no redistribution).
+    manifest = _read_json(artifacts / "manifest.json")
+    editions = {e["id"]: e for e in manifest["translations"]["editions"]}
+    assert "en-itani" in editions, "Itani must be served on the site"
+    itani = editions["en-itani"]
+    assert itani["redistributable"] is False
+    assert "NC" in itani["licence"] and "ND" in itani["licence"]
+    assert itani["artifact"] in manifest["checksums"]
+
+
+def test_rejected_and_display_only_licences_are_actually_rejected() -> None:
+    # The guard is real, not a rubber stamp: display-only and rejected licences
+    # must fail it, and only genuinely-open licences pass.
+    assert not permits_redistribution("CC BY-NC-ND 4.0")  # Itani / ClearQuran
     assert not permits_redistribution("© 1955 A. J. Arberry")
     assert not permits_redistribution("All rights reserved")
     assert not permits_redistribution("Unknown")
@@ -110,13 +136,13 @@ def test_each_edition_has_its_own_licence_file(artifacts: Path) -> None:
         assert "verse-level" in text.lower()
 
 
-def test_verse_and_token_ids_identical_to_v050() -> None:
+def test_verse_and_token_ids_identical_to_previous_version() -> None:
     # Adding translations must not disturb any existing identifier. Compare the
-    # freshly-built v0.6.0 against the committed v0.5.0 artifacts.
-    prev = OUT_DIR / "v0.5.0"
-    cur = OUT_DIR / "v0.6.0"
+    # committed current-version artifacts against the previous version.
+    prev = OUT_DIR / f"v{build_mod.PREVIOUS_VERSION}"
+    cur = OUT_DIR / f"v{build_mod.CORPUS_VERSION}"
     if not (prev / "verses.jsonl").exists():
-        pytest.skip("v0.5.0 removed after verification")
+        pytest.skip(f"v{build_mod.PREVIOUS_VERSION} removed after verification")
     for name in ("verses.jsonl", "tokens.jsonl"):
         prev_ids = {json.loads(x)["id"] for x in (prev / name).read_text(encoding="utf-8").splitlines() if x}
         cur_ids = {json.loads(x)["id"] for x in (cur / name).read_text(encoding="utf-8").splitlines() if x}

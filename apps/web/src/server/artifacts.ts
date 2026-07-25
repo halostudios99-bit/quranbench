@@ -87,6 +87,51 @@ export function listArtifacts(version: string): ArtifactFile[] {
     .sort((a, b) => a.path.localeCompare(b.path));
 }
 
+export interface DisplayOnlyEdition {
+  id: string;
+  translator: string;
+  year: number;
+  licence: string;
+  licence_url: string;
+  artifact: string;
+  licence_file: string;
+}
+
+/**
+ * The display-only (non-redistributable) translation editions of a version:
+ * served to readers but excluded from every download. Read straight from the
+ * manifest's translations block. Empty for versions with no such edition.
+ */
+export function displayOnlyEditions(version: string): DisplayOnlyEdition[] {
+  const editions = readManifest(version).translations?.editions ?? [];
+  return editions
+    .filter((e) => e.redistributable === false)
+    .map((e) => ({
+      id: e.id,
+      translator: e.translator,
+      year: e.year,
+      licence: e.licence,
+      licence_url: e.licence_url,
+      artifact: e.artifact,
+      licence_file: e.licence_file,
+    }));
+}
+
+/**
+ * The POSIX-relative artifact paths that must never be served for download —
+ * display-only editions and their licence files. The dataset builder already
+ * excludes them from the tarball; this is the download-route enforcement of the
+ * same rule for the per-file artifacts, which remain on disk (served to readers).
+ */
+export function nonRedistributablePaths(version: string): Set<string> {
+  const paths = new Set<string>();
+  for (const e of displayOnlyEditions(version)) {
+    paths.add(e.artifact);
+    if (e.licence_file) paths.add(e.licence_file);
+  }
+  return paths;
+}
+
 /** The full-dataset distribution tarball filename for a version. */
 export function fullTarballName(version: string): string {
   return `quranbench-corpus-v${version}.tar.gz`;
@@ -156,6 +201,11 @@ export function resolveArtifact(
     rel === fullTarballName(version) || rel === fullTarballShaName(version);
   if (rel !== 'manifest.json' && !isDistribution && !declared.has(rel))
     return null;
+
+  // Display-only editions live on disk and are checksummed (so the reader can be
+  // served them and the corpus verified), but their licence forbids redistribution
+  // — the download route must refuse them, matching the tarball exclusion.
+  if (nonRedistributablePaths(version).has(rel)) return null;
 
   try {
     const stat = statSync(target);

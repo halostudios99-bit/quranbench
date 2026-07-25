@@ -1,14 +1,19 @@
+import type { ReactNode } from 'react';
+
 import type { Surah, Token } from '@quranbench/corpus';
 
 import { surahAllHref, surahHref, surahPageHref } from '@/lib/addressing';
-import type { VerseView } from '@/server/corpus';
+import { arabicScale, type ArabicSize, type DisplayMode } from '@/lib/reader-prefs';
+import { getVerseTranslations, type VerseView } from '@/server/corpus';
 import { ReaderVerse } from './ReaderVerse';
+import { ReaderVerseBlock } from './ReaderVerseBlock';
 
 // The surah reader, shared by the three surah surfaces: the continuous short
 // surah and page 1 of a long one (`/2`), a subsequent page (`/2/page/3`), and
 // the single-document view (`/2/all`). One component so the reader markup and
-// its navigation never drift across them. Verses render through <ReaderVerse>,
-// the single caller of the one verse renderer.
+// its navigation never drift across them. Verses render through <ReaderVerse> —
+// the single caller of the one verse renderer — with their licensed translations
+// beneath, honouring the reader's display mode and Arabic size.
 
 interface SurahReaderProps {
   surah: Surah;
@@ -19,6 +24,12 @@ interface SurahReaderProps {
   variant: 'continuous' | 'paged' | 'all';
   page?: number;
   pageCount?: number;
+  /** The reader controls (translations, display mode, size). */
+  toolbar: ReactNode;
+  /** Which editions to show beneath each verse; undefined shows all. */
+  shownEditionIds: string[] | undefined;
+  display: DisplayMode;
+  size: ArabicSize;
 }
 
 export function SurahReader({
@@ -28,6 +39,10 @@ export function SurahReader({
   variant,
   page = 1,
   pageCount = 1,
+  toolbar,
+  shownEditionIds,
+  display,
+  size,
 }: SurahReaderProps) {
   const number = surah.number;
   const paged = variant === 'paged';
@@ -41,7 +56,11 @@ export function SurahReader({
     verses.length > 0 ? verses[verses.length - 1]!.ordinal : null;
 
   return (
-    <div className="mx-auto max-w-reader">
+    <div
+      className="mx-auto max-w-reader"
+      data-reader-root
+      style={{ ['--qb-arabic-scale' as string]: String(arabicScale(size)) }}
+    >
       {/* rel=prev/next for paginated readers — hoisted to <head> by Next. */}
       {prevPageHref ? <link rel="prev" href={prevPageHref} /> : null}
       {nextPageHref ? <link rel="next" href={nextPageHref} /> : null}
@@ -126,6 +145,8 @@ export function SurahReader({
         ) : null}
       </header>
 
+      {toolbar}
+
       <div className="flex flex-col gap-4">
         {basmalaTokens ? (
           <ReaderVerse
@@ -138,12 +159,18 @@ export function SurahReader({
           />
         ) : null}
         {verses.map((view) => (
-          <ReaderVerse
+          <ReaderVerseBlock
             key={view.segment.id}
             surahNumber={number}
             surahName={surah.name_en}
             tokens={view.tokens}
-            from={view.ordinal}
+            ordinal={view.ordinal}
+            display={display}
+            translations={
+              display === 'arabic'
+                ? []
+                : getVerseTranslations(view.segment.id, shownEditionIds)
+            }
             mode="reading"
             showActions={false}
           />

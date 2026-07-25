@@ -58,16 +58,26 @@ def _reset(info: tarfile.TarInfo) -> tarfile.TarInfo:
     return info
 
 
-def build_tarball_bytes(out_dir: Path, version: str) -> bytes:
+def build_tarball_bytes(
+    out_dir: Path, version: str, exclude: frozenset[str] = frozenset()
+) -> bytes:
     """Deterministic gzip-compressed tar of every file in ``out_dir`` except the
-    tarball and its sidecar. Includes ``manifest.json``. Entries are prefixed with
-    ``quranbench-corpus-v<version>/`` so the archive extracts into a named dir."""
+    tarball, its sidecar, and any path in ``exclude``. Includes ``manifest.json``.
+    Entries are prefixed with ``quranbench-corpus-v<version>/`` so the archive
+    extracts into a named dir.
+
+    ``exclude`` carries the POSIX-relative paths of display-only, non-redistributable
+    artifacts (e.g. a CC BY-NC-ND translation edition and its licence file): they
+    exist on disk and are served to readers, but must never enter the redistributable
+    full-dataset tarball.
+    """
     prefix = f"quranbench-corpus-v{version}"
     files = sorted(
         p
         for p in out_dir.rglob("*")
         if p.is_file()
         and not is_distribution_file(p.relative_to(out_dir).as_posix(), version)
+        and p.relative_to(out_dir).as_posix() not in exclude
     )
 
     raw = io.BytesIO()
@@ -83,10 +93,13 @@ def build_tarball_bytes(out_dir: Path, version: str) -> bytes:
     return raw.getvalue()
 
 
-def write_full_tarball(out_dir: Path, version: str) -> tuple[Path, Path]:
+def write_full_tarball(
+    out_dir: Path, version: str, exclude: frozenset[str] = frozenset()
+) -> tuple[Path, Path]:
     """Write the full-dataset tarball and its ``.sha256`` sidecar into ``out_dir``.
-    Returns the (tarball, sidecar) paths."""
-    data = build_tarball_bytes(out_dir, version)
+    ``exclude`` names display-only artifacts to keep out of the redistributable
+    archive. Returns the (tarball, sidecar) paths."""
+    data = build_tarball_bytes(out_dir, version, exclude)
     tar_path = out_dir / full_tarball_name(version)
     tar_path.write_bytes(data)
 

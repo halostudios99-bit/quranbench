@@ -4,6 +4,7 @@ import {
   fullTarball,
   fullTarballName,
   listArtifacts,
+  nonRedistributablePaths,
   type ArtifactFile,
 } from '@/server/artifacts';
 
@@ -57,7 +58,7 @@ const GROUP_META: Record<
     title: 'Translations',
     licence: 'Public domain (per edition)',
     licence_url: 'https://quranbench.com/method',
-    note: 'Verse-level human translation editions, each in the public domain. Correspondence to the Arabic is verse-level only — never word-level. Each edition ships its own LICENSE file.',
+    note: 'Verse-level human translation editions in the public domain — the ones you may redistribute. Correspondence to the Arabic is verse-level only, never word-level. Each edition ships its own LICENSE file. Display-only editions (shown on the site under a licence that permits display but not redistribution, e.g. Talal Itani under CC BY-NC-ND) are deliberately excluded from these downloads and from the full tarball; they are listed below with the reason.',
   },
 };
 
@@ -68,8 +69,13 @@ export function licenceGroups(version: string): LicenceGroup[] {
     morphology: [],
     translations: [],
   };
-  for (const file of listArtifacts(version))
+  // Display-only editions are on disk (served to readers) but not redistributable,
+  // so they never appear in the downloads — the same rule the tarball applies.
+  const excluded = nonRedistributablePaths(version);
+  for (const file of listArtifacts(version)) {
+    if (excluded.has(file.path)) continue;
     buckets[groupIdFor(file.path)].push(file);
+  }
 
   const order: LicenceGroupId[] = ['text', 'morphology', 'translations'];
   return order

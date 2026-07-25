@@ -1,18 +1,31 @@
 # Translation editions — inclusion and rejection report
 
-_Corpus v0.6.0. This report is the committed record required by `docs/licensing.md`
+_Corpus v0.7.0. This report is the committed record required by `docs/licensing.md`
 and Prompt 09: every translation edition considered, whether it was included, and
 the exact licence reason. Permission is never inferred from availability._
 
 ## The binding constraint
 
-quranbench publishes a **redistributable** open dataset. A translation edition is
-ingested **only if its licence clearly permits redistribution** — public domain, or
-a permissive/attribution Creative Commons licence. If an edition's licence is
-unclear, ambiguous, or absent, it is **not** included. This is enforced in code:
+quranbench publishes a **redistributable** open dataset, and separately renders
+translations to readers. Every edition carries a `redistributable` flag:
+
+- **Redistributable** editions (public domain, or a permissive/attribution CC
+  licence) are both **displayed** to readers *and* **shipped** in the dataset
+  downloads and the full tarball.
+- **Display-only** editions are **displayed** to readers but **excluded from every
+  download** and from the tarball. This is for editions whose licence permits
+  display with attribution but not open redistribution.
+
+If an edition's licence is unclear, ambiguous, or absent, it is **not included at
+all**. This is enforced in code:
 `packages/corpus-build/tests/test_translations.py::permits_redistribution` fails the
-build if any ingested edition carries a NonCommercial (NC) or NoDerivatives (ND)
-restriction or an unrecognised licence.
+build if a *redistributable* edition carries a NonCommercial (NC) or NoDerivatives
+(ND) restriction or an unrecognised licence, and if a *display-only* edition's
+licence would in fact permit redistribution (the flag must match the licence). The
+dataset builder excludes display-only editions from the tarball
+(`test_build.py::test_display_only_editions_are_excluded_from_the_tarball`), and the
+web download route refuses to serve them
+(`data-downloads.test.ts`).
 
 ## The Tanzil finding (why Tanzil is not a licence basis)
 
@@ -38,12 +51,14 @@ instruction is deliberate and is the only way to satisfy the binding licensing r
 ## Retrieval source
 
 Verse text is retrieved from **fawazahmed0/quran-api**
-(<https://github.com/fawazahmed0/quran-api>), a compilation released into the
-**public domain under the Unlicense**, pinned to immutable commit
-`6be8e17f2a0c13b1f33b1c3057f73cb28d5e848e` and checksum-verified on download. This
-is a *retrieval origin* only; the right to redistribute each edition derives from
-the edition's own public-domain status recorded below, not from where the bytes came
-from.
+(<https://github.com/fawazahmed0/quran-api>), a compilation whose own compilation
+work is released into the **public domain under the Unlicense**, pinned to immutable
+commit `6be8e17f2a0c13b1f33b1c3057f73cb28d5e848e` and checksum-verified on download.
+This is a *retrieval origin* only. For the redistributable editions below, the right
+to redistribute derives from each work's own public-domain status. For the
+display-only Itani edition, our right is only to **display** it under its CC
+BY-NC-ND licence — never to redistribute it — which is exactly why it is excluded
+from the downloads.
 
 ## Included editions (3)
 
@@ -58,17 +73,35 @@ restoration).
 | `en-rodwell` | The Koran | John Medows Rodwell (d. 1900) | 1861 | Public Domain | <https://en.wikisource.org/wiki/The_Koran_(Rodwell)> |
 | `en-palmer` | The Qur'an (SBE vols VI & IX) | Edward Henry Palmer (d. 1882) | 1880 | Public Domain | <https://en.wikisource.org/wiki/The_Qur%27an_(Palmer)> |
 
-Each ships as `out/v0.6.0/translations/<id>.jsonl` (6236 verse-level lines, keyed by
+Each ships as `out/v0.7.0/translations/<id>.jsonl` (6236 verse-level lines, keyed by
 corpus verse id — identity mapping, verified in tests) with its own
 `<id>.LICENSE.md` beside it, and is recorded in `sources.json` with licence,
 translator, year, licence URL and checksum.
+
+## Display-only editions (1)
+
+Displayed to readers but **not part of the redistributable dataset** — served on the
+site, excluded from every download and from the full tarball.
+
+| id | Translation | Translator | Year | Licence | Verified at |
+| --- | --- | --- | --- | --- | --- |
+| `en-itani` | Quran in English (ClearQuran) | Talal Itani | 2012 | CC BY-NC-ND 4.0 | <https://creativecommons.org/licenses/by-nc-nd/4.0/> |
+
+Talal Itani's ClearQuran is modern, readable English and is licensed **CC BY-NC-ND
+4.0** — NonCommercial and NoDerivatives. Those terms permit displaying the edition
+verbatim with attribution but are incompatible with an openly-redistributable
+dataset. So it is the **default reading translation** on the site, `redistributable:
+false` in `sources.json` and the manifest, excluded from the tarball by the dataset
+builder, and refused by the download route. It ships as
+`out/v0.7.0/translations/en-itani.jsonl` on disk (served and checksummed) with its
+own `en-itani.LICENSE.md` stating the display-only status. It becomes v0.7.0 with
+token and verse ids unchanged from v0.6.0 (asserted in tests).
 
 ## Rejected editions (and why)
 
 | Edition | Licence status | Reason for rejection |
 | --- | --- | --- |
 | **Yusuf Ali** (1934/38) | PD in life+70 lands since 2024, **but US copyright restored by the URAA to ~2033** | Not *clearly* redistributable for a globally-distributed dataset while US copyright subsists. Rejected under the "if ambiguous, do not include" rule. Re-includable after 2033 (or if distribution is scoped to life+70 jurisdictions). Ref: <https://en.wikisource.org/wiki/Author:Abdullah_Yusuf_Ali> |
-| **Talal Itani / ClearQuran** (~2012) | **CC BY-NC-ND 3.0** | NonCommercial + NoDerivatives. An open dataset cannot inherit NC/ND. Ref: <https://blog.clearquran.com/about> |
 | **A. J. Arberry — The Koran Interpreted** (1955) | © — under copyright to 2040 (UK/EU) / 2051 (US) | In copyright. Free scans online are lending, not a redistribution licence. |
 | **M. H. Shakir** (1968/83) | Legally PD (derivative of PD Muhammad Ali 1917) but **attribution/provenance contested** (documented as a plagiarised revision of Muhammad Ali's 1917 translation) | Rejected to avoid propagating a disputed attribution. The cleaner path — ingesting Muhammad Ali's 1917 translation directly — is a candidate for a future version. |
 | Saheeh International, Hilali & Khan, Maududi, Mubarakpuri, Sarwar, Wahiduddin Khan, Ahmed Ali, Ahmed Raza Khan, Daryabadi, Qarai, Qaribullah | Under copyright / Tanzil "used by permission" or no clear redistribution licence | None carries a documented licence permitting redistribution. Tanzil's blanket non-commercial ToS applies. |

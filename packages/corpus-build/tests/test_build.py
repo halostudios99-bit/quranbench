@@ -24,6 +24,8 @@ def _read_jsonl(path: Path) -> list[dict]:
 
 
 def test_writes_expected_files(artifacts: Path) -> None:
+    cur = build_mod.CORPUS_VERSION
+    prev = build_mod.PREVIOUS_VERSION
     for name in (
         "sources.json",
         "surahs.json",
@@ -32,23 +34,27 @@ def test_writes_expected_files(artifacts: Path) -> None:
         "identifiers.json",
         "manifest.json",
         "mapping/mapping.schema.json",
-        "mapping/v0.5.0-to-v0.6.0.json",
+        f"mapping/v{prev}-to-v{cur}.json",
         "numbering/numbering.schema.json",
         "numbering/kufan.json",
         "morphology/roots.json",
         "morphology/LICENSE",
         "morphology/ATTRIBUTION.md",
         "morphology/alignment-report.md",
+        # Talal Itani is display-only but still an artifact on disk (served to
+        # readers, checksummed, verified); it is only excluded from the tarball.
+        "translations/en-itani.jsonl",
+        "translations/en-itani.LICENSE.md",
         "translations/en-pickthall.jsonl",
         "translations/en-pickthall.LICENSE.md",
         "translations/en-rodwell.jsonl",
         "translations/en-palmer.jsonl",
         # Full-dataset distribution tarball + its sidecar checksum.
-        "quranbench-corpus-v0.6.0.tar.gz",
-        "quranbench-corpus-v0.6.0.tar.gz.sha256",
+        f"quranbench-corpus-v{cur}.tar.gz",
+        f"quranbench-corpus-v{cur}.tar.gz.sha256",
     ):
         assert (artifacts / name).exists(), name
-    assert artifacts.name == "v0.6.0"
+    assert artifacts.name == f"v{cur}"
 
 
 def test_verse_artifact_counts_and_ids(artifacts: Path) -> None:
@@ -113,8 +119,8 @@ def test_sources_artifact_matches_entity_model(artifacts: Path) -> None:
 
 def test_manifest_is_self_describing(artifacts: Path) -> None:
     manifest = _read_json(artifacts / "manifest.json")
-    assert manifest["corpus_version"] == "0.6.0"
-    assert manifest["previous_version"] == "0.5.0"
+    assert manifest["corpus_version"] == build_mod.CORPUS_VERSION
+    assert manifest["previous_version"] == build_mod.PREVIOUS_VERSION
     assert manifest["work_id"] == "quran"
     assert manifest["segmentation_scheme"] == "tanzil-uthmani"
     assert manifest["identifier_format"] == "quran:tanzil-uthmani:<surah>:<segment>:<position>"
@@ -234,22 +240,26 @@ def test_mapping_is_identity_with_no_entries(artifacts: Path) -> None:
     assert "mappings" in schema["properties"]
     assert "default_resolution" in schema["properties"]
 
-    # v0.6.0 adds verse-level translations aligned to existing verse ids: no
-    # identifier moved, so the mapping is a pure identity default with zero entries.
-    mapping = _read_json(artifacts / "mapping" / "v0.5.0-to-v0.6.0.json")
-    assert mapping["from_version"] == "0.5.0"
-    assert mapping["to_version"] == "0.6.0"
+    # Each translations release aligns editions to existing verse ids: no
+    # identifier moves, so the mapping is a pure identity default with zero entries.
+    prev = build_mod.PREVIOUS_VERSION
+    cur = build_mod.CORPUS_VERSION
+    mapping = _read_json(artifacts / "mapping" / f"v{prev}-to-v{cur}.json")
+    assert mapping["from_version"] == prev
+    assert mapping["to_version"] == cur
     assert mapping["default_resolution"] == "identity"
     assert mapping["mappings"] == []
 
 
 def test_mapping_is_total_by_identity(artifacts: Path) -> None:
-    # With an identity default and no explicit entries, every v0.5.0 id resolves
+    # With an identity default and no explicit entries, every prior id resolves
     # to itself — a total mapping over the prior version's identifiers.
     tokens = _read_jsonl(artifacts / "tokens.jsonl")
     new_ids = {t["id"] for t in tokens}
 
-    mapping = _read_json(artifacts / "mapping" / "v0.5.0-to-v0.6.0.json")
+    prev = build_mod.PREVIOUS_VERSION
+    cur = build_mod.CORPUS_VERSION
+    mapping = _read_json(artifacts / "mapping" / f"v{prev}-to-v{cur}.json")
     explicit = {m["from"]: m["to"] for m in mapping["mappings"]}
     assert explicit == {}  # nothing remapped
 
@@ -295,7 +305,9 @@ def test_manifest_records_output_checksums(artifacts: Path) -> None:
         for p in artifacts.rglob("*")
         if p.is_file()
         and p.name != "manifest.json"
-        and not is_distribution_file(p.relative_to(artifacts).as_posix(), "0.6.0")
+        and not is_distribution_file(
+            p.relative_to(artifacts).as_posix(), build_mod.CORPUS_VERSION
+        )
     }
     assert set(checksums) == on_disk
 
@@ -332,18 +344,54 @@ def test_verify_accepts_a_clean_build_and_rejects_tampering(artifacts: Path) -> 
     assert verify(artifacts) == []
 
 
-def test_v050_and_v060_token_ids_are_identical() -> None:
-    # v0.6.0 adds verse-level translations only: no token is resegmented, so the
-    # token id set must be identical to v0.5.0. Skips once v0.5.0 has been removed.
+def test_previous_and_current_token_ids_are_identical() -> None:
+    # A translations release adds verse-level editions only: no token is
+    # resegmented, so the committed current version's token id set must be identical
+    # to the previous version's. Compares the two committed out/ directories.
     from pipeline.paths import OUT_DIR
 
-    prev = OUT_DIR / "v0.5.0" / "tokens.jsonl"
-    cur = OUT_DIR / "v0.6.0" / "tokens.jsonl"
+    prev = OUT_DIR / f"v{build_mod.PREVIOUS_VERSION}" / "tokens.jsonl"
+    cur = OUT_DIR / f"v{build_mod.CORPUS_VERSION}" / "tokens.jsonl"
     if not prev.exists():
-        pytest.skip("v0.5.0 removed after verification")
-    assert cur.exists(), "v0.6.0 must be built"
+        pytest.skip(f"v{build_mod.PREVIOUS_VERSION} removed after verification")
+    assert cur.exists(), f"v{build_mod.CORPUS_VERSION} must be built"
 
     prev_ids = {json.loads(line)["id"] for line in prev.read_text(encoding="utf-8").splitlines() if line}
     cur_ids = {json.loads(line)["id"] for line in cur.read_text(encoding="utf-8").splitlines() if line}
     assert len(cur_ids) == 77881
     assert prev_ids == cur_ids
+
+
+def test_display_only_editions_are_excluded_from_the_tarball(artifacts: Path) -> None:
+    # Itani (CC BY-NC-ND) is display-only: present on disk and checksummed, but the
+    # redistributable full-dataset tarball must not contain it. Redistributable
+    # editions (public domain) must be present.
+    import gzip
+    import io
+    import tarfile
+
+    from pipeline.tarball import full_tarball_name
+
+    cur = build_mod.CORPUS_VERSION
+    prefix = f"quranbench-corpus-v{cur}/"
+    with gzip.open(artifacts / full_tarball_name(cur), "rb") as gz:
+        with tarfile.open(fileobj=io.BytesIO(gz.read()), mode="r") as tar:
+            names = {m.name for m in tar.getmembers() if m.isfile()}
+
+    manifest = _read_json(artifacts / "manifest.json")
+    for edition in manifest["translations"]["editions"]:
+        artifact = prefix + edition["artifact"]
+        licence = prefix + edition["licence_file"]
+        # The edition is always an artifact on disk and in the checksum block.
+        assert (artifacts / edition["artifact"]).exists()
+        assert edition["artifact"] in manifest["checksums"]
+        if edition["redistributable"]:
+            assert artifact in names, edition["id"]
+            assert licence in names, edition["id"]
+        else:
+            assert artifact not in names, f"{edition['id']} must not be in the tarball"
+            assert licence not in names, f"{edition['id']} licence must not be in the tarball"
+
+    # At least one of each kind exists, so the assertions above are meaningful.
+    flags = {e["redistributable"] for e in manifest["translations"]["editions"]}
+    assert flags == {True, False}

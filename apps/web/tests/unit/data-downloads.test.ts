@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -8,12 +9,15 @@ import {
   parseCitationVersion,
 } from '@/lib/citation';
 import {
+  artifactsRoot,
   currentVersion,
+  displayOnlyEditions,
   fullTarball,
   isKnownVersion,
   listArtifacts,
   listVersions,
   manifestSha256,
+  nonRedistributablePaths,
   resolveArtifact,
 } from '@/server/artifacts';
 import { fullDownload, licenceGroups } from '@/server/api/downloads';
@@ -25,17 +29,42 @@ import { manifestResponse } from '@/server/api/core';
 describe('/data checksums match the artifacts on disk', () => {
   it('every declared sha256 and byte size matches the real file', () => {
     for (const version of listVersions()) {
+      const excluded = nonRedistributablePaths(version);
       for (const artifact of listArtifacts(version)) {
-        const resolved = resolveArtifact(version, artifact.path);
-        expect(
-          resolved,
-          `${version}/${artifact.path} resolvable`,
-        ).not.toBeNull();
-        const bytes = readFileSync(resolved!.absolutePath);
+        // Every declared artifact exists on disk with the recorded bytes — even a
+        // display-only edition, which is served to readers and checksummed.
+        const bytes = readFileSync(
+          join(artifactsRoot(), `v${version}`, artifact.path),
+        );
         expect(bytes.length, `${artifact.path} bytes`).toBe(artifact.bytes);
         const sha = createHash('sha256').update(bytes).digest('hex');
         expect(sha, `${artifact.path} sha256`).toBe(artifact.sha256);
+
+        // A redistributable artifact resolves through the download route; a
+        // display-only one is deliberately refused there.
+        const resolved = resolveArtifact(version, artifact.path);
+        if (excluded.has(artifact.path)) {
+          expect(resolved, `${artifact.path} must not be downloadable`).toBeNull();
+        } else {
+          expect(resolved, `${artifact.path} resolvable`).not.toBeNull();
+        }
       }
+    }
+  });
+
+  it('refuses to serve a display-only edition through the download route', () => {
+    const version = currentVersion();
+    const displayOnly = displayOnlyEditions(version);
+    expect(displayOnly.length, 'v0.7.0 ships a display-only Itani edition').toBeGreaterThan(0);
+    for (const e of displayOnly) {
+      // The edition is a declared, checksummed artifact...
+      expect(
+        listArtifacts(version).some((a) => a.path === e.artifact),
+        `${e.artifact} declared`,
+      ).toBe(true);
+      // ...yet the download route refuses both its data and its licence file.
+      expect(resolveArtifact(version, e.artifact)).toBeNull();
+      expect(resolveArtifact(version, e.licence_file)).toBeNull();
     }
   });
 
@@ -46,13 +75,17 @@ describe('/data checksums match the artifacts on disk', () => {
     expect(resolveArtifact(currentVersion(), '../../../etc/passwd')).toBeNull();
   });
 
-  it('every artifact belongs to exactly one licence group', () => {
+  it('every downloadable artifact belongs to exactly one licence group', () => {
     const version = currentVersion();
     const grouped = licenceGroups(version).flatMap((g) =>
       g.files.map((f) => f.path),
     );
-    const all = listArtifacts(version).map((a) => a.path);
-    expect(new Set(grouped)).toEqual(new Set(all));
+    // The downloadable set is every declared artifact minus the display-only ones.
+    const excluded = nonRedistributablePaths(version);
+    const downloadable = listArtifacts(version)
+      .map((a) => a.path)
+      .filter((p) => !excluded.has(p));
+    expect(new Set(grouped)).toEqual(new Set(downloadable));
     // Each group declares a licence that permits redistribution.
     for (const group of licenceGroups(version)) {
       expect(group.licence).toBeTruthy();

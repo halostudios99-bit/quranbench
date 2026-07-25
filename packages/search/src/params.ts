@@ -10,6 +10,8 @@
 // display beside a result and for inclusion in a citation, and parses back
 // losslessly. It is pure data — nothing here reads the corpus or runs a query.
 
+import { DEFAULT_CORPUS_VERSION } from '@quranbench/corpus';
+
 export type NormalisationProfile = 'uthmani' | 'simple' | 'no-tashkeel' | 'normalised';
 
 export interface ComputationParams {
@@ -31,7 +33,9 @@ export interface ComputationParams {
 
 export const DEFAULT_PARAMS: ComputationParams = {
   textEdition: 'tanzil-uthmani',
-  corpusVersion: '0.6.0',
+  // Tracks the current corpus release so a default-params computation always
+  // discloses the version it actually ran against, not a stale literal.
+  corpusVersion: DEFAULT_CORPUS_VERSION,
   numberingScheme: 'kufan',
   includeBasmala: true,
   includeWaqfMarks: false,

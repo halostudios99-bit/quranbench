@@ -98,6 +98,10 @@ export interface Store {
   /** The email + password hash for a sign-in check, or null if no such account. */
   findCredential(email: string): Promise<Credential | null>;
   markEmailVerified(userId: string, verifiedAt: Date): Promise<void>;
+  /** The reader's saved view preferences (opaque JSON), or null if none stored. */
+  getReaderPrefs(userId: string): Promise<unknown | null>;
+  /** Persist the reader's view preferences on the account. Never gates content. */
+  setReaderPrefs(userId: string, prefs: unknown): Promise<void>;
 
   // ── Sessions ────────────────────────────────────────────────────────────────
   createSession(userId: string, tokenHash: string, expiresAt: Date): Promise<void>;

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
 import ReactDOM from 'react-dom';
 
+import { resolveReaderView } from '@/components/reader-view';
 import { SurahReader } from '@/components/SurahReader';
 import { parseSurahParam, surahHref, surahPageHref } from '@/lib/addressing';
 import {
@@ -13,8 +14,10 @@ import {
 } from '@/lib/pagination';
 import { getSurah, getSurahVerses, listSurahs } from '@/server/corpus';
 
-// The paginated pages are bounded (only long surahs, ~a few hundred pages in
-// total), so they are prerendered — every crawlable reader page is static HTML.
+// The paginated pages are a bounded set (only long surahs, ~a few hundred pages).
+// They read the per-reader preference cookie, so they render dynamically, but every
+// edition is rendered server-side — the content is complete and crawlable with
+// JavaScript disabled; the cookie only chooses what a given reader sees.
 export function generateStaticParams(): { surah: string; page: string }[] {
   const params: { surah: string; page: string }[] = [];
   for (const s of listSurahs()) {
@@ -73,6 +76,9 @@ export default async function SurahPagePage({ params }: Params) {
 
   const all = getSurahVerses(surah.number);
   const { start, end } = pageSlice(page, VERSES_PER_PAGE);
+  const { toolbar, prefs } = await resolveReaderView(
+    surahPageHref(surah.number, page),
+  );
   return (
     <SurahReader
       surah={surah}
@@ -81,6 +87,10 @@ export default async function SurahPagePage({ params }: Params) {
       variant="paged"
       page={page}
       pageCount={pageCount}
+      toolbar={toolbar}
+      shownEditionIds={prefs.editions}
+      display={prefs.display}
+      size={prefs.size}
     />
   );
 }

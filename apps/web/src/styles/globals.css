@@ -198,11 +198,16 @@ body {
   border-radius: 6px;
   color: var(--ink);
 }
+/* The reader's Arabic size is a three-step preference applied through the
+   --qb-arabic-scale custom property set on the reader root (see ReaderToolbar):
+   changing it needs no re-render. max(24px, …) enforces the design-system floor —
+   Quranic text is never below 24px whatever the chosen scale. Outside a reader
+   (no variable set) the scale defaults to 1, so word/root pages are unaffected. */
 .qb-token[data-size='reading'] {
-  font-size: 30px;
+  font-size: max(24px, calc(30px * var(--qb-arabic-scale, 1)));
 }
 .qb-token[data-size='compact'] {
-  font-size: 26px;
+  font-size: max(24px, calc(26px * var(--qb-arabic-scale, 1)));
 }
 .qb-token:hover,
 .qb-token:focus-visible {

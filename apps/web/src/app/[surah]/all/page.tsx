@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ReactDOM from 'react-dom';
 
+import { resolveReaderView } from '@/components/reader-view';
 import { SurahReader } from '@/components/SurahReader';
-import { parseSurahParam } from '@/lib/addressing';
+import { parseSurahParam, surahAllHref } from '@/lib/addressing';
 import { getBasmalaTokens, getSurah, getSurahVerses } from '@/server/corpus';
 
 interface Params {
@@ -37,12 +38,17 @@ export default async function SurahAllPage({ params }: Params) {
     crossOrigin: 'anonymous',
   });
 
+  const { toolbar, prefs } = await resolveReaderView(surahAllHref(number));
   return (
     <SurahReader
       surah={surah}
       verses={getSurahVerses(number)}
       basmalaTokens={getBasmalaTokens(number)}
       variant="all"
+      toolbar={toolbar}
+      shownEditionIds={prefs.editions}
+      display={prefs.display}
+      size={prefs.size}
     />
   );
 }

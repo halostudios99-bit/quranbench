@@ -15,7 +15,7 @@ import type {
   Token,
 } from './types.js';
 
-export const DEFAULT_CORPUS_VERSION = '0.6.0';
+export const DEFAULT_CORPUS_VERSION = '0.7.0';
 
 /**
  * Thrown when an artifact fails validation. A corrupted or schema-drifted corpus

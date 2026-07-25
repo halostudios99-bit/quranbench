@@ -17,6 +17,7 @@ import { licenceGroups } from '@/server/api/downloads';
 import {
   currentVersion,
   listArtifacts,
+  nonRedistributablePaths,
   resolveArtifact,
 } from '@/server/artifacts';
 import { getCorpus } from '@/server/corpus';
@@ -92,9 +93,17 @@ describe('§9 — a stranger can treat this as infrastructure', () => {
   it('Part 2 — download the whole dataset under a redistribution licence', () => {
     const groups = licenceGroups(version);
     const grouped = new Set(groups.flatMap((g) => g.files.map((f) => f.path)));
-    const all = new Set(listArtifacts(version).map((a) => a.path));
-    // Nothing is undownloadable and nothing is unlicensed.
-    expect(grouped).toEqual(all);
+    // Every redistributable artifact is downloadable and licensed. Display-only
+    // editions (e.g. Itani, CC BY-NC-ND) are the one exception — served to readers
+    // but excluded from the downloads by design — so the downloadable set is every
+    // declared artifact minus those.
+    const excluded = nonRedistributablePaths(version);
+    const downloadable = new Set(
+      listArtifacts(version)
+        .map((a) => a.path)
+        .filter((p) => !excluded.has(p)),
+    );
+    expect(grouped).toEqual(downloadable);
     for (const group of groups) {
       expect(group.licence).toBeTruthy();
       for (const file of group.files) {

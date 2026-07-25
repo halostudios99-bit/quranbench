@@ -64,6 +64,7 @@ export class InMemoryStore implements Store {
 
   private users: User[] = [];
   private passwordHashes = new Map<string, string>();
+  private readerPrefs = new Map<string, unknown>();
   private sessions: SessionRow[] = [];
   private verifications: VerificationRow[] = [];
   private acceptances: Acceptance[] = [];
@@ -130,6 +131,12 @@ export class InMemoryStore implements Store {
   async markEmailVerified(userId: string, verifiedAt: Date) {
     const user = this.users.find((u) => u.id === userId);
     if (user) user.emailVerified = verifiedAt;
+  }
+  async getReaderPrefs(userId: string) {
+    return this.readerPrefs.get(userId) ?? null;
+  }
+  async setReaderPrefs(userId: string, prefs: unknown) {
+    this.readerPrefs.set(userId, prefs);
   }
 
   async createSession(userId: string, tokenHash: string, expiresAt: Date) {

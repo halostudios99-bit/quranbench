@@ -11,7 +11,7 @@ import {
   getVerseDivergence,
   getVerseRange,
   getVerseTranslations,
-  listTranslationEditions,
+  listRedistributableEditions,
   reverseLookupWord,
   type VerseView,
 } from '@/server/corpus';
@@ -55,11 +55,16 @@ export async function generateMetadata({ searchParams }: CompareParams): Promise
 
 export default async function ComparePage({ searchParams }: CompareParams) {
   const { v, q } = await searchParams;
-  const editions = listTranslationEditions();
+  // The translation laboratory deals only in redistributable editions — the ones a
+  // reader can also download and cite. Display-only editions (e.g. Itani) appear in
+  // the reader, not here, so the "public-domain editions" framing stays accurate.
+  const editions = listRedistributableEditions();
+  const editionIds = editions.map((e) => e.id);
   const corpus = getCorpus();
   const ref = v ? parseRef(v.trim()) : null;
   const views: VerseView[] = ref ? getVerseRange(ref.surah, ref.from, ref.to) : [];
-  const reverse = q && q.trim() ? reverseLookupWord(q.trim(), REVERSE_LIMIT) : null;
+  const reverse =
+    q && q.trim() ? reverseLookupWord(q.trim(), REVERSE_LIMIT, editionIds) : null;
 
   return (
     <div className="mx-auto max-w-reader">
@@ -116,7 +121,7 @@ export default async function ComparePage({ searchParams }: CompareParams) {
       </div>
 
       {ref && views.length > 0 ? (
-        <VerseComparison views={views} />
+        <VerseComparison views={views} editionIds={editionIds} />
       ) : v ? (
         <p className="text-[16px] text-ink2">
           Could not resolve <code>{v}</code>. Use a form like <code>2:255</code> or{' '}
@@ -139,12 +144,18 @@ export default async function ComparePage({ searchParams }: CompareParams) {
   );
 }
 
-function VerseComparison({ views }: { views: VerseView[] }) {
+function VerseComparison({
+  views,
+  editionIds,
+}: {
+  views: VerseView[];
+  editionIds: string[];
+}) {
   return (
     <div className="flex flex-col gap-5">
       {views.map((view) => {
-        const items = getVerseTranslations(view.segment.id);
-        const divergence = getVerseDivergence(view.segment.id);
+        const items = getVerseTranslations(view.segment.id, editionIds);
+        const divergence = getVerseDivergence(view.segment.id, editionIds);
         const ordinal = view.ordinal;
         return (
           <section

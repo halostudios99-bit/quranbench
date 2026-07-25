@@ -46,8 +46,9 @@ describe('exact query', () => {
 
   it('carries the corpus version and computation params for reproducibility', () => {
     const r = search(index, { type: 'exact', text: 'ٱلزَّكَوٰةَ' });
-    expect(r.corpusVersion).toBe('0.6.0');
-    expect(r.params.corpusVersion).toBe('0.6.0');
+    // The result discloses the version it actually ran against — the loaded corpus.
+    expect(r.corpusVersion).toBe(corpus.version);
+    expect(r.params.corpusVersion).toBe(corpus.version);
     expect(r.params.numberingScheme).toBe('kufan');
     expect(r.segmentIds.length).toBeGreaterThan(0);
   });

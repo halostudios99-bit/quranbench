@@ -71,7 +71,7 @@ function specs(): EndpointSpec[] {
           in: 'query',
           required: false,
           description:
-            'Corpus version, e.g. 0.6.0. Defaults to the current version.',
+            'Corpus version, e.g. 0.7.0. Defaults to the current version.',
           schema: { type: 'string' },
         },
       ],

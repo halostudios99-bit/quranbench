@@ -33,6 +33,10 @@ model User {
   passwordHash  String
   handle        String    @unique
   displayName   String?
+  // Reading preferences (translation selection, display mode, Arabic size). A
+  // convenience mirror of the reader's cookie so the same choices follow the
+  // account across devices. Never gates content — purely a view preference.
+  readerPrefs   Json?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 

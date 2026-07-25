@@ -148,10 +148,18 @@ export interface TranslationEdition {
   language_code: string;
   translator: string;
   year: number;
-  /** Exact licence string, e.g. "Public Domain". Must permit redistribution. */
+  /** Exact licence string, e.g. "Public Domain" or "CC BY-NC-ND 4.0". */
   licence: string;
   /** URL where the licence/public-domain status can be verified. */
   licence_url: string;
+  /**
+   * Whether the edition's licence permits including it in the dataset downloads.
+   * Display in the reader is always permitted; only redistributable editions are
+   * served in the per-file downloads and the full tarball. A display-only edition
+   * (e.g. a NonCommercial/NoDerivatives licence) is `false`: shown to readers but
+   * excluded from every download. The dataset builder and `/data` both honour it.
+   */
+  redistributable: boolean;
   /** Number of verse-level lines; equals the corpus verse count. */
   verses: number;
   /** Artifact path, relative to the version dir, e.g. translations/en-pickthall.jsonl. */

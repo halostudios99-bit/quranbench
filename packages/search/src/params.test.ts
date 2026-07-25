@@ -1,3 +1,4 @@
+import { DEFAULT_CORPUS_VERSION } from '@quranbench/corpus';
 import { describe, expect, it } from 'vitest';
 import {
   DEFAULT_PARAMS,
@@ -9,8 +10,9 @@ import {
 
 describe('computation parameters', () => {
   it('serialises defaults to a short stable string', () => {
+    // The default corpus version tracks the current release, so build it in.
     expect(serialiseParams(DEFAULT_PARAMS)).toBe(
-      'text=tanzil-uthmani;corpus=0.6.0;numbering=kufan;basmala=1;waqf=0;tashkeel=0;norm=normalised',
+      `text=tanzil-uthmani;corpus=${DEFAULT_CORPUS_VERSION};numbering=kufan;basmala=1;waqf=0;tashkeel=0;norm=normalised`,
     );
   });
 

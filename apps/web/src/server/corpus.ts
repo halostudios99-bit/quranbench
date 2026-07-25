@@ -557,6 +557,17 @@ export function listTranslationEditions(): TranslationEdition[] {
   return state().translations.map((t) => t.edition);
 }
 
+/**
+ * Editions that may be redistributed (public domain / permissively licensed).
+ * The reader shows every displayable edition, but the translation laboratory
+ * (/compare) and the dataset downloads deal only in redistributable editions.
+ */
+export function listRedistributableEditions(): TranslationEdition[] {
+  return state()
+    .translations.map((t) => t.edition)
+    .filter((e) => e.redistributable);
+}
+
 /** A concise "Translator (year)" label plus licence, for a ProvenanceTag note. */
 export function translationLabel(edition: TranslationEdition): string {
   return `${edition.translator} (${edition.year}) · ${edition.licence}`;
@@ -618,13 +629,21 @@ export interface ReverseLookupView {
  * those verses. Verse-level correspondence only — the UI must say so. `limit`
  * caps the rendered occurrences; `total` reports the full count.
  */
-export function reverseLookupWord(query: string, limit: number): ReverseLookupView {
+export function reverseLookupWord(
+  query: string,
+  limit: number,
+  editionIds?: string[],
+): ReverseLookupView {
   const s = state();
-  const editionsByVerse = s.translations.map((t) => ({
+  const wanted = editionIds ? new Set(editionIds) : null;
+  const scoped = wanted
+    ? s.translations.filter((t) => wanted.has(t.edition.id))
+    : s.translations;
+  const editionsByVerse = scoped.map((t) => ({
     editionId: t.edition.id,
     byVerseId: t.byVerseId,
   }));
-  const editionById = new Map(s.translations.map((t) => [t.edition.id, t]));
+  const editionById = new Map(scoped.map((t) => [t.edition.id, t]));
   const result = reverseLookup(query, editionsByVerse, s.verseOrder);
   const occurrences: ReverseLookupOccurrence[] = result.verses
     .slice(0, limit)

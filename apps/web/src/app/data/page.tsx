@@ -7,6 +7,7 @@ import { buildCitation } from '@/lib/citation';
 import { absoluteUrl } from '@/lib/site';
 import {
   currentVersion,
+  displayOnlyEditions,
   listVersions,
   manifestSha256,
   readManifest,
@@ -104,6 +105,7 @@ export default function DataPage() {
         const manifest = readManifest(version);
         const sha = manifestSha256(version);
         const groups = licenceGroups(version);
+        const displayOnly = displayOnlyEditions(version);
         const full = fullDownload(version);
         const citation = buildCitation({
           version,
@@ -227,6 +229,52 @@ export default function DataPage() {
                 </ul>
               </div>
             ))}
+
+            {displayOnly.length > 0 ? (
+              <div className="mb-5">
+                <div className="mb-2 flex flex-wrap items-center gap-2">
+                  <h3 className="text-[15px] font-semibold text-ink">
+                    Display-only translations (not downloadable)
+                  </h3>
+                </div>
+                <p className="mb-3 max-w-prose text-[13px] leading-relaxed text-ink3">
+                  These editions are shown to readers on the site but are{' '}
+                  <strong>not</strong> part of the dataset: their licence permits
+                  display but forbids open redistribution, so they are excluded from
+                  every download above and from the full tarball. To use them,
+                  obtain the edition from its licensor under its own terms.
+                </p>
+                <ul className="flex flex-col divide-y divide-line rounded-lg border border-line">
+                  {displayOnly.map((e) => (
+                    <li
+                      key={e.id}
+                      className="flex flex-wrap items-center justify-between gap-2 px-3 py-2.5 text-[13px]"
+                    >
+                      <span className="text-ink2">
+                        {e.translator}{' '}
+                        <span className="text-ink3">({e.year})</span>
+                      </span>
+                      <span className="flex items-center gap-2">
+                        <span className="rounded border border-line px-1.5 py-0.5 font-ui text-[11px] text-ink2">
+                          {e.licence}
+                        </span>
+                        <a
+                          href={e.licence_url}
+                          className="font-ui text-[11px] text-accent underline"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          licence
+                        </a>
+                        <span className="font-ui text-[11px] text-ink3">
+                          display-only
+                        </span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
 
             <div className="mt-6 border-t border-line pt-5">
               <h3 className="mb-2 text-[15px] font-semibold text-ink">

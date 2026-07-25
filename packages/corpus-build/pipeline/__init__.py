@@ -14,6 +14,6 @@ Stages, in order:
 Tokens, verses, morphology and verse-level translations.
 """
 
-CORPUS_VERSION = "0.6.0"
+CORPUS_VERSION = "0.7.0"
 WORK_ID = "quran"
 SEGMENTATION_SCHEME = "tanzil-uthmani"

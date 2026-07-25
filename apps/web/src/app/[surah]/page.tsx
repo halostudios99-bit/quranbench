@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import { resolveReaderView } from '@/components/reader-view';
 import { SurahReader } from '@/components/SurahReader';
 import { parseSurahParam, surahHref } from '@/lib/addressing';
 import {
@@ -16,6 +17,11 @@ import {
   listSurahs,
 } from '@/server/corpus';
 
+// The reader honours a per-reader preference cookie (translations, display mode,
+// Arabic size), so it renders dynamically. Every edition is still rendered
+// server-side and the content is complete and crawlable with JavaScript disabled
+// — the cookie only chooses what a given reader sees. generateStaticParams stays
+// as a hint for the bounded set of surah routes.
 export function generateStaticParams(): { surah: string }[] {
   return listSurahs().map((s) => ({ surah: String(s.number) }));
 }
@@ -48,6 +54,7 @@ export default async function SurahPage({ params }: Params) {
 
   const all = getSurahVerses(number);
   const basmala = getBasmalaTokens(number);
+  const { toolbar, prefs } = await resolveReaderView(surahHref(number));
 
   if (!isPaginatedSurah(surah.verse_count)) {
     return (
@@ -56,6 +63,10 @@ export default async function SurahPage({ params }: Params) {
         verses={all}
         basmalaTokens={basmala}
         variant="continuous"
+        toolbar={toolbar}
+        shownEditionIds={prefs.editions}
+        display={prefs.display}
+        size={prefs.size}
       />
     );
   }
@@ -70,6 +81,10 @@ export default async function SurahPage({ params }: Params) {
       variant="paged"
       page={1}
       pageCount={pageCount}
+      toolbar={toolbar}
+      shownEditionIds={prefs.editions}
+      display={prefs.display}
+      size={prefs.size}
     />
   );
 }

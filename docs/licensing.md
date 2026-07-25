@@ -14,6 +14,8 @@ redistribute them. It is written for a human, not a lawyer; it is not legal advi
 | token `morphology` block | root, lemma, pos, features, segments | Leeds QAC (mustafa0x fork) | **GPL-2.0-or-later** |
 | `morphology/roots.json` | roots and their occurrences | Leeds QAC | **GPL-2.0-or-later** |
 | pipeline code (`packages/…`) | the software | this project | (its own repo licence) |
+| `translations/*.jsonl` (public-domain) | verse-level translation editions | public-domain works, via fawazahmed0/quran-api | **Public Domain** (per edition) |
+| `translations/en-itani.*` | Talal Itani / ClearQuran — **display-only** | Talal Itani | **CC BY-NC-ND 4.0** (not redistributable) |
 | `apps/web/public/fonts/*.woff2` | Amiri Quran + Amiri fonts | aliftype/amiri (Khaled Hosny & the Amiri project) | **SIL OFL 1.1** |
 
 The **Quranic text is never modified** and is always attributed to Tanzil (see the
@@ -53,6 +55,25 @@ SHA-256, distinct from the CC-BY Tanzil entries.
 
 The alignment of that data onto quranbench token ids is described, and every
 divergence enumerated, in `out/<version>/morphology/alignment-report.md`.
+
+## Translations: redistributable vs display-only
+
+Translation editions live in `translations/`. Each records, in `sources.json` and
+the manifest, whether it is **redistributable**:
+
+- **Redistributable** editions (public domain: Pickthall, Rodwell, Palmer) are both
+  displayed to readers and shipped in the per-file downloads and the full tarball.
+- **Display-only** editions are shown to readers but excluded from every download.
+  Currently this is **Talal Itani's ClearQuran** (`en-itani`), licensed
+  **CC BY-NC-ND 4.0**. NonCommercial + NoDerivatives permit displaying the edition
+  verbatim with attribution, but not the open redistribution this dataset promises.
+  So the file exists on disk (served to readers, checksummed and verifiable) but is
+  excluded from the tarball by the dataset builder and refused by the download
+  route. Its `en-itani.LICENSE.md` states the display-only status. See
+  `docs/translations-report.md`.
+
+The correspondence to the Arabic is **verse-level only** for every edition — never
+word-level, never fabricated.
 
 ## The fonts
 

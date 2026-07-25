@@ -20,7 +20,7 @@ test('copy "Arabic + reference" appends the reference and source', async ({ page
   await page.getByRole('menuitem', { name: 'Arabic + reference' }).click();
   const text = await page.evaluate(() => navigator.clipboard.readText());
   expect(text).toContain('2:43');
-  expect(text).toContain('corpus v0.6.0');
+  expect(text).toContain('corpus v0.7.0');
   expect(text).toContain('quranbench.com/2/43');
 });
 

@@ -24,8 +24,9 @@ def artifacts(tmp_path_factory) -> Path:
 
 
 def test_build_emits_tarball_and_matching_sidecar(artifacts: Path) -> None:
-    tar_path = artifacts / full_tarball_name("0.6.0")
-    sha_path = artifacts / full_tarball_sha_name("0.6.0")
+    version = build_mod.CORPUS_VERSION
+    tar_path = artifacts / full_tarball_name(version)
+    sha_path = artifacts / full_tarball_sha_name(version)
     assert tar_path.is_file()
     assert sha_path.is_file()
 
@@ -36,24 +37,40 @@ def test_build_emits_tarball_and_matching_sidecar(artifacts: Path) -> None:
     assert recorded == sha256_bytes(tar_path.read_bytes())
     # Sidecar uses the standard "<hash>  <filename>" shasum format.
     assert sha_path.read_text(encoding="utf-8").strip().endswith(
-        full_tarball_name("0.6.0")
+        full_tarball_name(version)
     )
 
 
-def test_tarball_contains_the_complete_artifact_set(artifacts: Path) -> None:
-    prefix = "quranbench-corpus-v0.6.0/"
-    with gzip.open(artifacts / full_tarball_name("0.6.0"), "rb") as gz:
+def test_tarball_contains_the_redistributable_artifact_set(artifacts: Path) -> None:
+    version = build_mod.CORPUS_VERSION
+    prefix = f"quranbench-corpus-v{version}/"
+    with gzip.open(artifacts / full_tarball_name(version), "rb") as gz:
         with tarfile.open(fileobj=io.BytesIO(gz.read()), mode="r") as tar:
             names = {m.name for m in tar.getmembers() if m.isfile()}
 
+    # Display-only editions (e.g. Itani) are on disk but excluded from the tarball,
+    # so the archive is the on-disk set minus those non-redistributable paths.
+    from pipeline import translations as trans_mod
+
+    excluded = {
+        f"{trans_mod.TRANSLATIONS_DIR}/{t.id}.jsonl"
+        for t in trans_mod.TRANSLATIONS
+        if not t.redistributable
+    } | {
+        f"{trans_mod.TRANSLATIONS_DIR}/{t.id}.LICENSE.md"
+        for t in trans_mod.TRANSLATIONS
+        if not t.redistributable
+    }
     on_disk = {
         prefix + p.relative_to(artifacts).as_posix()
         for p in artifacts.rglob("*")
         if p.is_file()
-        and p.name != full_tarball_name("0.6.0")
-        and p.name != full_tarball_sha_name("0.6.0")
+        and p.name != full_tarball_name(version)
+        and p.name != full_tarball_sha_name(version)
+        and p.relative_to(artifacts).as_posix() not in excluded
     }
-    # Complete: every version file (including manifest.json) is inside the archive.
+    # Complete over the redistributable set: every version file (including
+    # manifest.json) except the display-only editions is inside the archive.
     assert names == on_disk
     assert prefix + "manifest.json" in names
     assert prefix + "tokens.jsonl" in names
@@ -62,8 +79,9 @@ def test_tarball_contains_the_complete_artifact_set(artifacts: Path) -> None:
 def test_tarball_is_deterministic(artifacts: Path) -> None:
     # Rebuilding the archive from the same directory yields byte-identical output:
     # sorted entries, fixed mtime/uid/gid/mode, timestamp-free gzip header.
-    first = build_tarball_bytes(artifacts, "0.6.0")
-    second = build_tarball_bytes(artifacts, "0.6.0")
+    version = build_mod.CORPUS_VERSION
+    first = build_tarball_bytes(artifacts, version)
+    second = build_tarball_bytes(artifacts, version)
     assert first == second
 
     # Member metadata is normalised (no build-host mtime/uid leaking in).

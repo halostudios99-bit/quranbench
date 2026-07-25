@@ -52,7 +52,7 @@ from .tarball import is_distribution_file, write_full_tarball
 from .tokens import Token, segment_basmala, segment_verse
 from . import translations as translations_mod
 
-PREVIOUS_VERSION = "0.5.0"
+PREVIOUS_VERSION = "0.6.0"
 
 FIELD_PROVENANCE: dict[str, Any] = {
     "text_uthmani": {"source_id": "tanzil-uthmani", "transform": []},
@@ -318,6 +318,21 @@ class ProcessedTranslations:
     #: edition id -> per-edition LICENSE text.
     licence_files: dict[str, str]
 
+    def non_redistributable_paths(self) -> frozenset[str]:
+        """POSIX-relative paths of display-only editions (their data + licence file).
+
+        These are excluded from the redistributable full-dataset tarball: they are
+        served to readers and checksummed like every artifact, but their licence
+        forbids open redistribution.
+        """
+        trans_dir = translations_mod.TRANSLATIONS_DIR
+        paths: set[str] = set()
+        for t in translations_mod.TRANSLATIONS:
+            if not t.redistributable:
+                paths.add(f"{trans_dir}/{t.id}.jsonl")
+                paths.add(f"{trans_dir}/{t.id}.LICENSE.md")
+        return frozenset(paths)
+
 
 def process_translations(verses: list[dict[str, Any]]) -> ProcessedTranslations:
     """Parse each licensed edition, align it verse-by-verse onto the corpus, and
@@ -398,21 +413,21 @@ def build_identifiers() -> dict[str, Any]:
 
 
 def _build_mapping() -> dict[str, Any]:
-    """The v0.5.0 -> v0.6.0 identifier mapping: a pure identity.
+    """The v0.6.0 -> v0.7.0 identifier mapping: a pure identity.
 
-    v0.6.0 adds verse-level translation editions. Translations align to existing
-    verse ids (an identity mapping) and never touch tokens; token and verse ids,
-    positions and surface text are unchanged. No id moves, so there are no explicit
-    entries: every prior id resolves to itself by the identity default.
+    v0.7.0 adds one more verse-level translation edition (Talal Itani's ClearQuran,
+    display-only). Like every translation it aligns to existing verse ids (an
+    identity mapping) and never touches tokens; token and verse ids, positions and
+    surface text are unchanged. No id moves, so there are no explicit entries: every
+    prior id resolves to itself by the identity default.
     """
     return {
         "from_version": PREVIOUS_VERSION,
         "to_version": CORPUS_VERSION,
         "note": (
-            "Verse-level translations release: licensed translation editions were "
-            "added, each aligned to existing verse ids. No token or verse "
-            "identifier changed, so no id is remapped and every prior id resolves "
-            "to itself."
+            "Translation edition added (Talal Itani, display-only): aligned to "
+            "existing verse ids. No token or verse identifier changed, so no id is "
+            "remapped and every prior id resolves to itself."
         ),
         "default_resolution": "identity",
         "default_resolution_note": (
@@ -812,8 +827,11 @@ def build(out_root: Path = OUT_DIR) -> Path:
 
     # Finally, the full-dataset distribution tarball. Built after the manifest so
     # the archive contains it; self-described by a .sha256 sidecar rather than the
-    # manifest (see pipeline/tarball.py).
-    write_full_tarball(out_dir, CORPUS_VERSION)
+    # manifest (see pipeline/tarball.py). Display-only editions are excluded — the
+    # tarball is the redistributable dataset, and their licence forbids that.
+    write_full_tarball(
+        out_dir, CORPUS_VERSION, processed_translations.non_redistributable_paths()
+    )
 
     print(
         f"built {out_dir}\n"

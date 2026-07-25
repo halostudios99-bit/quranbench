@@ -144,6 +144,20 @@ export const prismaStore: Store = {
     });
   },
 
+  async getReaderPrefs(userId) {
+    const r = await prisma.user.findUnique({
+      where: { id: userId },
+      select: { readerPrefs: true },
+    });
+    return r?.readerPrefs ?? null;
+  },
+  async setReaderPrefs(userId, prefs) {
+    await prisma.user.update({
+      where: { id: userId },
+      data: { readerPrefs: prefs as object },
+    });
+  },
+
   async createSession(userId, tokenHash, expiresAt) {
     await prisma.session.create({ data: { userId, tokenHash, expiresAt } });
   },

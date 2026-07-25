@@ -2,9 +2,8 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ReactDOM from 'react-dom';
 
-import { ReaderVerse } from '@/components/ReaderVerse';
-import { TranslationSettings } from '@/components/TranslationSettings';
-import { VerseTranslations } from '@/components/VerseTranslations';
+import { ReaderVerseBlock } from '@/components/ReaderVerseBlock';
+import { resolveReaderView } from '@/components/reader-view';
 import {
   parseAyahParam,
   parseSurahParam,
@@ -13,7 +12,7 @@ import {
   surahHref,
   verseHref,
 } from '@/lib/addressing';
-import { selectedTranslationEditions } from '@/lib/translation-prefs';
+import { arabicScale } from '@/lib/reader-prefs';
 import {
   getSurah,
   getSurahVerses,
@@ -70,7 +69,7 @@ export default async function VersePage({ params }: Params) {
   });
 
   const editions = listTranslationEditions();
-  const shown = await selectedTranslationEditions(editions.map((e) => e.id));
+  const { toolbar, prefs } = await resolveReaderView(rangeHref(number, from, to));
 
   const all = getSurahVerses(number);
   const maxOrdinal = all.length > 0 ? all[all.length - 1]!.ordinal : from;
@@ -78,7 +77,11 @@ export default async function VersePage({ params }: Params) {
   const nextOrdinal = single && to < maxOrdinal ? to + 1 : null;
 
   return (
-    <div className="mx-auto max-w-reader">
+    <div
+      className="mx-auto max-w-reader"
+      data-reader-root
+      style={{ ['--qb-arabic-scale' as string]: String(arabicScale(prefs.size)) }}
+    >
       <nav aria-label="Breadcrumb" className="mb-3 text-[13px] text-ink3">
         <a href="/" className="hover:text-ink2">
           Read
@@ -102,38 +105,33 @@ export default async function VersePage({ params }: Params) {
           ) : null}
         </h1>
         {editions.length > 0 ? (
-          <div className="flex items-center gap-3 text-[13px]">
-            <a
-              href={`/compare?v=${number}:${single ? from : `${from}-${to}`}`}
-              className="text-accent hover:underline"
-            >
-              Compare editions →
-            </a>
-            <TranslationSettings
-              editions={editions.map((e) => ({
-                id: e.id,
-                translator: e.translator,
-                year: e.year,
-              }))}
-            />
-          </div>
+          <a
+            href={`/compare?v=${number}:${single ? from : `${from}-${to}`}`}
+            className="text-[13px] text-accent hover:underline"
+          >
+            Compare editions →
+          </a>
         ) : null}
       </header>
 
+      {toolbar}
+
       <div className="flex flex-col gap-6">
         {views.map((view) => (
-          <div key={view.segment.id}>
-            <ReaderVerse
-              surahNumber={number}
-              surahName={surah.name_en}
-              tokens={view.tokens}
-              from={view.ordinal}
-              mode="reading"
-            />
-            <VerseTranslations
-              items={getVerseTranslations(view.segment.id, shown)}
-            />
-          </div>
+          <ReaderVerseBlock
+            key={view.segment.id}
+            surahNumber={number}
+            surahName={surah.name_en}
+            tokens={view.tokens}
+            ordinal={view.ordinal}
+            display={prefs.display}
+            translations={
+              prefs.display === 'arabic'
+                ? []
+                : getVerseTranslations(view.segment.id, prefs.editions)
+            }
+            mode="reading"
+          />
         ))}
       </div>
 
