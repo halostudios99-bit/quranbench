@@ -1,0 +1,434 @@
+{
+  "slug": "homosexuality",
+  "title": "Homosexuality",
+  "file": "homosexuality.md",
+  "corpusVersion": "0.6.0",
+  "provenance": "Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
+  "counts": {
+    "checked": 18,
+    "verified": 14,
+    "flagged": 0,
+    "unchecked": 4
+  },
+  "workScore": 0,
+  "findings": [
+    {
+      "kind": "verse-reference",
+      "status": "unchecked",
+      "severity": "low",
+      "location": {
+        "line": 49,
+        "excerpt": "Sahih Bukhari 8:82:820"
+      },
+      "summary": "\"Sahih Bukhari 8:82:820\" looks like an external citation, not a Quran verse — not checkable against the corpus.",
+      "detail": "Hadith and scripture citations outside the Quran are out of scope for this corpus. A human should confirm the source.",
+      "reference": "8:82"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "unchecked",
+      "severity": "low",
+      "location": {
+        "line": 51,
+        "excerpt": "Abu Dawud 38:4447"
+      },
+      "summary": "\"Abu Dawud 38:444\" looks like an external citation, not a Quran verse — not checkable against the corpus.",
+      "detail": "Hadith and scripture citations outside the Quran are out of scope for this corpus. A human should confirm the source.",
+      "reference": "38:444"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "unchecked",
+      "severity": "low",
+      "location": {
+        "line": 55,
+        "excerpt": "Tirmidhi 1:152"
+      },
+      "summary": "\"Tirmidhi 1:152\" looks like an external citation, not a Quran verse — not checkable against the corpus.",
+      "detail": "Hadith and scripture citations outside the Quran are out of scope for this corpus. A human should confirm the source.",
+      "reference": "1:152"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "unchecked",
+      "severity": "low",
+      "location": {
+        "line": 57,
+        "excerpt": "Ibn Majah 3:20:2561"
+      },
+      "summary": "\"Ibn Majah 3:20:2561\" looks like an external citation, not a Quran verse — not checkable against the corpus.",
+      "detail": "Hadith and scripture citations outside the Quran are out of scope for this corpus. A human should confirm the source.",
+      "reference": "3:20"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 18,
+        "excerpt": "Al-Quran An Nisa 4:15"
+      },
+      "summary": "Reference Quran An Nisa 4:15 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:4:15.",
+      "reference": "4:15",
+      "segmentIds": [
+        "quran:tanzil-uthmani:4:15"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:4:15:1",
+        "quran:tanzil-uthmani:4:15:2",
+        "quran:tanzil-uthmani:4:15:3",
+        "quran:tanzil-uthmani:4:15:4",
+        "quran:tanzil-uthmani:4:15:5",
+        "quran:tanzil-uthmani:4:15:6",
+        "quran:tanzil-uthmani:4:15:7",
+        "quran:tanzil-uthmani:4:15:8",
+        "quran:tanzil-uthmani:4:15:9",
+        "quran:tanzil-uthmani:4:15:10",
+        "quran:tanzil-uthmani:4:15:11",
+        "quran:tanzil-uthmani:4:15:12",
+        "quran:tanzil-uthmani:4:15:13",
+        "quran:tanzil-uthmani:4:15:14",
+        "quran:tanzil-uthmani:4:15:15",
+        "quran:tanzil-uthmani:4:15:16",
+        "quran:tanzil-uthmani:4:15:17",
+        "quran:tanzil-uthmani:4:15:18",
+        "quran:tanzil-uthmani:4:15:19",
+        "quran:tanzil-uthmani:4:15:20",
+        "quran:tanzil-uthmani:4:15:21",
+        "quran:tanzil-uthmani:4:15:22"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 18,
+        "excerpt": "Al-Quran An Nisa 4:15"
+      },
+      "summary": "Surah name \"An Nisa\" matches surah 4 (An-Nisaa).",
+      "detail": "Exact name match.",
+      "reference": "4:15"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 18,
+        "excerpt": "Al-Quran An Nisa 4:15"
+      },
+      "summary": "Quoted Arabic beside 4:15 matches the verse (21/22 words exact, 98% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. وَٱللاَّتِي).",
+      "reference": "4:15",
+      "claimedArabic": "وَٱللاَّتِي يَأْتِينَ ٱلْفَٰحِشَةَ مِن نِّسَآئِكُمْ فَٱسْتَشْهِدُواْ عَلَيْهِنَّ أَرْبَعةً مِّنْكُمْ فَإِن شَهِدُواْ فَأ…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 31,
+        "excerpt": "Al-Quran An Nisa 4:16"
+      },
+      "summary": "Reference Quran An Nisa 4:16 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:4:16.",
+      "reference": "4:16",
+      "segmentIds": [
+        "quran:tanzil-uthmani:4:16"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:4:16:1",
+        "quran:tanzil-uthmani:4:16:2",
+        "quran:tanzil-uthmani:4:16:3",
+        "quran:tanzil-uthmani:4:16:4",
+        "quran:tanzil-uthmani:4:16:5",
+        "quran:tanzil-uthmani:4:16:6",
+        "quran:tanzil-uthmani:4:16:7",
+        "quran:tanzil-uthmani:4:16:8",
+        "quran:tanzil-uthmani:4:16:9",
+        "quran:tanzil-uthmani:4:16:10",
+        "quran:tanzil-uthmani:4:16:11",
+        "quran:tanzil-uthmani:4:16:12",
+        "quran:tanzil-uthmani:4:16:13",
+        "quran:tanzil-uthmani:4:16:14"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 31,
+        "excerpt": "Al-Quran An Nisa 4:16"
+      },
+      "summary": "Surah name \"An Nisa\" matches surah 4 (An-Nisaa).",
+      "detail": "Exact name match.",
+      "reference": "4:16"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 31,
+        "excerpt": "Al-Quran An Nisa 4:16"
+      },
+      "summary": "Quoted Arabic beside 4:16 matches the verse (13/14 words exact, 97% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. وَٱللَّذَانِ).",
+      "reference": "4:16",
+      "claimedArabic": "وَٱللَّذَانِ يَأْتِيَانِهَا مِنكُمْ فَآذُوهُمَا فَإِن تَابَا وَأَصْلَحَا فَأَعْرِضُواْ عَنْهُمَآ إِنَّ ٱللَّهَ كَانَ تَو…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 43,
+        "excerpt": "Quran 24:4"
+      },
+      "summary": "Reference Quran 24:4 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:24:4.",
+      "reference": "24:4",
+      "segmentIds": [
+        "quran:tanzil-uthmani:24:4"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:24:4:1",
+        "quran:tanzil-uthmani:24:4:2",
+        "quran:tanzil-uthmani:24:4:3",
+        "quran:tanzil-uthmani:24:4:4",
+        "quran:tanzil-uthmani:24:4:5",
+        "quran:tanzil-uthmani:24:4:6",
+        "quran:tanzil-uthmani:24:4:7",
+        "quran:tanzil-uthmani:24:4:8",
+        "quran:tanzil-uthmani:24:4:9",
+        "quran:tanzil-uthmani:24:4:10",
+        "quran:tanzil-uthmani:24:4:11",
+        "quran:tanzil-uthmani:24:4:12",
+        "quran:tanzil-uthmani:24:4:13",
+        "quran:tanzil-uthmani:24:4:14",
+        "quran:tanzil-uthmani:24:4:15",
+        "quran:tanzil-uthmani:24:4:16",
+        "quran:tanzil-uthmani:24:4:17",
+        "quran:tanzil-uthmani:24:4:18",
+        "quran:tanzil-uthmani:24:4:19"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…t Merciful's law. Allah has made it clean in Quran 2:256 that there will be no compulsion…"
+      },
+      "summary": "Reference Quran 2:256 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:256.",
+      "reference": "2:256",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:256"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:256:1",
+        "quran:tanzil-uthmani:2:256:2",
+        "quran:tanzil-uthmani:2:256:3",
+        "quran:tanzil-uthmani:2:256:4",
+        "quran:tanzil-uthmani:2:256:5",
+        "quran:tanzil-uthmani:2:256:6",
+        "quran:tanzil-uthmani:2:256:7",
+        "quran:tanzil-uthmani:2:256:8",
+        "quran:tanzil-uthmani:2:256:9",
+        "quran:tanzil-uthmani:2:256:10",
+        "quran:tanzil-uthmani:2:256:11",
+        "quran:tanzil-uthmani:2:256:12",
+        "quran:tanzil-uthmani:2:256:13",
+        "quran:tanzil-uthmani:2:256:14",
+        "quran:tanzil-uthmani:2:256:15",
+        "quran:tanzil-uthmani:2:256:16",
+        "quran:tanzil-uthmani:2:256:17",
+        "quran:tanzil-uthmani:2:256:18",
+        "quran:tanzil-uthmani:2:256:19",
+        "quran:tanzil-uthmani:2:256:20",
+        "quran:tanzil-uthmani:2:256:21",
+        "quran:tanzil-uthmani:2:256:22",
+        "quran:tanzil-uthmani:2:256:23",
+        "quran:tanzil-uthmani:2:256:24"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 68,
+        "excerpt": "Quran 11:91"
+      },
+      "summary": "Reference Quran 11:91 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:11:91.",
+      "reference": "11:91",
+      "segmentIds": [
+        "quran:tanzil-uthmani:11:91"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:11:91:1",
+        "quran:tanzil-uthmani:11:91:2",
+        "quran:tanzil-uthmani:11:91:3",
+        "quran:tanzil-uthmani:11:91:4",
+        "quran:tanzil-uthmani:11:91:5",
+        "quran:tanzil-uthmani:11:91:6",
+        "quran:tanzil-uthmani:11:91:7",
+        "quran:tanzil-uthmani:11:91:8",
+        "quran:tanzil-uthmani:11:91:9",
+        "quran:tanzil-uthmani:11:91:10",
+        "quran:tanzil-uthmani:11:91:11",
+        "quran:tanzil-uthmani:11:91:12",
+        "quran:tanzil-uthmani:11:91:13",
+        "quran:tanzil-uthmani:11:91:14",
+        "quran:tanzil-uthmani:11:91:15",
+        "quran:tanzil-uthmani:11:91:16",
+        "quran:tanzil-uthmani:11:91:17",
+        "quran:tanzil-uthmani:11:91:18"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 72,
+        "excerpt": "Quran 18:20"
+      },
+      "summary": "Reference Quran 18:20 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:18:20.",
+      "reference": "18:20",
+      "segmentIds": [
+        "quran:tanzil-uthmani:18:20"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:18:20:1",
+        "quran:tanzil-uthmani:18:20:2",
+        "quran:tanzil-uthmani:18:20:3",
+        "quran:tanzil-uthmani:18:20:4",
+        "quran:tanzil-uthmani:18:20:5",
+        "quran:tanzil-uthmani:18:20:6",
+        "quran:tanzil-uthmani:18:20:7",
+        "quran:tanzil-uthmani:18:20:8",
+        "quran:tanzil-uthmani:18:20:9",
+        "quran:tanzil-uthmani:18:20:10",
+        "quran:tanzil-uthmani:18:20:11",
+        "quran:tanzil-uthmani:18:20:12",
+        "quran:tanzil-uthmani:18:20:13"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 76,
+        "excerpt": "Quran 19:46"
+      },
+      "summary": "Reference Quran 19:46 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:19:46.",
+      "reference": "19:46",
+      "segmentIds": [
+        "quran:tanzil-uthmani:19:46"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:19:46:1",
+        "quran:tanzil-uthmani:19:46:2",
+        "quran:tanzil-uthmani:19:46:3",
+        "quran:tanzil-uthmani:19:46:4",
+        "quran:tanzil-uthmani:19:46:5",
+        "quran:tanzil-uthmani:19:46:6",
+        "quran:tanzil-uthmani:19:46:7",
+        "quran:tanzil-uthmani:19:46:8",
+        "quran:tanzil-uthmani:19:46:9",
+        "quran:tanzil-uthmani:19:46:10",
+        "quran:tanzil-uthmani:19:46:11",
+        "quran:tanzil-uthmani:19:46:12"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 80,
+        "excerpt": "Quran 26:116"
+      },
+      "summary": "Reference Quran 26:116 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:26:116.",
+      "reference": "26:116",
+      "segmentIds": [
+        "quran:tanzil-uthmani:26:116"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:26:116:1",
+        "quran:tanzil-uthmani:26:116:2",
+        "quran:tanzil-uthmani:26:116:3",
+        "quran:tanzil-uthmani:26:116:4",
+        "quran:tanzil-uthmani:26:116:5",
+        "quran:tanzil-uthmani:26:116:6",
+        "quran:tanzil-uthmani:26:116:7",
+        "quran:tanzil-uthmani:26:116:8"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 84,
+        "excerpt": "Quran 36:18"
+      },
+      "summary": "Reference Quran 36:18 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:36:18.",
+      "reference": "36:18",
+      "segmentIds": [
+        "quran:tanzil-uthmani:36:18"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:36:18:1",
+        "quran:tanzil-uthmani:36:18:2",
+        "quran:tanzil-uthmani:36:18:3",
+        "quran:tanzil-uthmani:36:18:4",
+        "quran:tanzil-uthmani:36:18:5",
+        "quran:tanzil-uthmani:36:18:6",
+        "quran:tanzil-uthmani:36:18:7",
+        "quran:tanzil-uthmani:36:18:8",
+        "quran:tanzil-uthmani:36:18:9",
+        "quran:tanzil-uthmani:36:18:10",
+        "quran:tanzil-uthmani:36:18:11",
+        "quran:tanzil-uthmani:36:18:12"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 88,
+        "excerpt": "Quran 44:20"
+      },
+      "summary": "Reference Quran 44:20 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:44:20.",
+      "reference": "44:20",
+      "segmentIds": [
+        "quran:tanzil-uthmani:44:20"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:44:20:1",
+        "quran:tanzil-uthmani:44:20:2",
+        "quran:tanzil-uthmani:44:20:3",
+        "quran:tanzil-uthmani:44:20:4",
+        "quran:tanzil-uthmani:44:20:5",
+        "quran:tanzil-uthmani:44:20:6"
+      ]
+    }
+  ]
+}

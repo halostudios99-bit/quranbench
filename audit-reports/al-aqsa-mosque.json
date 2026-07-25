@@ -1,0 +1,326 @@
+{
+  "slug": "al-aqsa-mosque",
+  "title": "Al-Aqsa Mosque",
+  "file": "al-aqsa-mosque.md",
+  "corpusVersion": "0.6.0",
+  "provenance": "Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
+  "counts": {
+    "checked": 12,
+    "verified": 12,
+    "flagged": 0,
+    "unchecked": 0
+  },
+  "workScore": 0,
+  "findings": [
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 27,
+        "excerpt": "Quran 3:96"
+      },
+      "summary": "Reference Quran 3:96 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:3:96.",
+      "reference": "3:96",
+      "segmentIds": [
+        "quran:tanzil-uthmani:3:96"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:3:96:1",
+        "quran:tanzil-uthmani:3:96:2",
+        "quran:tanzil-uthmani:3:96:3",
+        "quran:tanzil-uthmani:3:96:4",
+        "quran:tanzil-uthmani:3:96:5",
+        "quran:tanzil-uthmani:3:96:6",
+        "quran:tanzil-uthmani:3:96:7",
+        "quran:tanzil-uthmani:3:96:8",
+        "quran:tanzil-uthmani:3:96:9",
+        "quran:tanzil-uthmani:3:96:10"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 27,
+        "excerpt": "Quran 3:96"
+      },
+      "summary": "Quoted Arabic beside 3:96 matches the verse (10/10 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "3:96",
+      "claimedArabic": "إِنَّ أَوَّلَ بَيْتٍ وُضِعَ لِلنَّاسِ لَلَّذِي بِبَكَّةَ مُبَارَكًا وَهُدًى لِّلْعَالَمِينَ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 35,
+        "excerpt": "Quran 2:125"
+      },
+      "summary": "Reference Quran 2:125 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:125.",
+      "reference": "2:125",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:125"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:125:1",
+        "quran:tanzil-uthmani:2:125:2",
+        "quran:tanzil-uthmani:2:125:3",
+        "quran:tanzil-uthmani:2:125:4",
+        "quran:tanzil-uthmani:2:125:5",
+        "quran:tanzil-uthmani:2:125:6",
+        "quran:tanzil-uthmani:2:125:7",
+        "quran:tanzil-uthmani:2:125:8",
+        "quran:tanzil-uthmani:2:125:9",
+        "quran:tanzil-uthmani:2:125:10",
+        "quran:tanzil-uthmani:2:125:11",
+        "quran:tanzil-uthmani:2:125:12",
+        "quran:tanzil-uthmani:2:125:13",
+        "quran:tanzil-uthmani:2:125:14",
+        "quran:tanzil-uthmani:2:125:15",
+        "quran:tanzil-uthmani:2:125:16",
+        "quran:tanzil-uthmani:2:125:17",
+        "quran:tanzil-uthmani:2:125:18",
+        "quran:tanzil-uthmani:2:125:19",
+        "quran:tanzil-uthmani:2:125:20",
+        "quran:tanzil-uthmani:2:125:21",
+        "quran:tanzil-uthmani:2:125:22"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 35,
+        "excerpt": "Quran 2:125"
+      },
+      "summary": "Quoted Arabic beside 2:125 matches the verse (22/22 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "2:125",
+      "claimedArabic": "وَإِذْ جَعَلْنَا الْبَيْتَ مَثَابَةً لِّلنَّاسِ وَأَمْنًا وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى ۖ وَعَهِدْنَا …",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 43,
+        "excerpt": "Quran 2:144"
+      },
+      "summary": "Reference 2:144 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:144.",
+      "reference": "2:144",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:144"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:144:1",
+        "quran:tanzil-uthmani:2:144:2",
+        "quran:tanzil-uthmani:2:144:3",
+        "quran:tanzil-uthmani:2:144:4",
+        "quran:tanzil-uthmani:2:144:5",
+        "quran:tanzil-uthmani:2:144:6",
+        "quran:tanzil-uthmani:2:144:7",
+        "quran:tanzil-uthmani:2:144:8",
+        "quran:tanzil-uthmani:2:144:9",
+        "quran:tanzil-uthmani:2:144:10",
+        "quran:tanzil-uthmani:2:144:11",
+        "quran:tanzil-uthmani:2:144:12",
+        "quran:tanzil-uthmani:2:144:13",
+        "quran:tanzil-uthmani:2:144:14",
+        "quran:tanzil-uthmani:2:144:15",
+        "quran:tanzil-uthmani:2:144:16",
+        "quran:tanzil-uthmani:2:144:17",
+        "quran:tanzil-uthmani:2:144:18",
+        "quran:tanzil-uthmani:2:144:19",
+        "quran:tanzil-uthmani:2:144:20",
+        "quran:tanzil-uthmani:2:144:21",
+        "quran:tanzil-uthmani:2:144:22",
+        "quran:tanzil-uthmani:2:144:23",
+        "quran:tanzil-uthmani:2:144:24",
+        "quran:tanzil-uthmani:2:144:25",
+        "quran:tanzil-uthmani:2:144:26",
+        "quran:tanzil-uthmani:2:144:27",
+        "quran:tanzil-uthmani:2:144:28",
+        "quran:tanzil-uthmani:2:144:29",
+        "quran:tanzil-uthmani:2:144:30",
+        "quran:tanzil-uthmani:2:144:31",
+        "quran:tanzil-uthmani:2:144:32",
+        "quran:tanzil-uthmani:2:144:33",
+        "quran:tanzil-uthmani:2:144:34"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 43,
+        "excerpt": "Quran 2:144"
+      },
+      "summary": "Quoted Arabic beside 2:144 matches the verse (34/34 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "2:144",
+      "claimedArabic": "قَدْ نَرَىٰ تَقَلُّبَ وَجْهِكَ فِي السَّمَاءِ ۖ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضَاهَا ۚ فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْ…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 53,
+        "excerpt": "Quran 2:148"
+      },
+      "summary": "Reference Quran 2:148 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:148.",
+      "reference": "2:148",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:148"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:148:1",
+        "quran:tanzil-uthmani:2:148:2",
+        "quran:tanzil-uthmani:2:148:3",
+        "quran:tanzil-uthmani:2:148:4",
+        "quran:tanzil-uthmani:2:148:5",
+        "quran:tanzil-uthmani:2:148:6",
+        "quran:tanzil-uthmani:2:148:7",
+        "quran:tanzil-uthmani:2:148:8",
+        "quran:tanzil-uthmani:2:148:9",
+        "quran:tanzil-uthmani:2:148:10",
+        "quran:tanzil-uthmani:2:148:11",
+        "quran:tanzil-uthmani:2:148:12",
+        "quran:tanzil-uthmani:2:148:13",
+        "quran:tanzil-uthmani:2:148:14",
+        "quran:tanzil-uthmani:2:148:15",
+        "quran:tanzil-uthmani:2:148:16",
+        "quran:tanzil-uthmani:2:148:17",
+        "quran:tanzil-uthmani:2:148:18",
+        "quran:tanzil-uthmani:2:148:19"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 53,
+        "excerpt": "Quran 2:148"
+      },
+      "summary": "Quoted Arabic beside 2:148 matches the verse (19/19 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "2:148",
+      "claimedArabic": "وَلِكُلٍّ وِجْهَةٌ هُوَ مُوَلِّيهَا ۖ فَاسْتَبِقُوا الْخَيْرَاتِ ۚ أَيْنَ مَا تَكُونُوا يَأْتِ بِكُمُ اللَّـهُ جَمِيعًا …",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 63,
+        "excerpt": "Quran 10:87"
+      },
+      "summary": "Reference Quran 10:87 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:10:87.",
+      "reference": "10:87",
+      "segmentIds": [
+        "quran:tanzil-uthmani:10:87"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:10:87:1",
+        "quran:tanzil-uthmani:10:87:2",
+        "quran:tanzil-uthmani:10:87:3",
+        "quran:tanzil-uthmani:10:87:4",
+        "quran:tanzil-uthmani:10:87:5",
+        "quran:tanzil-uthmani:10:87:6",
+        "quran:tanzil-uthmani:10:87:7",
+        "quran:tanzil-uthmani:10:87:8",
+        "quran:tanzil-uthmani:10:87:9",
+        "quran:tanzil-uthmani:10:87:10",
+        "quran:tanzil-uthmani:10:87:11",
+        "quran:tanzil-uthmani:10:87:12",
+        "quran:tanzil-uthmani:10:87:13",
+        "quran:tanzil-uthmani:10:87:14",
+        "quran:tanzil-uthmani:10:87:15",
+        "quran:tanzil-uthmani:10:87:16"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 63,
+        "excerpt": "Quran 10:87"
+      },
+      "summary": "Quoted Arabic beside 10:87 matches the verse (16/16 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "10:87",
+      "claimedArabic": "وَأَوْحَيْنَا إِلَىٰ مُوسَىٰ وَأَخِيهِ أَن تَبَوَّآ لِقَوْمِكُمَا بِمِصْرَ بُيُوتًا وَاجْعَلُوا بُيُوتَكُمْ قِبْلَةً وَأ…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 75,
+        "excerpt": "Quran 17:7"
+      },
+      "summary": "Reference Quran 17:7 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:17:7.",
+      "reference": "17:7",
+      "segmentIds": [
+        "quran:tanzil-uthmani:17:7"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:17:7:1",
+        "quran:tanzil-uthmani:17:7:2",
+        "quran:tanzil-uthmani:17:7:3",
+        "quran:tanzil-uthmani:17:7:4",
+        "quran:tanzil-uthmani:17:7:5",
+        "quran:tanzil-uthmani:17:7:6",
+        "quran:tanzil-uthmani:17:7:7",
+        "quran:tanzil-uthmani:17:7:8",
+        "quran:tanzil-uthmani:17:7:9",
+        "quran:tanzil-uthmani:17:7:10",
+        "quran:tanzil-uthmani:17:7:11",
+        "quran:tanzil-uthmani:17:7:12",
+        "quran:tanzil-uthmani:17:7:13",
+        "quran:tanzil-uthmani:17:7:14",
+        "quran:tanzil-uthmani:17:7:15",
+        "quran:tanzil-uthmani:17:7:16",
+        "quran:tanzil-uthmani:17:7:17",
+        "quran:tanzil-uthmani:17:7:18",
+        "quran:tanzil-uthmani:17:7:19",
+        "quran:tanzil-uthmani:17:7:20",
+        "quran:tanzil-uthmani:17:7:21",
+        "quran:tanzil-uthmani:17:7:22",
+        "quran:tanzil-uthmani:17:7:23"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 75,
+        "excerpt": "Quran 17:7"
+      },
+      "summary": "Quoted Arabic beside 17:7 matches the verse (23/23 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "17:7",
+      "claimedArabic": "إِنْ أَحْسَنتُمْ أَحْسَنتُمْ لِأَنفُسِكُمْ ۖ وَإِنْ أَسَأْتُمْ فَلَهَا ۚ فَإِذَا جَاءَ وَعْدُ الْآخِرَةِ لِيَسُوءُوا وُج…",
+      "matchLevel": "orthographic"
+    }
+  ]
+}

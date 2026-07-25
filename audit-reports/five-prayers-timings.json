@@ -1,0 +1,270 @@
+{
+  "slug": "five-prayers-timings",
+  "title": "Five Prayers & Timings",
+  "file": "five-prayers-timings.md",
+  "corpusVersion": "0.6.0",
+  "provenance": "Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
+  "counts": {
+    "checked": 10,
+    "verified": 10,
+    "flagged": 0,
+    "unchecked": 0
+  },
+  "workScore": 0,
+  "findings": [
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 12,
+        "excerpt": "Quran 4:103"
+      },
+      "summary": "Reference Quran 4:103 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:4:103.",
+      "reference": "4:103",
+      "segmentIds": [
+        "quran:tanzil-uthmani:4:103"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:4:103:1",
+        "quran:tanzil-uthmani:4:103:2",
+        "quran:tanzil-uthmani:4:103:3",
+        "quran:tanzil-uthmani:4:103:4",
+        "quran:tanzil-uthmani:4:103:5",
+        "quran:tanzil-uthmani:4:103:6",
+        "quran:tanzil-uthmani:4:103:7",
+        "quran:tanzil-uthmani:4:103:8",
+        "quran:tanzil-uthmani:4:103:9",
+        "quran:tanzil-uthmani:4:103:10",
+        "quran:tanzil-uthmani:4:103:11",
+        "quran:tanzil-uthmani:4:103:12",
+        "quran:tanzil-uthmani:4:103:13",
+        "quran:tanzil-uthmani:4:103:14",
+        "quran:tanzil-uthmani:4:103:15",
+        "quran:tanzil-uthmani:4:103:16",
+        "quran:tanzil-uthmani:4:103:17",
+        "quran:tanzil-uthmani:4:103:18",
+        "quran:tanzil-uthmani:4:103:19",
+        "quran:tanzil-uthmani:4:103:20"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 12,
+        "excerpt": "Quran 4:103"
+      },
+      "summary": "Quoted Arabic beside 4:103 matches the verse (20/20 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "4:103",
+      "claimedArabic": "فَإِذَا قَضَيْتُمُ الصَّلَاةَ فَاذْكُرُوا اللَّـهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِكُمْ ۚ فَإِذَا اطْمَأْنَنتُمْ فَأ…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 23,
+        "excerpt": "Quran 24:58"
+      },
+      "summary": "Reference Quran 24:58 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:24:58.",
+      "reference": "24:58",
+      "segmentIds": [
+        "quran:tanzil-uthmani:24:58"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:24:58:1",
+        "quran:tanzil-uthmani:24:58:2",
+        "quran:tanzil-uthmani:24:58:3",
+        "quran:tanzil-uthmani:24:58:4",
+        "quran:tanzil-uthmani:24:58:5",
+        "quran:tanzil-uthmani:24:58:6",
+        "quran:tanzil-uthmani:24:58:7",
+        "quran:tanzil-uthmani:24:58:8",
+        "quran:tanzil-uthmani:24:58:9",
+        "quran:tanzil-uthmani:24:58:10",
+        "quran:tanzil-uthmani:24:58:11",
+        "quran:tanzil-uthmani:24:58:12",
+        "quran:tanzil-uthmani:24:58:13",
+        "quran:tanzil-uthmani:24:58:14",
+        "quran:tanzil-uthmani:24:58:15",
+        "quran:tanzil-uthmani:24:58:16",
+        "quran:tanzil-uthmani:24:58:17",
+        "quran:tanzil-uthmani:24:58:18",
+        "quran:tanzil-uthmani:24:58:19",
+        "quran:tanzil-uthmani:24:58:20",
+        "quran:tanzil-uthmani:24:58:21",
+        "quran:tanzil-uthmani:24:58:22",
+        "quran:tanzil-uthmani:24:58:23",
+        "quran:tanzil-uthmani:24:58:24",
+        "quran:tanzil-uthmani:24:58:25",
+        "quran:tanzil-uthmani:24:58:26",
+        "quran:tanzil-uthmani:24:58:27",
+        "quran:tanzil-uthmani:24:58:28",
+        "quran:tanzil-uthmani:24:58:29",
+        "quran:tanzil-uthmani:24:58:30",
+        "quran:tanzil-uthmani:24:58:31",
+        "quran:tanzil-uthmani:24:58:32",
+        "quran:tanzil-uthmani:24:58:33",
+        "quran:tanzil-uthmani:24:58:34",
+        "quran:tanzil-uthmani:24:58:35",
+        "quran:tanzil-uthmani:24:58:36",
+        "quran:tanzil-uthmani:24:58:37",
+        "quran:tanzil-uthmani:24:58:38",
+        "quran:tanzil-uthmani:24:58:39",
+        "quran:tanzil-uthmani:24:58:40",
+        "quran:tanzil-uthmani:24:58:41",
+        "quran:tanzil-uthmani:24:58:42",
+        "quran:tanzil-uthmani:24:58:43",
+        "quran:tanzil-uthmani:24:58:44",
+        "quran:tanzil-uthmani:24:58:45",
+        "quran:tanzil-uthmani:24:58:46",
+        "quran:tanzil-uthmani:24:58:47",
+        "quran:tanzil-uthmani:24:58:48",
+        "quran:tanzil-uthmani:24:58:49"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 23,
+        "excerpt": "Quran 24:58"
+      },
+      "summary": "Quoted Arabic beside 24:58 matches the verse (47/50 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. يَا أَيُّهَا الْآيَاتِ).",
+      "reference": "24:58",
+      "claimedArabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا لِيَسْتَأْذِنكُمُ الَّذِينَ مَلَكَتْ أَيْمَانُكُمْ وَالَّذِينَ لَمْ يَبْلُغُوا الْحُلُمَ …",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 35,
+        "excerpt": "Quran 17:78"
+      },
+      "summary": "Reference Quran 17:78 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:17:78.",
+      "reference": "17:78",
+      "segmentIds": [
+        "quran:tanzil-uthmani:17:78"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:17:78:1",
+        "quran:tanzil-uthmani:17:78:2",
+        "quran:tanzil-uthmani:17:78:3",
+        "quran:tanzil-uthmani:17:78:4",
+        "quran:tanzil-uthmani:17:78:5",
+        "quran:tanzil-uthmani:17:78:6",
+        "quran:tanzil-uthmani:17:78:7",
+        "quran:tanzil-uthmani:17:78:8",
+        "quran:tanzil-uthmani:17:78:9",
+        "quran:tanzil-uthmani:17:78:10",
+        "quran:tanzil-uthmani:17:78:11",
+        "quran:tanzil-uthmani:17:78:12",
+        "quran:tanzil-uthmani:17:78:13",
+        "quran:tanzil-uthmani:17:78:14"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 35,
+        "excerpt": "Quran 17:78"
+      },
+      "summary": "Quoted Arabic beside 17:78 matches the verse (13/14 words exact, 97% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. اللَّيْلِ).",
+      "reference": "17:78",
+      "claimedArabic": "أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ ۖ إِنَّ قُرْآنَ الْفَجْرِ كَانَ مَشْهُ…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 53,
+        "excerpt": "Quran 30:18"
+      },
+      "summary": "Reference Quran 30:18 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:30:18.",
+      "reference": "30:18",
+      "segmentIds": [
+        "quran:tanzil-uthmani:30:18"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:30:18:1",
+        "quran:tanzil-uthmani:30:18:2",
+        "quran:tanzil-uthmani:30:18:3",
+        "quran:tanzil-uthmani:30:18:4",
+        "quran:tanzil-uthmani:30:18:5",
+        "quran:tanzil-uthmani:30:18:6",
+        "quran:tanzil-uthmani:30:18:7",
+        "quran:tanzil-uthmani:30:18:8"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 53,
+        "excerpt": "Quran 30:18"
+      },
+      "summary": "Quoted Arabic beside 30:18 matches the verse (8/8 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "30:18",
+      "claimedArabic": "وَلَهُ الْحَمْدُ فِي السَّمَاوَاتِ وَالْأَرْضِ وَعَشِيًّا وَحِينَ تُظْهِرُونَ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 67,
+        "excerpt": "Quran 2:238"
+      },
+      "summary": "Reference Quran 2:238 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:238.",
+      "reference": "2:238",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:238"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:238:1",
+        "quran:tanzil-uthmani:2:238:2",
+        "quran:tanzil-uthmani:2:238:3",
+        "quran:tanzil-uthmani:2:238:4",
+        "quran:tanzil-uthmani:2:238:5",
+        "quran:tanzil-uthmani:2:238:6",
+        "quran:tanzil-uthmani:2:238:7",
+        "quran:tanzil-uthmani:2:238:8"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 67,
+        "excerpt": "Quran 2:238"
+      },
+      "summary": "Quoted Arabic beside 2:238 matches the verse (8/8 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "2:238",
+      "claimedArabic": "حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَىٰ وَقُومُوا لِلَّـهِ قَانِتِينَ",
+      "matchLevel": "orthographic"
+    }
+  ]
+}

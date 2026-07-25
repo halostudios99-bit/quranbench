@@ -1,0 +1,538 @@
+{
+  "slug": "first-revelation",
+  "title": "First Revelation",
+  "file": "first-revelation.md",
+  "corpusVersion": "0.6.0",
+  "provenance": "Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
+  "counts": {
+    "checked": 31,
+    "verified": 31,
+    "flagged": 0,
+    "unchecked": 0
+  },
+  "workScore": 0,
+  "findings": [
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 33,
+        "excerpt": "…Then unto their Lord they will be gathered.']6:38[/simple_tooltip] that He has not neglect…"
+      },
+      "summary": "Reference 6:38 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:6:38.",
+      "reference": "6:38",
+      "segmentIds": [
+        "quran:tanzil-uthmani:6:38"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:6:38:1",
+        "quran:tanzil-uthmani:6:38:2",
+        "quran:tanzil-uthmani:6:38:3",
+        "quran:tanzil-uthmani:6:38:4",
+        "quran:tanzil-uthmani:6:38:5",
+        "quran:tanzil-uthmani:6:38:6",
+        "quran:tanzil-uthmani:6:38:7",
+        "quran:tanzil-uthmani:6:38:8",
+        "quran:tanzil-uthmani:6:38:9",
+        "quran:tanzil-uthmani:6:38:10",
+        "quran:tanzil-uthmani:6:38:11",
+        "quran:tanzil-uthmani:6:38:12",
+        "quran:tanzil-uthmani:6:38:13",
+        "quran:tanzil-uthmani:6:38:14",
+        "quran:tanzil-uthmani:6:38:15",
+        "quran:tanzil-uthmani:6:38:16",
+        "quran:tanzil-uthmani:6:38:17",
+        "quran:tanzil-uthmani:6:38:18",
+        "quran:tanzil-uthmani:6:38:19",
+        "quran:tanzil-uthmani:6:38:20",
+        "quran:tanzil-uthmani:6:38:21",
+        "quran:tanzil-uthmani:6:38:22"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 36,
+        "excerpt": "Quran An-Najam 53:5"
+      },
+      "summary": "Reference Quran An-Najam 53:5 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:53:5.",
+      "reference": "53:5",
+      "segmentIds": [
+        "quran:tanzil-uthmani:53:5"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:53:5:1",
+        "quran:tanzil-uthmani:53:5:2",
+        "quran:tanzil-uthmani:53:5:3"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 36,
+        "excerpt": "Quran An-Najam 53:5"
+      },
+      "summary": "Surah name \"An-Najam\" matches surah 53 (An-Najm).",
+      "detail": "Exact name match.",
+      "reference": "53:5"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 36,
+        "excerpt": "Quran An-Najam 53:5"
+      },
+      "summary": "Quoted Arabic beside 53:5 matches the verse (3/3 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "53:5",
+      "claimedArabic": "عَلَّمَهُ شَدِيدُ ٱلْقُوَىٰ",
+      "matchLevel": "normalised"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 44,
+        "excerpt": "Quran An-Najam 53:6"
+      },
+      "summary": "Reference Quran An-Najam 53:6 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:53:6.",
+      "reference": "53:6",
+      "segmentIds": [
+        "quran:tanzil-uthmani:53:6"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:53:6:1",
+        "quran:tanzil-uthmani:53:6:2",
+        "quran:tanzil-uthmani:53:6:3"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 44,
+        "excerpt": "Quran An-Najam 53:6"
+      },
+      "summary": "Surah name \"An-Najam\" matches surah 53 (An-Najm).",
+      "detail": "Exact name match.",
+      "reference": "53:6"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 44,
+        "excerpt": "Quran An-Najam 53:6"
+      },
+      "summary": "Quoted Arabic beside 53:6 matches the verse (3/3 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "53:6",
+      "claimedArabic": "ذُو مِرَّةٍ فَٱسْتَوَىٰ",
+      "matchLevel": "canonical"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 52,
+        "excerpt": "Quran An-Najam 53:7"
+      },
+      "summary": "Reference Quran An-Najam 53:7 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:53:7.",
+      "reference": "53:7",
+      "segmentIds": [
+        "quran:tanzil-uthmani:53:7"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:53:7:1",
+        "quran:tanzil-uthmani:53:7:2",
+        "quran:tanzil-uthmani:53:7:3"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 52,
+        "excerpt": "Quran An-Najam 53:7"
+      },
+      "summary": "Surah name \"An-Najam\" matches surah 53 (An-Najm).",
+      "detail": "Exact name match.",
+      "reference": "53:7"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 52,
+        "excerpt": "Quran An-Najam 53:7"
+      },
+      "summary": "Quoted Arabic beside 53:7 matches the verse (3/3 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "53:7",
+      "claimedArabic": "وَهُوَ بِٱلأُفُقِ ٱلأَعْلَىٰ",
+      "matchLevel": "normalised"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 60,
+        "excerpt": "Quran An-Najam 53:8"
+      },
+      "summary": "Reference Quran An-Najam 53:8 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:53:8.",
+      "reference": "53:8",
+      "segmentIds": [
+        "quran:tanzil-uthmani:53:8"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:53:8:1",
+        "quran:tanzil-uthmani:53:8:2",
+        "quran:tanzil-uthmani:53:8:3"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 60,
+        "excerpt": "Quran An-Najam 53:8"
+      },
+      "summary": "Surah name \"An-Najam\" matches surah 53 (An-Najm).",
+      "detail": "Exact name match.",
+      "reference": "53:8"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 60,
+        "excerpt": "Quran An-Najam 53:8"
+      },
+      "summary": "Quoted Arabic beside 53:8 matches the verse (3/3 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "53:8",
+      "claimedArabic": "ثُمَّ دَنَا فَتَدَلَّىٰ",
+      "matchLevel": "canonical"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 68,
+        "excerpt": "Quran An-Najam 53:9"
+      },
+      "summary": "Reference Quran An-Najam 53:9 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:53:9.",
+      "reference": "53:9",
+      "segmentIds": [
+        "quran:tanzil-uthmani:53:9"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:53:9:1",
+        "quran:tanzil-uthmani:53:9:2",
+        "quran:tanzil-uthmani:53:9:3",
+        "quran:tanzil-uthmani:53:9:4",
+        "quran:tanzil-uthmani:53:9:5"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 68,
+        "excerpt": "Quran An-Najam 53:9"
+      },
+      "summary": "Surah name \"An-Najam\" matches surah 53 (An-Najm).",
+      "detail": "Exact name match.",
+      "reference": "53:9"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 68,
+        "excerpt": "Quran An-Najam 53:9"
+      },
+      "summary": "Quoted Arabic beside 53:9 matches the verse (5/5 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "53:9",
+      "claimedArabic": "فَكَانَ قَابَ قَوْسَيْنِ أَوْ أَدْنَىٰ",
+      "matchLevel": "canonical"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 76,
+        "excerpt": "Quran An-Najam 53:10"
+      },
+      "summary": "Reference Quran An-Najam 53:10 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:53:10.",
+      "reference": "53:10",
+      "segmentIds": [
+        "quran:tanzil-uthmani:53:10"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:53:10:1",
+        "quran:tanzil-uthmani:53:10:2",
+        "quran:tanzil-uthmani:53:10:3",
+        "quran:tanzil-uthmani:53:10:4",
+        "quran:tanzil-uthmani:53:10:5"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 76,
+        "excerpt": "Quran An-Najam 53:10"
+      },
+      "summary": "Surah name \"An-Najam\" matches surah 53 (An-Najm).",
+      "detail": "Exact name match.",
+      "reference": "53:10"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 76,
+        "excerpt": "Quran An-Najam 53:10"
+      },
+      "summary": "Quoted Arabic beside 53:10 matches the verse (5/5 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "53:10",
+      "claimedArabic": "فَأَوْحَىٰ إِلَىٰ عَبْدِهِ مَآ أَوْحَىٰ",
+      "matchLevel": "normalised"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 84,
+        "excerpt": "Quran An-Najam 53:11"
+      },
+      "summary": "Reference Quran An-Najam 53:11 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:53:11.",
+      "reference": "53:11",
+      "segmentIds": [
+        "quran:tanzil-uthmani:53:11"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:53:11:1",
+        "quran:tanzil-uthmani:53:11:2",
+        "quran:tanzil-uthmani:53:11:3",
+        "quran:tanzil-uthmani:53:11:4",
+        "quran:tanzil-uthmani:53:11:5"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 84,
+        "excerpt": "Quran An-Najam 53:11"
+      },
+      "summary": "Surah name \"An-Najam\" matches surah 53 (An-Najm).",
+      "detail": "Exact name match.",
+      "reference": "53:11"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 84,
+        "excerpt": "Quran An-Najam 53:11"
+      },
+      "summary": "Quoted Arabic beside 53:11 matches the verse (5/5 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "53:11",
+      "claimedArabic": "مَا كَذَبَ ٱلْفُؤَادُ مَا رَأَىٰ",
+      "matchLevel": "normalised"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 92,
+        "excerpt": "Quran An-Najam 53:12"
+      },
+      "summary": "Reference Quran An-Najam 53:12 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:53:12.",
+      "reference": "53:12",
+      "segmentIds": [
+        "quran:tanzil-uthmani:53:12"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:53:12:1",
+        "quran:tanzil-uthmani:53:12:2",
+        "quran:tanzil-uthmani:53:12:3",
+        "quran:tanzil-uthmani:53:12:4"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 92,
+        "excerpt": "Quran An-Najam 53:12"
+      },
+      "summary": "Surah name \"An-Najam\" matches surah 53 (An-Najm).",
+      "detail": "Exact name match.",
+      "reference": "53:12"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 92,
+        "excerpt": "Quran An-Najam 53:12"
+      },
+      "summary": "Quoted Arabic beside 53:12 matches the verse (4/4 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "53:12",
+      "claimedArabic": "أَفَتُمَارُونَهُ عَلَىٰ مَا يَرَىٰ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 100,
+        "excerpt": "Quran An-Najam 53:13"
+      },
+      "summary": "Reference Quran An-Najam 53:13 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:53:13.",
+      "reference": "53:13",
+      "segmentIds": [
+        "quran:tanzil-uthmani:53:13"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:53:13:1",
+        "quran:tanzil-uthmani:53:13:2",
+        "quran:tanzil-uthmani:53:13:3",
+        "quran:tanzil-uthmani:53:13:4"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 100,
+        "excerpt": "Quran An-Najam 53:13"
+      },
+      "summary": "Surah name \"An-Najam\" matches surah 53 (An-Najm).",
+      "detail": "Exact name match.",
+      "reference": "53:13"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 100,
+        "excerpt": "Quran An-Najam 53:13"
+      },
+      "summary": "Quoted Arabic beside 53:13 matches the verse (3/4 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. رَآهُ).",
+      "reference": "53:13",
+      "claimedArabic": "وَلَقَدْ رَآهُ نَزْلَةً أُخْرَىٰ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 116,
+        "excerpt": "Quran Al-Baqarah 2:97"
+      },
+      "summary": "Reference Quran Al-Baqarah 2:97 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:97.",
+      "reference": "2:97",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:97"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:97:1",
+        "quran:tanzil-uthmani:2:97:2",
+        "quran:tanzil-uthmani:2:97:3",
+        "quran:tanzil-uthmani:2:97:4",
+        "quran:tanzil-uthmani:2:97:5",
+        "quran:tanzil-uthmani:2:97:6",
+        "quran:tanzil-uthmani:2:97:7",
+        "quran:tanzil-uthmani:2:97:8",
+        "quran:tanzil-uthmani:2:97:9",
+        "quran:tanzil-uthmani:2:97:10",
+        "quran:tanzil-uthmani:2:97:11",
+        "quran:tanzil-uthmani:2:97:12",
+        "quran:tanzil-uthmani:2:97:13",
+        "quran:tanzil-uthmani:2:97:14",
+        "quran:tanzil-uthmani:2:97:15",
+        "quran:tanzil-uthmani:2:97:16",
+        "quran:tanzil-uthmani:2:97:17",
+        "quran:tanzil-uthmani:2:97:18"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 116,
+        "excerpt": "Quran Al-Baqarah 2:97"
+      },
+      "summary": "Surah name \"Al-Baqarah\" matches surah 2 (Al-Baqara).",
+      "detail": "Exact name match.",
+      "reference": "2:97"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 116,
+        "excerpt": "Quran Al-Baqarah 2:97"
+      },
+      "summary": "Quoted Arabic beside 2:97 matches the verse (18/18 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "2:97",
+      "claimedArabic": "قُلْ مَن كَانَ عَدُوًّا لِّجِبْرِيلَ فَإِنَّهُ نَزَّلَهُ عَلَىٰ قَلْبِكَ بِإِذْنِ اللَّـهِ مُصَدِّقًا لِّمَا بَيْنَ يَدَ…",
+      "matchLevel": "normalised"
+    }
+  ]
+}

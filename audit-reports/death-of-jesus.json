@@ -1,0 +1,1127 @@
+{
+  "slug": "death-of-jesus",
+  "title": "Death of Jesus",
+  "file": "death-of-jesus.md",
+  "corpusVersion": "0.6.0",
+  "provenance": "Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
+  "counts": {
+    "checked": 38,
+    "verified": 37,
+    "flagged": 1,
+    "unchecked": 0
+  },
+  "workScore": 5,
+  "findings": [
+    {
+      "kind": "quoted-arabic",
+      "status": "flagged",
+      "severity": "high",
+      "location": {
+        "line": 62,
+        "excerpt": "…فِّيكَ O Jesus I will cause you to die, Word مُتَوَفي meaning death which is used in multi…"
+      },
+      "summary": "Arabic \"مُتَوَفي\" has 1/1 word(s) not found in the corpus, even allowing for spelling variation.",
+      "detail": "Not found: مُتَوَفي. This may be a typo, a truncated fragment, or non-Quranic text.",
+      "claimedArabic": "مُتَوَفي",
+      "matchLevel": "none"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 14,
+        "excerpt": "Quran 4:158"
+      },
+      "summary": "Reference Quran 4:158 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:4:158.",
+      "reference": "4:158",
+      "segmentIds": [
+        "quran:tanzil-uthmani:4:158"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:4:158:1",
+        "quran:tanzil-uthmani:4:158:2",
+        "quran:tanzil-uthmani:4:158:3",
+        "quran:tanzil-uthmani:4:158:4",
+        "quran:tanzil-uthmani:4:158:5",
+        "quran:tanzil-uthmani:4:158:6",
+        "quran:tanzil-uthmani:4:158:7",
+        "quran:tanzil-uthmani:4:158:8"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 14,
+        "excerpt": "Quran 4:158"
+      },
+      "summary": "Quoted Arabic beside 4:158 matches the verse (8/8 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "4:158",
+      "claimedArabic": "بَل رَّفَعَهُ اللَّـهُ إِلَيْهِ ۚ وَكَانَ اللَّـهُ عَزِيزًا حَكِيمًا",
+      "matchLevel": "normalised"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 24,
+        "excerpt": "Word Rafa رَّفَعَهُ means raised or ascend and the Arabic for word “Alive” is Haya حَيًّا…"
+      },
+      "summary": "Arabic \"رَّفَعَهُ\" appears in the corpus (1 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "رَّفَعَهُ"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 24,
+        "excerpt": "…cend and the Arabic for word “Alive” is Haya حَيًّا and word Haya/Alive is missing from Qu…"
+      },
+      "summary": "Arabic \"حَيًّا\" appears in the corpus (1 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "حَيًّا"
+    },
+    {
+      "kind": "transliteration",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 24,
+        "excerpt": "Word Rafa رَّفَعَهُ means raised or ascend and the Arabic for word “Alive” is Haya حَيًّا…"
+      },
+      "summary": "Transliteration \"Rafa\" is consistent with \"رَّفَعَهُ\".",
+      "detail": "Consonant overlap 67%.",
+      "claimedArabic": "رَّفَعَهُ"
+    },
+    {
+      "kind": "transliteration",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 24,
+        "excerpt": "…or ascend and the Arabic for word “Alive” is Haya حَيًّا and word Haya/Alive is missing fr…"
+      },
+      "summary": "Transliteration \"Haya\" is consistent with \"حَيًّا\".",
+      "detail": "Consonant overlap 100%.",
+      "claimedArabic": "حَيًّا"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 26,
+        "excerpt": "Quran 2:253"
+      },
+      "summary": "Reference Quran 2:253 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:253.",
+      "reference": "2:253",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:253"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:253:1",
+        "quran:tanzil-uthmani:2:253:2",
+        "quran:tanzil-uthmani:2:253:3",
+        "quran:tanzil-uthmani:2:253:4",
+        "quran:tanzil-uthmani:2:253:5",
+        "quran:tanzil-uthmani:2:253:6",
+        "quran:tanzil-uthmani:2:253:7",
+        "quran:tanzil-uthmani:2:253:8",
+        "quran:tanzil-uthmani:2:253:9",
+        "quran:tanzil-uthmani:2:253:10",
+        "quran:tanzil-uthmani:2:253:11",
+        "quran:tanzil-uthmani:2:253:12",
+        "quran:tanzil-uthmani:2:253:13",
+        "quran:tanzil-uthmani:2:253:14",
+        "quran:tanzil-uthmani:2:253:15",
+        "quran:tanzil-uthmani:2:253:16",
+        "quran:tanzil-uthmani:2:253:17",
+        "quran:tanzil-uthmani:2:253:18",
+        "quran:tanzil-uthmani:2:253:19",
+        "quran:tanzil-uthmani:2:253:20",
+        "quran:tanzil-uthmani:2:253:21",
+        "quran:tanzil-uthmani:2:253:22",
+        "quran:tanzil-uthmani:2:253:23",
+        "quran:tanzil-uthmani:2:253:24",
+        "quran:tanzil-uthmani:2:253:25",
+        "quran:tanzil-uthmani:2:253:26",
+        "quran:tanzil-uthmani:2:253:27",
+        "quran:tanzil-uthmani:2:253:28",
+        "quran:tanzil-uthmani:2:253:29",
+        "quran:tanzil-uthmani:2:253:30",
+        "quran:tanzil-uthmani:2:253:31",
+        "quran:tanzil-uthmani:2:253:32",
+        "quran:tanzil-uthmani:2:253:33",
+        "quran:tanzil-uthmani:2:253:34",
+        "quran:tanzil-uthmani:2:253:35",
+        "quran:tanzil-uthmani:2:253:36",
+        "quran:tanzil-uthmani:2:253:37",
+        "quran:tanzil-uthmani:2:253:38",
+        "quran:tanzil-uthmani:2:253:39",
+        "quran:tanzil-uthmani:2:253:40",
+        "quran:tanzil-uthmani:2:253:41",
+        "quran:tanzil-uthmani:2:253:42",
+        "quran:tanzil-uthmani:2:253:43",
+        "quran:tanzil-uthmani:2:253:44",
+        "quran:tanzil-uthmani:2:253:45",
+        "quran:tanzil-uthmani:2:253:46",
+        "quran:tanzil-uthmani:2:253:47",
+        "quran:tanzil-uthmani:2:253:48",
+        "quran:tanzil-uthmani:2:253:49",
+        "quran:tanzil-uthmani:2:253:50",
+        "quran:tanzil-uthmani:2:253:51",
+        "quran:tanzil-uthmani:2:253:52"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 26,
+        "excerpt": "Quran 2:253"
+      },
+      "summary": "Quoted Arabic beside 2:253 matches the verse (52/52 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "2:253",
+      "claimedArabic": "تِلْكَ الرُّسُلُ فَضَّلْنَا بَعْضَهُمْ عَلَىٰ بَعْضٍ ۘ مِّنْهُم مَّن كَلَّمَ اللَّـهُ ۖ وَرَفَعَ بَعْضَهُمْ دَرَجَاتٍ ۚ …",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 32,
+        "excerpt": "Verse clear mentions Daraja دَرَجَا meaning “rank” of jesus was raised not his body."
+      },
+      "summary": "Arabic \"دَرَجَا\" appears in the corpus (1 word(s)).",
+      "detail": "1 word(s) present only as an orthographic variant (article uses a non-Uthmani spelling); the exact form is not in the corpus.",
+      "claimedArabic": "دَرَجَا",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "transliteration",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 32,
+        "excerpt": "Verse clear mentions Daraja دَرَجَا meaning “rank” of jesus was raised not his body."
+      },
+      "summary": "Transliteration \"Daraja\" is consistent with \"دَرَجَا\".",
+      "detail": "Consonant overlap 100%.",
+      "claimedArabic": "دَرَجَا"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 36,
+        "excerpt": "Quran 7:176"
+      },
+      "summary": "Reference Quran 7:176 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:7:176.",
+      "reference": "7:176",
+      "segmentIds": [
+        "quran:tanzil-uthmani:7:176"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:7:176:1",
+        "quran:tanzil-uthmani:7:176:2",
+        "quran:tanzil-uthmani:7:176:3",
+        "quran:tanzil-uthmani:7:176:4",
+        "quran:tanzil-uthmani:7:176:5",
+        "quran:tanzil-uthmani:7:176:6",
+        "quran:tanzil-uthmani:7:176:7",
+        "quran:tanzil-uthmani:7:176:8",
+        "quran:tanzil-uthmani:7:176:9",
+        "quran:tanzil-uthmani:7:176:10",
+        "quran:tanzil-uthmani:7:176:11",
+        "quran:tanzil-uthmani:7:176:12",
+        "quran:tanzil-uthmani:7:176:13",
+        "quran:tanzil-uthmani:7:176:14",
+        "quran:tanzil-uthmani:7:176:15",
+        "quran:tanzil-uthmani:7:176:16",
+        "quran:tanzil-uthmani:7:176:17",
+        "quran:tanzil-uthmani:7:176:18",
+        "quran:tanzil-uthmani:7:176:19",
+        "quran:tanzil-uthmani:7:176:20",
+        "quran:tanzil-uthmani:7:176:21",
+        "quran:tanzil-uthmani:7:176:22",
+        "quran:tanzil-uthmani:7:176:23",
+        "quran:tanzil-uthmani:7:176:24",
+        "quran:tanzil-uthmani:7:176:25",
+        "quran:tanzil-uthmani:7:176:26",
+        "quran:tanzil-uthmani:7:176:27",
+        "quran:tanzil-uthmani:7:176:28",
+        "quran:tanzil-uthmani:7:176:29",
+        "quran:tanzil-uthmani:7:176:30"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 36,
+        "excerpt": "Quran 7:176"
+      },
+      "summary": "Quoted Arabic beside 7:176 matches the verse (29/30 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. هَوَاهُ).",
+      "reference": "7:176",
+      "claimedArabic": "وَلَوْ شِئْنَا لَرَفَعْنَاهُ بِهَا وَلَـٰكِنَّهُ أَخْلَدَ إِلَى الْأَرْضِ وَاتَّبَعَ هَوَاهُ ۚ فَمَثَلُهُ كَمَثَلِ الْكَ…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 44,
+        "excerpt": "Quran 3:144"
+      },
+      "summary": "Reference Quran 3:144 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:3:144.",
+      "reference": "3:144",
+      "segmentIds": [
+        "quran:tanzil-uthmani:3:144"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:3:144:1",
+        "quran:tanzil-uthmani:3:144:2",
+        "quran:tanzil-uthmani:3:144:3",
+        "quran:tanzil-uthmani:3:144:4",
+        "quran:tanzil-uthmani:3:144:5",
+        "quran:tanzil-uthmani:3:144:6",
+        "quran:tanzil-uthmani:3:144:7",
+        "quran:tanzil-uthmani:3:144:8",
+        "quran:tanzil-uthmani:3:144:9",
+        "quran:tanzil-uthmani:3:144:10",
+        "quran:tanzil-uthmani:3:144:11",
+        "quran:tanzil-uthmani:3:144:12",
+        "quran:tanzil-uthmani:3:144:13",
+        "quran:tanzil-uthmani:3:144:14",
+        "quran:tanzil-uthmani:3:144:15",
+        "quran:tanzil-uthmani:3:144:16",
+        "quran:tanzil-uthmani:3:144:17",
+        "quran:tanzil-uthmani:3:144:18",
+        "quran:tanzil-uthmani:3:144:19",
+        "quran:tanzil-uthmani:3:144:20",
+        "quran:tanzil-uthmani:3:144:21",
+        "quran:tanzil-uthmani:3:144:22",
+        "quran:tanzil-uthmani:3:144:23",
+        "quran:tanzil-uthmani:3:144:24",
+        "quran:tanzil-uthmani:3:144:25",
+        "quran:tanzil-uthmani:3:144:26",
+        "quran:tanzil-uthmani:3:144:27"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 44,
+        "excerpt": "Quran 3:144"
+      },
+      "summary": "Quoted Arabic beside 3:144 matches the verse (26/27 words exact, 97% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. شَيْئًا).",
+      "reference": "3:144",
+      "claimedArabic": "وَمَا مُحَمَّدٌ إِلَّا رَسُولٌ قَدْ خَلَتْ مِن قَبْلِهِ الرُّسُلُ ۚ أَفَإِن مَّاتَ أَوْ قُتِلَ انقَلَبْتُمْ عَلَىٰ أَعْق…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 54,
+        "excerpt": "Quran 3:55"
+      },
+      "summary": "Reference Quran 3:55 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:3:55.",
+      "reference": "3:55",
+      "segmentIds": [
+        "quran:tanzil-uthmani:3:55"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:3:55:1",
+        "quran:tanzil-uthmani:3:55:2",
+        "quran:tanzil-uthmani:3:55:3",
+        "quran:tanzil-uthmani:3:55:4",
+        "quran:tanzil-uthmani:3:55:5",
+        "quran:tanzil-uthmani:3:55:6",
+        "quran:tanzil-uthmani:3:55:7",
+        "quran:tanzil-uthmani:3:55:8",
+        "quran:tanzil-uthmani:3:55:9",
+        "quran:tanzil-uthmani:3:55:10",
+        "quran:tanzil-uthmani:3:55:11",
+        "quran:tanzil-uthmani:3:55:12",
+        "quran:tanzil-uthmani:3:55:13",
+        "quran:tanzil-uthmani:3:55:14",
+        "quran:tanzil-uthmani:3:55:15",
+        "quran:tanzil-uthmani:3:55:16",
+        "quran:tanzil-uthmani:3:55:17",
+        "quran:tanzil-uthmani:3:55:18",
+        "quran:tanzil-uthmani:3:55:19",
+        "quran:tanzil-uthmani:3:55:20",
+        "quran:tanzil-uthmani:3:55:21",
+        "quran:tanzil-uthmani:3:55:22",
+        "quran:tanzil-uthmani:3:55:23",
+        "quran:tanzil-uthmani:3:55:24",
+        "quran:tanzil-uthmani:3:55:25",
+        "quran:tanzil-uthmani:3:55:26",
+        "quran:tanzil-uthmani:3:55:27",
+        "quran:tanzil-uthmani:3:55:28",
+        "quran:tanzil-uthmani:3:55:29",
+        "quran:tanzil-uthmani:3:55:30"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 54,
+        "excerpt": "Quran 3:55"
+      },
+      "summary": "Quoted Arabic beside 3:55 matches the verse (30/31 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. يَا).",
+      "reference": "3:55",
+      "claimedArabic": "إِذْ قَالَ اللَّـهُ يَا عِيسَىٰ إِنِّي مُتَوَفِّيكَ وَرَافِعُكَ إِلَيَّ وَمُطَهِّرُكَ مِنَ الَّذِينَ كَفَرُوا وَجَاعِلُ …",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…e though out the quran meaning death like in Quran 3:193, 4:15, 4:97, 7:37, 7:126, 8:50, 1…"
+      },
+      "summary": "Reference Quran 3:193 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:3:193.",
+      "reference": "3:193",
+      "segmentIds": [
+        "quran:tanzil-uthmani:3:193"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:3:193:1",
+        "quran:tanzil-uthmani:3:193:2",
+        "quran:tanzil-uthmani:3:193:3",
+        "quran:tanzil-uthmani:3:193:4",
+        "quran:tanzil-uthmani:3:193:5",
+        "quran:tanzil-uthmani:3:193:6",
+        "quran:tanzil-uthmani:3:193:7",
+        "quran:tanzil-uthmani:3:193:8",
+        "quran:tanzil-uthmani:3:193:9",
+        "quran:tanzil-uthmani:3:193:10",
+        "quran:tanzil-uthmani:3:193:11",
+        "quran:tanzil-uthmani:3:193:12",
+        "quran:tanzil-uthmani:3:193:13",
+        "quran:tanzil-uthmani:3:193:14",
+        "quran:tanzil-uthmani:3:193:15",
+        "quran:tanzil-uthmani:3:193:16",
+        "quran:tanzil-uthmani:3:193:17",
+        "quran:tanzil-uthmani:3:193:18",
+        "quran:tanzil-uthmani:3:193:19",
+        "quran:tanzil-uthmani:3:193:20"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…the quran meaning death like in Quran 3:193, 4:15, 4:97, 7:37, 7:126, 8:50, 10:46, 10:104,…"
+      },
+      "summary": "Reference 4:15 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:4:15.",
+      "reference": "4:15",
+      "segmentIds": [
+        "quran:tanzil-uthmani:4:15"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:4:15:1",
+        "quran:tanzil-uthmani:4:15:2",
+        "quran:tanzil-uthmani:4:15:3",
+        "quran:tanzil-uthmani:4:15:4",
+        "quran:tanzil-uthmani:4:15:5",
+        "quran:tanzil-uthmani:4:15:6",
+        "quran:tanzil-uthmani:4:15:7",
+        "quran:tanzil-uthmani:4:15:8",
+        "quran:tanzil-uthmani:4:15:9",
+        "quran:tanzil-uthmani:4:15:10",
+        "quran:tanzil-uthmani:4:15:11",
+        "quran:tanzil-uthmani:4:15:12",
+        "quran:tanzil-uthmani:4:15:13",
+        "quran:tanzil-uthmani:4:15:14",
+        "quran:tanzil-uthmani:4:15:15",
+        "quran:tanzil-uthmani:4:15:16",
+        "quran:tanzil-uthmani:4:15:17",
+        "quran:tanzil-uthmani:4:15:18",
+        "quran:tanzil-uthmani:4:15:19",
+        "quran:tanzil-uthmani:4:15:20",
+        "quran:tanzil-uthmani:4:15:21",
+        "quran:tanzil-uthmani:4:15:22"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…ran meaning death like in Quran 3:193, 4:15, 4:97, 7:37, 7:126, 8:50, 10:46, 10:104, 12:10…"
+      },
+      "summary": "Reference 4:97 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:4:97.",
+      "reference": "4:97",
+      "segmentIds": [
+        "quran:tanzil-uthmani:4:97"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:4:97:1",
+        "quran:tanzil-uthmani:4:97:2",
+        "quran:tanzil-uthmani:4:97:3",
+        "quran:tanzil-uthmani:4:97:4",
+        "quran:tanzil-uthmani:4:97:5",
+        "quran:tanzil-uthmani:4:97:6",
+        "quran:tanzil-uthmani:4:97:7",
+        "quran:tanzil-uthmani:4:97:8",
+        "quran:tanzil-uthmani:4:97:9",
+        "quran:tanzil-uthmani:4:97:10",
+        "quran:tanzil-uthmani:4:97:11",
+        "quran:tanzil-uthmani:4:97:12",
+        "quran:tanzil-uthmani:4:97:13",
+        "quran:tanzil-uthmani:4:97:14",
+        "quran:tanzil-uthmani:4:97:15",
+        "quran:tanzil-uthmani:4:97:16",
+        "quran:tanzil-uthmani:4:97:17",
+        "quran:tanzil-uthmani:4:97:18",
+        "quran:tanzil-uthmani:4:97:19",
+        "quran:tanzil-uthmani:4:97:20",
+        "quran:tanzil-uthmani:4:97:21",
+        "quran:tanzil-uthmani:4:97:22",
+        "quran:tanzil-uthmani:4:97:23",
+        "quran:tanzil-uthmani:4:97:24",
+        "quran:tanzil-uthmani:4:97:25",
+        "quran:tanzil-uthmani:4:97:26",
+        "quran:tanzil-uthmani:4:97:27"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…aning death like in Quran 3:193, 4:15, 4:97, 7:37, 7:126, 8:50, 10:46, 10:104, 12:101, 13:…"
+      },
+      "summary": "Reference 7:37 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:7:37.",
+      "reference": "7:37",
+      "segmentIds": [
+        "quran:tanzil-uthmani:7:37"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:7:37:1",
+        "quran:tanzil-uthmani:7:37:2",
+        "quran:tanzil-uthmani:7:37:3",
+        "quran:tanzil-uthmani:7:37:4",
+        "quran:tanzil-uthmani:7:37:5",
+        "quran:tanzil-uthmani:7:37:6",
+        "quran:tanzil-uthmani:7:37:7",
+        "quran:tanzil-uthmani:7:37:8",
+        "quran:tanzil-uthmani:7:37:9",
+        "quran:tanzil-uthmani:7:37:10",
+        "quran:tanzil-uthmani:7:37:11",
+        "quran:tanzil-uthmani:7:37:12",
+        "quran:tanzil-uthmani:7:37:13",
+        "quran:tanzil-uthmani:7:37:14",
+        "quran:tanzil-uthmani:7:37:15",
+        "quran:tanzil-uthmani:7:37:16",
+        "quran:tanzil-uthmani:7:37:17",
+        "quran:tanzil-uthmani:7:37:18",
+        "quran:tanzil-uthmani:7:37:19",
+        "quran:tanzil-uthmani:7:37:20",
+        "quran:tanzil-uthmani:7:37:21",
+        "quran:tanzil-uthmani:7:37:22",
+        "quran:tanzil-uthmani:7:37:23",
+        "quran:tanzil-uthmani:7:37:24",
+        "quran:tanzil-uthmani:7:37:25",
+        "quran:tanzil-uthmani:7:37:26",
+        "quran:tanzil-uthmani:7:37:27",
+        "quran:tanzil-uthmani:7:37:28",
+        "quran:tanzil-uthmani:7:37:29",
+        "quran:tanzil-uthmani:7:37:30",
+        "quran:tanzil-uthmani:7:37:31",
+        "quran:tanzil-uthmani:7:37:32",
+        "quran:tanzil-uthmani:7:37:33",
+        "quran:tanzil-uthmani:7:37:34",
+        "quran:tanzil-uthmani:7:37:35",
+        "quran:tanzil-uthmani:7:37:36",
+        "quran:tanzil-uthmani:7:37:37"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…death like in Quran 3:193, 4:15, 4:97, 7:37, 7:126, 8:50, 10:46, 10:104, 12:101, 13:40, 16…"
+      },
+      "summary": "Reference 7:126 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:7:126.",
+      "reference": "7:126",
+      "segmentIds": [
+        "quran:tanzil-uthmani:7:126"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:7:126:1",
+        "quran:tanzil-uthmani:7:126:2",
+        "quran:tanzil-uthmani:7:126:3",
+        "quran:tanzil-uthmani:7:126:4",
+        "quran:tanzil-uthmani:7:126:5",
+        "quran:tanzil-uthmani:7:126:6",
+        "quran:tanzil-uthmani:7:126:7",
+        "quran:tanzil-uthmani:7:126:8",
+        "quran:tanzil-uthmani:7:126:9",
+        "quran:tanzil-uthmani:7:126:10",
+        "quran:tanzil-uthmani:7:126:11",
+        "quran:tanzil-uthmani:7:126:12",
+        "quran:tanzil-uthmani:7:126:13",
+        "quran:tanzil-uthmani:7:126:14",
+        "quran:tanzil-uthmani:7:126:15",
+        "quran:tanzil-uthmani:7:126:16"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…ike in Quran 3:193, 4:15, 4:97, 7:37, 7:126, 8:50, 10:46, 10:104, 12:101, 13:40, 16:32, 16…"
+      },
+      "summary": "Reference 8:50 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:8:50.",
+      "reference": "8:50",
+      "segmentIds": [
+        "quran:tanzil-uthmani:8:50"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:8:50:1",
+        "quran:tanzil-uthmani:8:50:2",
+        "quran:tanzil-uthmani:8:50:3",
+        "quran:tanzil-uthmani:8:50:4",
+        "quran:tanzil-uthmani:8:50:5",
+        "quran:tanzil-uthmani:8:50:6",
+        "quran:tanzil-uthmani:8:50:7",
+        "quran:tanzil-uthmani:8:50:8",
+        "quran:tanzil-uthmani:8:50:9",
+        "quran:tanzil-uthmani:8:50:10",
+        "quran:tanzil-uthmani:8:50:11",
+        "quran:tanzil-uthmani:8:50:12",
+        "quran:tanzil-uthmani:8:50:13"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…Quran 3:193, 4:15, 4:97, 7:37, 7:126, 8:50, 10:46, 10:104, 12:101, 13:40, 16:32, 16:70, 3…"
+      },
+      "summary": "Reference 10:46 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:10:46.",
+      "reference": "10:46",
+      "segmentIds": [
+        "quran:tanzil-uthmani:10:46"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:10:46:1",
+        "quran:tanzil-uthmani:10:46:2",
+        "quran:tanzil-uthmani:10:46:3",
+        "quran:tanzil-uthmani:10:46:4",
+        "quran:tanzil-uthmani:10:46:5",
+        "quran:tanzil-uthmani:10:46:6",
+        "quran:tanzil-uthmani:10:46:7",
+        "quran:tanzil-uthmani:10:46:8",
+        "quran:tanzil-uthmani:10:46:9",
+        "quran:tanzil-uthmani:10:46:10",
+        "quran:tanzil-uthmani:10:46:11",
+        "quran:tanzil-uthmani:10:46:12",
+        "quran:tanzil-uthmani:10:46:13",
+        "quran:tanzil-uthmani:10:46:14",
+        "quran:tanzil-uthmani:10:46:15"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…3:193, 4:15, 4:97, 7:37, 7:126, 8:50, 10:46, 10:104, 12:101, 13:40, 16:32, 16:70, 32:11, 4…"
+      },
+      "summary": "Reference 10:104 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:10:104.",
+      "reference": "10:104",
+      "segmentIds": [
+        "quran:tanzil-uthmani:10:104"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:10:104:1",
+        "quran:tanzil-uthmani:10:104:2",
+        "quran:tanzil-uthmani:10:104:3",
+        "quran:tanzil-uthmani:10:104:4",
+        "quran:tanzil-uthmani:10:104:5",
+        "quran:tanzil-uthmani:10:104:6",
+        "quran:tanzil-uthmani:10:104:7",
+        "quran:tanzil-uthmani:10:104:8",
+        "quran:tanzil-uthmani:10:104:9",
+        "quran:tanzil-uthmani:10:104:10",
+        "quran:tanzil-uthmani:10:104:11",
+        "quran:tanzil-uthmani:10:104:12",
+        "quran:tanzil-uthmani:10:104:13",
+        "quran:tanzil-uthmani:10:104:14",
+        "quran:tanzil-uthmani:10:104:15",
+        "quran:tanzil-uthmani:10:104:16",
+        "quran:tanzil-uthmani:10:104:17",
+        "quran:tanzil-uthmani:10:104:18",
+        "quran:tanzil-uthmani:10:104:19",
+        "quran:tanzil-uthmani:10:104:20",
+        "quran:tanzil-uthmani:10:104:21",
+        "quran:tanzil-uthmani:10:104:22",
+        "quran:tanzil-uthmani:10:104:23",
+        "quran:tanzil-uthmani:10:104:24",
+        "quran:tanzil-uthmani:10:104:25",
+        "quran:tanzil-uthmani:10:104:26"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…:15, 4:97, 7:37, 7:126, 8:50, 10:46, 10:104, 12:101, 13:40, 16:32, 16:70, 32:11, 40:77, 47…"
+      },
+      "summary": "Reference 12:101 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:12:101.",
+      "reference": "12:101",
+      "segmentIds": [
+        "quran:tanzil-uthmani:12:101"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:12:101:1",
+        "quran:tanzil-uthmani:12:101:2",
+        "quran:tanzil-uthmani:12:101:3",
+        "quran:tanzil-uthmani:12:101:4",
+        "quran:tanzil-uthmani:12:101:5",
+        "quran:tanzil-uthmani:12:101:6",
+        "quran:tanzil-uthmani:12:101:7",
+        "quran:tanzil-uthmani:12:101:8",
+        "quran:tanzil-uthmani:12:101:9",
+        "quran:tanzil-uthmani:12:101:10",
+        "quran:tanzil-uthmani:12:101:11",
+        "quran:tanzil-uthmani:12:101:12",
+        "quran:tanzil-uthmani:12:101:13",
+        "quran:tanzil-uthmani:12:101:14",
+        "quran:tanzil-uthmani:12:101:15",
+        "quran:tanzil-uthmani:12:101:16",
+        "quran:tanzil-uthmani:12:101:17",
+        "quran:tanzil-uthmani:12:101:18",
+        "quran:tanzil-uthmani:12:101:19",
+        "quran:tanzil-uthmani:12:101:20",
+        "quran:tanzil-uthmani:12:101:21"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…7, 7:37, 7:126, 8:50, 10:46, 10:104, 12:101, 13:40, 16:32, 16:70, 32:11, 40:77, 47:27.…"
+      },
+      "summary": "Reference 13:40 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:13:40.",
+      "reference": "13:40",
+      "segmentIds": [
+        "quran:tanzil-uthmani:13:40"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:13:40:1",
+        "quran:tanzil-uthmani:13:40:2",
+        "quran:tanzil-uthmani:13:40:3",
+        "quran:tanzil-uthmani:13:40:4",
+        "quran:tanzil-uthmani:13:40:5",
+        "quran:tanzil-uthmani:13:40:6",
+        "quran:tanzil-uthmani:13:40:7",
+        "quran:tanzil-uthmani:13:40:8",
+        "quran:tanzil-uthmani:13:40:9",
+        "quran:tanzil-uthmani:13:40:10",
+        "quran:tanzil-uthmani:13:40:11",
+        "quran:tanzil-uthmani:13:40:12",
+        "quran:tanzil-uthmani:13:40:13"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…, 7:126, 8:50, 10:46, 10:104, 12:101, 13:40, 16:32, 16:70, 32:11, 40:77, 47:27.…"
+      },
+      "summary": "Reference 16:32 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:16:32.",
+      "reference": "16:32",
+      "segmentIds": [
+        "quran:tanzil-uthmani:16:32"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:16:32:1",
+        "quran:tanzil-uthmani:16:32:2",
+        "quran:tanzil-uthmani:16:32:3",
+        "quran:tanzil-uthmani:16:32:4",
+        "quran:tanzil-uthmani:16:32:5",
+        "quran:tanzil-uthmani:16:32:6",
+        "quran:tanzil-uthmani:16:32:7",
+        "quran:tanzil-uthmani:16:32:8",
+        "quran:tanzil-uthmani:16:32:9",
+        "quran:tanzil-uthmani:16:32:10",
+        "quran:tanzil-uthmani:16:32:11",
+        "quran:tanzil-uthmani:16:32:12"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…, 8:50, 10:46, 10:104, 12:101, 13:40, 16:32, 16:70, 32:11, 40:77, 47:27.…"
+      },
+      "summary": "Reference 16:70 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:16:70.",
+      "reference": "16:70",
+      "segmentIds": [
+        "quran:tanzil-uthmani:16:70"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:16:70:1",
+        "quran:tanzil-uthmani:16:70:2",
+        "quran:tanzil-uthmani:16:70:3",
+        "quran:tanzil-uthmani:16:70:4",
+        "quran:tanzil-uthmani:16:70:5",
+        "quran:tanzil-uthmani:16:70:6",
+        "quran:tanzil-uthmani:16:70:7",
+        "quran:tanzil-uthmani:16:70:8",
+        "quran:tanzil-uthmani:16:70:9",
+        "quran:tanzil-uthmani:16:70:10",
+        "quran:tanzil-uthmani:16:70:11",
+        "quran:tanzil-uthmani:16:70:12",
+        "quran:tanzil-uthmani:16:70:13",
+        "quran:tanzil-uthmani:16:70:14",
+        "quran:tanzil-uthmani:16:70:15",
+        "quran:tanzil-uthmani:16:70:16",
+        "quran:tanzil-uthmani:16:70:17",
+        "quran:tanzil-uthmani:16:70:18",
+        "quran:tanzil-uthmani:16:70:19",
+        "quran:tanzil-uthmani:16:70:20"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…10:46, 10:104, 12:101, 13:40, 16:32, 16:70, 32:11, 40:77, 47:27.…"
+      },
+      "summary": "Reference 32:11 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:32:11.",
+      "reference": "32:11",
+      "segmentIds": [
+        "quran:tanzil-uthmani:32:11"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:32:11:1",
+        "quran:tanzil-uthmani:32:11:2",
+        "quran:tanzil-uthmani:32:11:3",
+        "quran:tanzil-uthmani:32:11:4",
+        "quran:tanzil-uthmani:32:11:5",
+        "quran:tanzil-uthmani:32:11:6",
+        "quran:tanzil-uthmani:32:11:7",
+        "quran:tanzil-uthmani:32:11:8",
+        "quran:tanzil-uthmani:32:11:9",
+        "quran:tanzil-uthmani:32:11:10",
+        "quran:tanzil-uthmani:32:11:11"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…10:104, 12:101, 13:40, 16:32, 16:70, 32:11, 40:77, 47:27.…"
+      },
+      "summary": "Reference 40:77 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:40:77.",
+      "reference": "40:77",
+      "segmentIds": [
+        "quran:tanzil-uthmani:40:77"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:40:77:1",
+        "quran:tanzil-uthmani:40:77:2",
+        "quran:tanzil-uthmani:40:77:3",
+        "quran:tanzil-uthmani:40:77:4",
+        "quran:tanzil-uthmani:40:77:5",
+        "quran:tanzil-uthmani:40:77:6",
+        "quran:tanzil-uthmani:40:77:7",
+        "quran:tanzil-uthmani:40:77:8",
+        "quran:tanzil-uthmani:40:77:9",
+        "quran:tanzil-uthmani:40:77:10",
+        "quran:tanzil-uthmani:40:77:11",
+        "quran:tanzil-uthmani:40:77:12",
+        "quran:tanzil-uthmani:40:77:13",
+        "quran:tanzil-uthmani:40:77:14"
+      ]
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "…, 12:101, 13:40, 16:32, 16:70, 32:11, 40:77, 47:27.…"
+      },
+      "summary": "Reference 47:27 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:47:27.",
+      "reference": "47:27",
+      "segmentIds": [
+        "quran:tanzil-uthmani:47:27"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:47:27:1",
+        "quran:tanzil-uthmani:47:27:2",
+        "quran:tanzil-uthmani:47:27:3",
+        "quran:tanzil-uthmani:47:27:4",
+        "quran:tanzil-uthmani:47:27:5",
+        "quran:tanzil-uthmani:47:27:6",
+        "quran:tanzil-uthmani:47:27:7"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "Allah says يَا عِيسَىٰ إِنِّي مُتَوَفِّيكَ O Jesus I will cause you to die, Word مُتَوَفي…"
+      },
+      "summary": "Arabic \"يَا عِيسَىٰ إِنِّي مُتَوَفِّيكَ\" appears in the corpus (4 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "يَا عِيسَىٰ إِنِّي مُتَوَفِّيكَ"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 64,
+        "excerpt": "All of these verses mention تُوَفَّىٰ  Tawafa translating it as death."
+      },
+      "summary": "Arabic \"تُوَفَّىٰ\" appears in the corpus (1 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "تُوَفَّىٰ"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 75,
+        "excerpt": "Quran 5:116-117"
+      },
+      "summary": "Reference 5:116-117 resolves to 2 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:5:116, quran:tanzil-uthmani:5:117.",
+      "reference": "5:116-117",
+      "segmentIds": [
+        "quran:tanzil-uthmani:5:116",
+        "quran:tanzil-uthmani:5:117"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:5:116:1",
+        "quran:tanzil-uthmani:5:116:2",
+        "quran:tanzil-uthmani:5:116:3",
+        "quran:tanzil-uthmani:5:116:4",
+        "quran:tanzil-uthmani:5:116:5",
+        "quran:tanzil-uthmani:5:116:6",
+        "quran:tanzil-uthmani:5:116:7",
+        "quran:tanzil-uthmani:5:116:8",
+        "quran:tanzil-uthmani:5:116:9",
+        "quran:tanzil-uthmani:5:116:10",
+        "quran:tanzil-uthmani:5:116:11",
+        "quran:tanzil-uthmani:5:116:12",
+        "quran:tanzil-uthmani:5:116:13",
+        "quran:tanzil-uthmani:5:116:14",
+        "quran:tanzil-uthmani:5:116:15",
+        "quran:tanzil-uthmani:5:116:16",
+        "quran:tanzil-uthmani:5:116:17",
+        "quran:tanzil-uthmani:5:116:18",
+        "quran:tanzil-uthmani:5:116:19",
+        "quran:tanzil-uthmani:5:116:20",
+        "quran:tanzil-uthmani:5:116:21",
+        "quran:tanzil-uthmani:5:116:22",
+        "quran:tanzil-uthmani:5:116:23",
+        "quran:tanzil-uthmani:5:116:24",
+        "quran:tanzil-uthmani:5:116:25",
+        "quran:tanzil-uthmani:5:116:26",
+        "quran:tanzil-uthmani:5:116:27",
+        "quran:tanzil-uthmani:5:116:28",
+        "quran:tanzil-uthmani:5:116:29",
+        "quran:tanzil-uthmani:5:116:30",
+        "quran:tanzil-uthmani:5:116:31",
+        "quran:tanzil-uthmani:5:116:32",
+        "quran:tanzil-uthmani:5:116:33",
+        "quran:tanzil-uthmani:5:116:34",
+        "quran:tanzil-uthmani:5:116:35",
+        "quran:tanzil-uthmani:5:116:36",
+        "quran:tanzil-uthmani:5:116:37",
+        "quran:tanzil-uthmani:5:116:38",
+        "quran:tanzil-uthmani:5:116:39",
+        "quran:tanzil-uthmani:5:116:40",
+        "quran:tanzil-uthmani:5:116:41",
+        "quran:tanzil-uthmani:5:116:42",
+        "quran:tanzil-uthmani:5:116:43",
+        "quran:tanzil-uthmani:5:116:44",
+        "quran:tanzil-uthmani:5:117:1",
+        "quran:tanzil-uthmani:5:117:2",
+        "quran:tanzil-uthmani:5:117:3",
+        "quran:tanzil-uthmani:5:117:4",
+        "quran:tanzil-uthmani:5:117:5",
+        "quran:tanzil-uthmani:5:117:6",
+        "quran:tanzil-uthmani:5:117:7",
+        "quran:tanzil-uthmani:5:117:8",
+        "quran:tanzil-uthmani:5:117:9",
+        "quran:tanzil-uthmani:5:117:10",
+        "quran:tanzil-uthmani:5:117:11",
+        "quran:tanzil-uthmani:5:117:12",
+        "quran:tanzil-uthmani:5:117:13",
+        "quran:tanzil-uthmani:5:117:14",
+        "quran:tanzil-uthmani:5:117:15",
+        "quran:tanzil-uthmani:5:117:16",
+        "quran:tanzil-uthmani:5:117:17",
+        "quran:tanzil-uthmani:5:117:18",
+        "quran:tanzil-uthmani:5:117:19",
+        "quran:tanzil-uthmani:5:117:20",
+        "quran:tanzil-uthmani:5:117:21",
+        "quran:tanzil-uthmani:5:117:22",
+        "quran:tanzil-uthmani:5:117:23",
+        "quran:tanzil-uthmani:5:117:24",
+        "quran:tanzil-uthmani:5:117:25",
+        "quran:tanzil-uthmani:5:117:26",
+        "quran:tanzil-uthmani:5:117:27",
+        "quran:tanzil-uthmani:5:117:28",
+        "quran:tanzil-uthmani:5:117:29"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 75,
+        "excerpt": "Quran 5:116-117"
+      },
+      "summary": "Quoted Arabic beside 5:116-117 matches the verse (73/74 words exact, 96% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. يَا).",
+      "reference": "5:116-117",
+      "claimedArabic": "وَإِذْ قَالَ اللَّـهُ يَا عِيسَى ابْنَ مَرْيَمَ أَأَنتَ قُلْتَ لِلنَّاسِ اتَّخِذُونِي وَأُمِّيَ إِلَـٰهَيْنِ مِن دُونِ ا…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 90,
+        "excerpt": "Quran 4:157"
+      },
+      "summary": "Reference Quran 4:157 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:4:157.",
+      "reference": "4:157",
+      "segmentIds": [
+        "quran:tanzil-uthmani:4:157"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:4:157:1",
+        "quran:tanzil-uthmani:4:157:2",
+        "quran:tanzil-uthmani:4:157:3",
+        "quran:tanzil-uthmani:4:157:4",
+        "quran:tanzil-uthmani:4:157:5",
+        "quran:tanzil-uthmani:4:157:6",
+        "quran:tanzil-uthmani:4:157:7",
+        "quran:tanzil-uthmani:4:157:8",
+        "quran:tanzil-uthmani:4:157:9",
+        "quran:tanzil-uthmani:4:157:10",
+        "quran:tanzil-uthmani:4:157:11",
+        "quran:tanzil-uthmani:4:157:12",
+        "quran:tanzil-uthmani:4:157:13",
+        "quran:tanzil-uthmani:4:157:14",
+        "quran:tanzil-uthmani:4:157:15",
+        "quran:tanzil-uthmani:4:157:16",
+        "quran:tanzil-uthmani:4:157:17",
+        "quran:tanzil-uthmani:4:157:18",
+        "quran:tanzil-uthmani:4:157:19",
+        "quran:tanzil-uthmani:4:157:20",
+        "quran:tanzil-uthmani:4:157:21",
+        "quran:tanzil-uthmani:4:157:22",
+        "quran:tanzil-uthmani:4:157:23",
+        "quran:tanzil-uthmani:4:157:24",
+        "quran:tanzil-uthmani:4:157:25",
+        "quran:tanzil-uthmani:4:157:26",
+        "quran:tanzil-uthmani:4:157:27",
+        "quran:tanzil-uthmani:4:157:28",
+        "quran:tanzil-uthmani:4:157:29",
+        "quran:tanzil-uthmani:4:157:30",
+        "quran:tanzil-uthmani:4:157:31",
+        "quran:tanzil-uthmani:4:157:32",
+        "quran:tanzil-uthmani:4:157:33",
+        "quran:tanzil-uthmani:4:157:34"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 90,
+        "excerpt": "Quran 4:157"
+      },
+      "summary": "Quoted Arabic beside 4:157 matches the verse (34/34 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "4:157",
+      "claimedArabic": "وَقَوْلِهِمْ إِنَّا قَتَلْنَا الْمَسِيحَ عِيسَى ابْنَ مَرْيَمَ رَسُولَ اللَّـهِ وَمَا قَتَلُوهُ وَمَا صَلَبُوهُ وَلَـٰكِ…",
+      "matchLevel": "normalised"
+    }
+  ]
+}

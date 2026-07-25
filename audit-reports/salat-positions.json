@@ -1,0 +1,1053 @@
+{
+  "slug": "salat-positions",
+  "title": "Salat Positions",
+  "file": "salat-positions.md",
+  "corpusVersion": "0.6.0",
+  "provenance": "Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
+  "counts": {
+    "checked": 43,
+    "verified": 43,
+    "flagged": 0,
+    "unchecked": 0
+  },
+  "workScore": 0,
+  "findings": [
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 18,
+        "excerpt": "Quran Al-Bakarah 2:238"
+      },
+      "summary": "Reference Quran Al-Bakarah 2:238 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:238.",
+      "reference": "2:238",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:238"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:238:1",
+        "quran:tanzil-uthmani:2:238:2",
+        "quran:tanzil-uthmani:2:238:3",
+        "quran:tanzil-uthmani:2:238:4",
+        "quran:tanzil-uthmani:2:238:5",
+        "quran:tanzil-uthmani:2:238:6",
+        "quran:tanzil-uthmani:2:238:7",
+        "quran:tanzil-uthmani:2:238:8"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 18,
+        "excerpt": "Quran Al-Bakarah 2:238"
+      },
+      "summary": "Surah name \"Al-Bakarah\" matches surah 2 (Al-Baqara).",
+      "detail": "Accepted as a spelling variant.",
+      "reference": "2:238"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 18,
+        "excerpt": "Quran Al-Bakarah 2:238"
+      },
+      "summary": "Quoted Arabic beside 2:238 matches the verse (8/8 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "2:238",
+      "claimedArabic": "حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَىٰ وَقُومُوا لِلَّـهِ قَانِتِينَ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 27,
+        "excerpt": "Quran Al-Maidah 5:6"
+      },
+      "summary": "Reference Quran Al-Maidah 5:6 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:5:6.",
+      "reference": "5:6",
+      "segmentIds": [
+        "quran:tanzil-uthmani:5:6"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:5:6:1",
+        "quran:tanzil-uthmani:5:6:2",
+        "quran:tanzil-uthmani:5:6:3",
+        "quran:tanzil-uthmani:5:6:4",
+        "quran:tanzil-uthmani:5:6:5",
+        "quran:tanzil-uthmani:5:6:6",
+        "quran:tanzil-uthmani:5:6:7",
+        "quran:tanzil-uthmani:5:6:8",
+        "quran:tanzil-uthmani:5:6:9",
+        "quran:tanzil-uthmani:5:6:10",
+        "quran:tanzil-uthmani:5:6:11",
+        "quran:tanzil-uthmani:5:6:12",
+        "quran:tanzil-uthmani:5:6:13",
+        "quran:tanzil-uthmani:5:6:14",
+        "quran:tanzil-uthmani:5:6:15",
+        "quran:tanzil-uthmani:5:6:16",
+        "quran:tanzil-uthmani:5:6:17",
+        "quran:tanzil-uthmani:5:6:18",
+        "quran:tanzil-uthmani:5:6:19",
+        "quran:tanzil-uthmani:5:6:20",
+        "quran:tanzil-uthmani:5:6:21",
+        "quran:tanzil-uthmani:5:6:22",
+        "quran:tanzil-uthmani:5:6:23",
+        "quran:tanzil-uthmani:5:6:24",
+        "quran:tanzil-uthmani:5:6:25",
+        "quran:tanzil-uthmani:5:6:26",
+        "quran:tanzil-uthmani:5:6:27",
+        "quran:tanzil-uthmani:5:6:28",
+        "quran:tanzil-uthmani:5:6:29",
+        "quran:tanzil-uthmani:5:6:30",
+        "quran:tanzil-uthmani:5:6:31",
+        "quran:tanzil-uthmani:5:6:32",
+        "quran:tanzil-uthmani:5:6:33",
+        "quran:tanzil-uthmani:5:6:34",
+        "quran:tanzil-uthmani:5:6:35",
+        "quran:tanzil-uthmani:5:6:36",
+        "quran:tanzil-uthmani:5:6:37",
+        "quran:tanzil-uthmani:5:6:38",
+        "quran:tanzil-uthmani:5:6:39",
+        "quran:tanzil-uthmani:5:6:40",
+        "quran:tanzil-uthmani:5:6:41",
+        "quran:tanzil-uthmani:5:6:42",
+        "quran:tanzil-uthmani:5:6:43",
+        "quran:tanzil-uthmani:5:6:44",
+        "quran:tanzil-uthmani:5:6:45",
+        "quran:tanzil-uthmani:5:6:46",
+        "quran:tanzil-uthmani:5:6:47",
+        "quran:tanzil-uthmani:5:6:48",
+        "quran:tanzil-uthmani:5:6:49",
+        "quran:tanzil-uthmani:5:6:50",
+        "quran:tanzil-uthmani:5:6:51",
+        "quran:tanzil-uthmani:5:6:52",
+        "quran:tanzil-uthmani:5:6:53",
+        "quran:tanzil-uthmani:5:6:54",
+        "quran:tanzil-uthmani:5:6:55",
+        "quran:tanzil-uthmani:5:6:56",
+        "quran:tanzil-uthmani:5:6:57",
+        "quran:tanzil-uthmani:5:6:58",
+        "quran:tanzil-uthmani:5:6:59",
+        "quran:tanzil-uthmani:5:6:60",
+        "quran:tanzil-uthmani:5:6:61"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 27,
+        "excerpt": "Quran Al-Maidah 5:6"
+      },
+      "summary": "Surah name \"Al-Maidah\" matches surah 5 (Al-Maaida).",
+      "detail": "Accepted as a spelling variant.",
+      "reference": "5:6"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 27,
+        "excerpt": "Quran Al-Maidah 5:6"
+      },
+      "summary": "Quoted Arabic beside 5:6 matches the verse (6/8 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. يَا أَيُّهَا).",
+      "reference": "5:6",
+      "claimedArabic": "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا قُمْتُمْ إِلَى الصَّلَاةِ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 36,
+        "excerpt": "Quran Al-Imran 3:39"
+      },
+      "summary": "Reference Quran Al-Imran 3:39 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:3:39.",
+      "reference": "3:39",
+      "segmentIds": [
+        "quran:tanzil-uthmani:3:39"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:3:39:1",
+        "quran:tanzil-uthmani:3:39:2",
+        "quran:tanzil-uthmani:3:39:3",
+        "quran:tanzil-uthmani:3:39:4",
+        "quran:tanzil-uthmani:3:39:5",
+        "quran:tanzil-uthmani:3:39:6",
+        "quran:tanzil-uthmani:3:39:7",
+        "quran:tanzil-uthmani:3:39:8",
+        "quran:tanzil-uthmani:3:39:9",
+        "quran:tanzil-uthmani:3:39:10",
+        "quran:tanzil-uthmani:3:39:11",
+        "quran:tanzil-uthmani:3:39:12",
+        "quran:tanzil-uthmani:3:39:13",
+        "quran:tanzil-uthmani:3:39:14",
+        "quran:tanzil-uthmani:3:39:15",
+        "quran:tanzil-uthmani:3:39:16",
+        "quran:tanzil-uthmani:3:39:17",
+        "quran:tanzil-uthmani:3:39:18",
+        "quran:tanzil-uthmani:3:39:19",
+        "quran:tanzil-uthmani:3:39:20"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 36,
+        "excerpt": "Quran Al-Imran 3:39"
+      },
+      "summary": "Surah name \"Al-Imran\" matches surah 3 (Aal-i-Imraan).",
+      "detail": "Accepted as a spelling variant.",
+      "reference": "3:39"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 36,
+        "excerpt": "Quran Al-Imran 3:39"
+      },
+      "summary": "Quoted Arabic beside 3:39 matches the verse (20/20 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "3:39",
+      "claimedArabic": "فَنَادَتْهُ الْمَلَائِكَةُ وَهُوَ قَائِمٌ يُصَلِّي فِي الْمِحْرَابِ أَنَّ اللَّـهَ يُبَشِّرُكَ بِيَحْيَىٰ مُصَدِّقًا بِك…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 45,
+        "excerpt": "Quran Al-Muzammil 73:20"
+      },
+      "summary": "Reference Quran Al-Muzammil 73:20 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:73:20.",
+      "reference": "73:20",
+      "segmentIds": [
+        "quran:tanzil-uthmani:73:20"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:73:20:1",
+        "quran:tanzil-uthmani:73:20:2",
+        "quran:tanzil-uthmani:73:20:3",
+        "quran:tanzil-uthmani:73:20:4",
+        "quran:tanzil-uthmani:73:20:5",
+        "quran:tanzil-uthmani:73:20:6",
+        "quran:tanzil-uthmani:73:20:7",
+        "quran:tanzil-uthmani:73:20:8",
+        "quran:tanzil-uthmani:73:20:9",
+        "quran:tanzil-uthmani:73:20:10",
+        "quran:tanzil-uthmani:73:20:11",
+        "quran:tanzil-uthmani:73:20:12",
+        "quran:tanzil-uthmani:73:20:13",
+        "quran:tanzil-uthmani:73:20:14",
+        "quran:tanzil-uthmani:73:20:15",
+        "quran:tanzil-uthmani:73:20:16",
+        "quran:tanzil-uthmani:73:20:17",
+        "quran:tanzil-uthmani:73:20:18",
+        "quran:tanzil-uthmani:73:20:19",
+        "quran:tanzil-uthmani:73:20:20",
+        "quran:tanzil-uthmani:73:20:21",
+        "quran:tanzil-uthmani:73:20:22",
+        "quran:tanzil-uthmani:73:20:23",
+        "quran:tanzil-uthmani:73:20:24",
+        "quran:tanzil-uthmani:73:20:25",
+        "quran:tanzil-uthmani:73:20:26",
+        "quran:tanzil-uthmani:73:20:27",
+        "quran:tanzil-uthmani:73:20:28",
+        "quran:tanzil-uthmani:73:20:29",
+        "quran:tanzil-uthmani:73:20:30",
+        "quran:tanzil-uthmani:73:20:31",
+        "quran:tanzil-uthmani:73:20:32",
+        "quran:tanzil-uthmani:73:20:33",
+        "quran:tanzil-uthmani:73:20:34",
+        "quran:tanzil-uthmani:73:20:35",
+        "quran:tanzil-uthmani:73:20:36",
+        "quran:tanzil-uthmani:73:20:37",
+        "quran:tanzil-uthmani:73:20:38",
+        "quran:tanzil-uthmani:73:20:39",
+        "quran:tanzil-uthmani:73:20:40",
+        "quran:tanzil-uthmani:73:20:41",
+        "quran:tanzil-uthmani:73:20:42",
+        "quran:tanzil-uthmani:73:20:43",
+        "quran:tanzil-uthmani:73:20:44",
+        "quran:tanzil-uthmani:73:20:45",
+        "quran:tanzil-uthmani:73:20:46",
+        "quran:tanzil-uthmani:73:20:47",
+        "quran:tanzil-uthmani:73:20:48",
+        "quran:tanzil-uthmani:73:20:49",
+        "quran:tanzil-uthmani:73:20:50",
+        "quran:tanzil-uthmani:73:20:51",
+        "quran:tanzil-uthmani:73:20:52",
+        "quran:tanzil-uthmani:73:20:53",
+        "quran:tanzil-uthmani:73:20:54",
+        "quran:tanzil-uthmani:73:20:55",
+        "quran:tanzil-uthmani:73:20:56",
+        "quran:tanzil-uthmani:73:20:57",
+        "quran:tanzil-uthmani:73:20:58",
+        "quran:tanzil-uthmani:73:20:59",
+        "quran:tanzil-uthmani:73:20:60",
+        "quran:tanzil-uthmani:73:20:61",
+        "quran:tanzil-uthmani:73:20:62",
+        "quran:tanzil-uthmani:73:20:63",
+        "quran:tanzil-uthmani:73:20:64",
+        "quran:tanzil-uthmani:73:20:65",
+        "quran:tanzil-uthmani:73:20:66",
+        "quran:tanzil-uthmani:73:20:67",
+        "quran:tanzil-uthmani:73:20:68",
+        "quran:tanzil-uthmani:73:20:69",
+        "quran:tanzil-uthmani:73:20:70",
+        "quran:tanzil-uthmani:73:20:71",
+        "quran:tanzil-uthmani:73:20:72",
+        "quran:tanzil-uthmani:73:20:73",
+        "quran:tanzil-uthmani:73:20:74",
+        "quran:tanzil-uthmani:73:20:75",
+        "quran:tanzil-uthmani:73:20:76",
+        "quran:tanzil-uthmani:73:20:77",
+        "quran:tanzil-uthmani:73:20:78"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 45,
+        "excerpt": "Quran Al-Muzammil 73:20"
+      },
+      "summary": "Surah name \"Al-Muzammil\" matches surah 73 (Al-Muzzammil).",
+      "detail": "Exact name match.",
+      "reference": "73:20"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 45,
+        "excerpt": "Quran Al-Muzammil 73:20"
+      },
+      "summary": "Quoted Arabic beside 73:20 matches the verse (11/11 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "73:20",
+      "claimedArabic": "إِنَّ رَبَّكَ يَعْلَمُ أَنَّكَ تَقُومُ أَدْنَىٰ مِن ثُلُثَيِ اللَّيْلِ وَنِصْفَهُ وَثُلُثَهُ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 59,
+        "excerpt": "Quran Al-Bakarah 2:43"
+      },
+      "summary": "Reference Quran Al-Bakarah 2:43 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:43.",
+      "reference": "2:43",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:43"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:43:1",
+        "quran:tanzil-uthmani:2:43:2",
+        "quran:tanzil-uthmani:2:43:3",
+        "quran:tanzil-uthmani:2:43:4",
+        "quran:tanzil-uthmani:2:43:5",
+        "quran:tanzil-uthmani:2:43:6",
+        "quran:tanzil-uthmani:2:43:7"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 59,
+        "excerpt": "Quran Al-Bakarah 2:43"
+      },
+      "summary": "Surah name \"Al-Bakarah\" matches surah 2 (Al-Baqara).",
+      "detail": "Accepted as a spelling variant.",
+      "reference": "2:43"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 59,
+        "excerpt": "Quran Al-Bakarah 2:43"
+      },
+      "summary": "Quoted Arabic beside 2:43 matches the verse (6/7 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. وَآتُواْ).",
+      "reference": "2:43",
+      "claimedArabic": "وَأَقِيمُواْ ٱلصَّلٰوةَ وَآتُواْ ٱلزَّكَٰوةَ وَٱرْكَعُواْ مَعَ ٱلرَّٰكِعِينَ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 68,
+        "excerpt": "Quran Al-Bakarah 2:125"
+      },
+      "summary": "Reference Quran Al-Bakarah 2:125 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:125.",
+      "reference": "2:125",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:125"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:125:1",
+        "quran:tanzil-uthmani:2:125:2",
+        "quran:tanzil-uthmani:2:125:3",
+        "quran:tanzil-uthmani:2:125:4",
+        "quran:tanzil-uthmani:2:125:5",
+        "quran:tanzil-uthmani:2:125:6",
+        "quran:tanzil-uthmani:2:125:7",
+        "quran:tanzil-uthmani:2:125:8",
+        "quran:tanzil-uthmani:2:125:9",
+        "quran:tanzil-uthmani:2:125:10",
+        "quran:tanzil-uthmani:2:125:11",
+        "quran:tanzil-uthmani:2:125:12",
+        "quran:tanzil-uthmani:2:125:13",
+        "quran:tanzil-uthmani:2:125:14",
+        "quran:tanzil-uthmani:2:125:15",
+        "quran:tanzil-uthmani:2:125:16",
+        "quran:tanzil-uthmani:2:125:17",
+        "quran:tanzil-uthmani:2:125:18",
+        "quran:tanzil-uthmani:2:125:19",
+        "quran:tanzil-uthmani:2:125:20",
+        "quran:tanzil-uthmani:2:125:21",
+        "quran:tanzil-uthmani:2:125:22"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 68,
+        "excerpt": "Quran Al-Bakarah 2:125"
+      },
+      "summary": "Surah name \"Al-Bakarah\" matches surah 2 (Al-Baqara).",
+      "detail": "Accepted as a spelling variant.",
+      "reference": "2:125"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 68,
+        "excerpt": "Quran Al-Bakarah 2:125"
+      },
+      "summary": "Quoted Arabic beside 2:125 matches the verse (22/22 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "2:125",
+      "claimedArabic": "وَإِذْ جَعَلْنَا الْبَيْتَ مَثَابَةً لِّلنَّاسِ وَأَمْنًا وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى ۖ وَعَهِدْنَا …",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 77,
+        "excerpt": "Quran Al-Fath 48:29"
+      },
+      "summary": "Reference Quran Al-Fath 48:29 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:48:29.",
+      "reference": "48:29",
+      "segmentIds": [
+        "quran:tanzil-uthmani:48:29"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:48:29:1",
+        "quran:tanzil-uthmani:48:29:2",
+        "quran:tanzil-uthmani:48:29:3",
+        "quran:tanzil-uthmani:48:29:4",
+        "quran:tanzil-uthmani:48:29:5",
+        "quran:tanzil-uthmani:48:29:6",
+        "quran:tanzil-uthmani:48:29:7",
+        "quran:tanzil-uthmani:48:29:8",
+        "quran:tanzil-uthmani:48:29:9",
+        "quran:tanzil-uthmani:48:29:10",
+        "quran:tanzil-uthmani:48:29:11",
+        "quran:tanzil-uthmani:48:29:12",
+        "quran:tanzil-uthmani:48:29:13",
+        "quran:tanzil-uthmani:48:29:14",
+        "quran:tanzil-uthmani:48:29:15",
+        "quran:tanzil-uthmani:48:29:16",
+        "quran:tanzil-uthmani:48:29:17",
+        "quran:tanzil-uthmani:48:29:18",
+        "quran:tanzil-uthmani:48:29:19",
+        "quran:tanzil-uthmani:48:29:20",
+        "quran:tanzil-uthmani:48:29:21",
+        "quran:tanzil-uthmani:48:29:22",
+        "quran:tanzil-uthmani:48:29:23",
+        "quran:tanzil-uthmani:48:29:24",
+        "quran:tanzil-uthmani:48:29:25",
+        "quran:tanzil-uthmani:48:29:26",
+        "quran:tanzil-uthmani:48:29:27",
+        "quran:tanzil-uthmani:48:29:28",
+        "quran:tanzil-uthmani:48:29:29",
+        "quran:tanzil-uthmani:48:29:30",
+        "quran:tanzil-uthmani:48:29:31",
+        "quran:tanzil-uthmani:48:29:32",
+        "quran:tanzil-uthmani:48:29:33",
+        "quran:tanzil-uthmani:48:29:34",
+        "quran:tanzil-uthmani:48:29:35",
+        "quran:tanzil-uthmani:48:29:36",
+        "quran:tanzil-uthmani:48:29:37",
+        "quran:tanzil-uthmani:48:29:38",
+        "quran:tanzil-uthmani:48:29:39",
+        "quran:tanzil-uthmani:48:29:40",
+        "quran:tanzil-uthmani:48:29:41",
+        "quran:tanzil-uthmani:48:29:42",
+        "quran:tanzil-uthmani:48:29:43",
+        "quran:tanzil-uthmani:48:29:44",
+        "quran:tanzil-uthmani:48:29:45",
+        "quran:tanzil-uthmani:48:29:46",
+        "quran:tanzil-uthmani:48:29:47",
+        "quran:tanzil-uthmani:48:29:48",
+        "quran:tanzil-uthmani:48:29:49",
+        "quran:tanzil-uthmani:48:29:50",
+        "quran:tanzil-uthmani:48:29:51",
+        "quran:tanzil-uthmani:48:29:52",
+        "quran:tanzil-uthmani:48:29:53",
+        "quran:tanzil-uthmani:48:29:54"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 77,
+        "excerpt": "Quran Al-Fath 48:29"
+      },
+      "summary": "Surah name \"Al-Fath\" matches surah 48 (Al-Fath).",
+      "detail": "Exact name match.",
+      "reference": "48:29"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 77,
+        "excerpt": "Quran Al-Fath 48:29"
+      },
+      "summary": "Quoted Arabic beside 48:29 matches the verse (54/54 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "48:29",
+      "claimedArabic": "مُّحَمَّدٌ رَّسُولُ اللَّـهِ ۚ وَالَّذِينَ مَعَهُ أَشِدَّاءُ عَلَى الْكُفَّارِ رُحَمَاءُ بَيْنَهُمْ ۖ تَرَاهُمْ رُكَّعًا…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 91,
+        "excerpt": "Quran Al-Imran 3:113"
+      },
+      "summary": "Reference Quran Al-Imran 3:113 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:3:113.",
+      "reference": "3:113",
+      "segmentIds": [
+        "quran:tanzil-uthmani:3:113"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:3:113:1",
+        "quran:tanzil-uthmani:3:113:2",
+        "quran:tanzil-uthmani:3:113:3",
+        "quran:tanzil-uthmani:3:113:4",
+        "quran:tanzil-uthmani:3:113:5",
+        "quran:tanzil-uthmani:3:113:6",
+        "quran:tanzil-uthmani:3:113:7",
+        "quran:tanzil-uthmani:3:113:8",
+        "quran:tanzil-uthmani:3:113:9",
+        "quran:tanzil-uthmani:3:113:10",
+        "quran:tanzil-uthmani:3:113:11",
+        "quran:tanzil-uthmani:3:113:12",
+        "quran:tanzil-uthmani:3:113:13",
+        "quran:tanzil-uthmani:3:113:14"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 91,
+        "excerpt": "Quran Al-Imran 3:113"
+      },
+      "summary": "Surah name \"Al-Imran\" matches surah 3 (Aal-i-Imraan).",
+      "detail": "Accepted as a spelling variant.",
+      "reference": "3:113"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 91,
+        "excerpt": "Quran Al-Imran 3:113"
+      },
+      "summary": "Quoted Arabic beside 3:113 matches the verse (11/14 words exact, 96% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. آيَاتِ آنَاءَ اللَّيْلِ).",
+      "reference": "3:113",
+      "claimedArabic": "لَيْسُوا سَوَاءً ۗ مِّنْ أَهْلِ الْكِتَابِ أُمَّةٌ قَائِمَةٌ يَتْلُونَ آيَاتِ اللَّـهِ آنَاءَ اللَّيْلِ وَهُمْ يَسْجُدُو…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 100,
+        "excerpt": "Quran An-Nisa 4:102 - 103"
+      },
+      "summary": "Reference Quran An-Nisa 4:102 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:4:102.",
+      "reference": "4:102",
+      "segmentIds": [
+        "quran:tanzil-uthmani:4:102"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:4:102:1",
+        "quran:tanzil-uthmani:4:102:2",
+        "quran:tanzil-uthmani:4:102:3",
+        "quran:tanzil-uthmani:4:102:4",
+        "quran:tanzil-uthmani:4:102:5",
+        "quran:tanzil-uthmani:4:102:6",
+        "quran:tanzil-uthmani:4:102:7",
+        "quran:tanzil-uthmani:4:102:8",
+        "quran:tanzil-uthmani:4:102:9",
+        "quran:tanzil-uthmani:4:102:10",
+        "quran:tanzil-uthmani:4:102:11",
+        "quran:tanzil-uthmani:4:102:12",
+        "quran:tanzil-uthmani:4:102:13",
+        "quran:tanzil-uthmani:4:102:14",
+        "quran:tanzil-uthmani:4:102:15",
+        "quran:tanzil-uthmani:4:102:16",
+        "quran:tanzil-uthmani:4:102:17",
+        "quran:tanzil-uthmani:4:102:18",
+        "quran:tanzil-uthmani:4:102:19",
+        "quran:tanzil-uthmani:4:102:20",
+        "quran:tanzil-uthmani:4:102:21",
+        "quran:tanzil-uthmani:4:102:22",
+        "quran:tanzil-uthmani:4:102:23",
+        "quran:tanzil-uthmani:4:102:24",
+        "quran:tanzil-uthmani:4:102:25",
+        "quran:tanzil-uthmani:4:102:26",
+        "quran:tanzil-uthmani:4:102:27",
+        "quran:tanzil-uthmani:4:102:28",
+        "quran:tanzil-uthmani:4:102:29",
+        "quran:tanzil-uthmani:4:102:30",
+        "quran:tanzil-uthmani:4:102:31",
+        "quran:tanzil-uthmani:4:102:32",
+        "quran:tanzil-uthmani:4:102:33",
+        "quran:tanzil-uthmani:4:102:34",
+        "quran:tanzil-uthmani:4:102:35",
+        "quran:tanzil-uthmani:4:102:36",
+        "quran:tanzil-uthmani:4:102:37",
+        "quran:tanzil-uthmani:4:102:38",
+        "quran:tanzil-uthmani:4:102:39",
+        "quran:tanzil-uthmani:4:102:40",
+        "quran:tanzil-uthmani:4:102:41",
+        "quran:tanzil-uthmani:4:102:42",
+        "quran:tanzil-uthmani:4:102:43",
+        "quran:tanzil-uthmani:4:102:44",
+        "quran:tanzil-uthmani:4:102:45",
+        "quran:tanzil-uthmani:4:102:46",
+        "quran:tanzil-uthmani:4:102:47",
+        "quran:tanzil-uthmani:4:102:48",
+        "quran:tanzil-uthmani:4:102:49",
+        "quran:tanzil-uthmani:4:102:50",
+        "quran:tanzil-uthmani:4:102:51",
+        "quran:tanzil-uthmani:4:102:52",
+        "quran:tanzil-uthmani:4:102:53",
+        "quran:tanzil-uthmani:4:102:54",
+        "quran:tanzil-uthmani:4:102:55",
+        "quran:tanzil-uthmani:4:102:56",
+        "quran:tanzil-uthmani:4:102:57",
+        "quran:tanzil-uthmani:4:102:58",
+        "quran:tanzil-uthmani:4:102:59",
+        "quran:tanzil-uthmani:4:102:60",
+        "quran:tanzil-uthmani:4:102:61",
+        "quran:tanzil-uthmani:4:102:62"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 100,
+        "excerpt": "Quran An-Nisa 4:102 - 103"
+      },
+      "summary": "Surah name \"An-Nisa\" matches surah 4 (An-Nisaa).",
+      "detail": "Exact name match.",
+      "reference": "4:102"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 100,
+        "excerpt": "Quran An-Nisa 4:102 - 103"
+      },
+      "summary": "Quoted Arabic beside 4:102 matches the verse (70/82 words exact, 76% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. قَضَيْتُمُ فَاذْكُرُوا قِيَامًا وَقُعُودًا).",
+      "reference": "4:102",
+      "claimedArabic": "وَإِذَا كُنتَ فِيهِمْ فَأَقَمْتَ لَهُمُ الصَّلَاةَ فَلْتَقُمْ طَائِفَةٌ مِّنْهُم مَّعَكَ وَلْيَأْخُذُوا أَسْلِحَتَهُمْ ف…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 119,
+        "excerpt": "Quran Taha 20:14"
+      },
+      "summary": "Reference Quran Taha 20:14 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:20:14.",
+      "reference": "20:14",
+      "segmentIds": [
+        "quran:tanzil-uthmani:20:14"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:20:14:1",
+        "quran:tanzil-uthmani:20:14:2",
+        "quran:tanzil-uthmani:20:14:3",
+        "quran:tanzil-uthmani:20:14:4",
+        "quran:tanzil-uthmani:20:14:5",
+        "quran:tanzil-uthmani:20:14:6",
+        "quran:tanzil-uthmani:20:14:7",
+        "quran:tanzil-uthmani:20:14:8",
+        "quran:tanzil-uthmani:20:14:9",
+        "quran:tanzil-uthmani:20:14:10",
+        "quran:tanzil-uthmani:20:14:11"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 119,
+        "excerpt": "Quran Taha 20:14"
+      },
+      "summary": "Surah name \"Taha\" matches surah 20 (Taa-Haa).",
+      "detail": "Exact name match.",
+      "reference": "20:14"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 119,
+        "excerpt": "Quran Taha 20:14"
+      },
+      "summary": "Quoted Arabic beside 20:14 matches the verse (11/11 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "20:14",
+      "claimedArabic": "نَّنِي أَنَا اللَّـهُ لَا إِلَـٰهَ إِلَّا أَنَا فَاعْبُدْنِي وَأَقِمِ الصَّلَاةَ لِذِكْرِي",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 133,
+        "excerpt": "Quran Al-Ahqaf 46:9"
+      },
+      "summary": "Reference Quran Al-Ahqaf 46:9 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:46:9.",
+      "reference": "46:9",
+      "segmentIds": [
+        "quran:tanzil-uthmani:46:9"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:46:9:1",
+        "quran:tanzil-uthmani:46:9:2",
+        "quran:tanzil-uthmani:46:9:3",
+        "quran:tanzil-uthmani:46:9:4",
+        "quran:tanzil-uthmani:46:9:5",
+        "quran:tanzil-uthmani:46:9:6",
+        "quran:tanzil-uthmani:46:9:7",
+        "quran:tanzil-uthmani:46:9:8",
+        "quran:tanzil-uthmani:46:9:9",
+        "quran:tanzil-uthmani:46:9:10",
+        "quran:tanzil-uthmani:46:9:11",
+        "quran:tanzil-uthmani:46:9:12",
+        "quran:tanzil-uthmani:46:9:13",
+        "quran:tanzil-uthmani:46:9:14",
+        "quran:tanzil-uthmani:46:9:15",
+        "quran:tanzil-uthmani:46:9:16",
+        "quran:tanzil-uthmani:46:9:17",
+        "quran:tanzil-uthmani:46:9:18",
+        "quran:tanzil-uthmani:46:9:19",
+        "quran:tanzil-uthmani:46:9:20",
+        "quran:tanzil-uthmani:46:9:21",
+        "quran:tanzil-uthmani:46:9:22",
+        "quran:tanzil-uthmani:46:9:23",
+        "quran:tanzil-uthmani:46:9:24"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 133,
+        "excerpt": "Quran Al-Ahqaf 46:9"
+      },
+      "summary": "Surah name \"Al-Ahqaf\" matches surah 46 (Al-Ahqaf).",
+      "detail": "Exact name match.",
+      "reference": "46:9"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 133,
+        "excerpt": "Quran Al-Ahqaf 46:9"
+      },
+      "summary": "Quoted Arabic beside 46:9 matches the verse (24/24 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "46:9",
+      "claimedArabic": "قُلْ مَا كُنتُ بِدْعًا مِّنَ الرُّسُلِ وَمَا أَدْرِي مَا يُفْعَلُ بِي وَلَا بِكُمْ ۖ إِنْ أَتَّبِعُ إِلَّا مَا يُوحَىٰ إ…",
+      "matchLevel": "normalised"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 142,
+        "excerpt": "Quran Al-Ahzab 33:38"
+      },
+      "summary": "Reference Quran Al-Ahzab 33:38 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:33:38.",
+      "reference": "33:38",
+      "segmentIds": [
+        "quran:tanzil-uthmani:33:38"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:33:38:1",
+        "quran:tanzil-uthmani:33:38:2",
+        "quran:tanzil-uthmani:33:38:3",
+        "quran:tanzil-uthmani:33:38:4",
+        "quran:tanzil-uthmani:33:38:5",
+        "quran:tanzil-uthmani:33:38:6",
+        "quran:tanzil-uthmani:33:38:7",
+        "quran:tanzil-uthmani:33:38:8",
+        "quran:tanzil-uthmani:33:38:9",
+        "quran:tanzil-uthmani:33:38:10",
+        "quran:tanzil-uthmani:33:38:11",
+        "quran:tanzil-uthmani:33:38:12",
+        "quran:tanzil-uthmani:33:38:13",
+        "quran:tanzil-uthmani:33:38:14",
+        "quran:tanzil-uthmani:33:38:15",
+        "quran:tanzil-uthmani:33:38:16",
+        "quran:tanzil-uthmani:33:38:17",
+        "quran:tanzil-uthmani:33:38:18",
+        "quran:tanzil-uthmani:33:38:19",
+        "quran:tanzil-uthmani:33:38:20",
+        "quran:tanzil-uthmani:33:38:21",
+        "quran:tanzil-uthmani:33:38:22"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 142,
+        "excerpt": "Quran Al-Ahzab 33:38"
+      },
+      "summary": "Surah name \"Al-Ahzab\" matches surah 33 (Al-Ahzaab).",
+      "detail": "Exact name match.",
+      "reference": "33:38"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 142,
+        "excerpt": "Quran Al-Ahzab 33:38"
+      },
+      "summary": "Quoted Arabic beside 33:38 matches the verse (22/22 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "33:38",
+      "claimedArabic": "مَّا كَانَ عَلَى النَّبِيِّ مِنْ حَرَجٍ فِيمَا فَرَضَ اللَّـهُ لَهُ ۖ سُنَّةَ اللَّـهِ فِي الَّذِينَ خَلَوْا مِن قَبْلُ …",
+      "matchLevel": "normalised"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 158,
+        "excerpt": "Quran An-Nisa 4:142"
+      },
+      "summary": "Reference Quran An-Nisa 4:142 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:4:142.",
+      "reference": "4:142",
+      "segmentIds": [
+        "quran:tanzil-uthmani:4:142"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:4:142:1",
+        "quran:tanzil-uthmani:4:142:2",
+        "quran:tanzil-uthmani:4:142:3",
+        "quran:tanzil-uthmani:4:142:4",
+        "quran:tanzil-uthmani:4:142:5",
+        "quran:tanzil-uthmani:4:142:6",
+        "quran:tanzil-uthmani:4:142:7",
+        "quran:tanzil-uthmani:4:142:8",
+        "quran:tanzil-uthmani:4:142:9",
+        "quran:tanzil-uthmani:4:142:10",
+        "quran:tanzil-uthmani:4:142:11",
+        "quran:tanzil-uthmani:4:142:12",
+        "quran:tanzil-uthmani:4:142:13",
+        "quran:tanzil-uthmani:4:142:14",
+        "quran:tanzil-uthmani:4:142:15",
+        "quran:tanzil-uthmani:4:142:16",
+        "quran:tanzil-uthmani:4:142:17",
+        "quran:tanzil-uthmani:4:142:18",
+        "quran:tanzil-uthmani:4:142:19"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 158,
+        "excerpt": "Quran An-Nisa 4:142"
+      },
+      "summary": "Surah name \"An-Nisa\" matches surah 4 (An-Nisaa).",
+      "detail": "Exact name match.",
+      "reference": "4:142"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 158,
+        "excerpt": "Quran An-Nisa 4:142"
+      },
+      "summary": "Quoted Arabic beside 4:142 matches the verse (18/19 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. نَّ).",
+      "reference": "4:142",
+      "claimedArabic": "نَّ الْمُنَافِقِينَ يُخَادِعُونَ اللَّـهَ وَهُوَ خَادِعُهُمْ وَإِذَا قَامُوا إِلَى الصَّلَاةِ قَامُوا كُسَالَىٰ يُرَاءُو…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 172,
+        "excerpt": "Quran An-Nisa 4:103"
+      },
+      "summary": "Reference Quran An-Nisa 4:103 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:4:103.",
+      "reference": "4:103",
+      "segmentIds": [
+        "quran:tanzil-uthmani:4:103"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:4:103:1",
+        "quran:tanzil-uthmani:4:103:2",
+        "quran:tanzil-uthmani:4:103:3",
+        "quran:tanzil-uthmani:4:103:4",
+        "quran:tanzil-uthmani:4:103:5",
+        "quran:tanzil-uthmani:4:103:6",
+        "quran:tanzil-uthmani:4:103:7",
+        "quran:tanzil-uthmani:4:103:8",
+        "quran:tanzil-uthmani:4:103:9",
+        "quran:tanzil-uthmani:4:103:10",
+        "quran:tanzil-uthmani:4:103:11",
+        "quran:tanzil-uthmani:4:103:12",
+        "quran:tanzil-uthmani:4:103:13",
+        "quran:tanzil-uthmani:4:103:14",
+        "quran:tanzil-uthmani:4:103:15",
+        "quran:tanzil-uthmani:4:103:16",
+        "quran:tanzil-uthmani:4:103:17",
+        "quran:tanzil-uthmani:4:103:18",
+        "quran:tanzil-uthmani:4:103:19",
+        "quran:tanzil-uthmani:4:103:20"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 172,
+        "excerpt": "Quran An-Nisa 4:103"
+      },
+      "summary": "Surah name \"An-Nisa\" matches surah 4 (An-Nisaa).",
+      "detail": "Exact name match.",
+      "reference": "4:103"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 172,
+        "excerpt": "Quran An-Nisa 4:103"
+      },
+      "summary": "Quoted Arabic beside 4:103 matches the verse (20/20 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "4:103",
+      "claimedArabic": "فَإِذَا قَضَيْتُمُ الصَّلَاةَ فَاذْكُرُوا اللَّـهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِكُمْ ۚ فَإِذَا اطْمَأْنَنتُمْ فَأ…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 181,
+        "excerpt": "…edicated to calling upon Muhammad by saying  اَلسَّلاَمُ عَلَيْكَ اَيُّهَاالنَّبِيُّ (Sala…"
+      },
+      "summary": "Arabic \"اَلسَّلاَمُ عَلَيْكَ اَيُّهَاالنَّبِيُّ\" appears in the corpus (3 word(s)).",
+      "detail": "2 word(s) present only as an orthographic variant (article uses a non-Uthmani spelling); the exact form is not in the corpus.",
+      "claimedArabic": "اَلسَّلاَمُ عَلَيْكَ اَيُّهَاالنَّبِيُّ",
+      "matchLevel": "orthographic"
+    }
+  ]
+}

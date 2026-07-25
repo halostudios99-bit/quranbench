@@ -1,0 +1,796 @@
+{
+  "slug": "salat",
+  "title": "Salat",
+  "file": "salat.md",
+  "corpusVersion": "0.6.0",
+  "provenance": "Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
+  "counts": {
+    "checked": 45,
+    "verified": 42,
+    "flagged": 3,
+    "unchecked": 0
+  },
+  "workScore": 12,
+  "findings": [
+    {
+      "kind": "quoted-arabic",
+      "status": "flagged",
+      "severity": "high",
+      "location": {
+        "line": 33,
+        "excerpt": "Quran Al-Anam 24:35"
+      },
+      "summary": "Quoted Arabic beside 24:35 does not match that verse — it matches 6:38.",
+      "detail": "Word coverage 27%, consonant coverage 29%. Unmatched words: وَمَا دَابَّةٍ الْأَرْضِ طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم مَّا فَرَّطْنَا الْكِتَابِ ثُمَّ إِلَىٰ رَبِّهِمْ يُحْشَرُونَ. The text is a 100% consonant match to 6:38; the citation may be to the wrong verse.",
+      "reference": "24:35",
+      "claimedArabic": "وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم ۚ مَّا فَرَّطْنَا فِي ال…",
+      "matchLevel": "none"
+    },
+    {
+      "kind": "root-claim",
+      "location": {
+        "line": 46,
+        "excerpt": "…مُوا الصَّلَاةَ) means establishing contact, Root word for Salat (صلاة) is Tasil (تصل) mea…"
+      },
+      "claimedRoot": "تصل",
+      "status": "flagged",
+      "severity": "high",
+      "summary": "Root claim: article says the root of \"Salat (صلاة)\" is \"تصل\", but the corpus root is ص ل و.",
+      "detail": "The corpus records root ص ل و for \"صلاة\" (nearby forms also draw on ص ل ي, و ص ل, أ ص ل). \"تصل\" is not that root — it is likely a derived form, not the triliteral root.",
+      "corpusRoots": [
+        "ص ل و",
+        "ص ل ي",
+        "و ص ل",
+        "أ ص ل"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "flagged",
+      "severity": "medium",
+      "location": {
+        "line": 33,
+        "excerpt": "Quran Al-Anam 24:35"
+      },
+      "summary": "Surah name \"Al-Anam\" does not match surah 24 (An-Noor).",
+      "detail": "\"Al-Anam\" best matches surah 6 (Al-An'aam). The name and the number 24:35 disagree — one of them is wrong.",
+      "reference": "24:35"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 21,
+        "excerpt": "Quran Al-Anam 6:114"
+      },
+      "summary": "Reference Quran Al-Anam 6:114 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:6:114.",
+      "reference": "6:114",
+      "segmentIds": [
+        "quran:tanzil-uthmani:6:114"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:6:114:1",
+        "quran:tanzil-uthmani:6:114:2",
+        "quran:tanzil-uthmani:6:114:3",
+        "quran:tanzil-uthmani:6:114:4",
+        "quran:tanzil-uthmani:6:114:5",
+        "quran:tanzil-uthmani:6:114:6",
+        "quran:tanzil-uthmani:6:114:7",
+        "quran:tanzil-uthmani:6:114:8",
+        "quran:tanzil-uthmani:6:114:9",
+        "quran:tanzil-uthmani:6:114:10",
+        "quran:tanzil-uthmani:6:114:11",
+        "quran:tanzil-uthmani:6:114:12",
+        "quran:tanzil-uthmani:6:114:13",
+        "quran:tanzil-uthmani:6:114:14",
+        "quran:tanzil-uthmani:6:114:15",
+        "quran:tanzil-uthmani:6:114:16",
+        "quran:tanzil-uthmani:6:114:17",
+        "quran:tanzil-uthmani:6:114:18",
+        "quran:tanzil-uthmani:6:114:19",
+        "quran:tanzil-uthmani:6:114:20",
+        "quran:tanzil-uthmani:6:114:21",
+        "quran:tanzil-uthmani:6:114:22",
+        "quran:tanzil-uthmani:6:114:23"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 21,
+        "excerpt": "Quran Al-Anam 6:114"
+      },
+      "summary": "Surah name \"Al-Anam\" matches surah 6 (Al-An'aam).",
+      "detail": "Exact name match.",
+      "reference": "6:114"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 21,
+        "excerpt": "Quran Al-Anam 6:114"
+      },
+      "summary": "Quoted Arabic beside 6:114 matches the verse (23/23 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "6:114",
+      "claimedArabic": "أَفَغَيْرَ اللَّـهِ أَبْتَغِي حَكَمًا وَهُوَ الَّذِي أَنزَلَ إِلَيْكُمُ الْكِتَابَ مُفَصَّلًا ۚ وَالَّذِينَ آتَيْنَاهُمُ…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 33,
+        "excerpt": "Quran Al-Anam 24:35"
+      },
+      "summary": "Reference Quran Al-Anam 24:35 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:24:35.",
+      "reference": "24:35",
+      "segmentIds": [
+        "quran:tanzil-uthmani:24:35"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:24:35:1",
+        "quran:tanzil-uthmani:24:35:2",
+        "quran:tanzil-uthmani:24:35:3",
+        "quran:tanzil-uthmani:24:35:4",
+        "quran:tanzil-uthmani:24:35:5",
+        "quran:tanzil-uthmani:24:35:6",
+        "quran:tanzil-uthmani:24:35:7",
+        "quran:tanzil-uthmani:24:35:8",
+        "quran:tanzil-uthmani:24:35:9",
+        "quran:tanzil-uthmani:24:35:10",
+        "quran:tanzil-uthmani:24:35:11",
+        "quran:tanzil-uthmani:24:35:12",
+        "quran:tanzil-uthmani:24:35:13",
+        "quran:tanzil-uthmani:24:35:14",
+        "quran:tanzil-uthmani:24:35:15",
+        "quran:tanzil-uthmani:24:35:16",
+        "quran:tanzil-uthmani:24:35:17",
+        "quran:tanzil-uthmani:24:35:18",
+        "quran:tanzil-uthmani:24:35:19",
+        "quran:tanzil-uthmani:24:35:20",
+        "quran:tanzil-uthmani:24:35:21",
+        "quran:tanzil-uthmani:24:35:22",
+        "quran:tanzil-uthmani:24:35:23",
+        "quran:tanzil-uthmani:24:35:24",
+        "quran:tanzil-uthmani:24:35:25",
+        "quran:tanzil-uthmani:24:35:26",
+        "quran:tanzil-uthmani:24:35:27",
+        "quran:tanzil-uthmani:24:35:28",
+        "quran:tanzil-uthmani:24:35:29",
+        "quran:tanzil-uthmani:24:35:30",
+        "quran:tanzil-uthmani:24:35:31",
+        "quran:tanzil-uthmani:24:35:32",
+        "quran:tanzil-uthmani:24:35:33",
+        "quran:tanzil-uthmani:24:35:34",
+        "quran:tanzil-uthmani:24:35:35",
+        "quran:tanzil-uthmani:24:35:36",
+        "quran:tanzil-uthmani:24:35:37",
+        "quran:tanzil-uthmani:24:35:38",
+        "quran:tanzil-uthmani:24:35:39",
+        "quran:tanzil-uthmani:24:35:40",
+        "quran:tanzil-uthmani:24:35:41",
+        "quran:tanzil-uthmani:24:35:42",
+        "quran:tanzil-uthmani:24:35:43",
+        "quran:tanzil-uthmani:24:35:44",
+        "quran:tanzil-uthmani:24:35:45",
+        "quran:tanzil-uthmani:24:35:46",
+        "quran:tanzil-uthmani:24:35:47",
+        "quran:tanzil-uthmani:24:35:48"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 46,
+        "excerpt": "Quranic word Salat (صلاة) literally means \"Contact\" and word Akeemu Al Salat (أَقِيمُوا ال…"
+      },
+      "summary": "Arabic \"صلاة\" appears in the corpus (1 word(s)).",
+      "detail": "1 word(s) present only as an orthographic variant (article uses a non-Uthmani spelling); the exact form is not in the corpus.",
+      "claimedArabic": "صلاة",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 46,
+        "excerpt": "…ly means \"Contact\" and word Akeemu Al Salat (أَقِيمُوا الصَّلَاةَ) means establishing cont…"
+      },
+      "summary": "Arabic \"أَقِيمُوا الصَّلَاةَ\" appears in the corpus (2 word(s)).",
+      "detail": "1 word(s) present only as an orthographic variant (article uses a non-Uthmani spelling); the exact form is not in the corpus.",
+      "claimedArabic": "أَقِيمُوا الصَّلَاةَ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 46,
+        "excerpt": "…ontact, Root word for Salat (صلاة) is Tasil (تصل) meaning \"Contact\".[box]…"
+      },
+      "summary": "Arabic \"تصل\" appears in the corpus (1 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "تصل"
+    },
+    {
+      "kind": "transliteration",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 46,
+        "excerpt": "Quranic word Salat (صلاة) literally means \"Contact\" and word Akeemu Al Salat (أَقِيمُوا ال…"
+      },
+      "summary": "Transliteration \"Salat\" is consistent with \"صلاة\".",
+      "detail": "Consonant overlap 67%.",
+      "claimedArabic": "صلاة"
+    },
+    {
+      "kind": "transliteration",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 46,
+        "excerpt": "…shing contact, Root word for Salat (صلاة) is Tasil (تصل) meaning \"Contact\".[box]…"
+      },
+      "summary": "Transliteration \"Tasil\" is consistent with \"تصل\".",
+      "detail": "Consonant overlap 100%.",
+      "claimedArabic": "تصل"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 47,
+        "excerpt": "Quran Al-Bakarah 2:43"
+      },
+      "summary": "Reference Quran Al-Bakarah 2:43 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:43.",
+      "reference": "2:43",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:43"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:43:1",
+        "quran:tanzil-uthmani:2:43:2",
+        "quran:tanzil-uthmani:2:43:3",
+        "quran:tanzil-uthmani:2:43:4",
+        "quran:tanzil-uthmani:2:43:5",
+        "quran:tanzil-uthmani:2:43:6",
+        "quran:tanzil-uthmani:2:43:7"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 47,
+        "excerpt": "Quran Al-Bakarah 2:43"
+      },
+      "summary": "Surah name \"Al-Bakarah\" matches surah 2 (Al-Baqara).",
+      "detail": "Accepted as a spelling variant.",
+      "reference": "2:43"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 47,
+        "excerpt": "Quran Al-Bakarah 2:43"
+      },
+      "summary": "Quoted Arabic beside 2:43 matches the verse (6/7 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. وَآتُواْ).",
+      "reference": "2:43",
+      "claimedArabic": "وَأَقِيمُواْ ٱلصَّلٰوةَ وَآتُواْ ٱلزَّكَٰوةَ وَٱرْكَعُواْ مَعَ ٱلرَّٰكِعِينَ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 65,
+        "excerpt": "Quran Al-Tawba 9:84"
+      },
+      "summary": "Reference Quran Al-Tawba 9:84 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:9:84.",
+      "reference": "9:84",
+      "segmentIds": [
+        "quran:tanzil-uthmani:9:84"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:9:84:1",
+        "quran:tanzil-uthmani:9:84:2",
+        "quran:tanzil-uthmani:9:84:3",
+        "quran:tanzil-uthmani:9:84:4",
+        "quran:tanzil-uthmani:9:84:5",
+        "quran:tanzil-uthmani:9:84:6",
+        "quran:tanzil-uthmani:9:84:7",
+        "quran:tanzil-uthmani:9:84:8",
+        "quran:tanzil-uthmani:9:84:9",
+        "quran:tanzil-uthmani:9:84:10",
+        "quran:tanzil-uthmani:9:84:11",
+        "quran:tanzil-uthmani:9:84:12",
+        "quran:tanzil-uthmani:9:84:13",
+        "quran:tanzil-uthmani:9:84:14",
+        "quran:tanzil-uthmani:9:84:15",
+        "quran:tanzil-uthmani:9:84:16",
+        "quran:tanzil-uthmani:9:84:17",
+        "quran:tanzil-uthmani:9:84:18"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 65,
+        "excerpt": "Quran Al-Tawba 9:84"
+      },
+      "summary": "Surah name \"Al-Tawba\" matches surah 9 (At-Tawba).",
+      "detail": "Exact name match.",
+      "reference": "9:84"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 65,
+        "excerpt": "Quran Al-Tawba 9:84"
+      },
+      "summary": "Quoted Arabic beside 9:84 matches the verse (18/18 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "9:84",
+      "claimedArabic": "وَلَا تُصَلِّ عَلَىٰ أَحَدٍ مِّنْهُم مَّاتَ أَبَدًا وَلَا تَقُمْ عَلَىٰ قَبْرِهِ ۖ إِنَّهُمْ كَفَرُوا بِاللَّـهِ وَرَسُو…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 74,
+        "excerpt": "Allah is refraining prophet from contacting (تُصَلِّ) any of the hypocrites who refused to…"
+      },
+      "summary": "Arabic \"تُصَلِّ\" appears in the corpus (1 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "تُصَلِّ"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 79,
+        "excerpt": "Quran Al-Tawba 9:103"
+      },
+      "summary": "Reference Quran Al-Tawba 9:103 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:9:103.",
+      "reference": "9:103",
+      "segmentIds": [
+        "quran:tanzil-uthmani:9:103"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:9:103:1",
+        "quran:tanzil-uthmani:9:103:2",
+        "quran:tanzil-uthmani:9:103:3",
+        "quran:tanzil-uthmani:9:103:4",
+        "quran:tanzil-uthmani:9:103:5",
+        "quran:tanzil-uthmani:9:103:6",
+        "quran:tanzil-uthmani:9:103:7",
+        "quran:tanzil-uthmani:9:103:8",
+        "quran:tanzil-uthmani:9:103:9",
+        "quran:tanzil-uthmani:9:103:10",
+        "quran:tanzil-uthmani:9:103:11",
+        "quran:tanzil-uthmani:9:103:12",
+        "quran:tanzil-uthmani:9:103:13",
+        "quran:tanzil-uthmani:9:103:14",
+        "quran:tanzil-uthmani:9:103:15",
+        "quran:tanzil-uthmani:9:103:16"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 79,
+        "excerpt": "Quran Al-Tawba 9:103"
+      },
+      "summary": "Surah name \"Al-Tawba\" matches surah 9 (At-Tawba).",
+      "detail": "Exact name match.",
+      "reference": "9:103"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 79,
+        "excerpt": "Quran Al-Tawba 9:103"
+      },
+      "summary": "Quoted Arabic beside 9:103 matches the verse (16/16 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "9:103",
+      "claimedArabic": "خُذْ مِنْ أَمْوَالِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيْهِمْ ۖ إِنَّ صَلَاتَكَ سَكَنٌ لَّهُمْ ۗ…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 88,
+        "excerpt": "In Quran 9:103 Allah has used word Salat صَلَاتَ and Root word Sil صَلِّ to clarify the me…"
+      },
+      "summary": "Arabic \"صَلَاتَ\" appears in the corpus (1 word(s)).",
+      "detail": "1 word(s) present only as an orthographic variant (article uses a non-Uthmani spelling); the exact form is not in the corpus.",
+      "claimedArabic": "صَلَاتَ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 88,
+        "excerpt": "…as used word Salat صَلَاتَ and Root word Sil صَلِّ to clarify the meaning as quran is no d…"
+      },
+      "summary": "Arabic \"صَلِّ\" appears in the corpus (1 word(s)).",
+      "detail": "1 word(s) present only as an orthographic variant (article uses a non-Uthmani spelling); the exact form is not in the corpus.",
+      "claimedArabic": "صَلِّ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 88,
+        "excerpt": "…ngs as Quranic word for Blessings is Baraka (بَارَكًا) and Allah is precise with usage of…"
+      },
+      "summary": "Arabic \"بَارَكًا\" appears in the corpus (1 word(s)).",
+      "detail": "1 word(s) present only as an orthographic variant (article uses a non-Uthmani spelling); the exact form is not in the corpus.",
+      "claimedArabic": "بَارَكًا",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "transliteration",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 88,
+        "excerpt": "…s blessings as Quranic word for Blessings is Baraka (بَارَكًا) and Allah is precise with u…"
+      },
+      "summary": "Transliteration \"Baraka\" is consistent with \"بَارَكًا\".",
+      "detail": "Consonant overlap 100%.",
+      "claimedArabic": "بَارَكًا"
+    },
+    {
+      "kind": "transliteration",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 88,
+        "excerpt": "In Quran 9:103 Allah has used word Salat صَلَاتَ and Root word Sil صَلِّ to clarify the me…"
+      },
+      "summary": "Transliteration \"Salat\" is consistent with \"صَلَاتَ\".",
+      "detail": "Consonant overlap 100%.",
+      "claimedArabic": "صَلَاتَ"
+    },
+    {
+      "kind": "transliteration",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 88,
+        "excerpt": "…ah has used word Salat صَلَاتَ and Root word Sil صَلِّ to clarify the meaning as quran is…"
+      },
+      "summary": "Transliteration \"Sil\" is consistent with \"صَلِّ\".",
+      "detail": "Consonant overlap 100%.",
+      "claimedArabic": "صَلِّ"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 92,
+        "excerpt": "Salawat (صَلَوَاتٌ) is the plural for word Salat (صلاة) which means remaining in contact a…"
+      },
+      "summary": "Arabic \"صَلَوَاتٌ\" appears in the corpus (1 word(s)).",
+      "detail": "1 word(s) present only as an orthographic variant (article uses a non-Uthmani spelling); the exact form is not in the corpus.",
+      "claimedArabic": "صَلَوَاتٌ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "transliteration",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 92,
+        "excerpt": "Salawat (صَلَوَاتٌ) is the plural for word Salat (صلاة) which means remaining in contact a…"
+      },
+      "summary": "Transliteration \"Salawat\" is consistent with \"صَلَوَاتٌ\".",
+      "detail": "Consonant overlap 100%.",
+      "claimedArabic": "صَلَوَاتٌ"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 95,
+        "excerpt": "Quran Al-Bakarah 2:157"
+      },
+      "summary": "Reference Quran Al-Bakarah 2:157 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:157.",
+      "reference": "2:157",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:157"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:157:1",
+        "quran:tanzil-uthmani:2:157:2",
+        "quran:tanzil-uthmani:2:157:3",
+        "quran:tanzil-uthmani:2:157:4",
+        "quran:tanzil-uthmani:2:157:5",
+        "quran:tanzil-uthmani:2:157:6",
+        "quran:tanzil-uthmani:2:157:7",
+        "quran:tanzil-uthmani:2:157:8",
+        "quran:tanzil-uthmani:2:157:9"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 95,
+        "excerpt": "Quran Al-Bakarah 2:157"
+      },
+      "summary": "Surah name \"Al-Bakarah\" matches surah 2 (Al-Baqara).",
+      "detail": "Accepted as a spelling variant.",
+      "reference": "2:157"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 95,
+        "excerpt": "Quran Al-Bakarah 2:157"
+      },
+      "summary": "Quoted Arabic beside 2:157 matches the verse (9/9 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "2:157",
+      "claimedArabic": "أُولَـٰئِكَ عَلَيْهِمْ صَلَوَاتٌ مِّن رَّبِّهِمْ وَرَحْمَةٌ ۖ وَأُولَـٰئِكَ هُمُ الْمُهْتَدُونَ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 104,
+        "excerpt": "in contact of verse Allah is clear in Quran 2:156-157 those who say \"Indeed to Allah we be…"
+      },
+      "summary": "Reference Quran 2:156-157 resolves to 2 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:156, quran:tanzil-uthmani:2:157.",
+      "reference": "2:156-157",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:156",
+        "quran:tanzil-uthmani:2:157"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:156:1",
+        "quran:tanzil-uthmani:2:156:2",
+        "quran:tanzil-uthmani:2:156:3",
+        "quran:tanzil-uthmani:2:156:4",
+        "quran:tanzil-uthmani:2:156:5",
+        "quran:tanzil-uthmani:2:156:6",
+        "quran:tanzil-uthmani:2:156:7",
+        "quran:tanzil-uthmani:2:156:8",
+        "quran:tanzil-uthmani:2:156:9",
+        "quran:tanzil-uthmani:2:156:10",
+        "quran:tanzil-uthmani:2:157:1",
+        "quran:tanzil-uthmani:2:157:2",
+        "quran:tanzil-uthmani:2:157:3",
+        "quran:tanzil-uthmani:2:157:4",
+        "quran:tanzil-uthmani:2:157:5",
+        "quran:tanzil-uthmani:2:157:6",
+        "quran:tanzil-uthmani:2:157:7",
+        "quran:tanzil-uthmani:2:157:8",
+        "quran:tanzil-uthmani:2:157:9"
+      ]
+    },
+    {
+      "kind": "transliteration",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 104,
+        "excerpt": "…eed to him we will return\" have achieved the Salwat (صَلَوَاتٌ) contact of Allah.…"
+      },
+      "summary": "Transliteration \"Salwat\" is consistent with \"صَلَوَاتٌ\".",
+      "detail": "Consonant overlap 100%.",
+      "claimedArabic": "صَلَوَاتٌ"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 108,
+        "excerpt": "Word يُصَلِّي is another form of Salat literally meaning contact."
+      },
+      "summary": "Arabic \"يُصَلِّي\" appears in the corpus (1 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "يُصَلِّي"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 111,
+        "excerpt": "Quran Al-Ahzab 33:43"
+      },
+      "summary": "Reference Quran Al-Ahzab 33:43 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:33:43.",
+      "reference": "33:43",
+      "segmentIds": [
+        "quran:tanzil-uthmani:33:43"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:33:43:1",
+        "quran:tanzil-uthmani:33:43:2",
+        "quran:tanzil-uthmani:33:43:3",
+        "quran:tanzil-uthmani:33:43:4",
+        "quran:tanzil-uthmani:33:43:5",
+        "quran:tanzil-uthmani:33:43:6",
+        "quran:tanzil-uthmani:33:43:7",
+        "quran:tanzil-uthmani:33:43:8",
+        "quran:tanzil-uthmani:33:43:9",
+        "quran:tanzil-uthmani:33:43:10",
+        "quran:tanzil-uthmani:33:43:11",
+        "quran:tanzil-uthmani:33:43:12",
+        "quran:tanzil-uthmani:33:43:13"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 111,
+        "excerpt": "Quran Al-Ahzab 33:43"
+      },
+      "summary": "Surah name \"Al-Ahzab\" matches surah 33 (Al-Ahzaab).",
+      "detail": "Exact name match.",
+      "reference": "33:43"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 111,
+        "excerpt": "Quran Al-Ahzab 33:43"
+      },
+      "summary": "Quoted Arabic beside 33:43 matches the verse (13/13 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "33:43",
+      "claimedArabic": "هُوَ الَّذِي يُصَلِّي عَلَيْكُمْ وَمَلَائِكَتُهُ لِيُخْرِجَكُم مِّنَ الظُّلُمَاتِ إِلَى النُّورِ ۚ وَكَانَ بِالْمُؤْمِنِ…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 120,
+        "excerpt": "…salat and the word similar to Salat is Dhikr ذْكُرْ as Allah clarifies his contact in Qura…"
+      },
+      "summary": "Arabic \"ذْكُرْ\" appears in the corpus (1 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "ذْكُرْ"
+    },
+    {
+      "kind": "transliteration",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 120,
+        "excerpt": "…blish salat and the word similar to Salat is Dhikr ذْكُرْ as Allah clarifies his contact i…"
+      },
+      "summary": "Transliteration \"Dhikr\" is consistent with \"ذْكُرْ\".",
+      "detail": "Consonant overlap 100%.",
+      "claimedArabic": "ذْكُرْ"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 125,
+        "excerpt": "Quran Al-Ahzab 33:56"
+      },
+      "summary": "Reference Quran Al-Ahzab 33:56 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:33:56.",
+      "reference": "33:56",
+      "segmentIds": [
+        "quran:tanzil-uthmani:33:56"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:33:56:1",
+        "quran:tanzil-uthmani:33:56:2",
+        "quran:tanzil-uthmani:33:56:3",
+        "quran:tanzil-uthmani:33:56:4",
+        "quran:tanzil-uthmani:33:56:5",
+        "quran:tanzil-uthmani:33:56:6",
+        "quran:tanzil-uthmani:33:56:7",
+        "quran:tanzil-uthmani:33:56:8",
+        "quran:tanzil-uthmani:33:56:9",
+        "quran:tanzil-uthmani:33:56:10",
+        "quran:tanzil-uthmani:33:56:11",
+        "quran:tanzil-uthmani:33:56:12",
+        "quran:tanzil-uthmani:33:56:13"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 125,
+        "excerpt": "Quran Al-Ahzab 33:56"
+      },
+      "summary": "Surah name \"Al-Ahzab\" matches surah 33 (Al-Ahzaab).",
+      "detail": "Exact name match.",
+      "reference": "33:56"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 125,
+        "excerpt": "Quran Al-Ahzab 33:56"
+      },
+      "summary": "Quoted Arabic beside 33:56 matches the verse (12/14 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. يَا أَيُّهَا).",
+      "reference": "33:56",
+      "claimedArabic": "إِنَّ اللَّـهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ ۚ يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 150,
+        "excerpt": "Quranic word for Prayer/Request/Wish is Dua دُعَا not Salat."
+      },
+      "summary": "Arabic \"دُعَا\" appears in the corpus (1 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "دُعَا"
+    }
+  ]
+}

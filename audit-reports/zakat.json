@@ -1,0 +1,959 @@
+{
+  "slug": "zakat",
+  "title": "Zakat",
+  "file": "zakat.md",
+  "corpusVersion": "0.6.0",
+  "provenance": "Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
+  "counts": {
+    "checked": 53,
+    "verified": 51,
+    "flagged": 2,
+    "unchecked": 0
+  },
+  "workScore": 10,
+  "findings": [
+    {
+      "kind": "quoted-arabic",
+      "status": "flagged",
+      "severity": "high",
+      "location": {
+        "line": 31,
+        "excerpt": "Quranic word آتُو Atoo literally means \"Give/Donate\" and word الزَّكَاةَ meaning \"Purify\"…"
+      },
+      "summary": "Arabic \"آتُو\" has 1/1 word(s) not found in the corpus, even allowing for spelling variation.",
+      "detail": "Not found: آتُو. This may be a typo, a truncated fragment, or non-Quranic text.",
+      "claimedArabic": "آتُو",
+      "matchLevel": "none"
+    },
+    {
+      "kind": "root-claim",
+      "location": {
+        "line": 31,
+        "excerpt": "…and word الزَّكَاةَ meaning \"Purify\" and the root word for zakat is زَكَّىٰ Zaki but in Qu…"
+      },
+      "claimedRoot": "زَكَّىٰ",
+      "status": "flagged",
+      "severity": "high",
+      "summary": "Root claim: article says the root of \"zakat\" is \"زَكَّىٰ\", but the corpus root is ز ك و.",
+      "detail": "The corpus records root ز ك و for \"الزَّكَاةَ\". \"زَكَّىٰ\" is not that root — it is likely a derived form, not the triliteral root.",
+      "corpusRoots": [
+        "ز ك و"
+      ]
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 10,
+        "excerpt": "Zakat ٱلزَّكَٰوةَ"
+      },
+      "summary": "Arabic \"ٱلزَّكَٰوةَ\" appears in the corpus (1 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "ٱلزَّكَٰوةَ"
+    },
+    {
+      "kind": "transliteration",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 10,
+        "excerpt": "Zakat ٱلزَّكَٰوةَ"
+      },
+      "summary": "Transliteration \"Zakat\" is consistent with \"ٱلزَّكَٰوةَ\".",
+      "detail": "Consonant overlap 40%.",
+      "claimedArabic": "ٱلزَّكَٰوةَ"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 14,
+        "excerpt": "Quran Al-Bakarah 2:43"
+      },
+      "summary": "Reference Quran Al-Bakarah 2:43 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:43.",
+      "reference": "2:43",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:43"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:43:1",
+        "quran:tanzil-uthmani:2:43:2",
+        "quran:tanzil-uthmani:2:43:3",
+        "quran:tanzil-uthmani:2:43:4",
+        "quran:tanzil-uthmani:2:43:5",
+        "quran:tanzil-uthmani:2:43:6",
+        "quran:tanzil-uthmani:2:43:7"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 14,
+        "excerpt": "Quran Al-Bakarah 2:43"
+      },
+      "summary": "Surah name \"Al-Bakarah\" matches surah 2 (Al-Baqara).",
+      "detail": "Accepted as a spelling variant.",
+      "reference": "2:43"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 14,
+        "excerpt": "Quran Al-Bakarah 2:43"
+      },
+      "summary": "Quoted Arabic beside 2:43 matches the verse (6/7 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. وَآتُواْ).",
+      "reference": "2:43",
+      "claimedArabic": "وَأَقِيمُواْ ٱلصَّلٰوةَ وَآتُواْ ٱلزَّكَٰوةَ وَٱرْكَعُواْ مَعَ ٱلرَّٰكِعِينَ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 28,
+        "excerpt": "What آتُوا الزَّكَاةَ Atoo-azakat Mean?"
+      },
+      "summary": "Arabic \"آتُوا الزَّكَاةَ\" appears in the corpus (2 word(s)).",
+      "detail": "1 word(s) present only as an orthographic variant (article uses a non-Uthmani spelling); the exact form is not in the corpus.",
+      "claimedArabic": "آتُوا الزَّكَاةَ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "transliteration",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 28,
+        "excerpt": "What آتُوا الزَّكَاةَ Atoo-azakat Mean?"
+      },
+      "summary": "Transliteration \"What\" is consistent with \"آتُوا\".",
+      "detail": "Consonant overlap 67%.",
+      "claimedArabic": "آتُوا"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 31,
+        "excerpt": "…Atoo literally means \"Give/Donate\" and word الزَّكَاةَ meaning \"Purify\" and the root word…"
+      },
+      "summary": "Arabic \"الزَّكَاةَ\" appears in the corpus (1 word(s)).",
+      "detail": "1 word(s) present only as an orthographic variant (article uses a non-Uthmani spelling); the exact form is not in the corpus.",
+      "claimedArabic": "الزَّكَاةَ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 31,
+        "excerpt": "…ning \"Purify\" and the root word for zakat is زَكَّىٰ Zaki but in Quranic context literal t…"
+      },
+      "summary": "Arabic \"زَكَّىٰ\" appears in the corpus (1 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "زَكَّىٰ"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 32,
+        "excerpt": "Quran Al-Layl 92:18"
+      },
+      "summary": "Reference Quran Al-Layl 92:18 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:92:18.",
+      "reference": "92:18",
+      "segmentIds": [
+        "quran:tanzil-uthmani:92:18"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:92:18:1",
+        "quran:tanzil-uthmani:92:18:2",
+        "quran:tanzil-uthmani:92:18:3",
+        "quran:tanzil-uthmani:92:18:4"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 32,
+        "excerpt": "Quran Al-Layl 92:18"
+      },
+      "summary": "Surah name \"Al-Layl\" matches surah 92 (Al-Lail).",
+      "detail": "Exact name match.",
+      "reference": "92:18"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 32,
+        "excerpt": "Quran Al-Layl 92:18"
+      },
+      "summary": "Quoted Arabic beside 92:18 matches the verse (4/4 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "92:18",
+      "claimedArabic": "الَّذِي يُؤْتِي مَالَهُ يَتَزَكَّىٰ",
+      "matchLevel": "normalised"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 48,
+        "excerpt": "Quran Al-Bakarah 2:215"
+      },
+      "summary": "Reference Quran Al-Bakarah 2:215 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:215.",
+      "reference": "2:215",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:215"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:215:1",
+        "quran:tanzil-uthmani:2:215:2",
+        "quran:tanzil-uthmani:2:215:3",
+        "quran:tanzil-uthmani:2:215:4",
+        "quran:tanzil-uthmani:2:215:5",
+        "quran:tanzil-uthmani:2:215:6",
+        "quran:tanzil-uthmani:2:215:7",
+        "quran:tanzil-uthmani:2:215:8",
+        "quran:tanzil-uthmani:2:215:9",
+        "quran:tanzil-uthmani:2:215:10",
+        "quran:tanzil-uthmani:2:215:11",
+        "quran:tanzil-uthmani:2:215:12",
+        "quran:tanzil-uthmani:2:215:13",
+        "quran:tanzil-uthmani:2:215:14",
+        "quran:tanzil-uthmani:2:215:15",
+        "quran:tanzil-uthmani:2:215:16",
+        "quran:tanzil-uthmani:2:215:17",
+        "quran:tanzil-uthmani:2:215:18",
+        "quran:tanzil-uthmani:2:215:19",
+        "quran:tanzil-uthmani:2:215:20",
+        "quran:tanzil-uthmani:2:215:21",
+        "quran:tanzil-uthmani:2:215:22"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 48,
+        "excerpt": "Quran Al-Bakarah 2:215"
+      },
+      "summary": "Surah name \"Al-Bakarah\" matches surah 2 (Al-Baqara).",
+      "detail": "Accepted as a spelling variant.",
+      "reference": "2:215"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 48,
+        "excerpt": "Quran Al-Bakarah 2:215"
+      },
+      "summary": "Quoted Arabic beside 2:215 matches the verse (22/22 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "2:215",
+      "claimedArabic": "يَسْأَلُونَكَ مَاذَا يُنفِقُونَ ۖ قُلْ مَا أَنفَقْتُم مِّنْ خَيْرٍ فَلِلْوَالِدَيْنِ وَالْأَقْرَبِينَ وَالْيَتَامَىٰ وَا…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 57,
+        "excerpt": "…unt of Zakat has no limit and Allah says pay خَيْرٍ Khair which means best of whatever you…"
+      },
+      "summary": "Arabic \"خَيْرٍ\" appears in the corpus (1 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "خَيْرٍ"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "Quran Al-Bakarah 2:245"
+      },
+      "summary": "Reference Quran Al-Bakarah 2:245 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:245.",
+      "reference": "2:245",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:245"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:245:1",
+        "quran:tanzil-uthmani:2:245:2",
+        "quran:tanzil-uthmani:2:245:3",
+        "quran:tanzil-uthmani:2:245:4",
+        "quran:tanzil-uthmani:2:245:5",
+        "quran:tanzil-uthmani:2:245:6",
+        "quran:tanzil-uthmani:2:245:7",
+        "quran:tanzil-uthmani:2:245:8",
+        "quran:tanzil-uthmani:2:245:9",
+        "quran:tanzil-uthmani:2:245:10",
+        "quran:tanzil-uthmani:2:245:11",
+        "quran:tanzil-uthmani:2:245:12",
+        "quran:tanzil-uthmani:2:245:13",
+        "quran:tanzil-uthmani:2:245:14",
+        "quran:tanzil-uthmani:2:245:15",
+        "quran:tanzil-uthmani:2:245:16"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "Quran Al-Bakarah 2:245"
+      },
+      "summary": "Surah name \"Al-Bakarah\" matches surah 2 (Al-Baqara).",
+      "detail": "Accepted as a spelling variant.",
+      "reference": "2:245"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 62,
+        "excerpt": "Quran Al-Bakarah 2:245"
+      },
+      "summary": "Quoted Arabic beside 2:245 matches the verse (15/16 words exact, 95% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. وَيَبْسُطُ).",
+      "reference": "2:245",
+      "claimedArabic": "مَّن ذَا الَّذِي يُقْرِضُ اللَّـهَ قَرْضًا حَسَنًا فَيُضَاعِفَهُ لَهُ أَضْعَافًا كَثِيرَةً ۚ وَاللَّـهُ يَقْبِضُ وَيَبْس…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 71,
+        "excerpt": "Zakat is also mentioned as قْرِضُ karz meaning due / loan, which we lend to Allah and Alla…"
+      },
+      "summary": "Arabic \"قْرِضُ\" appears in the corpus (1 word(s)).",
+      "detail": "1 word(s) present only as an orthographic variant (article uses a non-Uthmani spelling); the exact form is not in the corpus.",
+      "claimedArabic": "قْرِضُ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 71,
+        "excerpt": "…o how much zakat is to be paid the amound is حَسَنًا فَيُضَ meaning Goodly loan or a Big d…"
+      },
+      "summary": "Arabic \"حَسَنًا فَيُضَ\" appears in the corpus (2 word(s)).",
+      "detail": "1 word(s) present only as an orthographic variant (article uses a non-Uthmani spelling); the exact form is not in the corpus.",
+      "claimedArabic": "حَسَنًا فَيُضَ",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 78,
+        "excerpt": "Quran Al-Anam 6:141"
+      },
+      "summary": "Reference Quran Al-Anam 6:141 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:6:141.",
+      "reference": "6:141",
+      "segmentIds": [
+        "quran:tanzil-uthmani:6:141"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:6:141:1",
+        "quran:tanzil-uthmani:6:141:2",
+        "quran:tanzil-uthmani:6:141:3",
+        "quran:tanzil-uthmani:6:141:4",
+        "quran:tanzil-uthmani:6:141:5",
+        "quran:tanzil-uthmani:6:141:6",
+        "quran:tanzil-uthmani:6:141:7",
+        "quran:tanzil-uthmani:6:141:8",
+        "quran:tanzil-uthmani:6:141:9",
+        "quran:tanzil-uthmani:6:141:10",
+        "quran:tanzil-uthmani:6:141:11",
+        "quran:tanzil-uthmani:6:141:12",
+        "quran:tanzil-uthmani:6:141:13",
+        "quran:tanzil-uthmani:6:141:14",
+        "quran:tanzil-uthmani:6:141:15",
+        "quran:tanzil-uthmani:6:141:16",
+        "quran:tanzil-uthmani:6:141:17",
+        "quran:tanzil-uthmani:6:141:18",
+        "quran:tanzil-uthmani:6:141:19",
+        "quran:tanzil-uthmani:6:141:20",
+        "quran:tanzil-uthmani:6:141:21",
+        "quran:tanzil-uthmani:6:141:22",
+        "quran:tanzil-uthmani:6:141:23",
+        "quran:tanzil-uthmani:6:141:24",
+        "quran:tanzil-uthmani:6:141:25",
+        "quran:tanzil-uthmani:6:141:26",
+        "quran:tanzil-uthmani:6:141:27",
+        "quran:tanzil-uthmani:6:141:28",
+        "quran:tanzil-uthmani:6:141:29",
+        "quran:tanzil-uthmani:6:141:30",
+        "quran:tanzil-uthmani:6:141:31"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 78,
+        "excerpt": "Quran Al-Anam 6:141"
+      },
+      "summary": "Surah name \"Al-Anam\" matches surah 6 (Al-An'aam).",
+      "detail": "Exact name match.",
+      "reference": "6:141"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 78,
+        "excerpt": "Quran Al-Anam 6:141"
+      },
+      "summary": "Quoted Arabic beside 6:141 matches the verse (30/31 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. وَآتُوا).",
+      "reference": "6:141",
+      "claimedArabic": "وَهُوَ الَّذِي أَنشَأَ جَنَّاتٍ مَّعْرُوشَاتٍ وَغَيْرَ مَعْرُوشَاتٍ وَالنَّخْلَ وَالزَّرْعَ مُخْتَلِفًا أُكُلُهُ وَالزَّ…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 87,
+        "excerpt": "…above verse, Zakat be paid on Day of harvest حَقَّهُ يَوْمَ حَصَادِهِ as some people get p…"
+      },
+      "summary": "Arabic \"حَقَّهُ يَوْمَ حَصَادِهِ\" appears in the corpus (3 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "حَقَّهُ يَوْمَ حَصَادِهِ"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 94,
+        "excerpt": "Quran Al-Bakarah 2:280"
+      },
+      "summary": "Reference Quran Al-Bakarah 2:280 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:280.",
+      "reference": "2:280",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:280"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:280:1",
+        "quran:tanzil-uthmani:2:280:2",
+        "quran:tanzil-uthmani:2:280:3",
+        "quran:tanzil-uthmani:2:280:4",
+        "quran:tanzil-uthmani:2:280:5",
+        "quran:tanzil-uthmani:2:280:6",
+        "quran:tanzil-uthmani:2:280:7",
+        "quran:tanzil-uthmani:2:280:8",
+        "quran:tanzil-uthmani:2:280:9",
+        "quran:tanzil-uthmani:2:280:10",
+        "quran:tanzil-uthmani:2:280:11",
+        "quran:tanzil-uthmani:2:280:12",
+        "quran:tanzil-uthmani:2:280:13",
+        "quran:tanzil-uthmani:2:280:14"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 94,
+        "excerpt": "Quran Al-Bakarah 2:280"
+      },
+      "summary": "Surah name \"Al-Bakarah\" matches surah 2 (Al-Baqara).",
+      "detail": "Accepted as a spelling variant.",
+      "reference": "2:280"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 94,
+        "excerpt": "Quran Al-Bakarah 2:280"
+      },
+      "summary": "Quoted Arabic beside 2:280 matches the verse (14/14 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "2:280",
+      "claimedArabic": "وَإِن كَانَ ذُو عُسْرَةٍ فَنَظِرَةٌ إِلَىٰ مَيْسَرَةٍ ۚ وَأَن تَصَدَّقُوا خَيْرٌ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ",
+      "matchLevel": "normalised"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 114,
+        "excerpt": "Quran At-Tawbah 9:60"
+      },
+      "summary": "Reference Quran At-Tawbah 9:60 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:9:60.",
+      "reference": "9:60",
+      "segmentIds": [
+        "quran:tanzil-uthmani:9:60"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:9:60:1",
+        "quran:tanzil-uthmani:9:60:2",
+        "quran:tanzil-uthmani:9:60:3",
+        "quran:tanzil-uthmani:9:60:4",
+        "quran:tanzil-uthmani:9:60:5",
+        "quran:tanzil-uthmani:9:60:6",
+        "quran:tanzil-uthmani:9:60:7",
+        "quran:tanzil-uthmani:9:60:8",
+        "quran:tanzil-uthmani:9:60:9",
+        "quran:tanzil-uthmani:9:60:10",
+        "quran:tanzil-uthmani:9:60:11",
+        "quran:tanzil-uthmani:9:60:12",
+        "quran:tanzil-uthmani:9:60:13",
+        "quran:tanzil-uthmani:9:60:14",
+        "quran:tanzil-uthmani:9:60:15",
+        "quran:tanzil-uthmani:9:60:16",
+        "quran:tanzil-uthmani:9:60:17",
+        "quran:tanzil-uthmani:9:60:18",
+        "quran:tanzil-uthmani:9:60:19",
+        "quran:tanzil-uthmani:9:60:20",
+        "quran:tanzil-uthmani:9:60:21",
+        "quran:tanzil-uthmani:9:60:22"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 114,
+        "excerpt": "Quran At-Tawbah 9:60"
+      },
+      "summary": "Surah name \"At-Tawbah\" matches surah 9 (At-Tawba).",
+      "detail": "Accepted as a spelling variant.",
+      "reference": "9:60"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 114,
+        "excerpt": "Quran At-Tawbah 9:60"
+      },
+      "summary": "Quoted Arabic beside 9:60 matches the verse (22/22 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "9:60",
+      "claimedArabic": "إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ وَالْعَامِلِينَ عَلَيْهَا وَالْمُؤَلَّفَةِ قُلُوبُهُمْ وَفِي الرِّقَ…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 126,
+        "excerpt": "Quran Al-Munafiqun 63:10"
+      },
+      "summary": "Reference Quran Al-Munafiqun 63:10 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:63:10.",
+      "reference": "63:10",
+      "segmentIds": [
+        "quran:tanzil-uthmani:63:10"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:63:10:1",
+        "quran:tanzil-uthmani:63:10:2",
+        "quran:tanzil-uthmani:63:10:3",
+        "quran:tanzil-uthmani:63:10:4",
+        "quran:tanzil-uthmani:63:10:5",
+        "quran:tanzil-uthmani:63:10:6",
+        "quran:tanzil-uthmani:63:10:7",
+        "quran:tanzil-uthmani:63:10:8",
+        "quran:tanzil-uthmani:63:10:9",
+        "quran:tanzil-uthmani:63:10:10",
+        "quran:tanzil-uthmani:63:10:11",
+        "quran:tanzil-uthmani:63:10:12",
+        "quran:tanzil-uthmani:63:10:13",
+        "quran:tanzil-uthmani:63:10:14",
+        "quran:tanzil-uthmani:63:10:15",
+        "quran:tanzil-uthmani:63:10:16",
+        "quran:tanzil-uthmani:63:10:17",
+        "quran:tanzil-uthmani:63:10:18",
+        "quran:tanzil-uthmani:63:10:19",
+        "quran:tanzil-uthmani:63:10:20",
+        "quran:tanzil-uthmani:63:10:21"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 126,
+        "excerpt": "Quran Al-Munafiqun 63:10"
+      },
+      "summary": "Surah name \"Al-Munafiqun\" matches surah 63 (Al-Munaafiqoon).",
+      "detail": "Exact name match.",
+      "reference": "63:10"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 126,
+        "excerpt": "Quran Al-Munafiqun 63:10"
+      },
+      "summary": "Quoted Arabic beside 63:10 matches the verse (21/21 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "63:10",
+      "claimedArabic": "وَأَنفِقُوا مِن مَّا رَزَقْنَاكُم مِّن قَبْلِ أَن يَأْتِيَ أَحَدَكُمُ الْمَوْتُ فَيَقُولَ رَبِّ لَوْلَا أَخَّرْتَنِي إِل…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 142,
+        "excerpt": "Quran Al-Baqarah 2:263"
+      },
+      "summary": "Reference Quran Al-Baqarah 2:263 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:263.",
+      "reference": "2:263",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:263"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:263:1",
+        "quran:tanzil-uthmani:2:263:2",
+        "quran:tanzil-uthmani:2:263:3",
+        "quran:tanzil-uthmani:2:263:4",
+        "quran:tanzil-uthmani:2:263:5",
+        "quran:tanzil-uthmani:2:263:6",
+        "quran:tanzil-uthmani:2:263:7",
+        "quran:tanzil-uthmani:2:263:8",
+        "quran:tanzil-uthmani:2:263:9",
+        "quran:tanzil-uthmani:2:263:10",
+        "quran:tanzil-uthmani:2:263:11"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 142,
+        "excerpt": "Quran Al-Baqarah 2:263"
+      },
+      "summary": "Surah name \"Al-Baqarah\" matches surah 2 (Al-Baqara).",
+      "detail": "Exact name match.",
+      "reference": "2:263"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 142,
+        "excerpt": "Quran Al-Baqarah 2:263"
+      },
+      "summary": "Quoted Arabic beside 2:263 matches the verse (11/11 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "2:263",
+      "claimedArabic": "قَوْلٌ مَّعْرُوفٌ وَمَغْفِرَةٌ خَيْرٌ مِّن صَدَقَةٍ يَتْبَعُهَا أَذًى ۗ وَاللَّـهُ غَنِيٌّ حَلِيمٌ",
+      "matchLevel": "normalised"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 156,
+        "excerpt": "…advice us how much we should donate to Allah قَرْضًا حَسَنًا (Massive Loan) but how much w…"
+      },
+      "summary": "Arabic \"قَرْضًا حَسَنًا\" appears in the corpus (2 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "قَرْضًا حَسَنًا"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 156,
+        "excerpt": "…n) but how much we should spend on our needs الْعَفْوَ meaning not beyond needs.…"
+      },
+      "summary": "Arabic \"الْعَفْوَ\" appears in the corpus (1 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "الْعَفْوَ"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 159,
+        "excerpt": "Quran Al-Baqarah 2:219"
+      },
+      "summary": "Reference Quran Al-Baqarah 2:219 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:2:219.",
+      "reference": "2:219",
+      "segmentIds": [
+        "quran:tanzil-uthmani:2:219"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:2:219:1",
+        "quran:tanzil-uthmani:2:219:2",
+        "quran:tanzil-uthmani:2:219:3",
+        "quran:tanzil-uthmani:2:219:4",
+        "quran:tanzil-uthmani:2:219:5",
+        "quran:tanzil-uthmani:2:219:6",
+        "quran:tanzil-uthmani:2:219:7",
+        "quran:tanzil-uthmani:2:219:8",
+        "quran:tanzil-uthmani:2:219:9",
+        "quran:tanzil-uthmani:2:219:10",
+        "quran:tanzil-uthmani:2:219:11",
+        "quran:tanzil-uthmani:2:219:12",
+        "quran:tanzil-uthmani:2:219:13",
+        "quran:tanzil-uthmani:2:219:14",
+        "quran:tanzil-uthmani:2:219:15",
+        "quran:tanzil-uthmani:2:219:16",
+        "quran:tanzil-uthmani:2:219:17",
+        "quran:tanzil-uthmani:2:219:18",
+        "quran:tanzil-uthmani:2:219:19",
+        "quran:tanzil-uthmani:2:219:20",
+        "quran:tanzil-uthmani:2:219:21",
+        "quran:tanzil-uthmani:2:219:22",
+        "quran:tanzil-uthmani:2:219:23",
+        "quran:tanzil-uthmani:2:219:24",
+        "quran:tanzil-uthmani:2:219:25",
+        "quran:tanzil-uthmani:2:219:26"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 159,
+        "excerpt": "Quran Al-Baqarah 2:219"
+      },
+      "summary": "Surah name \"Al-Baqarah\" matches surah 2 (Al-Baqara).",
+      "detail": "Exact name match.",
+      "reference": "2:219"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 159,
+        "excerpt": "Quran Al-Baqarah 2:219"
+      },
+      "summary": "Quoted Arabic beside 2:219 matches the verse (11/12 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text (e.g. الْآيَاتِ).",
+      "reference": "2:219",
+      "claimedArabic": "وَيَسْأَلُونَكَ مَاذَا يُنفِقُونَ قُلِ الْعَفْوَ ۗ كَذَٰلِكَ يُبَيِّنُ اللَّـهُ لَكُمُ الْآيَاتِ لَعَلَّكُمْ تَتَفَكَّرُ…",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 171,
+        "excerpt": "Quran Al-Isra 17:27"
+      },
+      "summary": "Reference Quran Al-Isra 17:27 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:17:27.",
+      "reference": "17:27",
+      "segmentIds": [
+        "quran:tanzil-uthmani:17:27"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:17:27:1",
+        "quran:tanzil-uthmani:17:27:2",
+        "quran:tanzil-uthmani:17:27:3",
+        "quran:tanzil-uthmani:17:27:4",
+        "quran:tanzil-uthmani:17:27:5",
+        "quran:tanzil-uthmani:17:27:6",
+        "quran:tanzil-uthmani:17:27:7",
+        "quran:tanzil-uthmani:17:27:8",
+        "quran:tanzil-uthmani:17:27:9"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 171,
+        "excerpt": "Quran Al-Isra 17:27"
+      },
+      "summary": "Surah name \"Al-Isra\" matches surah 17 (Al-Israa).",
+      "detail": "Exact name match.",
+      "reference": "17:27"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 171,
+        "excerpt": "Quran Al-Isra 17:27"
+      },
+      "summary": "Quoted Arabic beside 17:27 matches the verse (9/9 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "17:27",
+      "claimedArabic": "إِنَّ الْمُبَذِّرِينَ كَانُوا إِخْوَانَ الشَّيَاطِينِ ۖ وَكَانَ الشَّيْطَانُ لِرَبِّهِ كَفُورًا",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 180,
+        "excerpt": "Quran Al-Isra 17:28"
+      },
+      "summary": "Reference Quran Al-Isra 17:28 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:17:28.",
+      "reference": "17:28",
+      "segmentIds": [
+        "quran:tanzil-uthmani:17:28"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:17:28:1",
+        "quran:tanzil-uthmani:17:28:2",
+        "quran:tanzil-uthmani:17:28:3",
+        "quran:tanzil-uthmani:17:28:4",
+        "quran:tanzil-uthmani:17:28:5",
+        "quran:tanzil-uthmani:17:28:6",
+        "quran:tanzil-uthmani:17:28:7",
+        "quran:tanzil-uthmani:17:28:8",
+        "quran:tanzil-uthmani:17:28:9",
+        "quran:tanzil-uthmani:17:28:10",
+        "quran:tanzil-uthmani:17:28:11",
+        "quran:tanzil-uthmani:17:28:12"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 180,
+        "excerpt": "Quran Al-Isra 17:28"
+      },
+      "summary": "Surah name \"Al-Isra\" matches surah 17 (Al-Israa).",
+      "detail": "Exact name match.",
+      "reference": "17:28"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 180,
+        "excerpt": "Quran Al-Isra 17:28"
+      },
+      "summary": "Quoted Arabic beside 17:28 matches the verse (12/12 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "17:28",
+      "claimedArabic": "وَإِمَّا تُعْرِضَنَّ عَنْهُمُ ابْتِغَاءَ رَحْمَةٍ مِّن رَّبِّكَ تَرْجُوهَا فَقُل لَّهُمْ قَوْلًا مَّيْسُورً",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "verse-reference",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 189,
+        "excerpt": "Quran Al-Isra 17:29"
+      },
+      "summary": "Reference Quran Al-Isra 17:29 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:17:29.",
+      "reference": "17:29",
+      "segmentIds": [
+        "quran:tanzil-uthmani:17:29"
+      ],
+      "tokenIds": [
+        "quran:tanzil-uthmani:17:29:1",
+        "quran:tanzil-uthmani:17:29:2",
+        "quran:tanzil-uthmani:17:29:3",
+        "quran:tanzil-uthmani:17:29:4",
+        "quran:tanzil-uthmani:17:29:5",
+        "quran:tanzil-uthmani:17:29:6",
+        "quran:tanzil-uthmani:17:29:7",
+        "quran:tanzil-uthmani:17:29:8",
+        "quran:tanzil-uthmani:17:29:9",
+        "quran:tanzil-uthmani:17:29:10",
+        "quran:tanzil-uthmani:17:29:11",
+        "quran:tanzil-uthmani:17:29:12",
+        "quran:tanzil-uthmani:17:29:13"
+      ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 189,
+        "excerpt": "Quran Al-Isra 17:29"
+      },
+      "summary": "Surah name \"Al-Isra\" matches surah 17 (Al-Israa).",
+      "detail": "Exact name match.",
+      "reference": "17:29"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 189,
+        "excerpt": "Quran Al-Isra 17:29"
+      },
+      "summary": "Quoted Arabic beside 17:29 matches the verse (13/13 words exact, 100% consonant match).",
+      "detail": "Every quoted word is present in the cited verse.",
+      "reference": "17:29",
+      "claimedArabic": "وَلَا تَجْعَلْ يَدَكَ مَغْلُولَةً إِلَىٰ عُنُقِكَ وَلَا تَبْسُطْهَا كُلَّ الْبَسْطِ فَتَقْعُدَ مَلُومًا مَّحْسُورًا",
+      "matchLevel": "normalised"
+    }
+  ]
+}

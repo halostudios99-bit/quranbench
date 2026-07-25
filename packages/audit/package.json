@@ -1,0 +1,12 @@
+{
+  "name": "@quranbench/audit",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "dependencies": {
+    "@quranbench/corpus": "workspace:*",
+    "@quranbench/search": "workspace:*"
+  }
+}
