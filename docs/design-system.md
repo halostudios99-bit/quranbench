@@ -152,6 +152,19 @@ Word and root pages are the strategic asset. They must be maximally crawlable.
 
 **Empty states** are an invitation, not an apology. "Search 77,430 words" beats "No results yet."
 
+### Long-surah pagination
+
+A 286-verse surah rendered as one document (~6,000 token anchors) misses the Lighthouse budget. Reading is therefore paginated by length:
+
+- Continuous reading remains the default for surahs of **60 verses or fewer**.
+- Longer surahs paginate by **ruku** where the corpus carries ruku metadata, otherwise in fixed blocks of **40 verses**. (The current corpus carries no ruku metadata, so every paginated surah uses 40-verse blocks; adding ruku data later changes only the block boundaries, not the routes.)
+- Pagination is **real routing, not client-side windowing**: `/2/page/3` is server-rendered and crawlable. Page 1 is the bare surah URL (`/2`) and is its own canonical; page _n_ is canonical to `/2/page/n`. Each page carries `rel=prev`/`rel=next`.
+- A continuous whole-surah document stays available at `/2/all`, marked `noindex` — the paginated pages are the canonical crawlable surface.
+- Every verse remains addressable at `/2/43` regardless of which page it falls on.
+- Occurrence lists on root pages paginate on the same principle: `/root/z-k-w` is occurrence page 1, `/root/z-k-w/page/2` onward, 20 verses per page.
+
+Budget: Lighthouse mobile performance stays above 95 on every paginated reader page.
+
 ---
 
 ## 7. What not to do

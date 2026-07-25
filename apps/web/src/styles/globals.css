@@ -32,9 +32,11 @@
 
 :root {
   /* Latin UI: Inter if self-hosted later, else the system stack. */
-  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
   /* Quranic text: KFGQPC Uthmanic, then Amiri Quran, then system serif Arabic. */
-  --font-quran: 'KFGQPC Uthmanic Script HAFS', 'Amiri Quran', 'Noto Naskh Arabic', 'Geeza Pro', serif;
+  --font-quran: 'KFGQPC Uthmanic Script HAFS', 'Amiri Quran',
+    'Noto Naskh Arabic', 'Geeza Pro', serif;
   /* Arabic UI text. */
   --font-arabic-ui: 'Amiri', 'Noto Naskh Arabic', 'Geeza Pro', serif;
 
@@ -213,6 +215,18 @@ body {
 .qb-token:hover,
 .qb-token:focus-visible {
   background: var(--soft);
+}
+/* The subject word of a word/root page, emphasised inside its containing verse.
+   An instant, structural change — the accent tint plus a hairline ring — never a
+   transition on the glyph. */
+.qb-token[data-highlight='true'] {
+  background: var(--accent-bg);
+  box-shadow: inset 0 0 0 1px var(--accent-line);
+  color: var(--ink);
+}
+.qb-token[data-highlight='true']:hover,
+.qb-token[data-highlight='true']:focus-visible {
+  background: var(--accent-bg);
 }
 
 a {

@@ -1,18 +1,65 @@
 import type { MetadataRoute } from 'next';
 
-import { verseHref, surahHref } from '@/lib/addressing';
-import { listSurahs, getSurahVerses } from '@/server/corpus';
+import {
+  rootHref,
+  surahHref,
+  surahPageHref,
+  verseHref,
+  wordHref,
+} from '@/lib/addressing';
+import { surahPageCount } from '@/lib/pagination';
 import { absoluteUrl } from '@/lib/site';
+import { getCorpus, getSurahVerses, listSurahs } from '@/server/corpus';
 
-// Every addressable unit rendered this prompt appears in the sitemap: homepage,
-// search, each surah, each verse. Well under the 50,000-URL segment limit.
-export default function sitemap(): MetadataRoute.Sitemap {
+// Every addressable unit appears in a sitemap, segmented under the 50,000-URL
+// limit (design-system §5). Segment 0 carries the reader surfaces (surahs, their
+// pages, verses) and every root; each further segment carries a slice of the
+// ~77,430 word pages. Next serves these at /sitemap/[id].xml.
+
+const WORDS_PER_SITEMAP = 45000;
+
+function wordSegmentCount(): number {
+  return Math.max(1, Math.ceil(getCorpus().tokens.length / WORDS_PER_SITEMAP));
+}
+
+export function generateSitemaps(): { id: number }[] {
+  const ids = [{ id: 0 }];
+  for (let i = 0; i < wordSegmentCount(); i++) ids.push({ id: i + 1 });
+  return ids;
+}
+
+export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap {
+  // Next passes the segment id as a string route param; coerce before comparing.
+  const segment = Number(id);
+  if (segment === 0) return coreAndRoots();
+  const tokens = getCorpus().tokens;
+  const start = (segment - 1) * WORDS_PER_SITEMAP;
+  return tokens.slice(start, start + WORDS_PER_SITEMAP).map((t) => ({
+    url: absoluteUrl(wordHref(t.id)),
+    changeFrequency: 'yearly' as const,
+    priority: 0.5,
+  }));
+}
+
+function coreAndRoots(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [
     { url: absoluteUrl('/'), changeFrequency: 'monthly', priority: 1 },
     { url: absoluteUrl('/search'), changeFrequency: 'monthly', priority: 0.5 },
   ];
   for (const surah of listSurahs()) {
-    entries.push({ url: absoluteUrl(surahHref(surah.number)), changeFrequency: 'yearly', priority: 0.8 });
+    entries.push({
+      url: absoluteUrl(surahHref(surah.number)),
+      changeFrequency: 'yearly',
+      priority: 0.8,
+    });
+    const pages = surahPageCount(surah.verse_count);
+    for (let p = 2; p <= pages; p++) {
+      entries.push({
+        url: absoluteUrl(surahPageHref(surah.number, p)),
+        changeFrequency: 'yearly',
+        priority: 0.6,
+      });
+    }
     for (const view of getSurahVerses(surah.number)) {
       entries.push({
         url: absoluteUrl(verseHref(surah.number, view.ordinal)),
@@ -20,6 +67,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
       });
     }
+  }
+  for (const root of getCorpus().roots) {
+    entries.push({
+      url: absoluteUrl(rootHref(root.root_slug)),
+      changeFrequency: 'yearly',
+      priority: 0.7,
+    });
   }
   return entries;
 }

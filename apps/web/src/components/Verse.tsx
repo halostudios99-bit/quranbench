@@ -35,6 +35,8 @@ export interface VerseProps {
   corpusVersion: string;
   /** Force actions on/off; defaults to on except in compact mode. */
   showActions?: boolean | undefined;
+  /** Token ids to emphasise in the line — the subject word on a word or root page. */
+  highlightTokenIds?: readonly string[] | undefined;
 }
 
 export function Verse({
@@ -52,10 +54,12 @@ export function Verse({
   edition,
   corpusVersion,
   showActions,
+  highlightTokenIds,
 }: VerseProps) {
   const tokenSize = mode === 'compact' ? 'compact' : 'reading';
   const actionsOn = showActions ?? mode !== 'compact';
   const arabicPlain = tokens.map((t) => t.text_no_tashkeel).join(' ');
+  const highlight = highlightTokenIds ? new Set(highlightTokenIds) : null;
 
   return (
     <article
@@ -77,7 +81,11 @@ export function Verse({
             className="text-[14px] font-medium text-ink2 hover:text-ink"
             aria-label={`Permalink to ${title}`}
           >
-            {mode === 'result' ? <span className="text-ink">{title}</span> : title}
+            {mode === 'result' ? (
+              <span className="text-ink">{title}</span>
+            ) : (
+              title
+            )}
           </a>
           <ProvenanceTag layer={provenance} note={provenanceNote} />
         </div>
@@ -91,7 +99,12 @@ export function Verse({
         data-testid="verse-line"
       >
         {tokens.map((token) => (
-          <Token key={token.id} token={token} size={tokenSize} />
+          <Token
+            key={token.id}
+            token={token}
+            size={tokenSize}
+            highlighted={highlight?.has(token.id) ?? false}
+          />
         ))}
         {ordinalLabel ? (
           <span

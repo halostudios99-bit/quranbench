@@ -1,6 +1,11 @@
 import type { Token as TokenRecord } from '@quranbench/corpus';
 
-import { rangeHref, rangeId, referenceLabel, surahHref } from '@/lib/addressing';
+import {
+  rangeHref,
+  rangeId,
+  referenceLabel,
+  surahHref,
+} from '@/lib/addressing';
 import { absoluteUrl } from '@/lib/site';
 import { getCorpus, getTextEdition } from '@/server/corpus';
 import { Verse, type VerseMode } from './Verse';
@@ -25,6 +30,8 @@ interface ReaderVerseProps {
    * verse, range and search surfaces keep the full toolbar.
    */
   showActions?: boolean | undefined;
+  /** Token ids to emphasise — the subject word on a word or root page. */
+  highlightTokenIds?: readonly string[] | undefined;
 }
 
 export function ReaderVerse({
@@ -36,16 +43,23 @@ export function ReaderVerse({
   mode = 'reading',
   basmala = false,
   showActions,
+  highlightTokenIds,
 }: ReaderVerseProps) {
   const edition = getTextEdition();
   const corpusVersion = getCorpus().version;
   const last = to ?? from;
   const isRange = !basmala && last > from;
 
-  const shortRef = basmala ? 'basmala' : referenceLabel(surahNumber, from, last);
+  const shortRef = basmala
+    ? 'basmala'
+    : referenceLabel(surahNumber, from, last);
   const title = basmala ? `${surahName} · Basmala` : `${surahName} ${shortRef}`;
-  const href = basmala ? surahHref(surahNumber) : rangeHref(surahNumber, from, last);
-  const id = basmala ? `quran:${surahNumber}:basmala` : rangeId(surahNumber, from, last);
+  const href = basmala
+    ? surahHref(surahNumber)
+    : rangeHref(surahNumber, from, last);
+  const id = basmala
+    ? `quran:${surahNumber}:basmala`
+    : rangeId(surahNumber, from, last);
 
   return (
     <Verse
@@ -63,6 +77,7 @@ export function ReaderVerse({
       edition={edition}
       corpusVersion={corpusVersion}
       showActions={showActions}
+      highlightTokenIds={highlightTokenIds}
     />
   );
 }

@@ -3,7 +3,18 @@ import { expect, test } from '@playwright/test';
 
 // WCAG 2.2 AA on each page type (design-system §6). We scan against the WCAG A
 // and AA rule tags and require zero violations.
-const PATHS = ['/', '/1', '/2/43', '/2/43-45', '/search?q=root:%D8%B2%20%D9%83%20%D9%88'];
+const PATHS = [
+  '/',
+  '/1',
+  '/2',
+  '/2/page/3',
+  '/2/43',
+  '/2/43-45',
+  '/word/quran%3Atanzil-uthmani%3A2%3A43%3A4',
+  '/word/quran%3Atanzil-uthmani%3A1%3A5%3A1',
+  '/root/z-k-w',
+  '/search?q=root:%D8%B2%20%D9%83%20%D9%88',
+];
 
 for (const path of PATHS) {
   test(`no accessibility violations: ${path}`, async ({ page }) => {

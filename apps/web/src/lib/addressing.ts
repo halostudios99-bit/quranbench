@@ -13,14 +13,40 @@ export function rangeHref(surah: number, from: number, to: number): string {
   return from === to ? verseHref(surah, from) : `/${surah}/${from}-${to}`;
 }
 
-/** Word (token) page — built in the next prompt; linked to now. */
+/** Word (token) page. The id stays human-readable; only URL-unsafe bytes encode. */
 export function wordHref(tokenId: string): string {
   return `/word/${encodeURIComponent(tokenId)}`;
 }
 
-/** Root page — built in the next prompt; linked to now. */
+/** Root page, canonical transliteration slug (`z-k-w`). */
 export function rootHref(slug: string): string {
   return `/root/${slug}`;
+}
+
+/** A page of a root's occurrence list. Page 1 is the bare root page. */
+export function rootOccurrencesHref(slug: string, page: number): string {
+  return page <= 1 ? rootHref(slug) : `/root/${slug}/page/${page}`;
+}
+
+/** A page of a long surah. Page 1 is the bare surah page (its canonical). */
+export function surahPageHref(surah: number, page: number): string {
+  return page <= 1 ? surahHref(surah) : `/${surah}/page/${page}`;
+}
+
+/** The continuous, single-document view of a whole surah (noindex). */
+export function surahAllHref(surah: number): string {
+  return `/${surah}/all`;
+}
+
+/** A token's short reference, e.g. `2:43:4` (surah:verse:index), or basmala. */
+export function tokenRefLabel(
+  surah: number,
+  ordinal: number | null,
+  position: number,
+): string {
+  return ordinal === null
+    ? `${surah}:basmala:${position}`
+    : `${surah}:${ordinal}:${position}`;
 }
 
 export function surahId(surah: number): string {
@@ -36,19 +62,26 @@ export function rangeId(surah: number, from: number, to: number): string {
 }
 
 /** A short human reference like `2:43` or `2:43-45`. */
-export function referenceLabel(surah: number, from: number, to: number): string {
+export function referenceLabel(
+  surah: number,
+  from: number,
+  to: number,
+): string {
   return from === to ? `${surah}:${from}` : `${surah}:${from}-${to}`;
 }
 
 const AYAH_RE = /^(\d+)(?:-(\d+))?$/;
 
 /** Parse the `[ayah]` route segment into a from/to ordinal range, or null. */
-export function parseAyahParam(param: string): { from: number; to: number } | null {
+export function parseAyahParam(
+  param: string,
+): { from: number; to: number } | null {
   const m = AYAH_RE.exec(param);
   if (!m) return null;
   const from = Number(m[1]);
   const to = m[2] === undefined ? from : Number(m[2]);
-  if (!Number.isInteger(from) || !Number.isInteger(to) || from < 1 || to < from) return null;
+  if (!Number.isInteger(from) || !Number.isInteger(to) || from < 1 || to < from)
+    return null;
   return { from, to };
 }
 
