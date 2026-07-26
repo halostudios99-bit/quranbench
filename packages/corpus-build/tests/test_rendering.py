@@ -56,6 +56,13 @@ def render(tokens: list[dict], table: dict) -> str:
     return " ".join(words)
 
 
+# 112 pins the passive voice and the atomic-particle rule. 112:2 and 112:4 stay
+# blocked on hapaxes (صمد, كفوا) and are deliberately absent.
+EXPECTED_112 = {
+    "1": "say He Allah one",
+    "3": "not he begets not is begotten",
+}
+
 EXPECTED = {
     "1": "by name Allah the All-Merciful the Merciful",
     "2": "the praise for Allah Sustainer of the beings",
@@ -75,6 +82,21 @@ EXPECTED = {
 @pytest.mark.parametrize("slot", sorted(EXPECTED))
 def test_al_fatiha_renders_exactly(slot: str, verses) -> None:
     assert render(verses[slot], load_table()) == EXPECTED[slot]
+
+
+@pytest.mark.parametrize("slot", sorted(EXPECTED_112))
+def test_surah_112_passive_voice(slot: str) -> None:
+    """لم يلد ولم يولد — the second verb is passive. Rendering both as
+    "he begets" made the verse say the opposite of what it says."""
+    tokens = [
+        json.loads(line)
+        for line in (ARTIFACTS / f"v{_latest()}" / "tokens.jsonl").open(encoding="utf-8")
+    ]
+    verse = sorted(
+        (t for t in tokens if t["surah"] == 112 and t["slot"] == slot),
+        key=lambda t: t["position"],
+    )
+    assert render(verse, load_table()) == EXPECTED_112[slot]
 
 
 def test_no_doubled_words() -> None:

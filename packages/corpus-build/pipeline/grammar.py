@@ -41,6 +41,19 @@ SUBJECT = {
 
 # English is irregular; the table may later carry explicit forms. Until then a
 # small list covers the verbs that actually recur in the corpus.
+# Third-person singular present, where adding -s is wrong.
+PRESENT_3S = {
+    "be": "is", "have": "has", "do": "does", "say": "says", "go": "goes",
+    "is not": "is not",
+}
+
+# Past participles, where they differ from the simple past. Used by the passive.
+PARTICIPLE = {
+    "beget": "begotten", "give": "given", "take": "taken", "see": "seen",
+    "know": "known", "do": "done", "make": "made", "say": "said",
+    "send": "sent", "write": "written", "cast": "cast", "find": "found",
+}
+
 PAST = {
     "be": "was", "say": "said", "know": "knew", "create": "created",
     "beget": "begot", "give": "gave", "take": "took", "come": "came",
@@ -124,6 +137,13 @@ def compose(token: dict, english: str, previous: dict | None = None) -> str:
     segs = m.get("segments") or []
     pos = m.get("pos")
 
+    # Rootless words — particles, pronouns, prepositions with an attached
+    # pronoun — are seeded whole and returned untouched. لَهُۥ is one indivisible
+    # decision, "for him"; letting the layer add "for" from the ل prefix and
+    # "him" from the ه suffix produced "for for him".
+    if not m.get("root"):
+        return english
+
     prefixes = [s for s in segs if s.get("type") == "prefix"]
     suffixes = [s for s in segs if s.get("type") == "suffix"]
 
@@ -138,6 +158,24 @@ def compose(token: dict, english: str, previous: dict | None = None) -> str:
         tense = feats.get("tense")
         person = feats.get("person")
         number = feats.get("number", "singular")
+        # 112:3 لم يلد ولم يولد — the second verb is passive. Without this both
+        # render "he begets" and the verse says the opposite of what it says.
+        if str(feats.get("voice", "")).lower().startswith("pass"):
+            participle = PARTICIPLE.get(out) or _past(out)
+            for pron in ("he ", "they ", "I ", "We ", "you "):
+                if participle.startswith(pron):
+                    participle = participle[len(pron):]
+            be = "was" if tense == "PERF" else ("are" if number == "plural" else "is")
+            out = f"{be} {participle}"
+            if pron_suffix:
+                sfeats = pron_suffix.get("features") or {}
+                if not _is_subject_marker(feats, sfeats):
+                    obj = _pronoun(sfeats)
+                    if obj:
+                        out = f"{out} {obj}"
+            if conj:
+                out = ("and " if (conj.get("lemma") or "") == "و" else "so ") + out
+            return out
         if tense == "PERF":
             out = _past(out)
             subj = SUBJECT.get((person, number))
@@ -145,7 +183,12 @@ def compose(token: dict, english: str, previous: dict | None = None) -> str:
                 out = f"{subj} {out}"
         elif tense == "IMPF":
             subj = SUBJECT.get((person, number))
-            verb = out if number == "plural" or person in ("1", "2") else _pluralise(out)
+            if number == "plural" or person in ("1", "2"):
+                verb = out
+            elif out in PRESENT_3S:
+                verb = PRESENT_3S[out]
+            else:
+                verb = _pluralise(out)
             out = f"{subj} {verb}" if subj else verb
         # IMPV: bare stem, which is already the base form
         if pron_suffix:
