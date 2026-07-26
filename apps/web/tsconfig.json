@@ -15,11 +15,14 @@
       "@/*": ["./src/*"]
     }
   },
+  "//": "Both atomic-deploy slots are declared here on purpose. next build appends its own dist directory's types path to this file and reformats it, so a build into .next-a would otherwise leave the repo dirty and the server's tree drifting from the checkout on every alternate deploy. Declaring all three up front leaves it nothing to add. See scripts/deploy-atomic.sh.",
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".next-a/types/**/*.ts",
+    ".next-b/types/**/*.ts"
   ],
-  "exclude": ["node_modules", ".next", "tests/e2e"]
+  "exclude": ["node_modules", ".next", ".next-a", ".next-b", "tests/e2e"]
 }
