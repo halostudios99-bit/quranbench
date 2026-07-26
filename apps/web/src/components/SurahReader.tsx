@@ -7,6 +7,7 @@ import { arabicScale, type ArabicSize, type DisplayMode } from '@/lib/reader-pre
 import { getVerseTranslations, type VerseView } from '@/server/corpus';
 import { ReaderVerse } from './ReaderVerse';
 import { ReaderVerseBlock } from './ReaderVerseBlock';
+import { SurahRail } from './SurahRail';
 
 // The surah reader, shared by the three surah surfaces: the continuous short
 // surah and page 1 of a long one (`/2`), a subsequent page (`/2/page/3`), and
@@ -56,11 +57,13 @@ export function SurahReader({
     verses.length > 0 ? verses[verses.length - 1]!.ordinal : null;
 
   return (
-    <div
-      className="mx-auto max-w-reader"
-      data-reader-root
-      style={{ ['--qb-arabic-scale' as string]: String(arabicScale(size)) }}
-    >
+    <div className="flex gap-8">
+      <SurahRail currentSurah={number} />
+      <div
+        className="mx-auto w-full min-w-0 max-w-reader"
+        data-reader-root
+        style={{ ['--qb-arabic-scale' as string]: String(arabicScale(size)) }}
+      >
       {/* rel=prev/next for paginated readers — hoisted to <head> by Next. */}
       {prevPageHref ? <link rel="prev" href={prevPageHref} /> : null}
       {nextPageHref ? <link rel="next" href={nextPageHref} /> : null}
@@ -234,7 +237,8 @@ export function SurahReader({
         ) : (
           <span />
         )}
-      </nav>
+        </nav>
+      </div>
     </div>
   );
 }
