@@ -54,6 +54,17 @@ for (const vp of VIEWPORTS) {
       const findings = await page.evaluate((vw) => {
         const out = { overflow: null, culprits: [], smallTargets: [], tinyText: [], notes: [] };
 
+        // Chrome still lays out the contents of a *closed* <details> at the
+        // summary's position, so a collapsed mobile menu looks like a pile of
+        // overflowing, undersized elements. Nobody can see or tap any of it
+        // until the disclosure is opened, so measuring it reports phantoms.
+        const insideClosedDisclosure = (el) => {
+          for (let p = el.parentElement; p; p = p.parentElement) {
+            if (p.tagName === 'DETAILS' && !p.open) return true;
+          }
+          return false;
+        };
+
         const docW = document.documentElement.scrollWidth;
         if (docW > vw + 1) out.overflow = { docWidth: docW, viewport: vw, excess: docW - vw };
 
@@ -64,10 +75,11 @@ for (const vp of VIEWPORTS) {
           if (r.width === 0 || r.height === 0) continue;
           const right = r.left + r.width;
           if (right > vw + 1) {
+            if (insideClosedDisclosure(el)) continue;
             let scrollableAncestor = false;
             for (let p = el.parentElement; p; p = p.parentElement) {
               const ov = getComputedStyle(p).overflowX;
-              if (ov === 'auto' || ov === 'scroll') { scrollableAncestor = true; break; }
+              if (ov === 'auto' || ov === 'scroll' || ov === 'hidden') { scrollableAncestor = true; break; }
             }
             if (scrollableAncestor) continue;
             out.culprits.push({
@@ -88,6 +100,7 @@ for (const vp of VIEWPORTS) {
         for (const el of document.querySelectorAll('a, button, input, [role="button"]')) {
           const r = el.getBoundingClientRect();
           if (r.width === 0 || r.height === 0) continue;
+          if (insideClosedDisclosure(el)) continue;
           if (Math.min(r.width, r.height) >= 24) continue;
           const key = el.tagName + (el.textContent || '').trim().slice(0, 20);
           if (seen.has(key)) continue;

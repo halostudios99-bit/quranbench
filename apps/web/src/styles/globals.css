@@ -195,6 +195,15 @@ body {
   outline-offset: 2px;
 }
 
+/* Breadcrumb links measured 16px tall on a phone. They are a row of controls,
+   not links inside a sentence, so the WCAG 2.2 inline-link exception does not
+   really cover them. Six page types render this same navigation, so the target
+   size is set once here rather than in six components where it would drift. */
+nav[aria-label='Breadcrumb'] a {
+  display: inline-block;
+  padding-block: 6px;
+}
+
 /* A field shell: a bordered box wrapping an icon and an input that must read as
    one control. The ring is drawn once, on the shell, in the same style every
    other focusable element on the site uses. The inner input draws none. */

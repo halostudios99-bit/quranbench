@@ -93,10 +93,10 @@ export function SurahReader({
       {prevPageHref ? <link rel="prev" href={prevPageHref} /> : null}
       {nextPageHref ? <link rel="next" href={nextPageHref} /> : null}
 
-      {/* inline-block + padding: at 13px these breadcrumb links were 16px tall,
-          which is a small tap target on a phone. */}
+      {/* Tap target size for breadcrumb links is set once in globals.css, for
+          all six page types that render this navigation. */}
       <nav aria-label="Breadcrumb" className="mb-2 text-[13px] text-ink3">
-        <a href="/" className="inline-block py-1.5 hover:text-ink2">
+        <a href="/" className="hover:text-ink2">
           Read
         </a>
         <span aria-hidden="true"> / </span>
@@ -104,10 +104,7 @@ export function SurahReader({
           <span className="text-ink2">Surah {number}</span>
         ) : (
           <>
-            <a
-              href={surahHref(number)}
-              className="inline-block py-1.5 hover:text-ink2"
-            >
+            <a href={surahHref(number)} className="hover:text-ink2">
               Surah {number}
             </a>
             <span aria-hidden="true"> / </span>
@@ -161,14 +158,14 @@ export function SurahReader({
             {variant === 'all' ? (
               <a
                 href={surahHref(number)}
-                className="text-accent hover:underline"
+                className="inline-block py-1.5 text-accent hover:underline"
               >
                 Back to paged reading
               </a>
             ) : (
               <a
                 href={surahAllHref(number)}
-                className="text-accent hover:underline"
+                className="inline-block py-1.5 text-accent hover:underline"
                 rel="nofollow"
               >
                 Read continuously

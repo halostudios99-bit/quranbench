@@ -40,11 +40,13 @@ export function VerseTranslations({ items, compact = false }: VerseTranslationsP
               layer="translation"
               note={`${edition.translator} (${edition.year})`}
             />
+            {/* A licence chip in a metadata row, not a link inside a sentence:
+                it measured 19px tall, below the 24px target minimum. */}
             <a
               href={edition.licence_url}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-ink2"
+              className="inline-block py-1 hover:text-ink2"
             >
               {edition.licence}
             </a>
