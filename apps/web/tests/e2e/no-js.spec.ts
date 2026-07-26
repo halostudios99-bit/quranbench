@@ -47,6 +47,68 @@ test('the data page lists downloads and a citation without JavaScript', async ({
   await expect(page.getByText(/sha256\(manifest\.json\)=/).first()).toBeVisible();
 });
 
+// The trust and research-tool pages (Batch 3/4). Their substance must be in the
+// server HTML with scripting off.
+test('the about page states identity and funding honestly without JavaScript', async ({
+  page,
+}) => {
+  await page.goto('/about');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(/About/);
+  await expect(page.getByText(/does not claim/i).first()).toBeVisible();
+  await expect(page.locator('[data-owner-placeholder="true"]')).toBeVisible();
+});
+
+test('the colophon lists sources without JavaScript', async ({ page }) => {
+  await page.goto('/colophon');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    /Colophon/,
+  );
+  await expect(page.getByText(/Tanzil Quran Text/).first()).toBeVisible();
+  await expect(page.getByText(/Amiri/).first()).toBeVisible();
+});
+
+test('the reverse gloss page groups words without JavaScript', async ({
+  page,
+}) => {
+  await page.goto('/gloss/reward');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(/reward/);
+  // The grouped Arabic occurrences are in the server HTML.
+  await expect(page.locator('.quran').first()).toBeVisible();
+});
+
+test('the correction form works without JavaScript', async ({ page }) => {
+  await page.goto('/report?path=/2/43&ref=Al-Baqarah 2:43');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    /Report a correction/,
+  );
+  await page.locator('#problem').fill('The gloss on word 4 looks wrong.');
+  await page.getByRole('button', { name: /Submit correction/ }).click();
+  await expect(page).toHaveURL(/\/report\/thanks/);
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    /Correction received/,
+  );
+});
+
+test('a single verse page shows similar verses without JavaScript', async ({
+  page,
+}) => {
+  await page.goto('/2/43');
+  await expect(page.getByRole('heading', { name: /Similar verses/ })).toBeVisible();
+});
+
+test('a root page shows connected roots without JavaScript', async ({ page }) => {
+  await page.goto('/root/z-k-w');
+  await expect(
+    page.getByRole('heading', { name: /Connected roots/ }),
+  ).toBeVisible();
+});
+
+test('random redirects to a word page without JavaScript', async ({ page }) => {
+  await page.goto('/random?seed=e2e-fixed');
+  await expect(page).toHaveURL(/\/word\//);
+  await expect(page.locator('[data-token-id]').first()).toBeVisible();
+});
+
 test('the method page renders its explanation without JavaScript', async ({
   page,
 }) => {

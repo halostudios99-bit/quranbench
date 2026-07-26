@@ -20,13 +20,20 @@ import {
 } from '@quranbench/search';
 
 import { pageSlice, pageCount as pagesFor } from '@/lib/pagination';
-import { tokenRefLabel, verseHref } from '@/lib/addressing';
+import { rootHref, tokenRefLabel, verseHref } from '@/lib/addressing';
 import {
   computeDivergence,
   reverseLookup,
   type DivergenceResult,
   type EditionText,
 } from '@/lib/translations';
+import { groupGloss, normaliseGloss, type GlossGrouping } from '@/lib/gloss';
+import {
+  rankSimilarVerses,
+  type SimilarCandidate,
+} from '@/lib/similar-verses';
+import { rankCoOccurrence, tallyCoOccurrence } from '@/lib/co-occurrence';
+import { pickWordIndex } from '@/lib/random-word';
 
 // The whole corpus is a few megabytes and fits in RAM (see CLAUDE.md). It is
 // loaded and indexed exactly once per server process — a module-level singleton,
@@ -53,8 +60,26 @@ interface CorpusState {
   translations: LoadedTranslation[];
   /** Corpus verse ids in reading order — the ordering basis for reverse lookup. */
   verseOrder: string[];
+  /** Normalised English gloss → token handles carrying it (reverse gloss lookup). */
+  glossIndex: Map<string, number[]>;
+  /** Root slug → the verse ids it occurs in, in reading order (co-occurrence, similarity). */
+  versesByRoot: Map<string, string[]>;
+  /** Verse id → the set of root slugs occurring in it. */
+  rootSlugsByVerse: Map<string, Set<string>>;
+  /** Ubiquitous roots removed from similarity/co-occurrence signal (see /method). */
+  similarityStoplist: Set<string>;
   loadMs: number;
 }
+
+// A root occurring in this many distinct verses or more carries no discriminative
+// signal for similarity — it is on the stoplist. At the v0.8.0 threshold this is the
+// eight most ubiquitous roots (Allah, say, be, lord, know, believe, people, that).
+// Documented on /method; the exact members are printed from the loaded corpus.
+export const SIMILARITY_STOPLIST_MIN_DF = 500;
+/** How many similar verses a verse page shows. */
+export const SIMILAR_VERSES_LIMIT = 8;
+/** How many co-occurring roots a root page shows. */
+export const CO_OCCURRENCE_LIMIT = 12;
 
 /** Artifacts live at <repo>/packages/corpus-build/out, two levels up from apps/web. */
 function artifactsRoot(): string {
@@ -103,6 +128,46 @@ function build(): CorpusState {
     rootByForm.set(r.root.replace(/\s+/g, ''), r);
   }
 
+  // Research indices, all built in a single pass over the tokens (a few
+  // megabytes; see CLAUDE.md). Gloss lookup indexes every token by its normalised
+  // English gloss. Root/verse structures back similar-verses and co-occurrence and
+  // exclude separated basmalas, which are not counted verses.
+  const glossIndex = new Map<string, number[]>();
+  const versesByRootSet = new Map<string, Set<string>>();
+  const rootSlugsByVerse = new Map<string, Set<string>>();
+  corpus.tokens.forEach((token, handle) => {
+    const gloss = token.morphology.gloss;
+    if (gloss) {
+      const key = normaliseGloss(gloss);
+      const list = glossIndex.get(key);
+      if (list) list.push(handle);
+      else glossIndex.set(key, [handle]);
+    }
+    if (token.is_basmala) return;
+    const slug = token.morphology.root_slug;
+    if (!slug) return;
+    const verseId = token.segment_id;
+    let verseRoots = rootSlugsByVerse.get(verseId);
+    if (!verseRoots) {
+      verseRoots = new Set();
+      rootSlugsByVerse.set(verseId, verseRoots);
+    }
+    verseRoots.add(slug);
+    let rootVerses = versesByRootSet.get(slug);
+    if (!rootVerses) {
+      rootVerses = new Set();
+      versesByRootSet.set(slug, rootVerses);
+    }
+    rootVerses.add(verseId);
+  });
+
+  const versesByRoot = new Map<string, string[]>();
+  const similarityStoplist = new Set<string>();
+  for (const [slug, verses] of versesByRootSet) {
+    versesByRoot.set(slug, [...verses]);
+    if (verses.size >= SIMILARITY_STOPLIST_MIN_DF) similarityStoplist.add(slug);
+  }
+
   const loadMs = performance.now() - started;
   if (process.env.NODE_ENV !== 'test') {
     console.info(
@@ -122,6 +187,10 @@ function build(): CorpusState {
     rootByForm,
     translations: corpus.translations,
     verseOrder: corpus.segments.map((s) => s.id),
+    glossIndex,
+    versesByRoot,
+    rootSlugsByVerse,
+    similarityStoplist,
     loadMs,
   };
 }
@@ -673,6 +742,235 @@ export function reverseLookupWord(
       };
     });
   return { word: result.word, total: result.total, occurrences };
+}
+
+// ─── Reverse gloss lookup ────────────────────────────────────────────────────
+// Every Arabic token rendered by one English gloss, grouped by root and lemma.
+// The correspondence is a word-level gloss from the Leeds QAC (GPL) — an external
+// annotation, never a translation of the whole verse and never Quranic text.
+
+export interface GlossView {
+  /** The gloss as first written in the corpus, for display. */
+  gloss: string;
+  /** The normalised key the lookup matched on. */
+  key: string;
+  grouping: GlossGrouping<OccurrenceRef>;
+}
+
+/** Resolve a gloss (raw or normalised) to its grouped occurrences, or undefined. */
+export function describeGloss(word: string): GlossView | undefined {
+  const s = state();
+  const key = normaliseGloss(word);
+  const handles = s.glossIndex.get(key);
+  if (!handles || handles.length === 0) return undefined;
+  const tokens = tokensForHandles(handles);
+  const grouping = groupGloss(
+    tokens.map((t) => ({
+      rootSlug: t.morphology.root_slug,
+      root: t.morphology.root,
+      lemma: t.morphology.lemma,
+      ref: occurrenceRef(t),
+    })),
+  );
+  return { gloss: tokens[0]!.morphology.gloss ?? key, key, grouping };
+}
+
+export interface GlossListing {
+  gloss: string;
+  key: string;
+  total: number;
+  rootCount: number;
+}
+
+/**
+ * Glosses worth a permalink in the sitemap: those spanning two or more distinct
+ * roots — the "different Arabic words, same rendering" cases the tool exists for.
+ * A single-root gloss still resolves at its URL; it is just not advertised.
+ */
+export function listReverseGlosses(): GlossListing[] {
+  const s = state();
+  const out: GlossListing[] = [];
+  for (const [key, handles] of s.glossIndex) {
+    const roots = new Set<string>();
+    for (const h of handles) {
+      const slug = s.corpus.tokens[h]!.morphology.root_slug;
+      roots.add(slug ?? ' no-root');
+    }
+    if (roots.size < 2) continue;
+    const first = s.corpus.tokens[handles[0]!]!;
+    out.push({
+      gloss: first.morphology.gloss ?? key,
+      key,
+      total: handles.length,
+      rootCount: roots.size,
+    });
+  }
+  return out.sort((a, b) => b.rootCount - a.rootCount || b.total - a.total);
+}
+
+// ─── Similar verses ──────────────────────────────────────────────────────────
+
+export interface SharedRoot {
+  slug: string;
+  root: string;
+  href: string;
+}
+
+export interface SimilarVerseView {
+  verseId: string;
+  surah: number;
+  surahName: string;
+  ordinal: number;
+  ref: string;
+  href: string;
+  score: number;
+  scorePct: number;
+  intersection: number;
+  union: number;
+  shared: SharedRoot[];
+}
+
+export interface SimilarVersesResult {
+  items: SimilarVerseView[];
+  /** Content roots of the target verse (stoplist removed) used for the measure. */
+  targetRoots: SharedRoot[];
+  /** Stoplisted roots present in the target verse but excluded from the measure. */
+  excluded: SharedRoot[];
+}
+
+function sharedRoot(slug: string): SharedRoot {
+  const root = state().rootBySlug.get(slug);
+  return {
+    slug,
+    root: root?.root ?? slug,
+    href: rootHref(slug),
+  };
+}
+
+/** Content root slugs of a verse (stoplist removed). */
+function contentRoots(segmentId: string): Set<string> {
+  const s = state();
+  const all = s.rootSlugsByVerse.get(segmentId);
+  if (!all) return new Set();
+  const out = new Set<string>();
+  for (const slug of all) if (!s.similarityStoplist.has(slug)) out.add(slug);
+  return out;
+}
+
+/**
+ * The verses most similar to one verse, by Jaccard over stoplisted root sets. Only
+ * candidate verses sharing a content root are considered, gathered through the
+ * root→verses index, so cost is bounded by the target's roots, not the corpus.
+ */
+export function listSimilarVerses(
+  segmentId: string,
+  limit = SIMILAR_VERSES_LIMIT,
+): SimilarVersesResult {
+  const s = state();
+  const targetSet = contentRoots(segmentId);
+  const excluded = [...(s.rootSlugsByVerse.get(segmentId) ?? [])]
+    .filter((slug) => s.similarityStoplist.has(slug))
+    .map(sharedRoot);
+  const targetRoots = [...targetSet].map(sharedRoot);
+  if (targetSet.size === 0) return { items: [], targetRoots, excluded };
+
+  const candidates = new Map<string, SimilarCandidate>();
+  for (const slug of targetSet) {
+    for (const verseId of s.versesByRoot.get(slug) ?? []) {
+      if (verseId === segmentId || candidates.has(verseId)) continue;
+      candidates.set(verseId, { verseId, roots: contentRoots(verseId) });
+    }
+  }
+
+  const ranked = rankSimilarVerses(targetSet, candidates.values(), limit);
+  const items = ranked.flatMap((r): SimilarVerseView[] => {
+    const segment = s.index.segmentById.get(r.verseId);
+    if (!segment) return [];
+    const ordinal = segment.ordinals[s.scheme];
+    if (ordinal === undefined) return [];
+    const surah = getSurah(segment.surah);
+    return [
+      {
+        verseId: r.verseId,
+        surah: segment.surah,
+        surahName: surah?.name_en ?? `Surah ${segment.surah}`,
+        ordinal,
+        ref: `${segment.surah}:${ordinal}`,
+        href: verseHref(segment.surah, ordinal),
+        score: r.score,
+        scorePct: Math.round(r.score * 100),
+        intersection: r.intersection,
+        union: r.union,
+        shared: r.shared.map(sharedRoot),
+      },
+    ];
+  });
+  return { items, targetRoots, excluded };
+}
+
+// ─── Root co-occurrence ──────────────────────────────────────────────────────
+
+export interface CoOccurrenceView {
+  slug: string;
+  root: string;
+  href: string;
+  sharedVerses: number;
+  occurrences: number;
+}
+
+export interface RootCoOccurrenceResult {
+  /** Distinct verses the subject root occurs in — the co-occurrence universe. */
+  verseCount: number;
+  items: CoOccurrenceView[];
+}
+
+/**
+ * Which roots most often share a verse with this one. Window: the verse. Measure:
+ * distinct shared verses. Ubiquitous (stoplisted) roots are excluded from the
+ * results so genuinely connected concepts surface.
+ */
+export function rootCoOccurrences(
+  slug: string,
+  limit = CO_OCCURRENCE_LIMIT,
+): RootCoOccurrenceResult {
+  const s = state();
+  const verseIds = s.versesByRoot.get(slug) ?? [];
+  const verseRootSets = verseIds.flatMap((id) => {
+    const set = s.rootSlugsByVerse.get(id);
+    return set ? [set] : [];
+  });
+  const tally = tallyCoOccurrence(slug, verseRootSets, s.similarityStoplist);
+  const items = rankCoOccurrence(tally, limit).map((c) => {
+    const root = s.rootBySlug.get(c.rootSlug);
+    return {
+      slug: c.rootSlug,
+      root: root?.root ?? c.rootSlug,
+      href: rootHref(c.rootSlug),
+      sharedVerses: c.sharedVerses,
+      occurrences: root?.occurrences ?? 0,
+    };
+  });
+  return { verseCount: verseIds.length, items };
+}
+
+/** The stoplist members, for display on /method and page footers. */
+export function similarityStoplist(): SharedRoot[] {
+  return [...state().similarityStoplist]
+    .map(sharedRoot)
+    .sort((a, b) => {
+      const ao = state().rootBySlug.get(a.slug)?.occurrences ?? 0;
+      const bo = state().rootBySlug.get(b.slug)?.occurrences ?? 0;
+      return bo - ao;
+    });
+}
+
+// ─── Random word ─────────────────────────────────────────────────────────────
+
+/** A random token id, deterministic when `seed` is given. Null on an empty corpus. */
+export function randomTokenId(seed: string | null): string | null {
+  const tokens = state().corpus.tokens;
+  const index = pickWordIndex(seed, tokens.length);
+  return index < 0 ? null : tokens[index]!.id;
 }
 
 /** Text edition label for provenance display (the Uthmani text edition source). */

@@ -1,6 +1,7 @@
 import { CitingInvestigations } from '@/components/CitingInvestigations';
 import { JsonLd } from '@/components/JsonLd';
 import { ProvenanceTag } from '@/components/ProvenanceTag';
+import { ReportLink } from '@/components/ReportLink';
 import { ReaderVerse } from '@/components/ReaderVerse';
 import { VerseActions } from '@/components/VerseActions';
 import { rootHref, rootOccurrencesHref } from '@/lib/addressing';
@@ -9,6 +10,7 @@ import { absoluteUrl } from '@/lib/site';
 import type { CitingInvestigation } from '@/server/domain/types';
 import type {
   OccurrenceRef,
+  RootCoOccurrenceResult,
   RootOccurrencePage,
   RootView,
 } from '@/server/corpus';
@@ -21,6 +23,7 @@ import type {
 interface RootPageProps {
   view: RootView;
   occurrences: RootOccurrencePage;
+  coOccurrence: RootCoOccurrenceResult;
   edition: string;
   corpusVersion: string;
   citing: CitingInvestigation[];
@@ -133,6 +136,7 @@ function RefLink({ o, label }: { o: OccurrenceRef; label: string }) {
 export function RootPage({
   view,
   occurrences,
+  coOccurrence,
   edition,
   corpusVersion,
   citing,
@@ -337,6 +341,54 @@ export function RootPage({
         </Section>
 
         <Section
+          title="Connected roots"
+          provenance="computed"
+          note="co-occurrence · window: the verse"
+        >
+          <p className="mb-4 max-w-prose text-[13px] leading-relaxed text-ink2">
+            The roots that most often share a verse with{' '}
+            <span lang="ar" dir="rtl" className="quran text-[18px]">
+              {root.root}
+            </span>
+            . <strong>Window:</strong> the verse. <strong>Measure:</strong> the
+            number of distinct verses in which both roots occur (of the{' '}
+            {coOccurrence.verseCount} this root appears in). Ubiquitous roots are
+            excluded so genuinely connected concepts surface —{' '}
+            <a href="/method#co-occurrence" className="text-accent underline">
+              see the method
+            </a>
+            .
+          </p>
+          {coOccurrence.items.length > 0 ? (
+            <ul className="flex flex-col divide-y divide-line">
+              {coOccurrence.items.map((c) => (
+                <li
+                  key={c.slug}
+                  className="flex items-center justify-between gap-4 py-2"
+                >
+                  <a
+                    href={c.href}
+                    className="flex items-center gap-2 hover:underline"
+                  >
+                    <span lang="ar" dir="rtl" className="quran text-[24px] text-ink">
+                      {c.root}
+                    </span>
+                    <span className="font-ui text-[12px] text-ink3">{c.slug}</span>
+                  </a>
+                  <span className="font-ui text-[13px] text-ink3">
+                    {c.sharedVerses} shared verse{c.sharedVerses === 1 ? '' : 's'}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-[14px] text-ink3">
+              No non-ubiquitous root shares a verse with this one.
+            </p>
+          )}
+        </Section>
+
+        <Section
           title={`Occurrences · ${occurrences.total} verse${occurrences.total === 1 ? '' : 's'}`}
           provenance="quran"
           note={edition}
@@ -407,6 +459,9 @@ export function RootPage({
             {canonical}
           </a>
           .
+        </p>
+        <p className="mt-3">
+          <ReportLink path={rootHref(slug)} label={`root ${root.root}`} />
         </p>
       </footer>
     </div>

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 import {
+  glossHref,
   rootHref,
   surahHref,
   surahPageHref,
@@ -9,7 +10,12 @@ import {
 } from '@/lib/addressing';
 import { surahPageCount } from '@/lib/pagination';
 import { absoluteUrl } from '@/lib/site';
-import { getCorpus, getSurahVerses, listSurahs } from '@/server/corpus';
+import {
+  getCorpus,
+  getSurahVerses,
+  listReverseGlosses,
+  listSurahs,
+} from '@/server/corpus';
 
 // Every addressable unit appears in a sitemap, segmented under the 50,000-URL
 // limit (design-system §5). Segment 0 carries the reader surfaces (surahs, their
@@ -45,7 +51,21 @@ function coreAndRoots(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [
     { url: absoluteUrl('/'), changeFrequency: 'monthly', priority: 1 },
     { url: absoluteUrl('/search'), changeFrequency: 'monthly', priority: 0.5 },
+    { url: absoluteUrl('/about'), changeFrequency: 'monthly', priority: 0.6 },
+    { url: absoluteUrl('/method'), changeFrequency: 'monthly', priority: 0.6 },
+    { url: absoluteUrl('/colophon'), changeFrequency: 'monthly', priority: 0.5 },
+    { url: absoluteUrl('/identifiers'), changeFrequency: 'yearly', priority: 0.5 },
+    { url: absoluteUrl('/data'), changeFrequency: 'monthly', priority: 0.5 },
   ];
+  // Reverse-gloss pages worth advertising: those where one English gloss spans two
+  // or more distinct Arabic roots — the "different words, same rendering" cases.
+  for (const gloss of listReverseGlosses()) {
+    entries.push({
+      url: absoluteUrl(glossHref(gloss.key)),
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    });
+  }
   for (const surah of listSurahs()) {
     entries.push({
       url: absoluteUrl(surahHref(surah.number)),

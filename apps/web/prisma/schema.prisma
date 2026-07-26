@@ -330,6 +330,11 @@ model SavedSearch {
 enum ReportTargetType {
   INVESTIGATION
   RESPONSE
+  // A correction report against a public page (verse, word, root, investigation).
+  // targetId holds the reported page path. Corrections to Quranic text itself are
+  // impossible by design; a PAGE report concerns annotations, translations or
+  // editorial content. See src/server/domain/moderation.ts.
+  PAGE
 }
 
 enum ReportStatus {

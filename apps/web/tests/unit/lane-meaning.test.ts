@@ -54,6 +54,7 @@ function render(lane: unknown) {
     createElement(RootPage as any, {
       view: view(lane),
       occurrences,
+      coOccurrence: { verseCount: 0, items: [] },
       edition: 'Tanzil Uthmani',
       corpusVersion: '0.8.0',
       citing: [],

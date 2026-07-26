@@ -37,7 +37,10 @@ export const RESPONSE_TYPES: ResponseType[] = [
 
 export type CitationKind = 'TOKEN' | 'ROOT' | 'SEGMENT' | 'SURAH';
 
-export type ReportTargetType = 'INVESTIGATION' | 'RESPONSE';
+// PAGE is a correction report against any public page (a verse, word, root or
+// investigation URL): the platform's promise to be corrected needs a place to be
+// told. targetId is the reported page path. See domain/moderation.ts.
+export type ReportTargetType = 'INVESTIGATION' | 'RESPONSE' | 'PAGE';
 
 export type ActionKind = 'SIGNUP' | 'PUBLISH' | 'RESPONSE' | 'REPORT';
 

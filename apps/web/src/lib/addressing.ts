@@ -23,6 +23,11 @@ export function rootHref(slug: string): string {
   return `/root/${slug}`;
 }
 
+/** Reverse gloss lookup page for one English gloss (`mercy`, `(the) reward`). */
+export function glossHref(gloss: string): string {
+  return `/gloss/${encodeURIComponent(gloss)}`;
+}
+
 /** A page of a root's occurrence list. Page 1 is the bare root page. */
 export function rootOccurrencesHref(slug: string, page: number): string {
   return page <= 1 ? rootHref(slug) : `/root/${slug}/page/${page}`;

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { JsonLd } from '@/components/JsonLd';
 import { ProvenanceTag } from '@/components/ProvenanceTag';
+import { ReportLink } from '@/components/ReportLink';
 import { absoluteUrl } from '@/lib/site';
 import {
   investigationHref,
@@ -201,6 +202,9 @@ export default async function InvestigationPage({ params }: Params) {
           . Every published investigation carries a claim, a runnable query,
           pinned evidence and its own counter-evidence. Reproduce any figure by
           running the query against the named corpus version.
+        </p>
+        <p className="mt-3">
+          <ReportLink path={investigationHref(slug)} label={`investigation: ${inv.claim}`} />
         </p>
       </footer>
     </article>

@@ -1,6 +1,17 @@
 import { getCorpus, getTextEdition } from '@/server/corpus';
 import { ProvenanceTag } from './ProvenanceTag';
 
+// Every link resolves to a page that exists, so the footer is never a dead end.
+const SITE_LINKS: { href: string; label: string }[] = [
+  { href: '/about', label: 'About' },
+  { href: '/method', label: 'Method' },
+  { href: '/colophon', label: 'Colophon' },
+  { href: '/identifiers', label: 'Identifiers' },
+  { href: '/data', label: 'Data' },
+  { href: '/random', label: 'Random word' },
+  { href: '/report', label: 'Report a correction' },
+];
+
 // The site-wide provenance line. Every page states which text edition and corpus
 // version produced what it shows — reproducibility applied to the page itself.
 export function SiteFooter() {
@@ -9,6 +20,16 @@ export function SiteFooter() {
   return (
     <footer className="mt-16 border-t border-line bg-panel">
       <div className="mx-auto max-w-wrap px-5 py-7 sm:px-8">
+        <nav
+          aria-label="Site"
+          className="mb-5 flex flex-wrap gap-x-5 gap-y-2 text-[13px] text-ink2"
+        >
+          {SITE_LINKS.map((link) => (
+            <a key={link.href} href={link.href} className="hover:text-ink">
+              {link.label}
+            </a>
+          ))}
+        </nav>
         <div className="mb-3 flex flex-wrap items-center gap-2">
           <ProvenanceTag layer="quran" note={edition} />
           <ProvenanceTag layer="external" note="Leeds QAC (GPL)" />

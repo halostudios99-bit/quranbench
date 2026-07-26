@@ -86,6 +86,10 @@ export function report(input: CreateReportInput & { clientId: string }) {
   return moderation.reportContent(store, input);
 }
 
+export function submitCorrection(input: moderation.CorrectionInput) {
+  return moderation.submitCorrection(store, input);
+}
+
 // ─── Read paths (pages call these) ────────────────────────────────────────────
 
 export function listPublishedInvestigations(): Promise<Investigation[]> {

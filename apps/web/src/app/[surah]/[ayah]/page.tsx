@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import ReactDOM from 'react-dom';
 
 import { ReaderVerseBlock } from '@/components/ReaderVerseBlock';
+import { ReportLink } from '@/components/ReportLink';
+import { SimilarVerses } from '@/components/SimilarVerses';
 import { resolveReaderView } from '@/components/reader-view';
 import {
   parseAyahParam,
@@ -18,6 +20,7 @@ import {
   getSurahVerses,
   getVerseRange,
   getVerseTranslations,
+  listSimilarVerses,
   listTranslationEditions,
 } from '@/server/corpus';
 
@@ -135,6 +138,12 @@ export default async function VersePage({ params }: Params) {
         ))}
       </div>
 
+      {single ? (
+        <div className="mt-8">
+          <SimilarVerses result={listSimilarVerses(views[0]!.segment.id)} />
+        </div>
+      ) : null}
+
       <nav
         aria-label="Verse navigation"
         className="mt-8 flex items-center justify-between gap-4"
@@ -168,6 +177,13 @@ export default async function VersePage({ params }: Params) {
           <span />
         )}
       </nav>
+
+      <footer className="mt-8 border-t border-line pt-5 text-[13px] text-ink3">
+        <ReportLink
+          path={rangeHref(number, from, to)}
+          label={`${surah.name_en} ${ref}`}
+        />
+      </footer>
     </div>
   );
 }

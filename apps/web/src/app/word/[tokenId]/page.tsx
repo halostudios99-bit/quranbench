@@ -4,12 +4,13 @@ import ReactDOM from 'react-dom';
 
 import { CitingInvestigations } from '@/components/CitingInvestigations';
 import { JsonLd } from '@/components/JsonLd';
+import { ReportLink } from '@/components/ReportLink';
 import { OccurrenceChips } from '@/components/OccurrenceChips';
 import { ProvenanceTag } from '@/components/ProvenanceTag';
 import { ReaderVerse } from '@/components/ReaderVerse';
 import { VerseActions } from '@/components/VerseActions';
 import { VerseTranslations } from '@/components/VerseTranslations';
-import { rootHref, surahHref, verseHref, wordHref } from '@/lib/addressing';
+import { glossHref, rootHref, surahHref, verseHref, wordHref } from '@/lib/addressing';
 import { absoluteUrl } from '@/lib/site';
 import {
   describeToken,
@@ -305,7 +306,13 @@ export default async function WordPage({ params }: Params) {
               <dl className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <Field label="Gloss">
                   {morph.gloss ? (
-                    <span>{morph.gloss}</span>
+                    <a
+                      href={glossHref(morph.gloss)}
+                      className="text-accent hover:underline"
+                      title={`Every Arabic word glossed “${morph.gloss}”`}
+                    >
+                      {morph.gloss}
+                    </a>
                   ) : (
                     <span className="text-ink3">—</span>
                   )}
@@ -546,6 +553,9 @@ export default async function WordPage({ params }: Params) {
           <code>{token.id}</code>. Counts are computed over the loaded corpus;
           morphology is Leeds QAC (GPL). Reproduce any figure by querying the
           same corpus version.
+        </p>
+        <p className="mt-3">
+          <ReportLink path={wordHref(token.id)} label={`word ${ref}`} />
         </p>
       </footer>
     </div>

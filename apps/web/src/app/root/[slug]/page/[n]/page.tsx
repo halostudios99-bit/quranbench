@@ -10,6 +10,7 @@ import {
   getRootBySlug,
   getRootOccurrences,
   getTextEdition,
+  rootCoOccurrences,
 } from '@/server/corpus';
 import { citingInvestigations } from '@/server/research';
 
@@ -58,6 +59,7 @@ export default async function RootOccurrencePage({ params }: Params) {
     <RootPage
       view={view}
       occurrences={occurrences}
+      coOccurrence={rootCoOccurrences(root.root_slug)}
       edition={getTextEdition()}
       corpusVersion={getCorpus().version}
       citing={citing}

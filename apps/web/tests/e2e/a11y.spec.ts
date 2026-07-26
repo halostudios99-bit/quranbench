@@ -22,6 +22,11 @@ const PATHS = [
   '/method',
   '/identifiers',
   '/offline',
+  '/about',
+  '/colophon',
+  '/report',
+  '/report/thanks',
+  '/gloss/reward',
 ];
 
 for (const path of PATHS) {

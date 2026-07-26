@@ -3,6 +3,12 @@ import type { Metadata } from 'next';
 import { ProvenanceTag } from '@/components/ProvenanceTag';
 import type { Source } from '@quranbench/corpus';
 import { currentVersion, readManifest } from '@/server/artifacts';
+import {
+  CO_OCCURRENCE_LIMIT,
+  SIMILARITY_STOPLIST_MIN_DF,
+  SIMILAR_VERSES_LIMIT,
+  similarityStoplist,
+} from '@/server/corpus';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { artifactsRoot } from '@/server/artifacts';
@@ -51,6 +57,7 @@ export default function MethodPage() {
   const morph = src.find((s) => s.id === 'leeds-qac-morphology');
   const translations = src.filter((s) => s.role === 'translation');
   const rules = manifest.normalisation_rules;
+  const stoplist = similarityStoplist();
 
   return (
     <article className="mx-auto max-w-reader">
@@ -192,6 +199,85 @@ export default function MethodPage() {
           <li>Compare the total to what the page shows. They must match.</li>
         </ol>
       </Section>
+
+      <section id="similar-verses" className="mb-9 scroll-mt-20">
+        <div className="mb-3 flex flex-wrap items-center gap-3">
+          <h2 className="text-[18px] font-semibold text-ink">
+            Similar verses — the measure
+          </h2>
+          <ProvenanceTag layer="computed" />
+        </div>
+        <div className="flex flex-col gap-3 text-[15px] leading-relaxed text-ink2">
+          <p>
+            On a single verse page, the <strong>{SIMILAR_VERSES_LIMIT}</strong> most
+            similar verses are ranked by the <strong>Jaccard index</strong> of the
+            two verses&rsquo; sets of morphological roots:{' '}
+            <code>J(A, B) = |A ∩ B| / |A ∪ B|</code>. Jaccard is symmetric and
+            bounded in [0, 1], and — unlike a raw shared-root count — is not inflated
+            by verse length, so a short verse and a long one are compared fairly. Only
+            verses that share at least one root are candidates, gathered through the
+            root&rarr;verses index, so the cost is bounded by the target verse&rsquo;s
+            roots rather than the whole corpus.
+          </p>
+          <p>
+            Before the measure runs, a <strong>stoplist</strong> of ubiquitous roots
+            is removed from every verse&rsquo;s set. A root that occurs in a large
+            fraction of verses carries no discriminating signal: left in, it would
+            make almost every verse look similar to every other. The stoplist is
+            defined precisely and reproducibly as{' '}
+            <em>
+              every root occurring in {SIMILARITY_STOPLIST_MIN_DF} or more distinct
+              verses
+            </em>
+            . In v{version} that is these {stoplist.length} roots:
+          </p>
+          <ul className="flex flex-wrap gap-2">
+            {stoplist.map((r) => (
+              <li
+                key={r.slug}
+                className="rounded-lg border border-line bg-panel px-3 py-1.5"
+              >
+                <span lang="ar" dir="rtl" className="quran text-[20px] text-ink">
+                  {r.root}
+                </span>
+                <span className="ms-2 font-ui text-[12px] text-ink3">{r.slug}</span>
+              </li>
+            ))}
+          </ul>
+          <p>
+            The score and the exact shared roots are shown on every result, so you can
+            see what drove the ranking and disagree with it. Verses stoplisted out of
+            the target are listed too. The computation is per-request over the loaded
+            corpus and stays within budget; no similarity is precomputed.
+          </p>
+        </div>
+      </section>
+
+      <section id="co-occurrence" className="mb-9 scroll-mt-20">
+        <div className="mb-3 flex flex-wrap items-center gap-3">
+          <h2 className="text-[18px] font-semibold text-ink">
+            Root co-occurrence — connected roots
+          </h2>
+          <ProvenanceTag layer="computed" />
+        </div>
+        <div className="flex flex-col gap-3 text-[15px] leading-relaxed text-ink2">
+          <p>
+            On a root page, the <strong>{CO_OCCURRENCE_LIMIT}</strong> most connected
+            roots are shown. <strong>Window:</strong> the verse — two roots co-occur
+            when they appear in the same counted verse. <strong>Measure:</strong> the
+            number of distinct verses in which both roots occur. Raw shared-verse
+            count is used rather than an association score because it is stable, needs
+            no smoothing for rare roots, and reproduces exactly from{' '}
+            <code>tokens.jsonl</code>.
+          </p>
+          <p>
+            The same stoplist above is applied to the <em>results</em> (not to the
+            subject root), so the list surfaces genuinely connected concepts rather
+            than the same handful of ubiquitous roots under every entry. Separated
+            basmalas are excluded, as they are not counted verses.
+          </p>
+        </div>
+      </section>
 
       <Section title="Known limitations">
         <p>This page is worth more than any feature, so it is blunt:</p>
