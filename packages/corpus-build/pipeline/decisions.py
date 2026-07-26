@@ -30,7 +30,7 @@ import json
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from .grammar import compose
+from .grammar import SUBJECT, compose
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "out"
@@ -58,6 +58,9 @@ def key_of(token: dict) -> str:
         return f"{root}|{lemma}"
     if root:
         return root
+    lemma = (token.get("morphology") or {}).get("lemma")
+    if lemma:
+        return f"form:{token['text_no_tashkeel']}|{lemma}"
     return f"form:{token['text_no_tashkeel']}"
 
 
@@ -72,6 +75,8 @@ def candidate_keys(token: dict) -> list[str]:
         keys.append(f"{root}|{lemma}")
     if root:
         keys.append(root)
+    if lemma:
+        keys.append(f"form:{token['text_no_tashkeel']}|{lemma}")
     keys.append(f"form:{token['text_no_tashkeel']}")
     return keys
 
@@ -95,6 +100,66 @@ def resolve(token: dict, table: dict) -> dict | None:
         if k in table and table[k].get("english"):
             return table[k]
     return None
+
+
+def render_verse(tokens: list[dict], table: dict, mark: bool = False) -> tuple[list[str], bool]:
+    """Render one verse. Returns the words and whether anything blocked it.
+
+    This is the single rendering path. The fixtures used to carry their own copy
+    of this loop, which meant a change to how production renders a verse could
+    leave every test still passing.
+
+    It is also where a frame rule lives that no single word can express. Arabic
+    مِن after an elative is English "than", not "from" — أكبر من, أظلم ممن. The
+    decision table marks which words are elatives, because the morphology does
+    not: the corpus tags أظلم as a verb.
+    """
+    words: list[str] = []
+    blocked = False
+    ordered = sorted(tokens, key=lambda t: t["position"])
+    previous_row: dict | None = None
+
+    for i, token in enumerate(ordered):
+        row = resolve(token, table)
+        if not row:
+            words.append(f"⟦{token['text_no_tashkeel']}⟧")
+            blocked = True
+            previous_row = None
+            continue
+        english = row["english"]
+        if previous_row and previous_row.get("elative") and english.split()[0] == "from":
+            english = "than" + english[len("from"):]
+
+        # إنكم ظلمتم states the subject twice; English states it once. Suppress
+        # the verb's pronoun only when the word before ends in that same
+        # pronoun, so a nominal predicate (إنكم لمشركون) keeps its subject.
+        drop = False
+        morph = token.get("morphology") or {}
+        if previous_row and morph.get("pos") == "V":
+            feats = morph.get("features") or {}
+            subject = SUBJECT.get((feats.get("person"), feats.get("number", "singular")))
+            if subject and previous_row["english"].split()[-1].lower() == subject.lower():
+                drop = True
+
+        word = compose(token, english, ordered[i - 1] if i else None, drop_subject=drop)
+
+        # آمن renders "trust in" and به renders "in it", so the two together said
+        # "trust in in it". Where the repetition comes from our composition it is
+        # dropped; where the Arabic itself repeats a word — وإلهكم إله, أمتكم أمة
+        # — the lemmas match and both are kept, because the text said it twice.
+        if words and word:
+            prev_lemma = (ordered[i - 1].get("morphology") or {}).get("lemma")
+            if morph.get("lemma") != prev_lemma:
+                tail = words[-1].split()
+                head = word.split()
+                if tail and head and tail[-1].lower() == head[0].lower():
+                    word = " ".join(head[1:])
+
+        if word:
+            words.append(f"*{word}*" if mark and row["grade"] == "judgement" else word)
+        previous_row = row
+
+    return words, blocked
 
 
 # ── commands ──────────────────────────────────────────────────────────────────
@@ -155,18 +220,7 @@ def cmd_render(tokens: list[dict], surah: int) -> None:
         return 0 if k[1] == "basmala" else int(k[1])
 
     for k in sorted(by_verse, key=order):
-        words, blocked = [], False
-        ordered = sorted(by_verse[k], key=lambda x: x["position"])
-        for idx, t in enumerate(ordered):
-            prev = ordered[idx - 1] if idx else None
-            row = resolve(t, table)
-            if not row:
-                words.append(f"⟦{t['text_no_tashkeel']}⟧")
-                blocked = True
-            elif row["grade"] == "judgement":
-                words.append(f"*{compose(t, row['english'], prev)}*")
-            else:
-                words.append(compose(t, row["english"], prev))
+        words, blocked = render_verse(by_verse[k], table, mark=True)
         mark = "  [INCOMPLETE]" if blocked else ""
         print(f"{k[0]}:{k[1]}  {' '.join(words)}{mark}")
 

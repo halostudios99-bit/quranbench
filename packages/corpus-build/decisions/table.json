@@ -17,7 +17,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ءازر|آزَر": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:أءذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
+ "form:أءذا|إِذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -29,7 +41,19 @@
   "grade": "",
   "tokens": 9
  },
+ "form:أءنا|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
  "form:أءنك": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:أءنك|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -41,13 +65,37 @@
   "grade": "",
   "tokens": 1
  },
+ "form:أئذا|إِذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:أئن": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 2
  },
+ "form:أئن|إِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:أئن|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:أئنا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:أئنا|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -59,13 +107,31 @@
   "grade": "",
   "tokens": 4
  },
+ "form:أئنكم|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
  "form:أثم": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 1
  },
+ "form:أثم|ثُمّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:أذلك": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:أذلك|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -89,7 +155,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:أفإين|إِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:أفبهذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:أفبهذا|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -101,7 +179,19 @@
   "grade": "settled",
   "tokens": 45
  },
+ "form:أفلا|لا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 45
+ },
  "form:أفلم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 12
+ },
+ "form:أفلم|لَم": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -113,11 +203,29 @@
   "grade": "",
   "tokens": 1
  },
+ "form:أفما|ما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:أفمن": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 17
+ },
+ "form:أفمن|مَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 16
+ },
+ "form:أفمن|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
  },
  "form:أفهم": {
   "english": "",
@@ -131,11 +239,41 @@
   "grade": "",
   "tokens": 2
  },
- "form:ألا": {
-  "english": "indeed",
+ "form:أفى|فِي": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:ألا": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 99
+ },
+ "form:ألا|أَلا": {
+  "english": "behold",
+  "evidence": "split from form:ألا, which covered more than one word",
+  "grade": "settled",
+  "tokens": 39
+ },
+ "form:ألا|أَن": {
+  "english": "that not",
+  "evidence": "split from form:ألا, which covered more than one word",
+  "grade": "settled",
+  "tokens": 44
+ },
+ "form:ألا|أَنّ": {
+  "english": "that not",
+  "evidence": "split from form:ألا, which covered more than one word",
+  "grade": "settled",
+  "tokens": 1
+ },
+ "form:ألا|لا": {
+  "english": "not",
+  "evidence": "split from form:ألا, which covered more than one word",
+  "grade": "settled",
+  "tokens": 15
  },
  "form:ألكم": {
   "english": "",
@@ -149,11 +287,29 @@
   "grade": "settled",
   "tokens": 78
  },
+ "form:ألم|لَم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 78
+ },
  "form:ألن": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 3
+ },
+ "form:ألن|أَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:ألن|لَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
  },
  "form:ألهم": {
   "english": "",
@@ -167,13 +323,37 @@
   "grade": "settled",
   "tokens": 122
  },
+ "form:أم|أَم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 122
+ },
  "form:أما": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 8
  },
+ "form:أما|أَم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:أما|أَمّا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
  "form:أماذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:أماذا|أَم": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -185,17 +365,41 @@
   "grade": "",
   "tokens": 11
  },
- "form:أن": {
-  "english": "that",
+ "form:أمن|أَم": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 11
+ },
+ "form:أن": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 638
+ },
+ "form:أن|أَن": {
+  "english": "that",
+  "evidence": "split from form:أن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 539
+ },
+ "form:أن|أَنّ": {
+  "english": "that",
+  "evidence": "split from form:أن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 99
  },
  "form:أنا": {
   "english": "I",
   "evidence": "",
   "grade": "settled",
-  "tokens": 66
+  "tokens": 49
+ },
+ "form:أنا|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 17
  },
  "form:أنت": {
   "english": "You",
@@ -227,7 +431,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:أنك|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:أنكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 14
+ },
+ "form:أنكم|أَنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -239,13 +455,37 @@
   "grade": "",
   "tokens": 19
  },
+ "form:أنما|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 18
+ },
+ "form:أنما|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:أننا": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 1
  },
+ "form:أننا|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:أنه": {
+  "english": "that he",
+  "evidence": "",
+  "grade": "settled",
+  "tokens": 23
+ },
+ "form:أنه|أَنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -257,10 +497,22 @@
   "grade": "",
   "tokens": 4
  },
+ "form:أنها|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
  "form:أنهم": {
   "english": "that they",
   "evidence": "",
   "grade": "settled",
+  "tokens": 41
+ },
+ "form:أنهم|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 41
  },
  "form:أنهما": {
@@ -269,13 +521,37 @@
   "grade": "",
   "tokens": 2
  },
+ "form:أنهما|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:أنى": {
-  "english": "in what way",
-  "evidence": "R9: distinct from كيف (how)",
-  "grade": "supported",
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 30
  },
+ "form:أنى|أَنّ": {
+  "english": "that",
+  "evidence": "split from form:أنى, which covered more than one word",
+  "grade": "settled",
+  "tokens": 15
+ },
+ "form:أنى|أَنَّى": {
+  "english": "in what way",
+  "evidence": "split from form:أنى, which covered more than one word",
+  "grade": "settled",
+  "tokens": 15
+ },
  "form:أهؤلاء": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:أهؤلاء|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -287,7 +563,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:أهذا|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:أهكذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:أهكذا|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -305,13 +593,31 @@
   "grade": "settled",
   "tokens": 280
  },
+ "form:أو|أَو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 280
+ },
  "form:أولئك": {
   "english": "those",
   "evidence": "",
   "grade": "settled",
   "tokens": 133
  },
+ "form:أولئك|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 133
+ },
  "form:أولئكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:أولئكم|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -323,7 +629,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:أولا|لا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:أولاء": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:أولاء|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -335,13 +653,31 @@
   "grade": "",
   "tokens": 1
  },
+ "form:أولت|ذُو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:أولم": {
   "english": "and did not",
   "evidence": "أ + و + لم; the interrogative alif is not separately rendered",
   "grade": "supported",
   "tokens": 35
  },
+ "form:أولم|لَم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 35
+ },
  "form:أولما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:أولما|لَمّا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -353,7 +689,19 @@
   "grade": "",
   "tokens": 7
  },
+ "form:أولو|لَو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 7
+ },
  "form:أولوا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 13
+ },
+ "form:أولوا|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -365,7 +713,19 @@
   "grade": "",
   "tokens": 11
  },
+ "form:أولى|ذُو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
  "form:أومن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:أومن|مَن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -377,7 +737,19 @@
   "grade": "",
   "tokens": 6
  },
+ "form:أيان|أَيّان": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
  "form:أين": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 14
+ },
+ "form:أين|أَيْن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -389,7 +761,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:أينما|أَيْن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:أيوب": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:أيوب|أَيُّوب": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -401,13 +785,31 @@
   "grade": "",
   "tokens": 15
  },
+ "form:إبرهـم|إِبْراهِيم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 15
+ },
  "form:إبرهيم": {
   "english": "Ibrahim",
   "evidence": "proper name, not translated",
   "grade": "settled",
   "tokens": 43
  },
+ "form:إبرهيم|إِبْراهِيم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 43
+ },
  "form:إبليس": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
+ "form:إبليس|إِبْلِيس": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -419,19 +821,49 @@
   "grade": "",
   "tokens": 1
  },
+ "form:إدريس|إِدْرِيس": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:إذ": {
   "english": "when",
   "evidence": "",
   "grade": "settled",
   "tokens": 165
  },
- "form:إذا": {
-  "english": "when",
+ "form:إذ|إِذ": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 165
+ },
+ "form:إذا": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 221
  },
+ "form:إذا|إِذا": {
+  "english": "when",
+  "evidence": "split from form:إذا, which covered more than one word",
+  "grade": "settled",
+  "tokens": 195
+ },
+ "form:إذا|إِذًا": {
+  "english": "then",
+  "evidence": "split from form:إذا, which covered more than one word",
+  "grade": "settled",
+  "tokens": 26
+ },
  "form:إرم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:إرم|إِرَم": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -443,7 +875,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:إستبرق|إِسْتَبْرَق": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:إسحق": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
+ "form:إسحق|إِسْحاق": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -455,7 +899,19 @@
   "grade": "settled",
   "tokens": 42
  },
+ "form:إسرءيل|إِسْرائِيل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 42
+ },
  "form:إسمعيل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:إسمعيل|إِسْماعِيل": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -467,11 +923,29 @@
   "grade": "",
   "tokens": 1
  },
- "form:إلا": {
-  "english": "except",
+ "form:إل|إِلْياس": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:إلا": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 662
+ },
+ "form:إلا|إِلّا": {
+  "english": "except",
+  "evidence": "split from form:إلا, which covered more than one word",
+  "grade": "settled",
+  "tokens": 659
+ },
+ "form:إلا|إِن": {
+  "english": "if not",
+  "evidence": "split from form:إلا, which covered more than one word",
+  "grade": "settled",
+  "tokens": 3
  },
  "form:إلى": {
   "english": "to",
@@ -479,7 +953,19 @@
   "grade": "settled",
   "tokens": 430
  },
+ "form:إلى|إِلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 430
+ },
  "form:إلياس": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:إلياس|إِلْياس": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -491,13 +977,31 @@
   "grade": "settled",
   "tokens": 77
  },
+ "form:إليك|إِلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 77
+ },
  "form:إليكم": {
   "english": "to you",
   "evidence": "",
   "grade": "settled",
   "tokens": 32
  },
+ "form:إليكم|إِلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 32
+ },
  "form:إليكما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:إليكما|إِلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -509,13 +1013,31 @@
   "grade": "",
   "tokens": 19
  },
+ "form:إلينا|إِلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 19
+ },
  "form:إليه": {
   "english": "to him",
   "evidence": "",
   "grade": "settled",
   "tokens": 76
  },
+ "form:إليه|إِلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 76
+ },
  "form:إليها": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:إليها|إِلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -527,7 +1049,19 @@
   "grade": "settled",
   "tokens": 40
  },
+ "form:إليهم|إِلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 40
+ },
  "form:إليهن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:إليهن|إِلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -539,16 +1073,52 @@
   "grade": "",
   "tokens": 9
  },
- "form:إن": {
-  "english": "indeed",
+ "form:إما|إِمّا": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 8
+ },
+ "form:إما|إِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:إن": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 966
+ },
+ "form:إن|أَنّ": {
+  "english": "that",
+  "evidence": "split from form:إن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 1
+ },
+ "form:إن|إِن": {
+  "english": "if",
+  "evidence": "split from form:إن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 357
+ },
+ "form:إن|إِنّ": {
+  "english": "indeed",
+  "evidence": "split from form:إن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 608
  },
  "form:إنا": {
   "english": "indeed we",
   "evidence": "",
   "grade": "settled",
+  "tokens": 156
+ },
+ "form:إنا|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 156
  },
  "form:إنك": {
@@ -557,10 +1127,22 @@
   "grade": "settled",
   "tokens": 50
  },
+ "form:إنك|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 50
+ },
  "form:إنكم": {
   "english": "indeed you",
   "evidence": "",
   "grade": "settled",
+  "tokens": 31
+ },
+ "form:إنكم|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 31
  },
  "form:إنما": {
@@ -569,7 +1151,19 @@
   "grade": "settled",
   "tokens": 113
  },
+ "form:إنما|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 113
+ },
  "form:إننا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
+ "form:إننا|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -581,13 +1175,31 @@
   "grade": "",
   "tokens": 6
  },
+ "form:إننى|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
  "form:إنه": {
   "english": "indeed he",
   "evidence": "",
   "grade": "settled",
   "tokens": 147
  },
+ "form:إنه|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 147
+ },
  "form:إنها": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 15
+ },
+ "form:إنها|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -599,7 +1211,19 @@
   "grade": "settled",
   "tokens": 63
  },
+ "form:إنهم|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 63
+ },
  "form:إنهما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:إنهما|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -611,13 +1235,31 @@
   "grade": "",
   "tokens": 1
  },
+ "form:إنهن|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:إنى": {
   "english": "indeed I",
   "evidence": "",
   "grade": "settled",
   "tokens": 131
  },
+ "form:إنى|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 131
+ },
  "form:إى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:إى|إِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -629,7 +1271,19 @@
   "grade": "settled",
   "tokens": 1
  },
+ "form:إياك|إِيّا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:إياكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:إياكم|إِيّا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -641,7 +1295,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:إيانا|إِيّا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:إياه": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 8
+ },
+ "form:إياه|إِيّا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -677,7 +1343,25 @@
   "grade": "",
   "tokens": 17
  },
+ "form:بأن|أَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:بأن|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 14
+ },
  "form:بأنا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:بأنا|أَنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -689,7 +1373,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:بأنكم|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:بأننا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:بأننا|أَنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -701,7 +1397,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:بأنه|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:بأنهم": {
+  "english": "by that they",
+  "evidence": "",
+  "grade": "settled",
+  "tokens": 26
+ },
+ "form:بأنهم|أَنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -713,7 +1421,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:بإبرهيم|إِبْراهِيم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:بإسحق": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:بإسحق|إِسْحاق": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -725,7 +1445,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ببابل|بابِل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ببدر": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:ببدر|بَدْر": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -737,7 +1469,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ببكة|بَكَّة": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:بجالوت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:بجالوت|جالُوت": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -749,7 +1493,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:بجهنم|جَهَنَّم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:بذات": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 12
+ },
+ "form:بذات|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -761,7 +1517,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:بذلك|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:بعيسى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:بعيسى|عِيسَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -785,7 +1553,19 @@
   "grade": "settled",
   "tokens": 127
  },
+ "form:بل|بَل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 127
+ },
  "form:بلى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 22
+ },
+ "form:بلى|بَلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -797,10 +1577,22 @@
   "grade": "",
   "tokens": 1
  },
+ "form:بم|ما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:بما": {
   "english": "with what",
   "evidence": "ب + ما",
   "grade": "settled",
+  "tokens": 296
+ },
+ "form:بما|ما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 296
  },
  "form:بمن": {
@@ -809,7 +1601,19 @@
   "grade": "",
   "tokens": 10
  },
+ "form:بمن|مَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 10
+ },
  "form:بموسى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:بموسى|مُوسَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -834,6 +1638,12 @@
   "tokens": 79
  },
  "form:بهذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 14
+ },
+ "form:بهذا|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -869,7 +1679,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:بيوسف|يُوسُف": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:بٱلأمس": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:بٱلأمس|أَمْس": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -881,7 +1703,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:بٱلتورىة|تَوْراة": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:بٱلتى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 7
+ },
+ "form:بٱلتى|الَّذِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -893,7 +1727,19 @@
   "grade": "",
   "tokens": 11
  },
+ "form:بٱلذى|الَّذِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
  "form:بٱلذين": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
+ "form:بٱلذين|الَّذِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -905,13 +1751,31 @@
   "grade": "",
   "tokens": 2
  },
+ "form:تبع|تُبَّع": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:تلك": {
   "english": "that one",
   "evidence": "R9: distinct from ذلكم (that)",
   "grade": "supported",
   "tokens": 28
  },
+ "form:تلك|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 28
+ },
  "form:تلكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:تلكم|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -923,13 +1787,37 @@
   "grade": "",
   "tokens": 1
  },
- "form:ثم": {
-  "english": "then",
+ "form:تلكما|ذا": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:ثم": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 340
  },
+ "form:ثم|ثَمّ": {
+  "english": "there",
+  "evidence": "split from form:ثم, which covered more than one word",
+  "grade": "settled",
+  "tokens": 3
+ },
+ "form:ثم|ثُمّ": {
+  "english": "then",
+  "evidence": "split from form:ثم, which covered more than one word",
+  "grade": "settled",
+  "tokens": 337
+ },
  "form:ثمود": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 12
+ },
+ "form:ثمود|ثَمُود": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -941,7 +1829,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ثمودا|ثَمُود": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:جالوت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:جالوت|جالُوت": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -953,10 +1853,22 @@
   "grade": "settled",
   "tokens": 72
  },
+ "form:جهنم|جَهَنَّم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 72
+ },
  "form:حتى": {
   "english": "until",
   "evidence": "",
   "grade": "settled",
+  "tokens": 142
+ },
+ "form:حتى|حَتَّى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 142
  },
  "form:حم": {
@@ -971,7 +1883,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:حنين|حُنَيْن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:داود": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 13
+ },
+ "form:داود|داوُد": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -983,7 +1907,25 @@
   "grade": "",
   "tokens": 16
  },
+ "form:ذا|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
+ "form:ذا|ذُو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
  "form:ذات": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 17
+ },
+ "form:ذات|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -995,10 +1937,22 @@
   "grade": "settled",
   "tokens": 280
  },
+ "form:ذلك|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 280
+ },
  "form:ذلكم": {
   "english": "that",
   "evidence": "",
   "grade": "settled",
+  "tokens": 44
+ },
+ "form:ذلكم|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 44
  },
  "form:ذلكما": {
@@ -1007,7 +1961,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ذلكما|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ذو": {
+  "english": "possessor of",
+  "evidence": "والله ذو الفضل",
+  "grade": "settled",
+  "tokens": 25
+ },
+ "form:ذو|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1019,7 +1985,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:ذوا|ذُو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:ذواتا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:ذواتا|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1031,7 +2009,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ذواتى|ذُو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ذوى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:ذوى|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1043,7 +2033,19 @@
   "grade": "",
   "tokens": 19
  },
+ "form:ذى|ذُو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 19
+ },
  "form:ربما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:ربما|رُب": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1055,7 +2057,19 @@
   "grade": "",
   "tokens": 4
  },
+ "form:زكريا|زَكَرِيّا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
  "form:زنجبيلا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:زنجبيلا|زَنجَبِيل": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1067,7 +2081,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:زيد|زَيْد": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:سقر": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:سقر|سَقَر": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1079,7 +2105,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:سلسبيلا|سَلْسَبِيل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:سليمن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 10
+ },
+ "form:سليمن|سُلَيْمان": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1091,7 +2129,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:سندس|سُندُس": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:سوف": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 7
+ },
+ "form:سوف|سَوْف": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1103,7 +2153,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:سيناء|سَيْناء": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:سينين": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:سينين|سِينِين": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1115,7 +2177,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:شعيب|شُعَيْب": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:شعيبا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 7
+ },
+ "form:شعيبا|شُعَيْب": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1128,6 +2202,12 @@
   "tokens": 1
  },
  "form:طالوت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:طالوت|طالُوت": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1157,7 +2237,19 @@
   "grade": "",
   "tokens": 11
  },
+ "form:عدن|عَدْن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
  "form:عزير": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:عزير|عُزَيْر": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1175,10 +2267,22 @@
   "grade": "settled",
   "tokens": 685
  },
+ "form:على|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 685
+ },
  "form:عليك": {
   "english": "upon you",
   "evidence": "",
   "grade": "settled",
+  "tokens": 57
+ },
+ "form:عليك|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 57
  },
  "form:عليكم": {
@@ -1187,7 +2291,19 @@
   "grade": "settled",
   "tokens": 164
  },
+ "form:عليكم|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 164
+ },
  "form:عليكما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:عليكما|عَلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1199,10 +2315,22 @@
   "grade": "settled",
   "tokens": 51
  },
+ "form:علينا|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 51
+ },
  "form:عليه": {
   "english": "upon him",
   "evidence": "",
   "grade": "settled",
+  "tokens": 146
+ },
+ "form:عليه|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 146
  },
  "form:عليها": {
@@ -1211,13 +2339,31 @@
   "grade": "settled",
   "tokens": 46
  },
+ "form:عليها|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 46
+ },
  "form:عليهم": {
   "english": "upon them",
   "evidence": "",
   "grade": "settled",
   "tokens": 214
  },
+ "form:عليهم|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 214
+ },
  "form:عليهما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 8
+ },
+ "form:عليهما|عَلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1229,7 +2375,19 @@
   "grade": "",
   "tokens": 11
  },
+ "form:عليهن|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
  "form:عم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:عم|عَن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1241,7 +2399,19 @@
   "grade": "settled",
   "tokens": 47
  },
+ "form:عما|عَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 47
+ },
  "form:عمرن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:عمرن|عِمْران": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1253,7 +2423,19 @@
   "grade": "settled",
   "tokens": 223
  },
+ "form:عن|عَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 223
+ },
  "form:عنا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
+ "form:عنا|عَن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1265,7 +2447,19 @@
   "grade": "",
   "tokens": 8
  },
+ "form:عنك|عَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 8
+ },
  "form:عنكم": {
+  "english": "from you",
+  "evidence": "",
+  "grade": "settled",
+  "tokens": 24
+ },
+ "form:عنكم|عَن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1277,7 +2471,19 @@
   "grade": "settled",
   "tokens": 37
  },
+ "form:عنه|عَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 37
+ },
  "form:عنها": {
+  "english": "from it",
+  "evidence": "",
+  "grade": "settled",
+  "tokens": 24
+ },
+ "form:عنها|عَن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1289,7 +2495,19 @@
   "grade": "settled",
   "tokens": 75
  },
+ "form:عنهم|عَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 75
+ },
  "form:عنهما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:عنهما|عَن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1301,7 +2519,19 @@
   "grade": "",
   "tokens": 6
  },
+ "form:عنى|عَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
  "form:عيسى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 12
+ },
+ "form:عيسى|عِيسَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1313,7 +2543,19 @@
   "grade": "",
   "tokens": 22
  },
+ "form:فأما|أَمّا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 22
+ },
  "form:فأن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:فأن|أَنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1343,7 +2585,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:فأنه|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:فأنى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
+ "form:فأنى|أَنَّى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1355,7 +2609,19 @@
   "grade": "settled",
   "tokens": 46
  },
+ "form:فأولئك|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 46
+ },
  "form:فأين": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:فأين|أَيْن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1367,19 +2633,49 @@
   "grade": "",
   "tokens": 1
  },
+ "form:فأينما|أَيْن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:فإذ": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 2
  },
- "form:فإذا": {
-  "english": "so when",
+ "form:فإذ|إِذ": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:فإذا": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 87
  },
+ "form:فإذا|إِذا": {
+  "english": "so when",
+  "evidence": "split from form:فإذا, which covered more than one word",
+  "grade": "settled",
+  "tokens": 86
+ },
+ "form:فإذا|إِذًا": {
+  "english": "so then",
+  "evidence": "split from form:فإذا, which covered more than one word",
+  "grade": "settled",
+  "tokens": 1
+ },
  "form:فإلم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:فإلم|إِن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1391,7 +2687,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:فإلينا|إِلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:فإليه": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:فإليه|إِلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1403,13 +2711,43 @@
   "grade": "",
   "tokens": 7
  },
- "form:فإن": {
-  "english": "so if",
+ "form:فإما|إِمّا": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 5
+ },
+ "form:فإما|إِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:فإن": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 168
  },
+ "form:فإن|إِن": {
+  "english": "so if",
+  "evidence": "split from form:فإن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 97
+ },
+ "form:فإن|إِنّ": {
+  "english": "so indeed",
+  "evidence": "split from form:فإن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 71
+ },
  "form:فإنا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 10
+ },
+ "form:فإنا|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1421,7 +2759,19 @@
   "grade": "",
   "tokens": 9
  },
+ "form:فإنك|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
  "form:فإنكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:فإنكم|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1433,7 +2783,19 @@
   "grade": "settled",
   "tokens": 30
  },
+ "form:فإنما|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 30
+ },
  "form:فإنه": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 15
+ },
+ "form:فإنه|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1445,7 +2807,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:فإنها|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:فإنهم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 10
+ },
+ "form:فإنهم|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1457,7 +2831,19 @@
   "grade": "",
   "tokens": 6
  },
+ "form:فإنى|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
  "form:فإيى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:فإيى|إِيّا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1469,7 +2855,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:فبذلك|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:فبم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:فبم|ما": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1481,7 +2879,19 @@
   "grade": "",
   "tokens": 6
  },
+ "form:فبما|ما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
  "form:فتلك": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:فتلك|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1493,7 +2903,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:فثم|ثَمّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:فذلك": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:فذلك|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1505,7 +2927,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:فذلكم|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:فذلكن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:فذلكن|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1517,7 +2951,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:فذنك|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:فذو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:فذو|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1529,7 +2975,19 @@
   "grade": "settled",
   "tokens": 65
  },
+ "form:فرعون|فِرْعَوْن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 65
+ },
  "form:فسوف": {
+  "english": "then soon",
+  "evidence": "",
+  "grade": "settled",
+  "tokens": 26
+ },
+ "form:فسوف|سَوْف": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1541,7 +2999,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:فعلى|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:فعليكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:فعليكم|عَلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1553,7 +3023,19 @@
   "grade": "",
   "tokens": 4
  },
+ "form:فعليه|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
  "form:فعليها": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:فعليها|عَلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1565,7 +3047,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:فعليهم|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:فعليهن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:فعليهن|عَلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1577,13 +3071,31 @@
   "grade": "",
   "tokens": 3
  },
+ "form:ففى|فِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:فقد": {
   "english": "then indeed",
   "evidence": "",
   "grade": "settled",
   "tokens": 57
  },
+ "form:فقد|قَد": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 57
+ },
  "form:فكأنما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:فكأنما|كَأَنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1595,7 +3107,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:فكأين|كَأَيِّن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:فكذلك": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:فكذلك|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1607,7 +3131,19 @@
   "grade": "settled",
   "tokens": 156
  },
+ "form:فلا|لا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 156
+ },
  "form:فلذلك": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:فلذلك|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1619,7 +3155,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:فلسوف|سَوْف": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:فلعلك": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:فلعلك|لَعَلّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1637,13 +3185,37 @@
   "grade": "",
   "tokens": 16
  },
+ "form:فلم|لَم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 12
+ },
+ "form:فلم|ما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
  "form:فلما": {
   "english": "so when",
   "evidence": "",
   "grade": "settled",
   "tokens": 101
  },
+ "form:فلما|لَمّا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 101
+ },
  "form:فلن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 22
+ },
+ "form:فلن|لَن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1685,7 +3257,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:فلو|لَو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:فلولا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 13
+ },
+ "form:فلولا|لَوْلا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1697,7 +3281,19 @@
   "grade": "settled",
   "tokens": 86
  },
+ "form:فما|ما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 86
+ },
  "form:فماذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:فماذا|ماذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1709,13 +3305,37 @@
   "grade": "",
   "tokens": 2
  },
- "form:فمن": {
-  "english": "so whoever",
+ "form:فمال|ما": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:فمن": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 88
  },
+ "form:فمن|مَن": {
+  "english": "so whoever",
+  "evidence": "split from form:فمن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 82
+ },
+ "form:فمن|مِن": {
+  "english": "so from",
+  "evidence": "split from form:فمن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 6
+ },
  "form:فمنكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:فمنكم|مِن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1727,7 +3347,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:فمنه|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:فمنها": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:فمنها|مِن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1739,13 +3371,31 @@
   "grade": "",
   "tokens": 11
  },
+ "form:فمنهم|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
  "form:فهذا": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 1
  },
+ "form:فهذا|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:فهل": {
+  "english": "so is it that",
+  "evidence": "interrogative هل",
+  "grade": "supported",
+  "tokens": 23
+ },
+ "form:فهل|هَل": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1775,13 +3425,31 @@
   "grade": "",
   "tokens": 9
  },
+ "form:فويل|وَيْل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
  "form:فى": {
   "english": "in",
   "evidence": "",
   "grade": "settled",
   "tokens": 1185
  },
+ "form:فى|فِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1185
+ },
  "form:فيكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
+ "form:فيكم|فِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1793,7 +3461,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:فيم|فِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:فيما": {
+  "english": "in what",
+  "evidence": "",
+  "grade": "settled",
+  "tokens": 24
+ },
+ "form:فيما|فِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1805,10 +3485,22 @@
   "grade": "",
   "tokens": 5
  },
+ "form:فينا|فِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
  "form:فيه": {
   "english": "in it",
   "evidence": "",
   "grade": "settled",
+  "tokens": 127
+ },
+ "form:فيه|فِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 127
  },
  "form:فيها": {
@@ -1817,7 +3509,19 @@
   "grade": "settled",
   "tokens": 241
  },
+ "form:فيها|فِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 241
+ },
  "form:فيهم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 16
+ },
+ "form:فيهم|فِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1829,13 +3533,31 @@
   "grade": "",
   "tokens": 8
  },
+ "form:فيهما|فِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 8
+ },
  "form:فيهن": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 9
  },
+ "form:فيهن|فِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
  "form:فٱلذين": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 10
+ },
+ "form:فٱلذين|الَّذِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1853,7 +3575,19 @@
   "grade": "settled",
   "tokens": 123
  },
+ "form:قد|قَد": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 123
+ },
  "form:قرون": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:قرون|قارُون": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1865,7 +3599,25 @@
   "grade": "",
   "tokens": 10
  },
+ "form:كأن|كَأَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:كأن|كَأَنْ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
  "form:كأنك": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:كأنك|كَأَنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1877,7 +3629,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:كأنما|كَأَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:كأنه": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
+ "form:كأنه|كَأَنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1889,7 +3653,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:كأنها|كَأَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:كأنهم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
+ "form:كأنهم|كَأَنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1901,10 +3677,22 @@
   "grade": "",
   "tokens": 2
  },
+ "form:كأنهن|كَأَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:كذلك": {
   "english": "thus",
   "evidence": "",
   "grade": "settled",
+  "tokens": 86
+ },
+ "form:كذلك|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 86
  },
  "form:كذلكم": {
@@ -1913,7 +3701,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:كذلكم|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:كلا": {
+  "english": "no indeed",
+  "evidence": "AVR particle; the 5 tokens of كلّ (both) carry root ك ل ل and are a separate key",
+  "grade": "settled",
+  "tokens": 33
+ },
+ "form:كلا|كَلّا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1925,13 +3725,31 @@
   "grade": "",
   "tokens": 12
  },
+ "form:كم|كَم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 12
+ },
  "form:كما": {
   "english": "as",
   "evidence": "",
   "grade": "settled",
   "tokens": 59
  },
+ "form:كما|ما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 59
+ },
  "form:كمن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
+ "form:كمن|مَن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1949,7 +3767,19 @@
   "grade": "",
   "tokens": 4
  },
+ "form:كى|كَي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
  "form:كٱلتى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:كٱلتى|الَّذِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1961,13 +3791,31 @@
   "grade": "",
   "tokens": 5
  },
+ "form:كٱلذى|الَّذِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
  "form:كٱلذين": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 9
  },
+ "form:كٱلذين|الَّذِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
  "form:لأن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:لأن|أَن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -1991,7 +3839,19 @@
   "grade": "",
   "tokens": 9
  },
+ "form:لأولى|ذُو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
  "form:لإبرهيم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:لإبرهيم|إِبْراهِيم": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2003,13 +3863,37 @@
   "grade": "",
   "tokens": 2
  },
+ "form:لإلى|إِلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:لئلا": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 3
  },
+ "form:لئلا|أَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:لئلا|لا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:لئن": {
+  "english": "if indeed",
+  "evidence": "",
+  "grade": "settled",
+  "tokens": 28
+ },
+ "form:لئن|إِن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2021,7 +3905,19 @@
   "grade": "settled",
   "tokens": 812
  },
+ "form:لا|لا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 812
+ },
  "form:لثمود": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:لثمود|ثَمُود": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2033,7 +3929,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:لجالوت|جالُوت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:لجبريل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:لجبريل|جِبْرِيل": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2045,7 +3953,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:لجهنم|جَهَنَّم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:لدا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:لدا|لَدَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2057,7 +3977,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:لداود|داوُد": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:لدى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
+ "form:لدى|لَدَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2069,7 +4001,19 @@
   "grade": "",
   "tokens": 5
  },
+ "form:لدينا|لَدَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
  "form:لديه": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:لديه|لَدَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2081,7 +4025,19 @@
   "grade": "",
   "tokens": 7
  },
+ "form:لديهم|لَدَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 7
+ },
  "form:لذو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 8
+ },
+ "form:لذو|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2093,7 +4049,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:لذى|ذُو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:لسليمن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:لسليمن|سُلَيْمان": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2105,7 +4073,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:لسوف|سَوْف": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:لظى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:لظى|لَظَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2117,19 +4097,43 @@
   "grade": "",
   "tokens": 3
  },
+ "form:لعل|لَعَلّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:لعلك": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 2
  },
+ "form:لعلك|لَعَلّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:لعلكم": {
-  "english": "so that you might",
+  "english": "so that you",
   "evidence": "",
   "grade": "settled",
   "tokens": 59
  },
+ "form:لعلكم|لَعَلّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 59
+ },
  "form:لعلنا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:لعلنا|لَعَلّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2141,10 +4145,22 @@
   "grade": "",
   "tokens": 3
  },
+ "form:لعله|لَعَلّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:لعلهم": {
-  "english": "so that they might",
+  "english": "so that they",
   "evidence": "",
   "grade": "settled",
+  "tokens": 41
+ },
+ "form:لعلهم|لَعَلّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 41
  },
  "form:لعلى": {
@@ -2153,7 +4169,25 @@
   "grade": "",
   "tokens": 9
  },
+ "form:لعلى|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:لعلى|لَعَلّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
  "form:لـيكة": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:لـيكة|أَيْكَة": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2165,10 +4199,22 @@
   "grade": "",
   "tokens": 2
  },
+ "form:لفرعون|فِرْعَوْن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:لفى": {
   "english": "surely in",
   "evidence": "",
   "grade": "settled",
+  "tokens": 29
+ },
+ "form:لفى|فِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 29
  },
  "form:لقد": {
@@ -2177,7 +4223,19 @@
   "grade": "settled",
   "tokens": 54
  },
+ "form:لقد|قَد": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 54
+ },
  "form:لقمن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:لقمن|لُقْمان": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2207,7 +4265,19 @@
   "grade": "settled",
   "tokens": 6
  },
+ "form:لكن|لٰكِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
  "form:لكنا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:لكنا|لٰكِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2219,7 +4289,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:لكى|كَي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:لكيلا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:لكيلا|كَي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2231,7 +4313,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:للتى|الَّذِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:للذى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:للذى|الَّذِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2243,19 +4337,55 @@
   "grade": "settled",
   "tokens": 80
  },
- "form:لم": {
-  "english": "not",
+ "form:للذين|الَّذِي": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 80
+ },
+ "form:لم": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 178
  },
- "form:لما": {
-  "english": "when",
-  "evidence": "",
+ "form:لم|لَم": {
+  "english": "not",
+  "evidence": "split from form:لم, which covered more than one word",
   "grade": "settled",
+  "tokens": 163
+ },
+ "form:لم|ما": {
+  "english": "why",
+  "evidence": "split from form:لم, which covered more than one word",
+  "grade": "settled",
+  "tokens": 15
+ },
+ "form:لما": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 73
  },
+ "form:لما|لَمّا": {
+  "english": "when",
+  "evidence": "split from form:لما, which covered more than one word",
+  "grade": "settled",
+  "tokens": 32
+ },
+ "form:لما|ما": {
+  "english": "for what",
+  "evidence": "split from form:لما, which covered more than one word",
+  "grade": "settled",
+  "tokens": 41
+ },
  "form:لمع": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:لمع|مَع": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2267,13 +4397,37 @@
   "grade": "",
   "tokens": 1
  },
- "form:لمن": {
-  "english": "for whom",
+ "form:لمعكم|مَع": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:لمن": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 94
  },
+ "form:لمن|مَن": {
+  "english": "for whom",
+  "evidence": "split from form:لمن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 66
+ },
+ "form:لمن|مِن": {
+  "english": "surely from",
+  "evidence": "split from form:لمن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 28
+ },
  "form:لمنكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:لمنكم|مِن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2285,10 +4439,22 @@
   "grade": "",
   "tokens": 1
  },
+ "form:لموسى|مُوسَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:لن": {
   "english": "never",
   "evidence": "",
   "grade": "settled",
+  "tokens": 59
+ },
+ "form:لن|لَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 59
  },
  "form:لنا": {
@@ -2316,6 +4482,12 @@
   "tokens": 41
  },
  "form:لهذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:لهذا|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2357,7 +4529,19 @@
   "grade": "settled",
   "tokens": 79
  },
+ "form:لو|لَو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 79
+ },
  "form:لوط": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 15
+ },
+ "form:لوط|لُوط": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2369,10 +4553,22 @@
   "grade": "",
   "tokens": 4
  },
+ "form:لوطا|لُوط": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
  "form:لولا": {
   "english": "why not",
   "evidence": "لولا يكلمنا; لولا ينهىهم",
   "grade": "supported",
+  "tokens": 38
+ },
+ "form:لولا|لَوْلا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 38
  },
  "form:لى": {
@@ -2387,7 +4583,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ليتنى|لَيْت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ليوسف": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:ليوسف|يُوسُف": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2399,7 +4607,19 @@
   "grade": "settled",
   "tokens": 1013
  },
+ "form:ما|ما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1013
+ },
  "form:ماذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 22
+ },
+ "form:ماذا|ماذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2411,7 +4631,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:مال|ما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:متى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
+ "form:متى|مَتَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2423,10 +4655,22 @@
   "grade": "settled",
   "tokens": 28
  },
+ "form:مريم|مَرْيَم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 28
+ },
  "form:مع": {
   "english": "with",
   "evidence": "",
   "grade": "settled",
+  "tokens": 58
+ },
+ "form:مع|مَع": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 58
  },
  "form:معك": {
@@ -2435,7 +4679,19 @@
   "grade": "",
   "tokens": 11
  },
+ "form:معك|مَع": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
  "form:معكم": {
+  "english": "together with you",
+  "evidence": "",
+  "grade": "settled",
+  "tokens": 26
+ },
+ "form:معكم|مَع": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2447,7 +4703,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:معكما|مَع": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:معنا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
+ "form:معنا|مَع": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2459,7 +4727,19 @@
   "grade": "settled",
   "tokens": 34
  },
+ "form:معه|مَع": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 34
+ },
  "form:معها": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:معها|مَع": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2471,7 +4751,19 @@
   "grade": "",
   "tokens": 14
  },
+ "form:معهم|مَع": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 14
+ },
  "form:معى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
+ "form:معى|مَع": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2483,7 +4775,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:مكة|مَكَّة": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:مم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:مم|مِن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2495,22 +4799,52 @@
   "grade": "settled",
   "tokens": 111
  },
+ "form:مما|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 111
+ },
  "form:ممن": {
+  "english": "from who",
+  "evidence": "مِن + مَن; after an elative Arabic's مِن is English 'than' — see the comparative rule",
+  "grade": "supported",
+  "tokens": 31
+ },
+ "form:ممن|مِن": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 31
  },
  "form:من": {
-  "english": "from",
-  "evidence": "",
-  "grade": "settled",
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 2759
+ },
+ "form:من|مَن": {
+  "english": "who",
+  "evidence": "split from form:من, which covered more than one word",
+  "grade": "settled",
+  "tokens": 393
+ },
+ "form:من|مِن": {
+  "english": "from",
+  "evidence": "split from form:من, which covered more than one word",
+  "grade": "settled",
+  "tokens": 2366
  },
  "form:منا": {
   "english": "from us",
   "evidence": "",
   "grade": "settled",
+  "tokens": 33
+ },
+ "form:منا|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 33
  },
  "form:منك": {
@@ -2519,13 +4853,31 @@
   "grade": "settled",
   "tokens": 6
  },
+ "form:منك|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
  "form:منكم": {
   "english": "from you",
   "evidence": "",
   "grade": "settled",
   "tokens": 107
  },
+ "form:منكم|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 107
+ },
  "form:منكن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:منكن|مِن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2537,10 +4889,22 @@
   "grade": "settled",
   "tokens": 88
  },
+ "form:منه|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 88
+ },
  "form:منها": {
   "english": "from it",
   "evidence": "",
   "grade": "settled",
+  "tokens": 86
+ },
+ "form:منها|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 86
  },
  "form:منهم": {
@@ -2549,7 +4913,19 @@
   "grade": "settled",
   "tokens": 153
  },
+ "form:منهم|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 153
+ },
  "form:منهما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 10
+ },
+ "form:منهما|مِن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2561,7 +4937,19 @@
   "grade": "",
   "tokens": 7
  },
+ "form:منهن|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 7
+ },
  "form:منى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 10
+ },
+ "form:منى|مِن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2573,10 +4961,22 @@
   "grade": "",
   "tokens": 1
  },
+ "form:مهما|مَهْما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:موسى": {
   "english": "Musa",
   "evidence": "proper name, transliterated",
   "grade": "settled",
+  "tokens": 105
+ },
+ "form:موسى|مُوسَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 105
  },
  "form:ن": {
@@ -2597,13 +4997,31 @@
   "grade": "",
   "tokens": 4
  },
+ "form:نعم|نَعَم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
  "form:نوح": {
   "english": "Nuh",
   "evidence": "proper name, not translated",
   "grade": "settled",
   "tokens": 29
  },
+ "form:نوح|نُوح": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 29
+ },
  "form:نوحا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 7
+ },
+ "form:نوحا|نُوح": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2621,7 +5039,19 @@
   "grade": "settled",
   "tokens": 41
  },
+ "form:هؤلاء|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 41
+ },
  "form:هتين": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:هتين|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2633,7 +5063,19 @@
   "grade": "settled",
   "tokens": 190
  },
+ "form:هذا|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 190
+ },
  "form:هذان": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:هذان|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2645,13 +5087,31 @@
   "grade": "",
   "tokens": 1
  },
+ "form:هذن|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:هذه": {
   "english": "this",
   "evidence": "",
   "grade": "settled",
   "tokens": 46
  },
+ "form:هذه|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 46
+ },
  "form:هروت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:هروت|هارُوت": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2663,10 +5123,22 @@
   "grade": "",
   "tokens": 11
  },
+ "form:هرون|هارُون": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
  "form:هل": {
   "english": "is it that",
   "evidence": "",
   "grade": "settled",
+  "tokens": 67
+ },
+ "form:هل|هَل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 67
  },
  "form:هم": {
@@ -2693,7 +5165,19 @@
   "grade": "",
   "tokens": 9
  },
+ "form:هنالك|هُنالِك": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
  "form:ههنا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:ههنا|هُنا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2723,7 +5207,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:هيهات|هَيْهات": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:وألو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وألو|أَن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2735,17 +5231,41 @@
   "grade": "settled",
   "tokens": 28
  },
- "form:وأن": {
-  "english": "and that",
-  "evidence": "",
-  "grade": "settled",
-  "tokens": 68
- },
- "form:وأنا": {
+ "form:وأما|أَمّا": {
   "english": "",
   "evidence": "",
   "grade": "",
-  "tokens": 26
+  "tokens": 28
+ },
+ "form:وأن": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
+  "tokens": 68
+ },
+ "form:وأن|أَن": {
+  "english": "and that",
+  "evidence": "split from form:وأن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 25
+ },
+ "form:وأن|أَنّ": {
+  "english": "and that",
+  "evidence": "split from form:وأن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 43
+ },
+ "form:وأنا": {
+  "english": "and I",
+  "evidence": "",
+  "grade": "settled",
+  "tokens": 18
+ },
+ "form:وأنا|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 8
  },
  "form:وأنت": {
   "english": "",
@@ -2765,7 +5285,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:وأنك|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:وأنكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وأنكم|أَنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2777,7 +5309,19 @@
   "grade": "",
   "tokens": 13
  },
+ "form:وأنه|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 13
+ },
  "form:وأنهم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
+ "form:وأنهم|أَنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2789,7 +5333,25 @@
   "grade": "",
   "tokens": 4
  },
+ "form:وأنى|أَنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:وأنى|أَنَّى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:وأولئك": {
+  "english": "and those",
+  "evidence": "",
+  "grade": "settled",
+  "tokens": 25
+ },
+ "form:وأولئك|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2801,7 +5363,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:وأولئكم|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:وأولت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وأولت|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2813,7 +5387,19 @@
   "grade": "",
   "tokens": 4
  },
+ "form:وأولوا|ذُو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
  "form:وأولى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وأولى|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2825,7 +5411,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:وأيوب|أَيُّوب": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:وإبرهيم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:وإبرهيم|إِبْراهِيم": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2837,19 +5435,49 @@
   "grade": "",
   "tokens": 1
  },
+ "form:وإدريس|إِدْرِيس": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:وإذ": {
   "english": "and when",
   "evidence": "",
   "grade": "settled",
   "tokens": 72
  },
- "form:وإذا": {
-  "english": "and when",
+ "form:وإذ|إِذ": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 72
+ },
+ "form:وإذا": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 134
  },
+ "form:وإذا|إِذا": {
+  "english": "and when",
+  "evidence": "split from form:وإذا, which covered more than one word",
+  "grade": "settled",
+  "tokens": 130
+ },
+ "form:وإذا|إِذًا": {
+  "english": "and then",
+  "evidence": "split from form:وإذا, which covered more than one word",
+  "grade": "settled",
+  "tokens": 4
+ },
  "form:وإستبرق": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:وإستبرق|إِسْتَبْرَق": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2861,7 +5489,19 @@
   "grade": "",
   "tokens": 9
  },
+ "form:وإسحق|إِسْحاق": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
  "form:وإسرءيل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وإسرءيل|إِسْرائِيل": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2873,7 +5513,19 @@
   "grade": "",
   "tokens": 9
  },
+ "form:وإسمعيل|إِسْماعِيل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
  "form:وإلا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:وإلا|إِن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2885,7 +5537,19 @@
   "grade": "settled",
   "tokens": 28
  },
+ "form:وإلى|إِلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 28
+ },
  "form:وإلياس": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وإلياس|إِلْياس": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2897,7 +5561,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:وإليك|إِلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:وإلينا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:وإلينا|إِلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2909,17 +5585,47 @@
   "grade": "",
   "tokens": 22
  },
+ "form:وإليه|إِلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 22
+ },
  "form:وإما": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 13
  },
- "form:وإن": {
-  "english": "and if",
+ "form:وإما|إِمّا": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 10
+ },
+ "form:وإما|إِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:وإن": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 254
+ },
+ "form:وإن|إِن": {
+  "english": "and if",
+  "evidence": "split from form:وإن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 173
+ },
+ "form:وإن|إِنّ": {
+  "english": "and indeed",
+  "evidence": "split from form:وإن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 81
  },
  "form:وإنا": {
   "english": "and indeed we",
@@ -2927,7 +5633,19 @@
   "grade": "settled",
   "tokens": 33
  },
+ "form:وإنا|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 33
+ },
  "form:وإنك": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
+ "form:وإنك|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2939,7 +5657,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:وإنكم|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:وإنما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:وإنما|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2951,13 +5681,31 @@
   "grade": "",
   "tokens": 1
  },
+ "form:وإننا|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:وإننى": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 1
  },
+ "form:وإننى|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:وإنه": {
+  "english": "and indeed he",
+  "evidence": "",
+  "grade": "settled",
+  "tokens": 24
+ },
+ "form:وإنه|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2969,7 +5717,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:وإنها|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:وإنهم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
+ "form:وإنهم|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2981,7 +5741,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:وإنهما|إِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:وإنى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 14
+ },
+ "form:وإنى|إِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -2993,7 +5765,19 @@
   "grade": "settled",
   "tokens": 1
  },
+ "form:وإياك|إِيّا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:وإياكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:وإياكم|إِيّا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3005,7 +5789,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:وإياهم|إِيّا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:وإيى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:وإيى|إِيّا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3017,7 +5813,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:وبذلك|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:وبذى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وبذى|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3029,7 +5837,19 @@
   "grade": "",
   "tokens": 6
  },
+ "form:وبما|ما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
  "form:وبمن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وبمن|مَن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3047,7 +5867,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:وبٱلذى|الَّذِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:وتلك": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
+ "form:وتلك|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3059,7 +5891,19 @@
   "grade": "",
   "tokens": 9
  },
+ "form:وثمود|ثَمُود": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
  "form:وثمودا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:وثمودا|ثَمُود": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3071,7 +5915,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:وجبريل|جِبْرِيل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:وداود": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وداود|داوُد": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3083,7 +5939,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:وذا|ذُو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:وذات": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وذات|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3095,7 +5963,19 @@
   "grade": "",
   "tokens": 13
  },
+ "form:وذلك|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 13
+ },
  "form:وذلكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وذلكم|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3107,7 +5987,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:وذو|ذُو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:وذى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وذى|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3119,7 +6011,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:وزكريا|زَكَرِيّا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:وسليمن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:وسليمن|سُلَيْمان": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3131,13 +6035,31 @@
   "grade": "",
   "tokens": 5
  },
+ "form:وسوف|سَوْف": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
  "form:وعلى": {
   "english": "and upon",
   "evidence": "",
   "grade": "settled",
   "tokens": 39
  },
+ "form:وعلى|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 39
+ },
  "form:وعليكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وعليكم|عَلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3149,7 +6071,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:وعلينا|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:وعليه": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:وعليه|عَلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3161,7 +6095,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:وعليها|عَلَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:وعليهم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وعليهم|عَلَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3173,7 +6119,19 @@
   "grade": "",
   "tokens": 5
  },
+ "form:وعن|عَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
  "form:وعيسى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 7
+ },
+ "form:وعيسى|عِيسَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3185,13 +6143,31 @@
   "grade": "",
   "tokens": 5
  },
+ "form:وفرعون|فِرْعَوْن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
  "form:وفى": {
   "english": "and in",
   "evidence": "",
   "grade": "settled",
   "tokens": 33
  },
+ "form:وفى|فِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 33
+ },
  "form:وفيكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:وفيكم|فِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3203,7 +6179,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:وفيه|فِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:وفيها": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:وفيها|فِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3215,7 +6203,19 @@
   "grade": "settled",
   "tokens": 43
  },
+ "form:وقد|قَد": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 43
+ },
  "form:وقرون": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:وقرون|قارُون": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3227,13 +6227,31 @@
   "grade": "",
   "tokens": 6
  },
+ "form:وكأين|كَأَيِّن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
  "form:وكذلك": {
   "english": "and thus",
   "evidence": "",
   "grade": "settled",
   "tokens": 38
  },
+ "form:وكذلك|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 38
+ },
  "form:وكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
+ "form:وكم|كَم": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3245,13 +6263,31 @@
   "grade": "settled",
   "tokens": 33
  },
+ "form:ولئن|إِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 33
+ },
  "form:ولا": {
   "english": "and not",
   "evidence": "",
   "grade": "settled",
   "tokens": 658
  },
+ "form:ولا|لا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 658
+ },
  "form:ولدينا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:ولدينا|لَدَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3263,7 +6299,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ولذلك|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ولذى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:ولذى|ذُو": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3275,7 +6323,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:ولسليمن|سُلَيْمان": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:ولسوف": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:ولسوف|سَوْف": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3287,7 +6347,19 @@
   "grade": "",
   "tokens": 9
  },
+ "form:ولعلكم|لَعَلّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 9
+ },
  "form:ولعلهم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:ولعلهم|لَعَلّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3297,6 +6369,12 @@
   "english": "and indeed",
   "evidence": "",
   "grade": "settled",
+  "tokens": 129
+ },
+ "form:ولقد|قَد": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 129
  },
  "form:ولك": {
@@ -3312,12 +6390,30 @@
   "tokens": 19
  },
  "form:ولكن": {
-  "english": "but",
-  "evidence": "",
-  "grade": "settled",
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 112
  },
+ "form:ولكن|لٰكِن": {
+  "english": "but",
+  "evidence": "split from form:ولكن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 59
+ },
+ "form:ولكن|لٰكِنّ": {
+  "english": "but indeed",
+  "evidence": "split from form:ولكن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 53
+ },
  "form:ولكنا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:ولكنا|لٰكِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3329,7 +6425,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:ولكنكم|لٰكِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:ولكنه": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:ولكنه|لٰكِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3341,7 +6449,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ولكنهم|لٰكِنّ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ولكنى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:ولكنى|لٰكِنّ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3353,17 +6473,41 @@
   "grade": "",
   "tokens": 1
  },
+ "form:وللذين|الَّذِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ولم": {
   "english": "not",
   "evidence": "",
   "grade": "settled",
   "tokens": 47
  },
- "form:ولما": {
-  "english": "and when",
+ "form:ولم|لَم": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 47
+ },
+ "form:ولما": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 32
+ },
+ "form:ولما|لَمّا": {
+  "english": "and when",
+  "evidence": "split from form:ولما, which covered more than one word",
+  "grade": "settled",
+  "tokens": 31
+ },
+ "form:ولما|ما": {
+  "english": "and for what",
+  "evidence": "split from form:ولما, which covered more than one word",
+  "grade": "settled",
+  "tokens": 1
  },
  "form:ولمن": {
   "english": "",
@@ -3371,7 +6515,19 @@
   "grade": "",
   "tokens": 5
  },
+ "form:ولمن|مَن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
  "form:ولن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 22
+ },
+ "form:ولن|لَن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3384,9 +6540,9 @@
   "tokens": 1
  },
  "form:وله": {
-  "english": "",
+  "english": "and for him",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 23
  },
  "form:ولها": {
@@ -3413,13 +6569,31 @@
   "grade": "settled",
   "tokens": 111
  },
+ "form:ولو|لَو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 111
+ },
  "form:ولوطا": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 6
  },
+ "form:ولوطا|لُوط": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
  "form:ولولا": {
+  "english": "and were it not for",
+  "evidence": "ولولا دفع الله الناس; distinct from لولا + verb (why not)",
+  "grade": "supported",
+  "tokens": 24
+ },
+ "form:ولولا|لَوْلا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3437,13 +6611,31 @@
   "grade": "",
   "tokens": 2
  },
+ "form:ومأجوج|مَأْجُوج": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:وما": {
   "english": "and not",
   "evidence": "",
   "grade": "settled",
   "tokens": 646
  },
+ "form:وما|ما": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 646
+ },
  "form:وماذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وماذا|ماذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3455,7 +6647,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ومروت|مارُوت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ومريم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:ومريم|مَرْيَم": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3467,19 +6671,49 @@
   "grade": "",
   "tokens": 11
  },
+ "form:ومما|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
  "form:وممن": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 5
  },
- "form:ومن": {
-  "english": "and from",
+ "form:وممن|مِن": {
+  "english": "",
   "evidence": "",
-  "grade": "settled",
+  "grade": "",
+  "tokens": 5
+ },
+ "form:ومن": {
+  "english": "",
+  "evidence": "ambiguous surface form — decided per lemma",
+  "grade": "",
   "tokens": 342
  },
+ "form:ومن|مَن": {
+  "english": "and whoever",
+  "evidence": "split from form:ومن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 240
+ },
+ "form:ومن|مِن": {
+  "english": "and from",
+  "evidence": "split from form:ومن, which covered more than one word",
+  "grade": "settled",
+  "tokens": 102
+ },
  "form:ومنا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:ومنا|مِن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3491,7 +6725,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ومنك|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ومنكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
+ "form:ومنكم|مِن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3503,13 +6749,31 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ومنه|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ومنها": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 8
  },
+ "form:ومنها|مِن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 8
+ },
  "form:ومنهم": {
+  "english": "and among them",
+  "evidence": "",
+  "grade": "settled",
+  "tokens": 26
+ },
+ "form:ومنهم|مِن": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3521,7 +6785,19 @@
   "grade": "",
   "tokens": 5
  },
+ "form:وموسى|مُوسَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
  "form:وميكىل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وميكىل|مِيكال": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3539,7 +6815,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:ونوحا|نُوح": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:وهؤلاء": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وهؤلاء|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3551,7 +6839,19 @@
   "grade": "",
   "tokens": 15
  },
+ "form:وهذا|ذا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 15
+ },
  "form:وهذه": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وهذه|ذا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3563,7 +6863,19 @@
   "grade": "",
   "tokens": 8
  },
+ "form:وهرون|هارُون": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 8
+ },
  "form:وهل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:وهل|هَل": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3587,6 +6899,12 @@
   "grade": "",
   "tokens": 4
  },
+ "form:وهمن|هامان": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
  "form:وهو": {
   "english": "and He",
   "evidence": "",
@@ -3605,7 +6923,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:وويل|وَيْل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:ويعقوب": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 11
+ },
+ "form:ويعقوب|يَعْقُوب": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3617,7 +6947,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ويعوق|يَعُوق": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ويكأن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:ويكأن|وَيْ": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3629,7 +6971,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ويكأنه|وَيْ": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ويل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 14
+ },
+ "form:ويل|وَيْل": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3641,7 +6995,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ويلك|وَيْل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ويلكم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:ويلكم|وَيْل": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3653,7 +7019,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ويوسف|يُوسُف": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ويونس": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:ويونس|يُونُس": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3665,7 +7043,19 @@
   "grade": "",
   "tokens": 8
  },
+ "form:وٱلإنجيل|إِنجِيل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 8
+ },
  "form:وٱلتورىة": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:وٱلتورىة|تَوْراة": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3677,7 +7067,19 @@
   "grade": "",
   "tokens": 4
  },
+ "form:وٱلتى|الَّذِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
  "form:وٱلذان": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:وٱلذان|الَّذِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3689,13 +7091,31 @@
   "grade": "",
   "tokens": 15
  },
+ "form:وٱلذى|الَّذِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 15
+ },
  "form:وٱلذين": {
   "english": "and those who",
   "evidence": "",
   "grade": "settled",
   "tokens": 164
  },
+ "form:وٱلذين|الَّذِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 164
+ },
  "form:وٱلـى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:وٱلـى|الَّذِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3707,7 +7127,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:وٱليسع|الْيَسَع": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:يأجوج": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:يأجوج|يَأْجُوج": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3719,7 +7151,19 @@
   "grade": "",
   "tokens": 5
  },
+ "form:يأولى|ذُو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
  "form:يإبرهيم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:يإبرهيم|إِبْراهِيم": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3731,7 +7175,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:يإبليس|إِبْلِيس": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:ياسين": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:ياسين|إِلْياس": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3743,7 +7199,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:يثرب|يَثْرِب": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:يداود": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:يداود|داوُد": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3755,7 +7223,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:يذا|ذُو": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:يزكريا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:يزكريا|زَكَرِيّا": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3773,7 +7253,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:يشعيب|شُعَيْب": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:يعقوب": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
+ "form:يعقوب|يَعْقُوب": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3785,7 +7277,19 @@
   "grade": "",
   "tokens": 4
  },
+ "form:يعيسى|عِيسَى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
  "form:يغوث": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:يغوث|يَغُوث": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3797,7 +7301,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:يفرعون|فِرْعَوْن": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:يقطين": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:يقطين|يَقْطِين": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3809,7 +7325,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:يلوط|لُوط": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:يليت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
+ "form:يليت|لَيْت": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3821,7 +7349,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:يليتنا|لَيْت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:يليتنى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 7
+ },
+ "form:يليتنى|لَيْت": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3833,13 +7373,31 @@
   "grade": "",
   "tokens": 1
  },
+ "form:يليتها|لَيْت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:يمريم": {
   "english": "",
   "evidence": "",
   "grade": "",
   "tokens": 5
  },
+ "form:يمريم|مَرْيَم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 5
+ },
  "form:يموسى": {
+  "english": "O Musa",
+  "evidence": "vocative + proper name",
+  "grade": "settled",
+  "tokens": 24
+ },
+ "form:يموسى|مُوسَى": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3851,7 +7409,19 @@
   "grade": "",
   "tokens": 4
  },
+ "form:ينوح|نُوح": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
  "form:يهرون": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:يهرون|هارُون": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3863,7 +7433,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:يهمن|هامان": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:يوسف": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 21
+ },
+ "form:يوسف|يُوسُف": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3875,7 +7457,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:يونس|يُونُس": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:يويلتنا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:يويلتنا|وَيْل": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3887,7 +7481,19 @@
   "grade": "",
   "tokens": 3
  },
+ "form:يويلتى|وَيْل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 3
+ },
  "form:يويلنا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 6
+ },
+ "form:يويلنا|وَيْل": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3899,7 +7505,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:ٱلأيكة|أَيْكَة": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:ٱلإنجيل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 4
+ },
+ "form:ٱلإنجيل|إِنجِيل": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3911,7 +7529,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:ٱلتابوت|تابُوت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:ٱلتنور": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:ٱلتنور|تَنُّور": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3923,10 +7553,22 @@
   "grade": "",
   "tokens": 15
  },
+ "form:ٱلتورىة|تَوْراة": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 15
+ },
  "form:ٱلتى": {
   "english": "which",
   "evidence": "",
   "grade": "settled",
+  "tokens": 65
+ },
+ "form:ٱلتى|الَّذِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 65
  },
  "form:ٱلذى": {
@@ -3935,13 +7577,31 @@
   "grade": "settled",
   "tokens": 268
  },
+ "form:ٱلذى|الَّذِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 268
+ },
  "form:ٱلذين": {
   "english": "those whom",
   "evidence": "",
   "grade": "settled",
   "tokens": 811
  },
+ "form:ٱلذين|الَّذِي": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 811
+ },
  "form:ٱلروم": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:ٱلروم|رُوم": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3953,7 +7613,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ٱلصفا|صَفا": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ٱلـى": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
+ "form:ٱلـى|الَّذِي": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3965,7 +7637,19 @@
   "grade": "",
   "tokens": 2
  },
+ "form:ٱلفردوس|فِرْدَوْس": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 2
+ },
  "form:ٱللت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:ٱللت|اللّات": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -3977,7 +7661,19 @@
   "grade": "",
   "tokens": 1
  },
+ "form:ٱلويل|وَيْل": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
  "form:ٱلياقوت": {
+  "english": "",
+  "evidence": "",
+  "grade": "",
+  "tokens": 1
+ },
+ "form:ٱلياقوت|ياقُوت": {
   "english": "",
   "evidence": "",
   "grade": "",
@@ -4308,9 +8004,9 @@
   "tokens": 1
  },
  "أ د م|آدَم|PN": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "Adam",
+  "evidence": "proper name",
+  "grade": "settled",
   "tokens": 25
  },
  "أ د ي|أَداء|N": {
@@ -4338,9 +8034,9 @@
   "tokens": 1
  },
  "أ ذ ن|أَذِنَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "permit",
+  "evidence": "أن ءاذن لكم; noun إذن = permission",
+  "grade": "settled",
   "tokens": 23
  },
  "أ ذ ن|أَذَّنَ|V": {
@@ -4782,9 +8478,9 @@
   "tokens": 1
  },
  "أ م م|أُمّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "mother",
+  "evidence": "حرمت عليكم أمهتكم",
+  "grade": "settled",
   "tokens": 34
  },
  "أ م م|أُمَّة|N": {
@@ -4907,9 +8603,9 @@
   "tokens": 2
  },
  "أ ن ث|أُنثَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "female",
+  "evidence": "والأنثى بالأنثى",
+  "grade": "settled",
   "tokens": 24
  },
  "أ ن ث|أُنثَيَيْن|N": {
@@ -5052,9 +8748,9 @@
   "tokens": 1
  },
  "أ و ل|آل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the house of",
+  "evidence": "ءال فرعون; ءال موسى",
+  "grade": "supported",
   "tokens": 26
  },
  "أ و ل|أَوَّل|N": {
@@ -5166,9 +8862,9 @@
   "tokens": 1
  },
  "ب أ س|بَأْس|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "might",
+  "evidence": "أشد بأسا وأشد تنكيلا",
+  "grade": "supported",
   "tokens": 25
  },
  "ب أ س|بَأْساء|N": {
@@ -5352,9 +9048,9 @@
   "tokens": 1
  },
  "ب د ل|بَدَّلَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "exchange",
+  "evidence": "فبدل الذين ظلموا قولا غير الذى قيل لهم",
+  "grade": "settled",
   "tokens": 23
  },
  "ب د ل|تَبْدِيل|N": {
@@ -5958,9 +9654,9 @@
   "tokens": 2
  },
  "ب ط ل|باطِل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "falsehood",
+  "evidence": "لا تلبسوا الحق بالبطل — set against الحق",
+  "grade": "settled",
   "tokens": 26
  },
  "ب ط ل|بَطَلَ|V": {
@@ -6060,9 +9756,9 @@
   "tokens": 2
  },
  "ب ع د|بَعِيد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "far",
+  "evidence": "ضللا بعيدا",
+  "grade": "settled",
   "tokens": 25
  },
  "ب ع د|بَعْد|N": {
@@ -6156,9 +9852,9 @@
   "tokens": 3
  },
  "ب غ ي|بَغَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "seek after",
+  "evidence": "تبغونها عوجا; R9: distinct from ابتغى (seek)",
+  "grade": "supported",
   "tokens": 25
  },
  "ب غ ي|بَغِيّ|N": {
@@ -6528,9 +10224,9 @@
   "tokens": 4
  },
  "ب و ب|باب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "door",
+  "evidence": "وادخلوا الباب سجدا",
+  "grade": "settled",
   "tokens": 27
  },
  "ب و ر|بَوار|N": {
@@ -6666,9 +10362,9 @@
   "tokens": 243
  },
  "ب ي ن|بَيْن|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "between",
+  "evidence": "شقاق بينهما",
+  "grade": "settled",
   "tokens": 23
  },
  "ب ي ن|تَبَيَّنَ|V": {
@@ -7488,9 +11184,9 @@
   "tokens": 12
  },
  "ج ح م|جَحِيم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "blazing fire",
+  "evidence": "root ج ح م = to blaze; أصحب الجحيم set against أصحب الجنة",
+  "grade": "supported",
   "tokens": 26
  },
  "ج د ث|أَجْداث|N": {
@@ -7536,9 +11232,9 @@
   "tokens": 2
  },
  "ج د ل|جادَلُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "dispute",
+  "evidence": "ولا تجدل عن الذين يختانون أنفسهم",
+  "grade": "settled",
   "tokens": 25
  },
  "ج د ل|جَدَل|N": {
@@ -7854,9 +11550,9 @@
   "tokens": 1
  },
  "ج م ع|أَجْمَع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "all",
+  "evidence": "والناس أجمعين; R9: distinct from جميع (all together)",
+  "grade": "supported",
   "tokens": 26
  },
  "ج م ع|أَجْمَعُ|V": {
@@ -8016,9 +11712,9 @@
   "tokens": 2
  },
  "ج ن ح|جُناح|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "blame",
+  "evidence": "فلا جناح عليه, parallel to فلا إثم عليه",
+  "grade": "supported",
   "tokens": 25
  },
  "ج ن د|جُند|N": {
@@ -8107,9 +11803,9 @@
   "tokens": 1
  },
  "ج ه د|جاهَدَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "strive",
+  "evidence": "+فى سبيل الله; root ج ه د = to exert",
+  "grade": "settled",
   "tokens": 27
  },
  "ج ه د|جَهْد|N": {
@@ -8569,9 +12265,9 @@
   "tokens": 3
  },
  "ح د ث|حَدِيث|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "account",
+  "evidence": "root ح د ث = to come newly about",
+  "grade": "supported",
   "tokens": 28
  },
  "ح د ث|مُحْدَث|N": {
@@ -9019,6 +12715,7 @@
   "tokens": 1
  },
  "ح س ن|أَحْسَن|N": {
+  "elative": true,
   "english": "best",
   "evidence": "elative; وأحسن تأويلا",
   "grade": "settled",
@@ -10100,9 +13797,9 @@
   "tokens": 1
  },
  "ح ي ي|حَيّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "living",
+  "evidence": "هو الحى القيوم",
+  "grade": "settled",
   "tokens": 24
  },
  "ح ي ي|حَيَّ|V": {
@@ -11312,9 +15009,9 @@
   "tokens": 83
  },
  "خ و ف|خَوْف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "fear",
+  "evidence": "فلا خوف عليهم; verbal noun of خاف",
+  "grade": "settled",
   "tokens": 26
  },
  "خ و ف|خِيفَة|N": {
@@ -12291,9 +15988,9 @@
   "tokens": 76
  },
  "ذ ك ر|ذِكْرَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "reminder",
+  "evidence": "ولكن ذكرى لعلهم يتقون",
+  "grade": "settled",
   "tokens": 23
  },
  "ذ ك ر|مَذْكُور|N": {
@@ -14512,9 +18209,9 @@
   "tokens": 1
  },
  "ز ي ن|زَيَّنَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "make attractive",
+  "evidence": "زين للناس حب الشهوت",
+  "grade": "supported",
   "tokens": 26
  },
  "ز ي ن|زِينَة|N": {
@@ -14764,9 +18461,9 @@
   "tokens": 1
  },
  "س ج د|ساجِد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one prostrating",
+  "evidence": "ادخلوا الباب سجدا",
+  "grade": "settled",
   "tokens": 23
  },
  "س ج د|سَجَدَ|V": {
@@ -15610,9 +19307,9 @@
   "tokens": 1
  },
  "س ك ن|مِسْكِين|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "needy one",
+  "evidence": "listed beside اليتمى (orphan)",
+  "grade": "supported",
   "tokens": 23
  },
  "س ل ب|يَسْلُبْ|V": {
@@ -15784,9 +19481,9 @@
   "tokens": 1
  },
  "س ل م|مُسْلِم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one who submits",
+  "evidence": "واجعلنا مسلمين لك; R9: distinct from سلام (peace)",
+  "grade": "supported",
   "tokens": 25
  },
  "س ل م|مُسْلِم|PN": {
@@ -16294,9 +19991,9 @@
   "tokens": 1
  },
  "س و ي|سَواء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "equal",
+  "evidence": "سواء عليهم ءأنذرتهم أم لم تنذرهم",
+  "grade": "settled",
   "tokens": 27
  },
  "س و ي|سَوِيّ|N": {
@@ -16492,6 +20189,7 @@
   "tokens": 1
  },
  "ش د د|أَشَدّ|N": {
+  "elative": true,
   "english": "more severe",
   "evidence": "elative of شديد (severe)",
   "grade": "settled",
@@ -16800,9 +20498,9 @@
   "tokens": 1
  },
  "ش ع ر|يَشْعُرُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "sense",
+  "evidence": "وما يشعرون; R9: distinct from أبصر (perceive)",
+  "grade": "supported",
   "tokens": 25
  },
  "ش ع ر|يُشْعِرُ|V": {
@@ -17148,9 +20846,9 @@
   "tokens": 21
  },
  "ش ه د|شَهادَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "testimony",
+  "evidence": "ولا تكتموا الشهدة",
+  "grade": "settled",
   "tokens": 26
  },
  "ش ه د|شَهِدَ|V": {
@@ -17340,9 +21038,9 @@
   "tokens": 4
  },
  "ص ب ح|أَصْبَحَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "become",
+  "evidence": "فأصبحتم بنعمته إخونا; root ص ب ح = morning, hence to come to be",
+  "grade": "supported",
   "tokens": 28
  },
  "ص ب ح|إِصْباح|N": {
@@ -18708,6 +22406,7 @@
   "tokens": 1
  },
  "ض ل ل|أَضَلّ|N": {
+  "elative": true,
   "english": "more astray",
   "evidence": "comparative",
   "grade": "settled",
@@ -18954,9 +22653,9 @@
   "tokens": 1
  },
  "ط ع م|طَعام|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "food",
+  "evidence": "إلى طعامك وشرابك",
+  "grade": "settled",
   "tokens": 24
  },
  "ط ع م|طَعِمُ|V": {
@@ -19362,9 +23061,9 @@
   "tokens": 4
  },
  "ط و ف|طائِفَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a group",
+  "evidence": "ودت طائفة من أهل الكتب; R9: distinct from فريق (party)",
+  "grade": "supported",
   "tokens": 24
  },
  "ط و ف|طافَ|V": {
@@ -19622,9 +23321,9 @@
   "tokens": 5
  },
  "ظ ل م|ظُلُمَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "darkness",
+  "evidence": "من الظلمت إلى النور — set against النور",
+  "grade": "settled",
   "tokens": 23
  },
  "ظ ل م|ظُلْم|N": {
@@ -20861,9 +24560,9 @@
   "tokens": 2
  },
  "ع ص ي|عَصا|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "disobey",
+  "evidence": "سمعنا وعصينا — set against سمع",
+  "grade": "settled",
   "tokens": 27
  },
  "ع ص ي|عَصِيّ|N": {
@@ -21005,9 +24704,9 @@
   "tokens": 1
  },
  "ع ف و|عَفا|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "pardon",
+  "evidence": "+عن; ثم عفونا عنكم",
+  "grade": "settled",
   "tokens": 27
  },
  "ع ف و|عَفُوّ|N": {
@@ -21179,6 +24878,7 @@
   "tokens": 2
  },
  "ع ل م|أَعْلَم|N": {
+  "elative": true,
   "english": "most knowing",
   "evidence": "+بما, +بمن",
   "grade": "settled",
@@ -21623,9 +25323,9 @@
   "tokens": 1
  },
  "ع و د|عاد|PN": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "Aad",
+  "evidence": "proper name",
+  "grade": "settled",
   "tokens": 24
  },
  "ع و د|عادَ|V": {
@@ -22229,9 +25929,9 @@
   "tokens": 1
  },
  "غ ف ل|غافِل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "unaware",
+  "evidence": "بغفل عما تعملون",
+  "grade": "settled",
   "tokens": 27
  },
  "غ ف ل|غافِلَة|N": {
@@ -22433,9 +26133,9 @@
   "tokens": 4
  },
  "غ ن ي|غَنِيّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "free of need",
+  "evidence": "root غ ن ى; أغنت = avail",
+  "grade": "supported",
   "tokens": 24
  },
  "غ ن ي|مُغْني|N": {
@@ -22745,9 +26445,9 @@
   "tokens": 1
  },
  "ف ت ن|فَتَنُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "put to trial",
+  "evidence": "وكذلك فتنا بعضهم ببعض; noun فتنة = trial",
+  "grade": "settled",
   "tokens": 23
  },
  "ف ت ن|فُتُون|N": {
@@ -23627,9 +27327,9 @@
   "tokens": 3
  },
  "ف ل ح|أَفْلَحَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "succeed",
+  "evidence": "91:9-10 قد أفلح من زكىها against وقد خاب من دسىها",
+  "grade": "supported",
   "tokens": 27
  },
  "ف ل ح|مُفْلِح|N": {
@@ -23663,9 +27363,9 @@
   "tokens": 2
  },
  "ف ل ك|فُلْك|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "ship",
+  "evidence": "والفلك التى تجرى فى البحر",
+  "grade": "settled",
   "tokens": 23
  },
  "ف ل ن|فُلان|N": {
@@ -23789,9 +27489,9 @@
   "tokens": 16
  },
  "ف و ق|فَوْق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "above",
+  "evidence": "من فوقهم",
+  "grade": "settled",
   "tokens": 25
  },
  "ف و م|فُوم|N": {
@@ -24131,9 +27831,9 @@
   "tokens": 11
  },
  "ق د ر|قَدَرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "have power",
+  "evidence": "لا يقدرون على شىء; R9: قدير = capable",
+  "grade": "supported",
   "tokens": 25
  },
  "ق د ر|قَدِير|N": {
@@ -24239,9 +27939,9 @@
   "tokens": 3
  },
  "ق د م|قَدَّمَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "send ahead",
+  "evidence": "وما تقدموا لأنفسكم من خير",
+  "grade": "supported",
   "tokens": 27
  },
  "ق د م|مُسْتَقْدِم|N": {
@@ -24317,9 +28017,9 @@
   "tokens": 5
  },
  "ق ر ب|قَرِيب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "near",
+  "evidence": "فإنى قريب",
+  "grade": "settled",
   "tokens": 26
  },
  "ق ر ب|قَرَّبَ|V": {
@@ -24485,9 +28185,9 @@
   "tokens": 8
  },
  "ق ر ن|قَرْن|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "generation",
+  "evidence": "كم أهلكنا من قبلهم من قرن",
+  "grade": "supported",
   "tokens": 23
  },
  "ق ر ن|مُقَرَّن|N": {
@@ -25073,9 +28773,9 @@
   "tokens": 1
  },
  "ق م ر|قَمَر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "moon",
+  "evidence": "والشمس والقمر",
+  "grade": "settled",
   "tokens": 27
  },
  "ق م ص|قَمِيص|N": {
@@ -25271,6 +28971,7 @@
   "tokens": 54
  },
  "ق و م|أَقْوَم|N": {
+  "elative": true,
   "english": "more upright",
   "evidence": "comparative",
   "grade": "settled",
@@ -25463,9 +29164,10 @@
   "tokens": 1
  },
  "ك ب ر|أَكْبَر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "elative": true,
+  "english": "greater",
+  "evidence": "elative of كبير (great)",
+  "grade": "settled",
   "tokens": 24
  },
  "ك ب ر|أَكْبَرْ|V": {
@@ -26369,9 +30071,9 @@
   "tokens": 4
  },
  "ك و د|كادَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "almost",
+  "evidence": "يكاد البرق; invariant, takes no tense",
+  "grade": "settled",
   "tokens": 24
  },
  "ك و ر|كُوِّرَتْ|V": {
@@ -26399,9 +30101,9 @@
   "tokens": 2
  },
  "ك و ن|مَكان|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "place",
+  "evidence": "بدلنا مكان السيئة الحسنة",
+  "grade": "settled",
   "tokens": 24
  },
  "ك و ن|مَكان|NV": {
@@ -26423,9 +30125,9 @@
   "tokens": 1
  },
  "ك ي د|كَيْد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "scheme",
+  "evidence": "إن كيد الشيطن كان ضعيفا",
+  "grade": "settled",
   "tokens": 26
  },
  "ك ي د|كِيدُ|V": {
@@ -26681,9 +30383,9 @@
   "tokens": 2
  },
  "ل س ن|لِسان|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "tongue",
+  "evidence": "على لسان داود",
+  "grade": "settled",
   "tokens": 25
  },
  "ل ط ف|لَطِيف|N": {
@@ -26729,9 +30431,9 @@
   "tokens": 1
  },
  "ل ع ن|لَعَنَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "curse",
+  "evidence": "بل لعنهم الله بكفرهم",
+  "grade": "settled",
   "tokens": 23
  },
  "ل ع ن|لَعْن|N": {
@@ -26915,9 +30617,9 @@
   "tokens": 6
  },
  "ل ق ي|لِقاء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "meeting",
+  "evidence": "كذبوا بلقاء الله",
+  "grade": "settled",
   "tokens": 24
  },
  "ل ق ي|مُتَلَقِّيان|N": {
@@ -27413,9 +31115,9 @@
   "tokens": 1
  },
  "م ر أ|امْرَأَت|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "woman",
+  "evidence": "قالت امرأت عمرن",
+  "grade": "settled",
   "tokens": 26
  },
  "م ر أ|امْرُؤٌا|N": {
@@ -28433,9 +32135,9 @@
   "tokens": 13
  },
  "ن ج و|أَنجَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "rescue",
+  "evidence": "R9: distinct from نجّى (deliver)",
+  "grade": "supported",
   "tokens": 23
  },
  "ن ج و|تَناجَيْ|V": {
@@ -29549,9 +33251,9 @@
   "tokens": 1
  },
  "ن ف ق|مُنافِق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "hypocrite",
+  "evidence": "2:8-9 يقولون ءامنا بالله وباليوم الءاخر وما هم بمؤمنين — the text describes the behaviour",
+  "grade": "supported",
   "tokens": 27
  },
  "ن ف ق|مُنافِقَة|N": {
@@ -30691,9 +34393,9 @@
   "tokens": 3
  },
  "و ث ق|مِيثاق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "binding pledge",
+  "evidence": "أخذنا ميثقكم; root و ث ق = to bind fast; R9: distinct from عهد (covenant)",
+  "grade": "supported",
   "tokens": 25
  },
  "و ث ق|واثَقَ|V": {
@@ -31555,9 +35257,9 @@
   "tokens": 18
  },
  "و ف ي|تَوَفَّى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "take in full",
+  "evidence": "form V of وفى = give in full",
+  "grade": "supported",
   "tokens": 24
  },
  "و ف ي|مُتَوَفِّي|N": {
@@ -31826,9 +35528,9 @@
   "tokens": 4
  },
  "و ك ل|وَكِيل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "trustee",
+  "evidence": "ونعم الوكيل; from توكل = rely",
+  "grade": "supported",
   "tokens": 24
  },
  "و ك ل|وُكِّلَ|V": {
@@ -32054,9 +35756,9 @@
   "tokens": 1
  },
  "ي ت م|يَتِيم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "orphan",
+  "evidence": "والقربى واليتمى والمسكين",
+  "grade": "settled",
   "tokens": 23
  },
  "ي د ي|يَد|N": {

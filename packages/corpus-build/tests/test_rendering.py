@@ -22,8 +22,7 @@ from pathlib import Path
 
 import pytest
 
-from pipeline.decisions import RENDERABLE, load_table, resolve
-from pipeline.grammar import compose
+from pipeline.decisions import RENDERABLE, load_table, render_verse, resolve
 
 ARTIFACTS = Path(__file__).resolve().parents[1] / "out"
 
@@ -48,11 +47,9 @@ def verses() -> dict[str, list[dict]]:
 
 
 def render(tokens: list[dict], table: dict) -> str:
-    words = []
-    for i, t in enumerate(tokens):
-        row = resolve(t, table)
-        assert row, f"undecided token in a fixture verse: {t['text_no_tashkeel']}"
-        words.append(compose(t, row["english"], tokens[i - 1] if i else None))
+    """Renders through the production path, not a copy of it."""
+    words, blocked = render_verse(tokens, table)
+    assert not blocked, f"undecided token in a fixture verse: {' '.join(words)}"
     return " ".join(words)
 
 
@@ -99,6 +96,34 @@ def test_surah_112_passive_voice(slot: str) -> None:
     assert render(verse, load_table()) == EXPECTED_112[slot]
 
 
+def test_min_after_an_elative_is_than() -> None:
+    """أكبر من is "greater than", not "greater from".
+
+    No word can carry this on its own — it depends on what precedes it — and the
+    morphology cannot supply it either, because the corpus tags أظلم as a verb.
+    The table marks the elatives and the renderer reads the mark.
+    """
+    table = load_table()
+    tokens = [
+        json.loads(line)
+        for line in (ARTIFACTS / f"v{_latest()}" / "tokens.jsonl").open(encoding="utf-8")
+    ]
+    elative = next(
+        t for t in tokens
+        if (row := resolve(t, table)) and row.get("elative")
+    )
+    after = next(
+        t for t in tokens
+        if (row := resolve(t, table)) and row["english"].split()[0] == "from"
+    )
+    pair = [dict(elative, position=1), dict(after, position=2)]
+    words, _ = render_verse(pair, table)
+    assert words[1].split()[0] == "than", f"expected 'than', got {words[1]!r}"
+
+    alone, _ = render_verse([dict(after, position=1)], table)
+    assert alone[0].split()[0] == "from", "the rule must only fire after an elative"
+
+
 def test_no_doubled_words() -> None:
     """`and and`, `upon them them` — the shape of every bug so far was a word
     emitted by both the decision table and the grammar layer."""
@@ -107,6 +132,76 @@ def test_no_doubled_words() -> None:
         parts = text.split()
         doubled = [a for a, b in zip(parts, parts[1:]) if a == b]
         assert not doubled, f"doubled word in {text!r}: {doubled}"
+
+
+def test_no_decided_form_key_covers_two_words() -> None:
+    """An unvocalised surface form can be several different words.
+
+    form:ألا was one decision, "indeed", standing over four: أَلا (behold),
+    أَن+لا (that not), أَنّ+لا, and لا (not) — so 60 of its 99 tokens rendered a
+    word the text does not say. form:من, "from", covered مَن (who) for 393
+    tokens. Nothing failed; the verses simply read wrong.
+
+    Rootless words are now keyed by form AND lemma. A bare form key that still
+    carries English while more than one lemma shares that form is the same
+    mistake waiting to happen again.
+    """
+    from collections import defaultdict
+
+    table = load_table()
+    lemmas: dict[str, set[str]] = defaultdict(set)
+    for key in table:
+        if key.startswith("form:") and "|" in key:
+            base, lemma = key.split("|", 1)
+            lemmas[base].add(lemma)
+
+    offenders = [
+        f"{key} = {row['english']!r} covers {sorted(lemmas[key])}"
+        for key, row in table.items()
+        if key.startswith("form:") and "|" not in key and row.get("english")
+        and len(lemmas.get(key, ())) > 1
+    ]
+    assert not offenders, "ambiguous form key still decided:\n  " + "\n  ".join(offenders)
+
+
+def test_no_word_is_emitted_twice_unless_the_arabic_repeats_it() -> None:
+    """Every complete verse, checked for an adjacent repeated word.
+
+    "trust in" followed by "in it" said "trust in in it"; "companion of"
+    pluralised to "companion ofs"; إنكم ظلمتم said "indeed you you wronged".
+    Each was a different bug with one signature, and Al-Fatiha shows none of
+    them. The Arabic does sometimes repeat a word — وإلهكم إله, أمتكم أمة,
+    ءايت الله والله — and those are kept, so the check is that a repeat must
+    come from two tokens of the SAME lemma.
+    """
+    from collections import defaultdict
+
+    from pipeline.decisions import render_verse, resolve
+
+    table = load_table()
+    tokens = [
+        json.loads(line)
+        for line in (ARTIFACTS / f"v{_latest()}" / "tokens.jsonl").open(encoding="utf-8")
+    ]
+    by_verse: dict[tuple, list[dict]] = defaultdict(list)
+    for token in tokens:
+        by_verse[(token["surah"], token["slot"])].append(token)
+
+    offenders = []
+    for ref, verse in by_verse.items():
+        words, blocked = render_verse(verse, table)
+        if blocked:
+            continue
+        parts = " ".join(words).split()
+        if not any(a == b for a, b in zip(parts, parts[1:])):
+            continue
+        ordered = sorted(verse, key=lambda t: t["position"])
+        lemmas = [(t.get("morphology") or {}).get("lemma") for t in ordered]
+        if any(a == b and a is not None for a, b in zip(lemmas, lemmas[1:])):
+            continue                      # the text itself says it twice
+        offenders.append(f"{ref[0]}:{ref[1]}  {' '.join(words)}")
+
+    assert not offenders, "word emitted twice:\n  " + "\n  ".join(offenders[:10])
 
 
 def test_table_rows_are_well_formed() -> None:

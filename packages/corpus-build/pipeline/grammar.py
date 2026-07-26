@@ -83,15 +83,15 @@ DOUBLE = {"admit", "commit", "permit", "omit", "submit", "prefer", "refer",
 
 # Fixed predicates that are not verbs and must not be inflected at all. "is not"
 # has no past; "excellent is" was being turned into "excellented is".
-INVARIANT = {"is not", "excellent is", "wretched is", "perhaps"}
+INVARIANT = {"is not", "excellent is", "wretched is", "perhaps", "almost"}
 # Lemmas whose English already expresses the genitive link.
-ABSORB_GENITIVE = {"غَيْر", "بَعْض", "كُلّ", "مِثْل", "أَهْل", "ذُو"}
+ABSORB_GENITIVE = {"غَيْر", "بَعْض", "كُلّ", "مِثْل", "أَهْل", "ذُو", "صاحِب", "آل", "عِند"}
 
 PLURAL = {
     "one astray": "those astray", "one angered": "those angered",
     "one who leads astray": "those who lead astray", "envier": "enviers",
     "angel": "angels", "parent": "parents", "child": "children",
-    "person": "people", "human": "humans", "sky": "skies", "way": "ways",
+    "person": "people", "human": "humans", "all": "all", "sky": "skies", "way": "ways",
     "path": "paths", "day": "days", "chest": "chests", "knot": "knots",
     "child": "children", "one who trusts": "those who trust",
     "one who rejects": "those who reject", "beings": "beings",
@@ -109,14 +109,22 @@ def _pronoun(features: dict) -> str | None:
     return None
 
 
-def _pluralise(word: str) -> str:
-    if word in PLURAL:
-        return PLURAL[word]
+def _plural_stem(word: str) -> str:
     if word.endswith(("s", "x", "ch", "sh")):
         return word + "es"
     if word.endswith("y") and word[-2:-1] not in "aeiou":
         return word[:-1] + "ies"
     return word + "s"
+
+
+def _pluralise(word: str) -> str:
+    if word in PLURAL:
+        return PLURAL[word]
+    # "companion of" pluralises its head; "good deed" pluralises its last word.
+    # Getting this backwards produced "companion ofs of the blazing fire".
+    if word.endswith(" of") or " of " in word:
+        return _inflect_head(word, _plural_stem)
+    return _plural_stem(word)
 
 
 def _vowel_groups(word: str) -> int:
@@ -193,11 +201,21 @@ def _is_subject_marker(verb_feats: dict, suffix_feats: dict) -> bool:
     )
 
 
-def compose(token: dict, english: str, previous: dict | None = None) -> str:
+def compose(
+    token: dict,
+    english: str,
+    previous: dict | None = None,
+    drop_subject: bool = False,
+) -> str:
     """Inflect `english` according to what the Arabic marks.
 
     `previous` is the preceding token, needed only to detect a genitive
     construct: two nouns in sequence where the second is GEN means "X of Y".
+
+    `drop_subject` suppresses the verb's subject pronoun. Arabic states it twice
+    where English states it once — إنكم ظلمتم is "indeed you wronged", not
+    "indeed you you wronged". The caller decides, because only it can see the
+    word before.
     """
     m = token.get("morphology") or {}
     feats = m.get("features") or {}
@@ -250,11 +268,11 @@ def compose(token: dict, english: str, previous: dict | None = None) -> str:
             # "be" is the one English verb whose past agrees with its subject.
             if out.split()[0] == "was" and (number != "singular" or person == "2"):
                 out = "were" + out[3:]
-            subj = SUBJECT.get((person, number))
+            subj = None if drop_subject else SUBJECT.get((person, number))
             if subj:
                 out = f"{subj} {out}"
         elif tense == "IMPF":
-            subj = SUBJECT.get((person, number))
+            subj = None if drop_subject else SUBJECT.get((person, number))
             if number == "plural" or person in ("1", "2"):
                 verb = out
             else:
