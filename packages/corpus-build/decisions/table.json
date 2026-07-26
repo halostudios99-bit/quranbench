@@ -486,7 +486,7 @@
   "tokens": 1
  },
  "form:إليك": {
-  "english": "to you",
+  "english": "to",
   "evidence": "",
   "grade": "settled",
   "tokens": 77
@@ -510,7 +510,7 @@
   "tokens": 19
  },
  "form:إليه": {
-  "english": "to him",
+  "english": "to",
   "evidence": "",
   "grade": "settled",
   "tokens": 76
@@ -546,7 +546,7 @@
   "tokens": 966
  },
  "form:إنا": {
-  "english": "indeed we",
+  "english": "indeed",
   "evidence": "",
   "grade": "settled",
   "tokens": 156
@@ -582,7 +582,7 @@
   "tokens": 6
  },
  "form:إنه": {
-  "english": "indeed he",
+  "english": "indeed",
   "evidence": "",
   "grade": "settled",
   "tokens": 147
@@ -612,7 +612,7 @@
   "tokens": 1
  },
  "form:إنى": {
-  "english": "indeed I",
+  "english": "indeed",
   "evidence": "",
   "grade": "settled",
   "tokens": 131
@@ -768,7 +768,7 @@
   "tokens": 2
  },
  "form:بك": {
-  "english": "in you",
+  "english": "in",
   "evidence": "",
   "grade": "settled",
   "tokens": 10
@@ -822,13 +822,13 @@
   "tokens": 4
  },
  "form:به": {
-  "english": "in it",
+  "english": "in",
   "evidence": "",
   "grade": "settled",
   "tokens": 327
  },
  "form:بها": {
-  "english": "with it",
+  "english": "with",
   "evidence": "",
   "grade": "settled",
   "tokens": 79
@@ -1176,7 +1176,7 @@
   "tokens": 685
  },
  "form:عليك": {
-  "english": "upon you",
+  "english": "upon",
   "evidence": "",
   "grade": "settled",
   "tokens": 57
@@ -1200,7 +1200,7 @@
   "tokens": 51
  },
  "form:عليه": {
-  "english": "upon him",
+  "english": "upon",
   "evidence": "",
   "grade": "settled",
   "tokens": 146
@@ -1212,7 +1212,7 @@
   "tokens": 46
  },
  "form:عليهم": {
-  "english": "upon them",
+  "english": "upon",
   "evidence": "",
   "grade": "settled",
   "tokens": 214
@@ -1404,7 +1404,7 @@
   "tokens": 7
  },
  "form:فإن": {
-  "english": "so if",
+  "english": "if",
   "evidence": "",
   "grade": "settled",
   "tokens": 168
@@ -1602,7 +1602,7 @@
   "tokens": 1
  },
  "form:فلا": {
-  "english": "so not",
+  "english": "not",
   "evidence": "",
   "grade": "settled",
   "tokens": 156
@@ -1806,13 +1806,13 @@
   "tokens": 5
  },
  "form:فيه": {
-  "english": "in it",
+  "english": "in",
   "evidence": "",
   "grade": "settled",
   "tokens": 127
  },
  "form:فيها": {
-  "english": "in it",
+  "english": "in",
   "evidence": "",
   "grade": "settled",
   "tokens": 241
@@ -2184,13 +2184,13 @@
   "tokens": 2
  },
  "form:لك": {
-  "english": "for you",
+  "english": "for",
   "evidence": "",
   "grade": "settled",
   "tokens": 71
  },
  "form:لكم": {
-  "english": "for you",
+  "english": "for",
   "evidence": "",
   "grade": "settled",
   "tokens": 337
@@ -2304,13 +2304,13 @@
   "tokens": 5
  },
  "form:له": {
-  "english": "for Him",
+  "english": "for",
   "evidence": "",
   "grade": "settled",
   "tokens": 275
  },
  "form:لها": {
-  "english": "for it",
+  "english": "for",
   "evidence": "",
   "grade": "settled",
   "tokens": 41
@@ -2322,7 +2322,7 @@
   "tokens": 2
  },
  "form:لهم": {
-  "english": "for them",
+  "english": "for",
   "evidence": "",
   "grade": "settled",
   "tokens": 373
@@ -2514,7 +2514,7 @@
   "tokens": 33
  },
  "form:منك": {
-  "english": "from you",
+  "english": "from",
   "evidence": "",
   "grade": "settled",
   "tokens": 6
@@ -2538,13 +2538,13 @@
   "tokens": 88
  },
  "form:منها": {
-  "english": "from it",
+  "english": "from",
   "evidence": "",
   "grade": "settled",
   "tokens": 86
  },
  "form:منهم": {
-  "english": "from them",
+  "english": "from",
   "evidence": "",
   "grade": "settled",
   "tokens": 153
@@ -2844,7 +2844,7 @@
   "tokens": 72
  },
  "form:وإذا": {
-  "english": "and when",
+  "english": "when",
   "evidence": "",
   "grade": "settled",
   "tokens": 134
@@ -2988,7 +2988,7 @@
   "tokens": 14
  },
  "form:وإياك": {
-  "english": "and You alone",
+  "english": "You alone",
   "evidence": "",
   "grade": "settled",
   "tokens": 1
@@ -3246,7 +3246,7 @@
   "tokens": 33
  },
  "form:ولا": {
-  "english": "and not",
+  "english": "not",
   "evidence": "",
   "grade": "settled",
   "tokens": 658
@@ -3438,7 +3438,7 @@
   "tokens": 2
  },
  "form:وما": {
-  "english": "and not",
+  "english": "not",
   "evidence": "",
   "grade": "settled",
   "tokens": 646
@@ -3474,7 +3474,7 @@
   "tokens": 5
  },
  "form:ومن": {
-  "english": "and from",
+  "english": "from",
   "evidence": "",
   "grade": "settled",
   "tokens": 342
@@ -3570,7 +3570,7 @@
   "tokens": 3
  },
  "form:وهم": {
-  "english": "and they",
+  "english": "they",
   "evidence": "",
   "grade": "settled",
   "tokens": 136
@@ -3588,7 +3588,7 @@
   "tokens": 4
  },
  "form:وهو": {
-  "english": "and He",
+  "english": "He",
   "evidence": "",
   "grade": "settled",
   "tokens": 171

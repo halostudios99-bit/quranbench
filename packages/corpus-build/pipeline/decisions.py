@@ -30,6 +30,8 @@ import json
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from .grammar import compose
+
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "out"
 TABLE = ROOT / "decisions" / "table.json"
@@ -154,15 +156,17 @@ def cmd_render(tokens: list[dict], surah: int) -> None:
 
     for k in sorted(by_verse, key=order):
         words, blocked = [], False
-        for t in sorted(by_verse[k], key=lambda x: x["position"]):
+        ordered = sorted(by_verse[k], key=lambda x: x["position"])
+        for idx, t in enumerate(ordered):
+            prev = ordered[idx - 1] if idx else None
             row = resolve(t, table)
             if not row:
                 words.append(f"⟦{t['text_no_tashkeel']}⟧")
                 blocked = True
             elif row["grade"] == "judgement":
-                words.append(f"*{row['english']}*")
+                words.append(f"*{compose(t, row['english'], prev)}*")
             else:
-                words.append(row["english"])
+                words.append(compose(t, row["english"], prev))
         mark = "  [INCOMPLETE]" if blocked else ""
         print(f"{k[0]}:{k[1]}  {' '.join(words)}{mark}")
 
