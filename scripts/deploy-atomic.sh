@@ -63,8 +63,17 @@ if ! pnpm install --frozen-lockfile; then
   echo "DEPLOY_EXIT=1"; say "END"; exit 1
 fi
 
-say "building"
-if ! NEXT_DIST_DIR="$TARGET" pnpm --filter @quranbench/web build; then
+# Run the build at the lowest priority. The box has 2 vCPUs and the static
+# generation pass covers ~78,000 pages, which saturates both; the live process
+# then misses nginx's proxy timeout and a request occasionally returns 502 even
+# though the app is healthy and the old slot is untouched. Observed once during
+# a deploy on 2026-07-26. `nice` lets the serving process win the CPU, at the
+# cost of a slower build — the right trade when the build is not user-visible.
+NICE="nice -n 19"
+command -v ionice >/dev/null && NICE="ionice -c3 $NICE"
+
+say "building (deprioritised: $NICE)"
+if ! $NICE env NEXT_DIST_DIR="$TARGET" pnpm --filter @quranbench/web build; then
   say "FATAL: build failed — nothing changed, site still serving $CURRENT"
   rm -rf "${WEB_DIR:?}/${TARGET:?}"
   echo "DEPLOY_EXIT=1"; say "END"; exit 1
