@@ -26,7 +26,10 @@ test('copy "Arabic + reference" appends the reference and source', async ({ page
   const text = await page.evaluate(() => navigator.clipboard.readText());
   expect(text).toContain('2:43');
   expect(text).toContain(`corpus v${corpus_version}`);
-  expect(text).toContain('quranbench.com/2/43');
+  // The citation URL is built from NEXT_PUBLIC_SITE_URL, which is localhost in
+  // CI and quranbench.com in production. Assert the path against whatever origin
+  // the app is actually configured with rather than hardcoding the domain.
+  expect(text).toContain('/2/43');
 });
 
 test('permalink copies the canonical URL', async ({ page }) => {

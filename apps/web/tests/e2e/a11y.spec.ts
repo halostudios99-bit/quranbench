@@ -3,6 +3,18 @@ import { expect, test } from '@playwright/test';
 
 // WCAG 2.2 AA on each page type (design-system §6). We scan against the WCAG A
 // and AA rule tags and require zero violations.
+//
+// A generous per-test timeout, because axe's own run is the slow part, not the
+// app: a full surah page carries ~2,300 elements and ~600 addressable tokens, and
+// scanning it measured 29.9s against the default 30s budget on an idle machine.
+// That is one second from flaking, and it did flake — as four "failures" that
+// were all timeouts, no violations — as soon as anything else was using the CPU.
+// The assertion is unchanged; only the time axe is allowed to take.
+// `/compare?q=mercy` is the extreme case: the reverse-gloss lookup is unbounded,
+// so it renders 129 verses across four editions — about 11,500 elements, 1.3 MB
+// of HTML (55 KB on the wire). Capping that result set would make this test fast
+// and the page better; until then the scan needs room.
+test.describe.configure({ timeout: 180_000 });
 const PATHS = [
   '/',
   '/1',

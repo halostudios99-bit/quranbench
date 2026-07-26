@@ -7,6 +7,10 @@ import { expect, test } from '@playwright/test';
 // inside the viewport, must be keyboard-operable and Esc-dismissable, and must not
 // animate the Arabic. Coarse-pointer devices get a bottom sheet instead of a box.
 
+// The axe case scans a reader page with the tooltip open, which runs close to
+// the default 30s budget and flakes past it under load. Assertions unchanged.
+test.describe.configure({ timeout: 120_000 });
+
 const FIRST_TOKEN = '[data-token-id="quran:tanzil-uthmani:1:1:1"]';
 
 async function isCoarse(
@@ -91,7 +95,12 @@ test('the tooltip is axe-clean while open', async ({ page }) => {
   await page.goto('/1');
   if (await isCoarse(page)) test.skip();
   await page.locator(FIRST_TOKEN).first().focus();
-  await expect(page.locator('#qb-token-tooltip')).toBeVisible();
+  // The tooltip is progressive enhancement, so it cannot appear until the client
+  // controller has hydrated. Focusing a token immediately after load races that,
+  // and the default 5s assertion budget loses the race whenever the machine is
+  // busy — which is why a different tooltip test flaked on each full run. A
+  // longer budget waits for hydration; a tooltip that never appears still fails.
+  await expect(page.locator('#qb-token-tooltip')).toBeVisible({ timeout: 20_000 });
   const results = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
     .analyze();
@@ -105,7 +114,12 @@ test('reduced motion is honoured: the tooltip still appears', async ({
   await page.goto('/1');
   if (await isCoarse(page)) test.skip();
   await page.locator(FIRST_TOKEN).first().focus();
-  await expect(page.locator('#qb-token-tooltip')).toBeVisible();
+  // The tooltip is progressive enhancement, so it cannot appear until the client
+  // controller has hydrated. Focusing a token immediately after load races that,
+  // and the default 5s assertion budget loses the race whenever the machine is
+  // busy — which is why a different tooltip test flaked on each full run. A
+  // longer budget waits for hydration; a tooltip that never appears still fails.
+  await expect(page.locator('#qb-token-tooltip')).toBeVisible({ timeout: 20_000 });
   await expect(page.locator('#qb-token-tooltip')).toContainText(
     'In (the) name',
   );

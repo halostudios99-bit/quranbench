@@ -4,6 +4,11 @@ import { expect, test } from '@playwright/test';
 // The surah rail beside the reader. It is server-rendered navigation, so it must
 // be complete and crawlable with JavaScript disabled; the filter on top of it is
 // an enhancement that may only exist when JavaScript does.
+//
+// The axe case here scans a full surah page plus 114 rail entries, which runs
+// close to the default 30s budget and flakes past it whenever the machine is
+// busy. The assertion is unchanged; only the time axe is allowed to take.
+test.describe.configure({ timeout: 120_000 });
 
 test.describe('the rail is real, server-rendered navigation', () => {
   test.use({ javaScriptEnabled: false });

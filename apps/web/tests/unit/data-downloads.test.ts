@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
@@ -31,11 +31,24 @@ describe('/data checksums match the artifacts on disk', () => {
     for (const version of listVersions()) {
       const excluded = nonRedistributablePaths(version);
       for (const artifact of listArtifacts(version)) {
+        const absolute = join(artifactsRoot(), `v${version}`, artifact.path);
+
+        // Non-redistributable editions are gitignored and fetched at build time,
+        // so a clean checkout does not have them on disk. Their checksum cannot
+        // be verified where the file was never fetched — but the download route
+        // must still refuse them, which is the security-relevant half and is
+        // asserted below regardless.
+        if (excluded.has(artifact.path) && !existsSync(absolute)) {
+          expect(
+            resolveArtifact(version, artifact.path),
+            `${artifact.path} must not be downloadable`,
+          ).toBeNull();
+          continue;
+        }
+
         // Every declared artifact exists on disk with the recorded bytes — even a
         // display-only edition, which is served to readers and checksummed.
-        const bytes = readFileSync(
-          join(artifactsRoot(), `v${version}`, artifact.path),
-        );
+        const bytes = readFileSync(absolute);
         expect(bytes.length, `${artifact.path} bytes`).toBe(artifact.bytes);
         const sha = createHash('sha256').update(bytes).digest('hex');
         expect(sha, `${artifact.path} sha256`).toBe(artifact.sha256);
