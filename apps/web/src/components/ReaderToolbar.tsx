@@ -368,7 +368,8 @@ export function ReaderToolbar({
                         onChange={(e) => setFilter(e.target.value)}
                         placeholder="Filter translations"
                         aria-label="Filter translations"
-                        className="w-full bg-transparent py-2.5 text-[13px] text-ink outline-none placeholder:text-ink3"
+                        // 16px on phones: iOS zooms the viewport on focus below that.
+                        className="w-full bg-transparent py-2.5 text-[16px] text-ink outline-none placeholder:text-ink3 sm:text-[13px]"
                       />
                     </div>
                     <div className="flex flex-col gap-3">

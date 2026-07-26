@@ -15,33 +15,52 @@ type Session =
 
 const linkClass = 'rounded-md px-2.5 py-2 text-[14px] text-ink2 hover:text-ink';
 
-function SignedOut() {
+// The header renders twice — once inline for wide viewports, once inside the
+// mobile disclosure menu — and only one is ever visible. Both mount, so the
+// session lookup is shared here rather than fired twice per page load.
+let sessionRequest: Promise<Session> | null = null;
+function loadSession(): Promise<Session> {
+  sessionRequest ??= fetch('/api/session', {
+    headers: { accept: 'application/json' },
+  })
+    .then((r) => (r.ok ? (r.json() as Promise<Session>) : { signedIn: false as const }))
+    .catch(() => ({ signedIn: false as const }));
+  return sessionRequest;
+}
+
+function SignedOut({ stacked }: { stacked: boolean }) {
   return (
     <>
-      <a href="/signin" className={linkClass}>
+      <a href="/signin" className={stacked ? `${linkClass} block` : linkClass}>
         Sign in
       </a>
       <a
         href="/signup"
-        className="rounded-md border border-line px-2.5 py-2 text-[14px] text-ink hover:border-line2"
+        className={`rounded-md border border-line px-2.5 py-2 text-[14px] text-ink hover:border-line2 ${
+          stacked ? 'block text-center' : ''
+        }`}
       >
-        Create account
+        {/* "Create account" is 87px wide and was the label that pushed the
+            header past the viewport. In the stacked menu there is room for it;
+            inline there is not. */}
+        <span className={stacked ? '' : 'sm:hidden'}>Sign up</span>
+        <span className={stacked ? 'hidden' : 'hidden sm:inline'}>Create account</span>
       </a>
     </>
   );
 }
 
-export function HeaderAuth() {
+/**
+ * @param stacked laid out vertically inside the mobile menu rather than inline.
+ */
+export function HeaderAuth({ stacked = false }: { stacked?: boolean }) {
   const [session, setSession] = useState<Session | null>(null);
 
   useEffect(() => {
     let active = true;
-    fetch('/api/session', { headers: { accept: 'application/json' } })
-      .then((r) => (r.ok ? r.json() : { signedIn: false }))
-      .then((data: Session) => {
-        if (active) setSession(data);
-      })
-      .catch(() => active && setSession({ signedIn: false }));
+    void loadSession().then((data) => {
+      if (active) setSession(data);
+    });
     return () => {
       active = false;
     };
@@ -49,15 +68,21 @@ export function HeaderAuth() {
 
   // Before hydration resolves, show the signed-out controls: they are always
   // safe and never gate anything.
-  if (!session || !session.signedIn) return <SignedOut />;
+  if (!session || !session.signedIn) return <SignedOut stacked={stacked} />;
 
   return (
     <>
-      <a href="/account" className={`${linkClass} font-medium text-ink`}>
+      <a
+        href="/account"
+        className={`${linkClass} font-medium text-ink ${stacked ? 'block' : ''}`}
+      >
         @{session.handle}
       </a>
-      <form action={signoutAction}>
-        <button type="submit" className={linkClass}>
+      <form action={signoutAction} className={stacked ? 'block' : undefined}>
+        <button
+          type="submit"
+          className={stacked ? `${linkClass} block w-full text-start` : linkClass}
+        >
           Sign out
         </button>
       </form>

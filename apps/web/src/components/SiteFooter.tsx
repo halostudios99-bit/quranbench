@@ -20,12 +20,20 @@ export function SiteFooter() {
   return (
     <footer className="mt-16 border-t border-line bg-panel">
       <div className="mx-auto max-w-wrap px-5 py-7 sm:px-8">
+        {/* These are a row of controls rather than links inside a sentence, so
+            the WCAG 2.2 inline exception does not really apply to them. At
+            13px they measured 21px tall; the vertical padding brings each to
+            33px without changing the footer's visual rhythm. */}
         <nav
           aria-label="Site"
-          className="mb-5 flex flex-wrap gap-x-5 gap-y-2 text-[13px] text-ink2"
+          className="mb-4 flex flex-wrap gap-x-5 text-[13px] text-ink2"
         >
           {SITE_LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="hover:text-ink">
+            <a
+              key={link.href}
+              href={link.href}
+              className="inline-block py-1.5 hover:text-ink"
+            >
               {link.label}
             </a>
           ))}

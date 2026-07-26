@@ -87,7 +87,7 @@ export default async function ComparePage({ searchParams }: CompareParams) {
               name="v"
               defaultValue={v ?? ''}
               placeholder="2:255"
-              className="flex-1 rounded-lg border border-line bg-panel px-3 py-2 text-[15px] text-ink"
+              className="flex-1 rounded-lg border border-line bg-panel px-3 py-2 text-[16px] text-ink sm:text-[15px]"
             />
             <button
               type="submit"
@@ -108,7 +108,7 @@ export default async function ComparePage({ searchParams }: CompareParams) {
               name="q"
               defaultValue={q ?? ''}
               placeholder="mercy"
-              className="flex-1 rounded-lg border border-line bg-panel px-3 py-2 text-[15px] text-ink"
+              className="flex-1 rounded-lg border border-line bg-panel px-3 py-2 text-[16px] text-ink sm:text-[15px]"
             />
             <button
               type="submit"

@@ -52,7 +52,14 @@ export default tseslint.config(
     // serialised and run inside the page, so they legitimately reference DOM
     // globals that do not exist in the Node process running the file.
     files: ['**/tests/**/*.mjs'],
-    languageOptions: { globals: { ...nodeGlobals, document: 'readonly', window: 'readonly' } },
+    languageOptions: {
+      globals: {
+        ...nodeGlobals,
+        document: 'readonly',
+        window: 'readonly',
+        getComputedStyle: 'readonly',
+      },
+    },
   },
   {
     rules: {

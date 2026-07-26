@@ -7,8 +7,12 @@ import type { CSSProperties } from 'react';
 
 export const labelClass = 'text-[14px] font-medium text-ink';
 
+// 16px on phones, 15px from `sm` up. Safari on iOS zooms the whole viewport when
+// a focused input's font-size is below 16px, and it does not zoom back out — so a
+// 15px field left the reader stranded at a magnified, sideways-scrolled layout
+// halfway through signing up. The desktop size is unchanged.
 export const fieldClass =
-  'rounded-md border border-line bg-panel px-3 py-2.5 text-[15px] text-ink outline-none focus-visible:border-accent-line focus-visible:ring-2 focus-visible:ring-accent-line';
+  'rounded-md border border-line bg-panel px-3 py-2.5 text-[16px] sm:text-[15px] text-ink outline-none focus-visible:border-accent-line focus-visible:ring-2 focus-visible:ring-accent-line';
 
 export const formButtonClass =
   'rounded-md bg-accent px-4 py-2.5 text-[15px] font-medium text-on-accent hover:opacity-90 disabled:opacity-60';

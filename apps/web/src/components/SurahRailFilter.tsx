@@ -50,7 +50,7 @@ export function SurahRailFilter() {
             onChange={(e) => setValue(e.target.value)}
             placeholder="Filter surahs"
             aria-label="Filter surahs by name or number"
-            className="h-9 w-full bg-transparent text-[13px] text-ink outline-none placeholder:text-ink3"
+            className="h-9 w-full bg-transparent text-[16px] text-ink outline-none placeholder:text-ink3 sm:text-[13px]"
           />
         </div>
       ) : (

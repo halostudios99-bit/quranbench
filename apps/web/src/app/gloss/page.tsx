@@ -71,7 +71,7 @@ export default async function GlossIndexPage({ searchParams }: SearchParams) {
           type="search"
           defaultValue={result.query}
           placeholder="Filter glosses, e.g. reward"
-          className="min-w-0 flex-1 rounded-lg border border-line bg-panel px-3 py-2 text-[15px] text-ink placeholder:text-ink3 focus:border-line2 focus:outline-none"
+          className="min-w-0 flex-1 rounded-lg border border-line bg-panel px-3 py-2 text-[16px] text-ink placeholder:text-ink3 focus:border-line2 focus:outline-none sm:text-[15px]"
         />
         <button
           type="submit"

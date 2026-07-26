@@ -93,8 +93,10 @@ export function SurahReader({
       {prevPageHref ? <link rel="prev" href={prevPageHref} /> : null}
       {nextPageHref ? <link rel="next" href={nextPageHref} /> : null}
 
-      <nav aria-label="Breadcrumb" className="mb-3 text-[13px] text-ink3">
-        <a href="/" className="hover:text-ink2">
+      {/* inline-block + padding: at 13px these breadcrumb links were 16px tall,
+          which is a small tap target on a phone. */}
+      <nav aria-label="Breadcrumb" className="mb-2 text-[13px] text-ink3">
+        <a href="/" className="inline-block py-1.5 hover:text-ink2">
           Read
         </a>
         <span aria-hidden="true"> / </span>
@@ -102,7 +104,10 @@ export function SurahReader({
           <span className="text-ink2">Surah {number}</span>
         ) : (
           <>
-            <a href={surahHref(number)} className="hover:text-ink2">
+            <a
+              href={surahHref(number)}
+              className="inline-block py-1.5 hover:text-ink2"
+            >
               Surah {number}
             </a>
             <span aria-hidden="true"> / </span>

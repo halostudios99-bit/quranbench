@@ -11,7 +11,8 @@ type IconName =
   | 'search'
   | 'chevron'
   | 'settings'
-  | 'close';
+  | 'close'
+  | 'menu';
 
 const PATHS: Record<IconName, React.ReactNode> = {
   copy: (
@@ -60,6 +61,7 @@ const PATHS: Record<IconName, React.ReactNode> = {
     </>
   ),
   close: <path d="M6 6l12 12M18 6L6 18" />,
+  menu: <path d="M4 7h16M4 12h16M4 17h16" />,
 };
 
 export function Icon({ name, size = 16 }: { name: IconName; size?: number }) {
