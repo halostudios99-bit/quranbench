@@ -73,6 +73,11 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      # Without this the Prisma client is never generated, every `prisma.x` call
+      # types as `any`, and `next build` fails on noImplicitAny. It passes locally
+      # only because a generated client is already sitting in node_modules — the
+      # exact class of difference CI exists to catch.
+      - run: pnpm --filter @quranbench/web exec prisma generate
       - name: Apply migrations
         run: pnpm --filter @quranbench/web exec prisma migrate deploy
       - name: Backup round-trip test
@@ -114,6 +119,8 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      # See the note in the e2e job: the build cannot type-check without it.
+      - run: pnpm --filter @quranbench/web exec prisma generate
       - run: pnpm --filter @quranbench/web exec prisma migrate deploy
       - name: Build
         run: pnpm --filter @quranbench/web build

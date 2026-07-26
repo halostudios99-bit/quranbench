@@ -81,13 +81,22 @@ describe('loadCorpus', () => {
     cpSync(join(ARTIFACTS_ROOT, `v${DEFAULT_CORPUS_VERSION}`), dir, {
       recursive: true,
     });
-    rmSync(join(dir, 'translations', 'en-itani.jsonl'));
+
+    // The file is gitignored, so a clean checkout — CI, or anyone's first clone —
+    // does not have it to delete. `force` makes the removal a no-op there, and
+    // the expected count is derived from whether it was present rather than
+    // assumed. Without this the test passed only on a machine that had already
+    // fetched Itani, which is precisely the environment it was written to model.
+    const hadItani = corpus.translations.some((t) => t.edition.id === 'en-itani');
+    rmSync(join(dir, 'translations', 'en-itani.jsonl'), { force: true });
 
     const degraded = loadCorpus(DEFAULT_CORPUS_VERSION, { root });
     const editionIds = degraded.translations.map((t) => t.edition.id);
     expect(editionIds).not.toContain('en-itani');
     expect(editionIds).toContain('en-pickthall');
-    expect(degraded.translations.length).toBe(corpus.translations.length - 1);
+    expect(degraded.translations.length).toBe(
+      hadItani ? corpus.translations.length - 1 : corpus.translations.length,
+    );
   });
 
   it('preserves Quranic text byte-for-byte (no mutation on load)', () => {
