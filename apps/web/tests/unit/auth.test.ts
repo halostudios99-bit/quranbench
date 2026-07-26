@@ -7,7 +7,11 @@ import {
   verifyEmailToken,
 } from '@/server/domain/accounts';
 import { CONTRIBUTOR_TERMS_VERSION } from '@/server/domain/config';
-import { hashPassword, verifyPasswordHash } from '@/server/domain/password';
+import {
+  hashPassword,
+  needsRehash,
+  verifyPasswordHash,
+} from '@/server/domain/password';
 import {
   SESSION_COOKIE,
   sessionCookieAttributes,
@@ -38,12 +42,29 @@ async function signup(over: Record<string, string> = {}) {
   return result.user;
 }
 
+// A real scrypt hash of 'legacy-password' in the pre-argon2id format, so the
+// migration tests exercise genuine legacy verification, not a stub.
+const LEGACY_SCRYPT_HASH =
+  'scrypt$16384$8$1$i0KlGE9egzKSqZGWd4yPfQ==$1SOMH5BqjMxdxeU7WOEoTmsYKuyMN52Ia90DYuAFW+8=';
+
 describe('password hashing', () => {
-  it('round-trips and rejects the wrong password', async () => {
+  it('round-trips as argon2id and rejects the wrong password', async () => {
     const hash = await hashPassword('correct horse battery staple');
-    expect(hash.startsWith('scrypt$')).toBe(true);
-    expect(await verifyPasswordHash('correct horse battery staple', hash)).toBe(true);
+    expect(hash.startsWith('$argon2id$')).toBe(true);
+    expect(await verifyPasswordHash('correct horse battery staple', hash)).toBe(
+      true,
+    );
     expect(await verifyPasswordHash('wrong', hash)).toBe(false);
+  });
+
+  it('still verifies a legacy scrypt hash and flags it for rehash', async () => {
+    expect(
+      await verifyPasswordHash('legacy-password', LEGACY_SCRYPT_HASH),
+    ).toBe(true);
+    expect(await verifyPasswordHash('wrong', LEGACY_SCRYPT_HASH)).toBe(false);
+    expect(needsRehash(LEGACY_SCRYPT_HASH)).toBe(true);
+    // A fresh argon2id hash at current params does not need rehashing.
+    expect(needsRehash(await hashPassword('temp'))).toBe(false);
   });
 
   it('produces a distinct hash each time (random salt)', async () => {
@@ -65,13 +86,45 @@ describe('password hashing', () => {
 describe('verifyCredentials', () => {
   it('returns the user for a correct email + password', async () => {
     const user = await signup();
-    const got = await verifyCredentials(store, 'USER@example.com', 'a-strong-passphrase');
+    const got = await verifyCredentials(
+      store,
+      'USER@example.com',
+      'a-strong-passphrase',
+    );
     expect(got?.id).toBe(user.id);
   });
   it('returns null for a wrong password or unknown email', async () => {
     await signup();
-    expect(await verifyCredentials(store, 'user@example.com', 'nope')).toBeNull();
-    expect(await verifyCredentials(store, 'ghost@example.com', 'whatever')).toBeNull();
+    expect(
+      await verifyCredentials(store, 'user@example.com', 'nope'),
+    ).toBeNull();
+    expect(
+      await verifyCredentials(store, 'ghost@example.com', 'whatever'),
+    ).toBeNull();
+  });
+
+  it('upgrades a legacy scrypt hash to argon2id on successful sign-in', async () => {
+    const user = await store.createUser({
+      email: 'legacy@example.com',
+      handle: 'legacy',
+      passwordHash: LEGACY_SCRYPT_HASH,
+    });
+    expect(
+      (await store.findCredential('legacy@example.com'))!.passwordHash,
+    ).toBe(LEGACY_SCRYPT_HASH);
+    const got = await verifyCredentials(
+      store,
+      'legacy@example.com',
+      'legacy-password',
+    );
+    expect(got?.id).toBe(user.id);
+    // The stored hash is now argon2id, and the old password still authenticates.
+    const upgraded = (await store.findCredential('legacy@example.com'))!
+      .passwordHash;
+    expect(upgraded.startsWith('$argon2id$')).toBe(true);
+    expect(
+      await verifyCredentials(store, 'legacy@example.com', 'legacy-password'),
+    ).not.toBeNull();
   });
 });
 

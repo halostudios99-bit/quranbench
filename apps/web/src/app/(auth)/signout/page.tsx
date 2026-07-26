@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
+import { CsrfField } from '@/components/CsrfField';
 import { getCurrentUser } from '@/server/auth';
 
 import { signoutAction } from '../actions';
@@ -18,11 +19,14 @@ export default async function SignoutPage() {
   if (!(await getCurrentUser())) redirect('/');
   return (
     <section className="mx-auto max-w-reader">
-      <h1 className="mb-1 text-2xl font-semibold tracking-tight text-ink">Sign out</h1>
+      <h1 className="mb-1 text-2xl font-semibold tracking-tight text-ink">
+        Sign out
+      </h1>
       <p className="mb-6 text-[15px] text-ink2">
         Sign out of this device. Your work stays on your account.
       </p>
       <form action={signoutAction}>
+        <CsrfField />
         <button type="submit" className={formButtonClass}>
           Sign out
         </button>

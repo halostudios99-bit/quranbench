@@ -1,0 +1,107 @@
+# Production stack for a single VPS: the Next.js app, Postgres, Redis, and Caddy
+# with automatic TLS. See docs/deployment.md for the full procedure. Secrets and
+# the domain come from a .env file in this directory (copy .env.prod.example).
+#
+#   docker compose -f docker/compose.prod.yaml --env-file docker/.env up -d
+#
+# The `migrate` service runs `prisma migrate deploy` once and exits; the app waits
+# for it to finish successfully before starting.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-quranbench}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in docker/.env}
+      POSTGRES_DB: ${POSTGRES_DB:-quranbench}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'pg_isready -U ${POSTGRES_USER:-quranbench} -d ${POSTGRES_DB:-quranbench}',
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ['redis-server', '--appendonly', 'yes']
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  migrate:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: build
+    command:
+      [
+        'pnpm',
+        '--filter',
+        '@quranbench/web',
+        'exec',
+        'prisma',
+        'migrate',
+        'deploy',
+      ]
+    working_dir: /repo
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-quranbench}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-quranbench}?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: 'no'
+
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: runner
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-quranbench}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-quranbench}?schema=public
+      REDIS_URL: redis://redis:6379
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:?set NEXT_PUBLIC_SITE_URL in docker/.env}
+      # Mail. Leave unset to use the console mailer (links go to container logs).
+      MAILER: ${MAILER:-}
+      SMTP_URL: ${SMTP_URL:-}
+      MAIL_FROM: ${MAIL_FROM:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN:?set SITE_DOMAIN in docker/.env}
+      TLS_EMAIL: ${TLS_EMAIL:?set TLS_EMAIL in docker/.env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - app
+
+volumes:
+  postgres-data:
+  redis-data:
+  caddy-data:
+  caddy-config:

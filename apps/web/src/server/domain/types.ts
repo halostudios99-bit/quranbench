@@ -42,7 +42,12 @@ export type CitationKind = 'TOKEN' | 'ROOT' | 'SEGMENT' | 'SURAH';
 // told. targetId is the reported page path. See domain/moderation.ts.
 export type ReportTargetType = 'INVESTIGATION' | 'RESPONSE' | 'PAGE';
 
-export type ActionKind = 'SIGNUP' | 'PUBLISH' | 'RESPONSE' | 'REPORT';
+export type ActionKind =
+  | 'SIGNUP'
+  | 'PUBLISH'
+  | 'RESPONSE'
+  | 'REPORT'
+  | 'PASSWORD_RESET';
 
 export interface User {
   id: string;

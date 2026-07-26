@@ -1,10 +1,13 @@
-# Local Postgres for development. The application database only — the corpus is
-# never in Postgres (it is loaded into RAM from build artifacts, see CLAUDE.md).
+# Local backing services for development. The application database and the shared
+# rate-limit store only — the corpus is never here (it is loaded into RAM from
+# build artifacts, see CLAUDE.md).
 #
 #   docker compose -f docker/compose.yaml up -d
 #
-# Then point apps/web at it with DATABASE_URL (see apps/web/.env.example) and run
-# `pnpm --filter @quranbench/web prisma migrate dev`.
+# Then point apps/web at them with DATABASE_URL and REDIS_URL (see
+# apps/web/.env.example) and run `pnpm --filter @quranbench/web prisma migrate dev`.
+# REDIS_URL is optional: without it the app uses the in-process store limiter,
+# which is fine for a single dev process.
 
 services:
   postgres:
@@ -25,5 +28,23 @@ services:
       timeout: 5s
       retries: 10
 
+  redis:
+    image: redis:7-alpine
+    container_name: quranbench-redis
+    restart: unless-stopped
+    # Persist to disk so the limiter counters survive a restart. Not required for
+    # correctness (a cold Redis just resets the windows) but avoids a burst window.
+    command: ['redis-server', '--appendonly', 'yes']
+    ports:
+      - '6379:6379'
+    volumes:
+      - quranbench-redis:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
 volumes:
   quranbench-postgres:
+  quranbench-redis:

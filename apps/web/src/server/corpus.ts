@@ -28,10 +28,7 @@ import {
   type EditionText,
 } from '@/lib/translations';
 import { groupGloss, normaliseGloss, type GlossGrouping } from '@/lib/gloss';
-import {
-  rankSimilarVerses,
-  type SimilarCandidate,
-} from '@/lib/similar-verses';
+import { rankSimilarVerses, type SimilarCandidate } from '@/lib/similar-verses';
 import { rankCoOccurrence, tallyCoOccurrence } from '@/lib/co-occurrence';
 import { pickWordIndex } from '@/lib/random-word';
 
@@ -81,9 +78,14 @@ export const SIMILAR_VERSES_LIMIT = 8;
 /** How many co-occurring roots a root page shows. */
 export const CO_OCCURRENCE_LIMIT = 12;
 
-/** Artifacts live at <repo>/packages/corpus-build/out, two levels up from apps/web. */
+/** Artifacts live at <repo>/packages/corpus-build/out, two levels up from apps/web.
+ *  QB_CORPUS_DIR overrides this so the Docker image can bake them at a fixed path
+ *  independent of the process working directory (see docs/deployment.md). */
 function artifactsRoot(): string {
-  return resolve(process.cwd(), '..', '..', 'packages', 'corpus-build', 'out');
+  return (
+    process.env.QB_CORPUS_DIR ||
+    resolve(process.cwd(), '..', '..', 'packages', 'corpus-build', 'out')
+  );
 }
 
 function build(): CorpusState {
@@ -679,10 +681,12 @@ export function getVerseDivergence(
   verseId: string,
   editionIds?: string[],
 ): DivergenceResult {
-  const editions: EditionText[] = getVerseTranslations(verseId, editionIds).map((v) => ({
-    editionId: v.edition.id,
-    text: v.text,
-  }));
+  const editions: EditionText[] = getVerseTranslations(verseId, editionIds).map(
+    (v) => ({
+      editionId: v.edition.id,
+      text: v.text,
+    }),
+  );
   return computeDivergence(editions);
 }
 
@@ -955,13 +959,11 @@ export function rootCoOccurrences(
 
 /** The stoplist members, for display on /method and page footers. */
 export function similarityStoplist(): SharedRoot[] {
-  return [...state().similarityStoplist]
-    .map(sharedRoot)
-    .sort((a, b) => {
-      const ao = state().rootBySlug.get(a.slug)?.occurrences ?? 0;
-      const bo = state().rootBySlug.get(b.slug)?.occurrences ?? 0;
-      return bo - ao;
-    });
+  return [...state().similarityStoplist].map(sharedRoot).sort((a, b) => {
+    const ao = state().rootBySlug.get(a.slug)?.occurrences ?? 0;
+    const bo = state().rootBySlug.get(b.slug)?.occurrences ?? 0;
+    return bo - ao;
+  });
 }
 
 // ─── Random word ─────────────────────────────────────────────────────────────

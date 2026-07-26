@@ -7,6 +7,7 @@ import {
   formButtonClass,
   labelClass as baseLabelClass,
 } from '@/app/(auth)/form-styles';
+import { CsrfField } from '@/components/CsrfField';
 
 export const metadata: Metadata = {
   title: 'Report a correction',
@@ -19,6 +20,7 @@ const ERRORS: Record<string, string> = {
   path: 'The page being corrected is missing. Enter the path of the page.',
   problem: 'Describe what is wrong so it can be checked.',
   rate_limited: 'Too many reports from here just now. Please try again later.',
+  csrf: 'Your session expired. Reload this page and submit again.',
 };
 
 interface SearchParams {
@@ -49,21 +51,21 @@ export default async function ReportPage({ searchParams }: SearchParams) {
           Report a correction
         </h1>
         <p className="mt-3 max-w-prose text-[15px] leading-relaxed text-ink2">
-          A platform that promises to be corrected must have somewhere to be told.
-          If something on a page is wrong — a morphology annotation, a
-          transliteration or gloss, a translation, or an editorial note — describe
-          it here and it goes into the moderation queue for review.
+          A platform that promises to be corrected must have somewhere to be
+          told. If something on a page is wrong — a morphology annotation, a
+          transliteration or gloss, a translation, or an editorial note —
+          describe it here and it goes into the moderation queue for review.
         </p>
       </header>
 
       <div className="mb-6 rounded-xl border border-line bg-panel px-5 py-4 text-[14px] leading-relaxed text-ink2">
         <p>
           <strong>The Quranic text itself cannot be corrected here</strong> — by
-          design. The Arabic source text is immutable and attributed to Tanzil; we
-          never modify it. A correction therefore only ever concerns the layers
-          around it: the <em>morphology</em> (Leeds QAC), a <em>transliteration or
-          gloss</em>, a <em>translation edition</em>, or our own{' '}
-          <em>editorial</em> content.
+          design. The Arabic source text is immutable and attributed to Tanzil;
+          we never modify it. A correction therefore only ever concerns the
+          layers around it: the <em>morphology</em> (Leeds QAC), a{' '}
+          <em>transliteration or gloss</em>, a <em>translation edition</em>, or
+          our own <em>editorial</em> content.
         </p>
       </div>
 
@@ -78,6 +80,7 @@ export default async function ReportPage({ searchParams }: SearchParams) {
         method="post"
         className="flex flex-col gap-5"
       >
+        <CsrfField />
         <div>
           <label htmlFor="path" className={labelClass}>
             Which page?
@@ -137,8 +140,8 @@ export default async function ReportPage({ searchParams }: SearchParams) {
             Contact <span className="text-ink3">(optional)</span>
           </label>
           <p className={hintClass}>
-            An email or handle if you are willing to be reached about this. Leave it
-            blank to report anonymously.
+            An email or handle if you are willing to be reached about this.
+            Leave it blank to report anonymously.
           </p>
           <input
             id="contact"

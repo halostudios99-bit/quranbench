@@ -1,0 +1,22 @@
+# Keep the build context small and reproducible. node_modules is reinstalled from
+# the lockfile inside the image; build outputs and local env never ship.
+**/node_modules
+**/.next
+**/dist
+**/.turbo
+**/test-results
+**/playwright-report
+**/*.tsbuildinfo
+**/.env
+**/.env.local
+docker/.env
+.git
+.github
+audit-reports
+seed
+homepage-mockup.html
+# The Python pipeline's raw sources and virtualenvs — the built artifacts under
+# packages/corpus-build/out are kept (they are baked into the image).
+packages/corpus-build/sources
+packages/corpus-build/.venv
+**/__pycache__

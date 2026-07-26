@@ -14,10 +14,12 @@
     "test:watch": "vitest",
     "lint": "eslint .",
     "format": "prettier --check .",
-    "format:write": "prettier --write ."
+    "format:write": "prettier --write .",
+    "lighthouse": "lhci autorun"
   },
   "devDependencies": {
     "@eslint/js": "9.15.0",
+    "@lhci/cli": "^0.15.1",
     "@types/node": "22",
     "eslint": "9.15.0",
     "prettier": "3.4.2",

@@ -1,0 +1,17 @@
+# Caddy fronts the app with automatic HTTPS. It obtains and renews a Let's Encrypt
+# certificate for SITE_DOMAIN on its own — no cron, no certbot. SITE_DOMAIN and
+# TLS_EMAIL are injected from docker/.env by compose.prod.yaml.
+
+{
+	email {$TLS_EMAIL}
+}
+
+{$SITE_DOMAIN} {
+	encode zstd gzip
+
+	# The app already sends immutable/cache headers per route; Caddy just proxies.
+	reverse_proxy app:3000 {
+		health_uri /api/health
+		health_interval 30s
+	}
+}

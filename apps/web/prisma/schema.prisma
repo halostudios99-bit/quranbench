@@ -42,6 +42,7 @@ model User {
 
   sessions               Session[]
   emailVerificationTokens EmailVerificationToken[]
+  passwordResetTokens    PasswordResetToken[]
   termsAcceptances       ContributorTermsAcceptance[]
   investigations   Investigation[]
   revisions        InvestigationRevision[]
@@ -71,6 +72,22 @@ model Session {
 // raw token travels only in the verification link; it is consumed (deleted) on
 // use and expires. Email verification is required before an author can publish.
 model EmailVerificationToken {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String   @unique
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+// A one-time password-reset token, stored hashed exactly like a verification
+// token. The raw token travels only in the reset link; it is consumed (deleted)
+// on use and expires quickly. A successful reset also invalidates every session.
+model PasswordResetToken {
   id        String   @id @default(cuid())
   userId    String
   tokenHash String   @unique
@@ -370,6 +387,7 @@ enum ActionKind {
   PUBLISH
   RESPONSE
   REPORT
+  PASSWORD_RESET
 }
 
 model ActionEvent {

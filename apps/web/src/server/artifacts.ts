@@ -13,9 +13,13 @@ import { DEFAULT_CORPUS_VERSION, type Manifest } from '@quranbench/corpus';
 // third-party byte-verification promise. It performs no computation over the
 // corpus — it only enumerates versions and serves raw artifact bytes.
 
-/** Artifacts root: packages/corpus-build/out, two levels up from apps/web. */
+/** Artifacts root: packages/corpus-build/out, two levels up from apps/web.
+ *  QB_CORPUS_DIR overrides it for the Docker image (see docs/deployment.md). */
 export function artifactsRoot(): string {
-  return resolve(process.cwd(), '..', '..', 'packages', 'corpus-build', 'out');
+  return (
+    process.env.QB_CORPUS_DIR ||
+    resolve(process.cwd(), '..', '..', 'packages', 'corpus-build', 'out')
+  );
 }
 
 const VERSION_DIR_RE = /^v(\d+\.\d+\.\d+)$/;

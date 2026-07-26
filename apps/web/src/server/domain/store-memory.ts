@@ -67,6 +67,7 @@ export class InMemoryStore implements Store {
   private readerPrefs = new Map<string, unknown>();
   private sessions: SessionRow[] = [];
   private verifications: VerificationRow[] = [];
+  private resets: VerificationRow[] = [];
   private acceptances: Acceptance[] = [];
   private investigations: Investigation[] = [];
   private revisions: InvestigationRevision[] = [];
@@ -106,7 +107,11 @@ export class InMemoryStore implements Store {
   async getUserByHandle(handle: string) {
     return this.users.find((u) => u.handle === handle) ?? null;
   }
-  async recordTermsAcceptance(userId: string, version: string, acceptedAt: Date) {
+  async recordTermsAcceptance(
+    userId: string,
+    version: string,
+    acceptedAt: Date,
+  ) {
     const exists = this.acceptances.some(
       (a) => a.userId === userId && a.version === version,
     );
@@ -127,6 +132,9 @@ export class InMemoryStore implements Store {
     const passwordHash = this.passwordHashes.get(user.id);
     if (!passwordHash) return null;
     return { user, passwordHash };
+  }
+  async updatePasswordHash(userId: string, passwordHash: string) {
+    this.passwordHashes.set(userId, passwordHash);
   }
   async markEmailVerified(userId: string, verifiedAt: Date) {
     const user = this.users.find((u) => u.id === userId);
@@ -153,15 +161,45 @@ export class InMemoryStore implements Store {
     this.sessions = this.sessions.filter((s) => s.userId !== userId);
   }
 
-  async createEmailVerificationToken(userId: string, tokenHash: string, expiresAt: Date) {
+  async createEmailVerificationToken(
+    userId: string,
+    tokenHash: string,
+    expiresAt: Date,
+  ) {
     this.verifications.push({ tokenHash, userId, expiresAt });
   }
-  async consumeEmailVerificationToken(tokenHash: string, now: Date): Promise<string | null> {
+  async consumeEmailVerificationToken(
+    tokenHash: string,
+    now: Date,
+  ): Promise<string | null> {
     const row = this.verifications.find((v) => v.tokenHash === tokenHash);
     if (!row) return null;
-    this.verifications = this.verifications.filter((v) => v.tokenHash !== tokenHash);
+    this.verifications = this.verifications.filter(
+      (v) => v.tokenHash !== tokenHash,
+    );
     if (row.expiresAt.getTime() <= now.getTime()) return null;
     return row.userId;
+  }
+
+  async createPasswordResetToken(
+    userId: string,
+    tokenHash: string,
+    expiresAt: Date,
+  ) {
+    this.resets.push({ tokenHash, userId, expiresAt });
+  }
+  async consumePasswordResetToken(
+    tokenHash: string,
+    now: Date,
+  ): Promise<string | null> {
+    const row = this.resets.find((r) => r.tokenHash === tokenHash);
+    if (!row) return null;
+    this.resets = this.resets.filter((r) => r.tokenHash !== tokenHash);
+    if (row.expiresAt.getTime() <= now.getTime()) return null;
+    return row.userId;
+  }
+  async deleteUserPasswordResetTokens(userId: string) {
+    this.resets = this.resets.filter((r) => r.userId !== userId);
   }
 
   async createInvestigation(
@@ -299,7 +337,8 @@ export class InMemoryStore implements Store {
       });
     }
     return out.sort(
-      (a, b) => (b.publishedAt?.getTime() ?? 0) - (a.publishedAt?.getTime() ?? 0),
+      (a, b) =>
+        (b.publishedAt?.getTime() ?? 0) - (a.publishedAt?.getTime() ?? 0),
     );
   }
 
@@ -369,7 +408,10 @@ export class InMemoryStore implements Store {
 }
 
 function stripOwner(
-  p: EvidencePin & { investigationId: string | null; responseId: string | null },
+  p: EvidencePin & {
+    investigationId: string | null;
+    responseId: string | null;
+  },
 ): EvidencePin {
   return {
     id: p.id,

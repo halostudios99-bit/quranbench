@@ -11,7 +11,7 @@ import {
   labelClass,
 } from '../form-styles';
 
-export function SigninForm() {
+export function SigninForm({ csrf }: { csrf: string }) {
   const [state, action, pending] = useActionState<AuthFormState, FormData>(
     signinAction,
     {},
@@ -19,6 +19,7 @@ export function SigninForm() {
 
   return (
     <form action={action} className="flex flex-col gap-4" noValidate>
+      <input type="hidden" name="csrf" value={csrf} />
       {state.error ? (
         <p role="alert" className={alertClass} style={alertStyle}>
           {state.error}

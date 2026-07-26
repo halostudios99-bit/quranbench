@@ -46,8 +46,8 @@ function tokenRecord(overrides: Record<string, unknown> = {}) {
 
 describe('Token carries the tooltip payload in data-* attributes', () => {
   it('emits gloss, transliteration and root so the tooltip needs no fetch', () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const html = renderToStaticMarkup(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       createElement(Token as any, { token: tokenRecord() }),
     );
     expect(html).toContain('data-gloss="the Book"');

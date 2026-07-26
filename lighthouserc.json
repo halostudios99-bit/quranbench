@@ -1,0 +1,35 @@
+{
+  "ci": {
+    "collect": {
+      "startServerCommand": "pnpm --filter @quranbench/web start",
+      "startServerReadyPattern": "Local:|Ready in",
+      "startServerReadyTimeout": 60000,
+      "numberOfRuns": 3,
+      "url": [
+        "http://localhost:3000/",
+        "http://localhost:3000/1/1",
+        "http://localhost:3000/2/255",
+        "http://localhost:3000/word/quran:tanzil-uthmani:1:1:1",
+        "http://localhost:3000/root/z-k-w",
+        "http://localhost:3000/search?q=root%3A%D8%B2%20%D9%83%20%D9%88"
+      ]
+    },
+    "assert": {
+      "comment": "Budgets from docs/design-system.md §4. Categories >95 mobile; LCP <1.8s; CLS <0.05; TTFB <400ms. INP is a field metric with no direct lab audit — TBT is its lab proxy and is asserted as a warning; INP itself is watched via web-vitals in real usage.",
+      "assertions": {
+        "categories:performance": ["error", { "minScore": 0.95 }],
+        "categories:accessibility": ["error", { "minScore": 0.95 }],
+        "categories:best-practices": ["error", { "minScore": 0.95 }],
+        "categories:seo": ["error", { "minScore": 0.95 }],
+        "largest-contentful-paint": ["error", { "maxNumericValue": 1800 }],
+        "cumulative-layout-shift": ["error", { "maxNumericValue": 0.05 }],
+        "server-response-time": ["error", { "maxNumericValue": 400 }],
+        "total-blocking-time": ["warn", { "maxNumericValue": 200 }]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "./.lighthouseci"
+    }
+  }
+}

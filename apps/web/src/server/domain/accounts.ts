@@ -1,7 +1,12 @@
 import { createHash, randomBytes } from 'node:crypto';
 
 import { CONTRIBUTOR_TERMS_VERSION } from './config';
-import { hashPassword, MIN_PASSWORD_LENGTH, verifyPasswordHash } from './password';
+import {
+  hashPassword,
+  MIN_PASSWORD_LENGTH,
+  needsRehash,
+  verifyPasswordHash,
+} from './password';
 import { checkRateLimit } from './rate-limit';
 import type { Store } from './store';
 import type { User } from './types';
@@ -20,7 +25,11 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export type CreateAccountResult =
   | { ok: true; user: User }
-  | { ok: false; code: 'invalid' | 'taken' | 'terms' | 'rate_limited'; message: string };
+  | {
+      ok: false;
+      code: 'invalid' | 'taken' | 'terms' | 'rate_limited';
+      message: string;
+    };
 
 export interface CreateAccountInput {
   email: string;
@@ -48,7 +57,11 @@ export async function createAccount(
   const handle = input.handle.trim().toLowerCase();
 
   if (!EMAIL_RE.test(email))
-    return { ok: false, code: 'invalid', message: 'A valid email is required.' };
+    return {
+      ok: false,
+      code: 'invalid',
+      message: 'A valid email is required.',
+    };
   if (!HANDLE_RE.test(handle))
     return {
       ok: false,
@@ -66,7 +79,8 @@ export async function createAccount(
     return {
       ok: false,
       code: 'terms',
-      message: 'The current contributor terms must be accepted to create an account.',
+      message:
+        'The current contributor terms must be accepted to create an account.',
     };
 
   const limit = await checkRateLimit(store, 'SIGNUP', input.clientId, now);
@@ -78,7 +92,11 @@ export async function createAccount(
     };
 
   if (await store.getUserByEmail(email))
-    return { ok: false, code: 'taken', message: 'That email is already registered.' };
+    return {
+      ok: false,
+      code: 'taken',
+      message: 'That email is already registered.',
+    };
   if (await store.getUserByHandle(handle))
     return { ok: false, code: 'taken', message: 'That handle is taken.' };
 
@@ -99,8 +117,10 @@ export async function createAccount(
  * unknown so a caller cannot distinguish "no such email" from "wrong password"
  * by timing.
  */
+// A real argon2id hash of a throwaway password, so the unknown-email branch does
+// the same argon2 work as a real verify and cannot be distinguished by timing.
 const DECOY_HASH =
-  'scrypt$16384$8$1$AAAAAAAAAAAAAAAAAAAAAA==$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=';
+  '$argon2id$v=19$m=19456,t=2,p=1$cc6YU6kkHcHfaw3XQF2JNQ$gJjR8fkX0tXsN9FdCV6QjpZlAFsrFaYdgp41nEnTCCY';
 
 export async function verifyCredentials(
   store: Store,
@@ -113,7 +133,22 @@ export async function verifyCredentials(
     return null;
   }
   const ok = await verifyPasswordHash(password, credential.passwordHash);
-  return ok ? credential.user : null;
+  if (!ok) return null;
+  // Transparent upgrade: a legacy scrypt hash (or an argon2id hash below current
+  // cost) is re-hashed to the current argon2id parameters now that we hold the
+  // plaintext, without invalidating the sign-in. Best-effort — a failed write
+  // must not fail an otherwise valid sign-in.
+  if (needsRehash(credential.passwordHash)) {
+    try {
+      await store.updatePasswordHash(
+        credential.user.id,
+        await hashPassword(password),
+      );
+    } catch {
+      /* upgrade is opportunistic; the existing hash still verifies next time */
+    }
+  }
+  return credential.user;
 }
 
 // ─── Email verification ───────────────────────────────────────────────────────
@@ -139,9 +174,7 @@ export async function issueEmailVerification(
   return token;
 }
 
-export type VerifyEmailResult =
-  | { ok: true; userId: string }
-  | { ok: false };
+export type VerifyEmailResult = { ok: true; userId: string } | { ok: false };
 
 /** Consume a verification token and mark the email verified. Idempotent-safe:
  *  a spent or expired token simply fails rather than throwing. */

@@ -4,8 +4,11 @@ import { corpusGateway } from './corpus-gateway';
 import { getToken } from './corpus';
 import * as accounts from './domain/accounts';
 import { CONTRIBUTOR_TERMS_VERSION } from './domain/config';
+import { setRateLimiterProvider } from './domain/rate-limit';
+import { getRedisRateLimiter } from './redis';
 import * as investigations from './domain/investigations';
 import * as moderation from './domain/moderation';
+import * as passwordReset from './domain/password-reset';
 import * as responses from './domain/responses';
 import type {
   CreateInvestigationInput,
@@ -34,6 +37,11 @@ import { prismaStore } from './store-prisma';
 
 const store: Store = prismaStore;
 export const CURRENT_TERMS_VERSION = CONTRIBUTOR_TERMS_VERSION;
+
+// Bind the shared rate-limit store. Resolves to Redis when REDIS_URL is set, else
+// null so the domain falls back to the store limiter. Evaluated per call, so the
+// client is built lazily on first use.
+setRateLimiterProvider(() => getRedisRateLimiter());
 
 // Reads used by public corpus pages must never take the site down if the
 // application database is unavailable. A failed lookup degrades to "no citations"
@@ -64,6 +72,17 @@ export function issueEmailVerification(userId: string) {
 
 export function verifyEmailToken(token: string) {
   return accounts.verifyEmailToken(store, token);
+}
+
+export function requestPasswordReset(input: passwordReset.RequestResetInput) {
+  return passwordReset.requestPasswordReset(store, input);
+}
+
+export function completePasswordReset(input: {
+  token: string;
+  password: string;
+}) {
+  return passwordReset.completePasswordReset(store, input);
 }
 
 export function createInvestigation(input: CreateInvestigationInput) {
@@ -103,7 +122,9 @@ export interface AccountView {
 }
 
 /** Everything the account page shows for a signed-in user. */
-export async function getAccountView(userId: string): Promise<AccountView | null> {
+export async function getAccountView(
+  userId: string,
+): Promise<AccountView | null> {
   const user = await safe(() => store.getUser(userId), null);
   if (!user) return null;
   const [termsAcceptances, investigations] = await Promise.all([
@@ -134,7 +155,8 @@ export interface ResolvedPin {
 function resolvePinsForDisplay(pins: EvidencePin[]): ResolvedPin[] {
   return pins.map((pin) => {
     const token = getToken(pin.tokenId);
-    if (!token) return { pin, resolved: false, ref: null, href: null, text: null };
+    if (!token)
+      return { pin, resolved: false, ref: null, href: null, text: null };
     return {
       pin,
       resolved: true,
@@ -171,7 +193,8 @@ export async function getInvestigationView(
   if (!investigation) return null;
   // A non-published draft is readable only by its author. Everyone else gets the
   // same null (→ 404) as a missing slug, so existence is not leaked.
-  if (!investigations.canViewInvestigation(investigation, viewerId)) return null;
+  if (!investigations.canViewInvestigation(investigation, viewerId))
+    return null;
 
   const [author, pins, responseRows, revisions] = await Promise.all([
     safe(() => store.getUser(investigation.authorId), null),

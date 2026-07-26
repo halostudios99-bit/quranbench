@@ -26,6 +26,9 @@ export const RATE_LIMITS: Record<ActionKind, RateLimit> = {
   RESPONSE: { max: 30, windowMs: HOUR },
   // Reports gate on the reporter to blunt report-spam brigading.
   REPORT: { max: 20, windowMs: HOUR },
+  // Password-reset requests, gated per client (IP). Low enough to blunt email
+  // bombing and enumeration probing, high enough for a genuine retry.
+  PASSWORD_RESET: { max: 5, windowMs: HOUR },
 };
 
 /** One sentence, and it must be short enough to be a claim, not an essay. */

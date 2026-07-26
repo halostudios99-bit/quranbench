@@ -21,6 +21,12 @@ packages/corpus-build/sources/*
 .env
 .env.*
 !.env.example
+!.env.prod.example
+
+# ci / ops artifacts
+.lighthouseci/
+backups/
+zenodo-deposit/
 
 # os / editor
 .DS_Store

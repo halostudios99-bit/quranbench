@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 
 import { clientId, getCurrentUser } from '@/server/auth';
 import { submitCorrection } from '@/server/research';
+import { verifyCsrfRequest } from '@/server/security/csrf';
 
 // The correction endpoint. A plain POST target for the report form, so submission
 // works without JavaScript: the browser posts the form natively and we redirect —
@@ -23,6 +24,18 @@ export async function POST(request: Request): Promise<NextResponse> {
   const correction = str(form, 'correction');
   const contact = str(form, 'contact');
 
+  if (!(await verifyCsrfRequest(request, form))) {
+    const params = new URLSearchParams({ error: 'csrf' });
+    if (path) params.set('path', path);
+    if (problem) params.set('problem', problem);
+    if (correction) params.set('correction', correction);
+    if (contact) params.set('contact', contact);
+    return NextResponse.redirect(
+      new URL(`/report?${params.toString()}`, request.url),
+      303,
+    );
+  }
+
   const user = await getCurrentUser();
   const result = await submitCorrection({
     path,
@@ -42,5 +55,8 @@ export async function POST(request: Request): Promise<NextResponse> {
   if (problem) params.set('problem', problem);
   if (correction) params.set('correction', correction);
   if (contact) params.set('contact', contact);
-  return NextResponse.redirect(new URL(`/report?${params.toString()}`, request.url), 303);
+  return NextResponse.redirect(
+    new URL(`/report?${params.toString()}`, request.url),
+    303,
+  );
 }

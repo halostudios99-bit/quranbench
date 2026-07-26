@@ -14,9 +14,11 @@ import {
 export function SignupForm({
   terms,
   termsVersion,
+  csrf,
 }: {
   terms: React.ReactNode;
   termsVersion: string;
+  csrf: string;
 }) {
   const [state, action, pending] = useActionState<AuthFormState, FormData>(
     signupAction,
@@ -25,6 +27,7 @@ export function SignupForm({
 
   return (
     <form action={action} className="flex flex-col gap-4" noValidate>
+      <input type="hidden" name="csrf" value={csrf} />
       {state.error ? (
         <p role="alert" className={alertClass} style={alertStyle}>
           {state.error}
@@ -113,8 +116,8 @@ export function SignupForm({
             className="mt-1 h-4 w-4 accent-[var(--accent)]"
           />
           <span>
-            I have read and accept the contributor terms (version {termsVersion}). My
-            acceptance is recorded with this version and the current time.
+            I have read and accept the contributor terms (version {termsVersion}
+            ). My acceptance is recorded with this version and the current time.
           </span>
         </label>
       </fieldset>

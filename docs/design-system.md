@@ -128,6 +128,27 @@ These are hard requirements, not aspirations. A PR that regresses them does not 
 
 Run Lighthouse CI in the pipeline. Fail the build on regression.
 
+**How it is wired.** `lighthouserc.json` encodes the budgets above as assertions:
+the four category scores must be ≥ 0.95, LCP < 1800 ms, CLS < 0.05, and TTFB
+(`server-response-time`) < 400 ms, over a representative set of URLs (home, a short
+and a long verse, a word page, a root page, a search result). INP is a field
+metric with no direct lab audit, so its lab proxy (total-blocking-time) is asserted
+as a warning while INP itself is watched with web-vitals in real usage. The
+`lighthouse` job in `.github/workflows/ci.yml` builds the app, and `lhci autorun`
+starts it, collects three runs per URL, and fails the job on any regression.
+
+To run it locally you need Chrome/Chromium installed (lhci drives it):
+
+```
+pnpm --filter @quranbench/web build
+pnpm lighthouse   # = lhci autorun, reads lighthouserc.json
+```
+
+If Chrome is not available (e.g. a headless CI image or this dev container), lhci
+cannot collect and will say so — it never invents a score. Install Chrome, or run
+the job on a runner that has it (GitHub's `ubuntu-latest` does). Scores are only
+ever produced by an actual Lighthouse run against a real browser.
+
 ---
 
 ## 5. Search engine and AI discoverability

@@ -97,6 +97,8 @@ export interface Store {
   listTermsAcceptances(userId: string): Promise<TermsAcceptance[]>;
   /** The email + password hash for a sign-in check, or null if no such account. */
   findCredential(email: string): Promise<Credential | null>;
+  /** Replace a user's stored password hash (transparent rehash, password reset). */
+  updatePasswordHash(userId: string, passwordHash: string): Promise<void>;
   markEmailVerified(userId: string, verifiedAt: Date): Promise<void>;
   /** The reader's saved view preferences (opaque JSON), or null if none stored. */
   getReaderPrefs(userId: string): Promise<unknown | null>;
@@ -104,7 +106,11 @@ export interface Store {
   setReaderPrefs(userId: string, prefs: unknown): Promise<void>;
 
   // ── Sessions ────────────────────────────────────────────────────────────────
-  createSession(userId: string, tokenHash: string, expiresAt: Date): Promise<void>;
+  createSession(
+    userId: string,
+    tokenHash: string,
+    expiresAt: Date,
+  ): Promise<void>;
   getSession(tokenHash: string): Promise<SessionRecord | null>;
   deleteSession(tokenHash: string): Promise<void>;
   deleteUserSessions(userId: string): Promise<void>;
@@ -116,7 +122,24 @@ export interface Store {
     expiresAt: Date,
   ): Promise<void>;
   /** Consume a token: return its user id and delete it, or null if invalid/expired. */
-  consumeEmailVerificationToken(tokenHash: string, now: Date): Promise<string | null>;
+  consumeEmailVerificationToken(
+    tokenHash: string,
+    now: Date,
+  ): Promise<string | null>;
+
+  // ── Password reset tokens ────────────────────────────────────────────────────
+  createPasswordResetToken(
+    userId: string,
+    tokenHash: string,
+    expiresAt: Date,
+  ): Promise<void>;
+  /** Consume a reset token: return its user id and delete it, or null if invalid. */
+  consumePasswordResetToken(
+    tokenHash: string,
+    now: Date,
+  ): Promise<string | null>;
+  /** Drop every outstanding reset token for a user (on reset, or on re-request). */
+  deleteUserPasswordResetTokens(userId: string): Promise<void>;
 
   // ── Investigations ────────────────────────────────────────────────────────
   createInvestigation(
@@ -125,7 +148,9 @@ export interface Store {
   ): Promise<Investigation>;
   getInvestigation(id: string): Promise<Investigation | null>;
   getInvestigationBySlug(slug: string): Promise<Investigation | null>;
-  listInvestigations(statuses: Investigation['status'][]): Promise<Investigation[]>;
+  listInvestigations(
+    statuses: Investigation['status'][],
+  ): Promise<Investigation[]>;
   /** Every investigation by one author, any status — the account page needs drafts too. */
   listInvestigationsByAuthor(authorId: string): Promise<Investigation[]>;
   updateInvestigationHead(

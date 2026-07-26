@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 
 import { getCurrentUser } from '@/server/auth';
 import { getAccountView } from '@/server/research';
+import { csrfToken } from '@/server/security/csrf';
 
 import { ResendVerification } from './ResendVerification';
 import { alertClass, noticeStyle } from '../form-styles';
@@ -87,7 +88,8 @@ export default async function AccountPage({
             <ul className="space-y-1">
               {termsAcceptances.map((a) => (
                 <li key={`${a.version}-${a.acceptedAt.toISOString()}`}>
-                  Version {a.version} · accepted {dateFmt.format(a.acceptedAt)} UTC
+                  Version {a.version} · accepted {dateFmt.format(a.acceptedAt)}{' '}
+                  UTC
                 </li>
               ))}
             </ul>
@@ -97,7 +99,7 @@ export default async function AccountPage({
 
       {!verified ? (
         <div className="mt-4">
-          <ResendVerification />
+          <ResendVerification csrf={await csrfToken()} />
         </div>
       ) : null}
 
@@ -112,12 +114,17 @@ export default async function AccountPage({
       ) : (
         <ul className="divide-y divide-line rounded-md border border-line bg-panel">
           {investigations.map((inv) => (
-            <li key={inv.id} className="flex items-center justify-between gap-4 px-4 py-3">
+            <li
+              key={inv.id}
+              className="flex items-center justify-between gap-4 px-4 py-3"
+            >
               <a
                 href={`/investigations/${inv.slug}`}
                 className="text-[15px] text-ink hover:text-accent"
               >
-                {inv.claim.trim() || <span className="text-ink3">(no claim yet)</span>}
+                {inv.claim.trim() || (
+                  <span className="text-ink3">(no claim yet)</span>
+                )}
               </a>
               <span className="shrink-0 text-[13px] text-ink3">
                 {STATUS_LABEL[inv.status] ?? inv.status}

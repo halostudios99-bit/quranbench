@@ -137,6 +137,9 @@ export const prismaStore: Store = {
     if (!r) return null;
     return { user: toUser(r), passwordHash: r.passwordHash as string };
   },
+  async updatePasswordHash(userId, passwordHash) {
+    await prisma.user.update({ where: { id: userId }, data: { passwordHash } });
+  },
   async markEmailVerified(userId, verifiedAt) {
     await prisma.user.update({
       where: { id: userId },
@@ -178,11 +181,31 @@ export const prismaStore: Store = {
     });
   },
   async consumeEmailVerificationToken(tokenHash, now) {
-    const row = await prisma.emailVerificationToken.findUnique({ where: { tokenHash } });
+    const row = await prisma.emailVerificationToken.findUnique({
+      where: { tokenHash },
+    });
     if (!row) return null;
     await prisma.emailVerificationToken.delete({ where: { tokenHash } });
     if (row.expiresAt.getTime() <= now.getTime()) return null;
     return row.userId;
+  },
+
+  async createPasswordResetToken(userId, tokenHash, expiresAt) {
+    await prisma.passwordResetToken.create({
+      data: { userId, tokenHash, expiresAt },
+    });
+  },
+  async consumePasswordResetToken(tokenHash, now) {
+    const row = await prisma.passwordResetToken.findUnique({
+      where: { tokenHash },
+    });
+    if (!row) return null;
+    await prisma.passwordResetToken.delete({ where: { tokenHash } });
+    if (row.expiresAt.getTime() <= now.getTime()) return null;
+    return row.userId;
+  },
+  async deleteUserPasswordResetTokens(userId) {
+    await prisma.passwordResetToken.deleteMany({ where: { userId } });
   },
 
   async createInvestigation(input: CreateInvestigationInput, corpusVersion) {
@@ -233,7 +256,11 @@ export const prismaStore: Store = {
     const r = await prisma.investigation.update({ where: { id }, data: patch });
     return toInvestigation(r);
   },
-  async replaceInvestigationPins(investigationId, pins: EvidencePinInput[], corpusVersion) {
+  async replaceInvestigationPins(
+    investigationId,
+    pins: EvidencePinInput[],
+    corpusVersion,
+  ) {
     await prisma.$transaction([
       prisma.evidencePin.deleteMany({ where: { investigationId } }),
       prisma.evidencePin.createMany({
@@ -295,14 +322,19 @@ export const prismaStore: Store = {
       }),
     ]);
   },
-  async findCitingInvestigations(kind: CitationKind, key: string): Promise<CitingInvestigation[]> {
+  async findCitingInvestigations(
+    kind: CitationKind,
+    key: string,
+  ): Promise<CitingInvestigation[]> {
     const rows = await prisma.citation.findMany({
       where: {
         kind,
         key,
         investigation: { status: { in: PUBLISHED_STATUSES } },
       },
-      include: { investigation: { include: { author: { select: { handle: true } } } } },
+      include: {
+        investigation: { include: { author: { select: { handle: true } } } },
+      },
       orderBy: { investigation: { publishedAt: 'desc' } },
     });
     return rows.map((row) => {
