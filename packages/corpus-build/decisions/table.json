@@ -798,9 +798,9 @@
   "tokens": 1
  },
  "form:بما": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "with what",
+  "evidence": "ب + ما",
+  "grade": "settled",
   "tokens": 296
  },
  "form:بمن": {
@@ -4038,9 +4038,9 @@
   "tokens": 13
  },
  "أ ت ي|آتَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "give",
+  "evidence": "+الكتاب x28, +الزكاة x23",
+  "grade": "settled",
   "tokens": 271
  },
  "أ ت ي|آتِي|N": {
@@ -4404,9 +4404,9 @@
   "tokens": 1
  },
  "أ ر ض|أَرْض|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "earth",
+  "evidence": "paired with سماء 157x as its opposite",
+  "grade": "settled",
   "tokens": 461
  },
  "أ ر ك|أَرائِك|N": {
@@ -5118,9 +5118,9 @@
   "tokens": 1
  },
  "أ ي ي|آيَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "sign",
+  "evidence": "آيات الله; بينات; لقوم يعقلون",
+  "grade": "settled",
   "tokens": 382
  },
  "أ ي ي|أَيّ|COND": {
@@ -7752,9 +7752,9 @@
   "tokens": 6
  },
  "ج ع ل|جَعَلَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "make",
+  "evidence": "R9: خلق=create; جعل لكم x36 = assign for",
+  "grade": "supported",
   "tokens": 340
  },
  "ج ف أ|جُفاء|N": {
@@ -8322,9 +8322,9 @@
   "tokens": 1
  },
  "ج ي أ|جاءَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "come",
+  "evidence": "+من, +بالحق",
+  "grade": "settled",
   "tokens": 278
  },
  "ج ي ب|جَيْب|N": {
@@ -13122,9 +13122,9 @@
   "tokens": 130
  },
  "ر س ل|رَسُول|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "messenger",
+  "evidence": "root also gives أرسل, رسالة",
+  "grade": "settled",
   "tokens": 332
  },
  "ر س ل|رِسالَة|N": {
@@ -17250,9 +17250,9 @@
   "tokens": 236
  },
  "ش ي أ|شَىْء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "thing",
+  "evidence": "+قدير x33, +عليم x16",
+  "grade": "settled",
   "tokens": 283
  },
  "ش ي ب|شَيْب|N": {
@@ -20208,9 +20208,9 @@
   "tokens": 3
  },
  "ع ذ ب|عَذاب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "punishment",
+  "evidence": "+أليم x46, +شديد, +عظيم",
+  "grade": "settled",
   "tokens": 322
  },
  "ع ذ ب|عَذَّبَ|V": {
@@ -21444,9 +21444,9 @@
   "tokens": 71
  },
  "ع م ل|عَمِلَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "do",
+  "evidence": "+الصالحات x56",
+  "grade": "settled",
   "tokens": 276
  },
  "ع م م|عَمّ|N": {
@@ -26172,9 +26172,9 @@
   "tokens": 1
  },
  "ك ل ل|كُلّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "every",
+  "evidence": "+شىء x121, +نفس x23",
+  "grade": "settled",
   "tokens": 358
  },
  "ك ل ل|كُلّ|T": {
@@ -29466,9 +29466,9 @@
   "tokens": 1
  },
  "ن ف س|نَفْس|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "self",
+  "evidence": "أنفسهم = themselves; نفس = a soul",
+  "grade": "supported",
   "tokens": 295
  },
  "ن ف س|يَتَنافَسِ|V": {
