@@ -337,6 +337,31 @@ then roots by descending frequency.
 
 ---
 
+## Part 3b — Who decides what
+
+_Agreed 26 July 2026, recorded here so it is visible rather than discovered._
+
+The maintainer delegates routine decisions and retains the ones that carry weight.
+
+**Claude decides, without review:** concrete vocabulary where the frame is
+unambiguous and no competing word exists — أرض, يوم, سماء, جاء, يد, قلب. The
+large majority of the 5,362 keys.
+
+**The maintainer decides:**
+
+1. **Theologically weighted roots** — كفر, أمن, ظلم, دين, عبد, حق, تقوى and
+   roughly thirty others.
+2. **Rule 21 collisions**, where several Arabic words compete for one English
+   word and choosing for one forces the rest.
+3. **Anything graded below Supported.**
+
+The reason for the split, stated plainly: a model's English carries the priors of
+the translations this project exists to get behind. In developing the method it
+reached for "guidance" for رشد, "desert dwellers" for أعراب and "road" for
+صراط — each corrected by the text only because someone pushed back. That loop is
+the quality control, and it cannot be removed without the output becoming one
+model's reading with a citation apparatus attached.
+
 ## Part 4 — Standing questions
 
 **The MT boundary.** `CLAUDE.md` rule 7 states machine translation never touches
