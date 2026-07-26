@@ -53,7 +53,9 @@ PAST = {
 ABSORB_GENITIVE = {"غَيْر", "بَعْض", "كُلّ", "مِثْل", "أَهْل", "ذُو"}
 
 PLURAL = {
-    "astray": "those astray", "one who is angered": "those angered",
+    "one astray": "those astray", "one angered": "those angered",
+    "one who leads astray": "those who lead astray", "envier": "enviers",
+    "angel": "angels", "parent": "parents", "child": "children",
     "person": "people", "human": "humans", "sky": "skies", "way": "ways",
     "path": "paths", "day": "days", "chest": "chests", "knot": "knots",
     "child": "children", "one who trusts": "those who trust",

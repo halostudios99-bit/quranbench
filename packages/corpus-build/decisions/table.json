@@ -4194,9 +4194,9 @@
   "tokens": 74
  },
  "أ ح د|إِحْدَى|N": {
-  "english": "one",
-  "evidence": "112:4 same word = any one",
-  "grade": "supported",
+  "english": "one of two",
+  "evidence": "إحدىهما — feminine, of a pair",
+  "grade": "settled",
   "tokens": 11
  },
  "أ خ ذ|آخِذ|N": {
@@ -4809,6 +4809,7 @@
   "english": "trust in",
   "evidence": "106:4 opposed to خوف; 2:283, 4:58 = entrust",
   "grade": "settled",
+  "review": "owner",
   "tokens": 537
  },
  "أ م ن|آمِن|N": {
@@ -4827,6 +4828,7 @@
   "english": "a trust",
   "evidence": "4:58 render trusts to their owners",
   "grade": "settled",
+  "review": "owner",
   "tokens": 4
  },
  "أ م ن|أَمانَت|N": {
@@ -4851,6 +4853,7 @@
   "english": "trustworthy",
   "evidence": "28:26 القوى الأمين",
   "grade": "settled",
+  "review": "owner",
   "tokens": 14
  },
  "أ م ن|أَمْن|N": {
@@ -4863,6 +4866,7 @@
   "english": "trust",
   "evidence": "",
   "grade": "settled",
+  "review": "owner",
   "tokens": 45
  },
  "أ م ن|اؤْتُمِنَ|V": {
@@ -4887,6 +4891,7 @@
   "english": "one who trusts",
   "evidence": "same root as أمانة, أمين",
   "grade": "settled",
+  "review": "owner",
   "tokens": 202
  },
  "أ م ن|مُؤْمِنَة|N": {
@@ -4953,6 +4958,7 @@
   "english": "people",
   "evidence": "",
   "grade": "settled",
+  "review": "owner",
   "tokens": 241
  },
  "أ ن ف|آنِف|N": {
@@ -8055,6 +8061,7 @@
   "english": "garden",
   "evidence": "+تجرى, +عدن",
   "grade": "settled",
+  "review": "owner",
   "tokens": 96
  },
  "ج ن ن|جَنَّة|PN": {
@@ -8928,21 +8935,21 @@
   "tokens": 3
  },
  "ح س د|حاسِد|N": {
-  "english": "envy",
-  "evidence": "4:54",
-  "grade": "supported",
+  "english": "envier",
+  "evidence": "",
+  "grade": "settled",
   "tokens": 1
  },
  "ح س د|حَسَد|N": {
   "english": "envy",
-  "evidence": "4:54",
-  "grade": "supported",
+  "evidence": "",
+  "grade": "settled",
   "tokens": 1
  },
  "ح س د|حَسَدَ|V": {
   "english": "envy",
-  "evidence": "4:54",
-  "grade": "supported",
+  "evidence": "",
+  "grade": "settled",
   "tokens": 3
  },
  "ح س ر|حَسِير|N": {
@@ -9453,6 +9460,7 @@
   "english": "truth",
   "evidence": "بالحق x74; set against باطل",
   "grade": "settled",
+  "review": "owner",
   "tokens": 247
  },
  "ح ق ق|حَقَّ|V": {
@@ -9660,45 +9668,45 @@
   "tokens": 1
  },
  "ح م د|أَحْمَد|PN": {
-  "english": "praise",
-  "evidence": "",
-  "grade": "supported",
+  "english": "Ahmad",
+  "evidence": "proper name",
+  "grade": "settled",
   "tokens": 1
  },
  "ح م د|حامِد|N": {
-  "english": "praise",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 1
  },
  "ح م د|حَمِيد|N": {
-  "english": "praise",
+  "english": "praiseworthy",
   "evidence": "",
-  "grade": "supported",
+  "grade": "settled",
   "tokens": 17
  },
  "ح م د|حَمْد|N": {
   "english": "praise",
-  "evidence": "R9: شكر and سبح exist separately",
-  "grade": "supported",
+  "evidence": "الحمد لله",
+  "grade": "settled",
   "tokens": 43
  },
  "ح م د|مَحْمُود|N": {
-  "english": "praise",
+  "english": "praised",
   "evidence": "",
-  "grade": "supported",
+  "grade": "settled",
   "tokens": 1
  },
  "ح م د|مُحَمَّد|PN": {
-  "english": "praise",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 4
  },
  "ح م د|يُحْمَدُ|V": {
-  "english": "praise",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 1
  },
  "ح م ر|حُمْر|N": {
@@ -12099,6 +12107,7 @@
   "english": "accountability",
   "evidence": "2:282 دَين = debt; حكم and ملة separate",
   "grade": "supported",
+  "review": "owner",
   "tokens": 92
  },
  "د ي ن|مَدِين|N": {
@@ -12543,6 +12552,7 @@
   "english": "Sustainer",
   "evidence": "root also gives ربائب, ربانيين",
   "grade": "supported",
+  "review": "owner",
   "tokens": 975
  },
  "ر ب ب|رَبّانِيِّن|N": {
@@ -12915,6 +12925,7 @@
   "english": "wombs",
   "evidence": "",
   "grade": "settled",
+  "review": "owner",
   "tokens": 12
  },
  "ر ح م|أَرْحَم|N": {
@@ -12939,18 +12950,21 @@
   "english": "Merciful",
   "evidence": "9:128 used of the messenger",
   "grade": "supported",
+  "review": "owner",
   "tokens": 228
  },
  "ر ح م|رَحْمَة|N": {
   "english": "mercy",
   "evidence": "",
   "grade": "settled",
+  "review": "owner",
   "tokens": 114
  },
  "ر ح م|رَحْمٰن|N": {
   "english": "All-Merciful",
   "evidence": "169x, only ever of Allah",
   "grade": "supported",
+  "review": "owner",
   "tokens": 169
  },
  "ر ح م|رُحْم|N": {
@@ -13119,12 +13133,14 @@
   "english": "send",
   "evidence": "same root as رسول=messenger",
   "grade": "settled",
+  "review": "owner",
   "tokens": 130
  },
  "ر س ل|رَسُول|N": {
   "english": "messenger",
   "evidence": "root also gives أرسل, رسالة",
   "grade": "settled",
+  "review": "owner",
   "tokens": 332
  },
  "ر س ل|رِسالَة|N": {
@@ -16566,15 +16582,17 @@
   "tokens": 1
  },
  "ش ر ر|شَرَر|N": {
-  "english": "evil",
-  "evidence": "set with ضر=harm, سوء=bad",
-  "grade": "supported",
+  "english": "sparks",
+  "evidence": "77:32 ترمى بشرر — not the same word as شَرّ",
+  "grade": "settled",
+  "review": "owner",
   "tokens": 1
  },
  "ش ر ر|شَرّ|N": {
   "english": "evil",
   "evidence": "set with ضر=harm, سوء=bad",
   "grade": "supported",
+  "review": "owner",
   "tokens": 30
  },
  "ش ر ط|أَشْراط|N": {
@@ -17532,21 +17550,21 @@
   "tokens": 1
  },
  "ص د ر|صَدْر|N": {
-  "english": "chests",
+  "english": "chest",
   "evidence": "",
-  "grade": "supported",
+  "grade": "settled",
   "tokens": 44
  },
  "ص د ر|يَصْدُرُ|V": {
-  "english": "chests",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 1
  },
  "ص د ر|يُصْدِرَ|V": {
-  "english": "chests",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 1
  },
  "ص د ع|اصْدَعْ|V": {
@@ -18690,50 +18708,50 @@
   "tokens": 1
  },
  "ض ل ل|أَضَلّ|N": {
-  "english": "astray",
-  "evidence": "2:16 bought ضلالة for هدى",
+  "english": "more astray",
+  "evidence": "comparative",
   "grade": "settled",
   "tokens": 9
  },
  "ض ل ل|أَضَلَّ|V": {
-  "english": "astray",
-  "evidence": "2:16 bought ضلالة for هدى",
-  "grade": "settled",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 64
  },
  "ض ل ل|تَضْلِيل|N": {
-  "english": "astray",
-  "evidence": "2:16 bought ضلالة for هدى",
-  "grade": "settled",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 1
  },
  "ض ل ل|ضالّ|N": {
-  "english": "astray",
-  "evidence": "2:16 bought ضلالة for هدى",
+  "english": "one astray",
+  "evidence": "",
   "grade": "settled",
   "tokens": 14
  },
  "ض ل ل|ضَلال|N": {
-  "english": "astray",
-  "evidence": "2:16 bought ضلالة for هدى",
+  "english": "straying",
+  "evidence": "",
   "grade": "settled",
   "tokens": 38
  },
  "ض ل ل|ضَلالَة|N": {
-  "english": "astray",
-  "evidence": "2:16 bought ضلالة for هدى",
+  "english": "straying",
+  "evidence": "2:16 bought it for هدى",
   "grade": "settled",
   "tokens": 9
  },
  "ض ل ل|ضَلَّ|V": {
-  "english": "astray",
-  "evidence": "2:16 bought ضلالة for هدى",
-  "grade": "settled",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 53
  },
  "ض ل ل|مُضِلّ|N": {
-  "english": "astray",
-  "evidence": "2:16 bought ضلالة for هدى",
+  "english": "one who leads astray",
+  "evidence": "",
   "grade": "settled",
   "tokens": 3
  },
@@ -19569,6 +19587,7 @@
   "english": "wrongdoer",
   "evidence": "root also gives ظلمات=darknesses",
   "grade": "supported",
+  "review": "owner",
   "tokens": 129
  },
  "ظ ل م|ظالِمَة|N": {
@@ -19587,6 +19606,7 @@
   "english": "wrong",
   "evidence": "+أنفسهم = wronged themselves",
   "grade": "supported",
+  "review": "owner",
   "tokens": 110
  },
  "ظ ل م|ظَلُوم|N": {
@@ -19755,6 +19775,7 @@
   "english": "serve",
   "evidence": "R9: سجد, ركع, نسك exist separately",
   "grade": "supported",
+  "review": "owner",
   "tokens": 122
  },
  "ع ب د|عَبَّد|V": {
@@ -19767,6 +19788,7 @@
   "english": "servant",
   "evidence": "same root as عَبَدَ=serve",
   "grade": "settled",
+  "review": "owner",
   "tokens": 131
  },
  "ع ب د|عِبادَت|N": {
@@ -20211,6 +20233,7 @@
   "english": "punishment",
   "evidence": "+أليم x46, +شديد, +عظيم",
   "grade": "settled",
+  "review": "owner",
   "tokens": 322
  },
  "ع ذ ب|عَذَّبَ|V": {
@@ -21066,27 +21089,27 @@
   "tokens": 2
  },
  "ع ق د|عَقَدَتْ|V": {
-  "english": "knots",
-  "evidence": "عقدة النكاح, العقود",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 1
  },
  "ع ق د|عَقَّد|V": {
-  "english": "knots",
-  "evidence": "عقدة النكاح, العقود",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 1
  },
  "ع ق د|عُقُود|N": {
-  "english": "knots",
-  "evidence": "عقدة النكاح, العقود",
-  "grade": "supported",
+  "english": "contracts",
+  "evidence": "5:1",
+  "grade": "settled",
   "tokens": 1
  },
  "ع ق د|عُقْدَة|N": {
-  "english": "knots",
-  "evidence": "عقدة النكاح, العقود",
-  "grade": "supported",
+  "english": "knot",
+  "evidence": "",
+  "grade": "settled",
   "tokens": 4
  },
  "ع ق ر|عاقِر|N": {
@@ -21624,27 +21647,27 @@
   "tokens": 1
  },
  "ع و ذ|أُعِيذُ|V": {
-  "english": "take refuge",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 1
  },
  "ع و ذ|اسْتَعِذْ|V": {
-  "english": "take refuge",
+  "english": "seek refuge",
   "evidence": "",
-  "grade": "supported",
+  "grade": "settled",
   "tokens": 4
  },
  "ع و ذ|عُذْ|V": {
   "english": "take refuge",
-  "evidence": "",
-  "grade": "supported",
+  "evidence": "113:1, 114:1",
+  "grade": "settled",
   "tokens": 10
  },
  "ع و ذ|مَعاذ|N": {
-  "english": "take refuge",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 2
  },
  "ع و ر|عَوْرَة|N": {
@@ -21672,39 +21695,39 @@
   "tokens": 9
  },
  "ع و ن|أَعانَ|V": {
-  "english": "ask help",
+  "english": "help",
   "evidence": "",
-  "grade": "supported",
+  "grade": "settled",
   "tokens": 2
  },
  "ع و ن|اسْتَعِينُ|V": {
   "english": "ask help",
-  "evidence": "",
-  "grade": "supported",
+  "evidence": "1:5",
+  "grade": "settled",
   "tokens": 4
  },
  "ع و ن|تَعاوَنُ|V": {
-  "english": "ask help",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 2
  },
  "ع و ن|عَوان|N": {
-  "english": "ask help",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 1
  },
  "ع و ن|ماعُون|N": {
-  "english": "ask help",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 1
  },
  "ع و ن|مُسْتَعان|N": {
-  "english": "ask help",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 2
  },
  "ع ي ب|أَعِيبَ|V": {
@@ -21990,21 +22013,21 @@
   "tokens": 1
  },
  "غ س ق|غاسِق|N": {
-  "english": "darkening",
-  "evidence": "17:78 غسق الليل",
-  "grade": "supported",
+  "english": "darkener",
+  "evidence": "113:3",
+  "grade": "settled",
   "tokens": 1
  },
  "غ س ق|غَسَق|N": {
   "english": "darkening",
-  "evidence": "17:78 غسق الليل",
-  "grade": "supported",
+  "evidence": "17:78",
+  "grade": "settled",
   "tokens": 1
  },
  "غ س ق|غَسّاق|N": {
-  "english": "darkening",
-  "evidence": "17:78 غسق الليل",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 2
  },
  "غ س ل|اغْسِلُ|V": {
@@ -22094,31 +22117,31 @@
  "غ ض ب|غَضَب|N": {
   "english": "anger",
   "evidence": "",
-  "grade": "supported",
+  "grade": "settled",
   "tokens": 14
  },
  "غ ض ب|غَضِبَ|V": {
-  "english": "anger",
+  "english": "be angry",
   "evidence": "",
-  "grade": "supported",
+  "grade": "settled",
   "tokens": 6
  },
  "غ ض ب|غَضْبان|N": {
-  "english": "anger",
+  "english": "angry",
   "evidence": "",
-  "grade": "supported",
+  "grade": "settled",
   "tokens": 2
  },
  "غ ض ب|مَغْضُوب|N": {
-  "english": "anger",
-  "evidence": "",
-  "grade": "supported",
+  "english": "one angered",
+  "evidence": "1:7; عليهم supplies \"upon them\"",
+  "grade": "settled",
   "tokens": 1
  },
  "غ ض ب|مُغاضِب|N": {
-  "english": "anger",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 1
  },
  "غ ض ض|يَغُضُّ|V": {
@@ -23616,21 +23639,21 @@
   "tokens": 13
  },
  "ف ل ق|انفَلَقَ|V": {
-  "english": "cleaving",
-  "evidence": "6:96 فالق الإصباح; 26:63 sea splits",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 1
  },
  "ف ل ق|فالِق|N": {
-  "english": "cleaving",
-  "evidence": "6:96 فالق الإصباح; 26:63 sea splits",
-  "grade": "supported",
+  "english": "cleaver",
+  "evidence": "6:96",
+  "grade": "settled",
   "tokens": 2
  },
  "ف ل ق|فَلَق|N": {
   "english": "cleaving",
-  "evidence": "6:96 فالق الإصباح; 26:63 sea splits",
-  "grade": "supported",
+  "evidence": "113:1",
+  "grade": "settled",
   "tokens": 1
  },
  "ف ل ك|فَلَك|N": {
@@ -25242,134 +25265,134 @@
   "tokens": 4
  },
  "ق و م|أَقامَ|V": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "establish",
+  "evidence": "أقيموا الصلوة",
+  "grade": "settled",
   "tokens": 54
  },
  "ق و م|أَقْوَم|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "more upright",
+  "evidence": "comparative",
+  "grade": "settled",
   "tokens": 4
  },
  "ق و م|إِقام|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 2
  },
  "ق و م|إِقامَت|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 1
  },
  "ق و م|اسْتَقامُ|V": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "stand firm",
+  "evidence": "",
+  "grade": "settled",
   "tokens": 10
  },
  "ق و م|تَقْوِيم|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 1
  },
  "ق و م|قائِم|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "standing",
+  "evidence": "",
+  "grade": "settled",
   "tokens": 17
  },
  "ق و م|قائِمَة|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 5
  },
  "ق و م|قامَ|V": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "stand",
+  "evidence": "",
+  "grade": "settled",
   "tokens": 33
  },
  "ق و م|قَوام|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 1
  },
  "ق و م|قَوّام|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 3
  },
  "ق و م|قَوْم|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "people",
+  "evidence": "قوم نوح, يا قوم",
+  "grade": "settled",
   "tokens": 383
  },
  "ق و م|قَيُّوم|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 3
  },
  "ق و م|قَيِّم|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 5
  },
  "ق و م|قَيِّمَة|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 2
  },
  "ق و م|قِيامَة|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
+  "english": "standing",
+  "evidence": "يوم القيامة — the day of standing",
   "grade": "supported",
   "tokens": 70
  },
  "ق و م|قِيَم|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 1
  },
  "ق و م|مَقام|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
+  "english": "station",
+  "evidence": "مقام إبراهيم",
   "grade": "supported",
   "tokens": 14
  },
  "ق و م|مُسْتَقِيم|N": {
   "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "evidence": "الصراط المستقيم",
+  "grade": "settled",
   "tokens": 37
  },
  "ق و م|مُقام|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 3
  },
  "ق و م|مُقامَة|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 1
  },
  "ق و م|مُقِيم|N": {
-  "english": "straight",
-  "evidence": "from قام, to stand",
+  "english": "lasting",
+  "evidence": "عذاب مقيم",
   "grade": "supported",
   "tokens": 10
  },
@@ -25725,6 +25748,7 @@
   "english": "call false",
   "evidence": "form II; كذّب بآياتنا x27",
   "grade": "supported",
+  "review": "owner",
   "tokens": 176
  },
  "ك ذ ب|كِذّاب|N": {
@@ -26001,6 +26025,7 @@
   "english": "one who rejects",
   "evidence": "",
   "grade": "settled",
+  "review": "owner",
   "tokens": 156
  },
  "ك ف ر|كافِرَة|N": {
@@ -26013,6 +26038,7 @@
   "english": "reject",
   "evidence": "57:20 الكفار = sowers; root sense is covering",
   "grade": "settled",
+  "review": "owner",
   "tokens": 289
  },
  "ك ف ر|كَفُور|N": {
@@ -26025,12 +26051,14 @@
   "english": "sowers",
   "evidence": "57:20 rain pleases them",
   "grade": "supported",
+  "review": "owner",
   "tokens": 5
  },
  "ك ف ر|كَفّارَة|N": {
   "english": "a covering-over",
   "evidence": "5:45, 5:89",
   "grade": "settled",
+  "review": "owner",
   "tokens": 4
  },
  "ك ف ر|كَفَّرَ|V": {
@@ -26055,6 +26083,7 @@
   "english": "rejection",
   "evidence": "",
   "grade": "settled",
+  "review": "owner",
   "tokens": 37
  },
  "ك ف ر|كُفْران|N": {
@@ -27901,62 +27930,62 @@
  },
  "م ل ك|مالِك|N": {
   "english": "owner",
-  "evidence": "ملكت أيمنكم = ownership",
-  "grade": "supported",
+  "evidence": "مالك يوم الدين",
+  "grade": "settled",
   "tokens": 3
  },
  "م ل ك|مالِك|PN": {
-  "english": "owner",
-  "evidence": "ملكت أيمنكم = ownership",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 1
  },
  "م ل ك|مَلَك|N": {
-  "english": "owner",
-  "evidence": "ملكت أيمنكم = ownership",
-  "grade": "supported",
+  "english": "angel",
+  "evidence": "ملائكته; 2:30",
+  "grade": "settled",
   "tokens": 88
  },
  "م ل ك|مَلَكَتْ|V": {
-  "english": "owner",
-  "evidence": "ملكت أيمنكم = ownership",
-  "grade": "supported",
+  "english": "possess",
+  "evidence": "ما ملكت أيمنكم",
+  "grade": "settled",
   "tokens": 44
  },
  "م ل ك|مَلَكُوت|N": {
-  "english": "owner",
-  "evidence": "ملكت أيمنكم = ownership",
-  "grade": "supported",
+  "english": "dominion",
+  "evidence": "",
+  "grade": "settled",
   "tokens": 4
  },
  "م ل ك|مَلِك|N": {
-  "english": "owner",
-  "evidence": "ملكت أيمنكم = ownership",
-  "grade": "supported",
+  "english": "king",
+  "evidence": "ملك الناس",
+  "grade": "settled",
   "tokens": 15
  },
  "م ل ك|مَلِيك|N": {
-  "english": "owner",
-  "evidence": "ملكت أيمنكم = ownership",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 1
  },
  "م ل ك|مَلْك|N": {
-  "english": "owner",
-  "evidence": "ملكت أيمنكم = ownership",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 1
  },
  "م ل ك|مَمْلُوك|N": {
-  "english": "owner",
-  "evidence": "ملكت أيمنكم = ownership",
-  "grade": "supported",
+  "english": "",
+  "evidence": "",
+  "grade": "",
   "tokens": 1
  },
  "م ل ك|مُلْك|N": {
-  "english": "owner",
-  "evidence": "ملكت أيمنكم = ownership",
-  "grade": "supported",
+  "english": "dominion",
+  "evidence": "ملك السموت والأرض",
+  "grade": "settled",
   "tokens": 48
  },
  "م ل ل|مِلَّة|N": {
@@ -29323,56 +29352,56 @@
  },
  "ن ع م|أَنْعَمَ|V": {
   "english": "favour",
-  "evidence": "",
-  "grade": "supported",
+  "evidence": "أنعمت عليهم",
+  "grade": "settled",
   "tokens": 17
  },
  "ن ع م|ناعِمَة|N": {
-  "english": "favour",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 1
  },
  "ن ع م|نَعَم|N": {
-  "english": "favour",
-  "evidence": "",
-  "grade": "supported",
+  "english": "livestock",
+  "evidence": "الأنعام",
+  "grade": "settled",
   "tokens": 33
  },
  "ن ع م|نَعِيم|N": {
-  "english": "favour",
-  "evidence": "",
+  "english": "bliss",
+  "evidence": "جنات النعيم",
   "grade": "supported",
   "tokens": 17
  },
  "ن ع م|نَعَّمَ|V": {
-  "english": "favour",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 1
  },
  "ن ع م|نَعْماء|N": {
-  "english": "favour",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 1
  },
  "ن ع م|نَعْمَة|N": {
-  "english": "favour",
+  "english": "",
   "evidence": "",
-  "grade": "supported",
+  "grade": "",
   "tokens": 2
  },
  "ن ع م|نِعْمَ|V": {
-  "english": "favour",
-  "evidence": "",
-  "grade": "supported",
+  "english": "excellent is",
+  "evidence": "نعم العبد",
+  "grade": "settled",
   "tokens": 18
  },
  "ن ع م|نِعْمَة|N": {
   "english": "favour",
-  "evidence": "",
-  "grade": "supported",
+  "evidence": "نعمة الله",
+  "grade": "settled",
   "tokens": 50
  },
  "ن غ ض|يُنْغِضُ|V": {
@@ -29985,6 +30014,7 @@
   "english": "fire",
   "evidence": "+جهنم",
   "grade": "settled",
+  "review": "owner",
   "tokens": 145
  },
  "ن و ر|نُور|N": {
@@ -30189,6 +30219,7 @@
   "english": "guide",
   "evidence": "72:2 leads TO رشد",
   "grade": "settled",
+  "review": "owner",
   "tokens": 144
  },
  "ه د ي|هَدِيَّة|N": {
@@ -31200,15 +31231,15 @@
   "tokens": 1
  },
  "و س و س|وَسْواس|N": {
-  "english": "whisper",
-  "evidence": "50:16 توسوس به نفسه",
-  "grade": "supported",
+  "english": "whisperer",
+  "evidence": "",
+  "grade": "settled",
   "tokens": 1
  },
  "و س و س|وَسْوَسَ|V": {
   "english": "whisper",
-  "evidence": "50:16 توسوس به نفسه",
-  "grade": "supported",
+  "evidence": "",
+  "grade": "settled",
   "tokens": 4
  },
  "و ش ي|شِيَة|N": {
@@ -31707,6 +31738,7 @@
   "english": "guard against",
   "evidence": "root = protection (وقاية); not خاف",
   "grade": "supported",
+  "review": "owner",
   "tokens": 166
  },
  "و ق ي|تَقِيّ|N": {
@@ -31824,45 +31856,45 @@
   "tokens": 10
  },
  "و ل د|مَوْلُود|N": {
-  "english": "beget",
+  "english": "newborn",
   "evidence": "",
-  "grade": "supported",
+  "grade": "settled",
   "tokens": 3
  },
  "و ل د|والِد|N": {
-  "english": "beget",
+  "english": "parent",
   "evidence": "",
-  "grade": "supported",
+  "grade": "settled",
   "tokens": 14
  },
  "و ل د|والِدَة|N": {
-  "english": "beget",
+  "english": "mother",
   "evidence": "",
-  "grade": "supported",
+  "grade": "settled",
   "tokens": 3
  },
  "و ل د|والِدَي|N": {
-  "english": "beget",
-  "evidence": "",
-  "grade": "supported",
+  "english": "parents",
+  "evidence": "بالوالدين إحسانا",
+  "grade": "settled",
   "tokens": 10
  },
  "و ل د|وَلَد|N": {
-  "english": "beget",
+  "english": "child",
   "evidence": "",
-  "grade": "supported",
+  "grade": "settled",
   "tokens": 56
  },
  "و ل د|وَلَدَ|V": {
   "english": "beget",
-  "evidence": "",
-  "grade": "supported",
+  "evidence": "112:3 لم يلد",
+  "grade": "settled",
   "tokens": 9
  },
  "و ل د|وَلِيد|N": {
-  "english": "beget",
+  "english": "infant",
   "evidence": "",
-  "grade": "supported",
+  "grade": "settled",
   "tokens": 7
  },
  "و ل ي|أَوْلَى|N": {

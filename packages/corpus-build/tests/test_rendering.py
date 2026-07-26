@@ -63,8 +63,10 @@ EXPECTED = {
     "4": "owner of Day of the accountability",
     "5": "You alone We serve and You alone We ask help",
     "6": "guide us the way the straight",
+    # Updated when ض ل ل and غ ض ب were re-decided per lemma: ضالّ is a person
+    # who is astray, not the abstract "astray"; مَغْضُوب likewise.
     "7": (
-        "way those whom you favoured upon them other than the anger "
+        "way those whom you favoured upon them other than the one angered "
         "upon them and not those astray"
     ),
 }
@@ -106,3 +108,49 @@ def test_undetermined_keys_are_recorded_not_guessed() -> None:
         assert all(r["grade"] == "undetermined" or not r["english"] for r in rows), (
             f"{root} was filled in without evidence"
         )
+
+
+def test_no_root_level_over_seeding() -> None:
+    """One English word must not be pasted across a root's different lemmas.
+
+    Seeding at root level rather than per lemma silently flattened 16 roots:
+    قَوْم (383 tokens, "people") rendered as "straight" because it shares ق و م
+    with مُسْتَقِيم; مَلَك ("angel") rendered as "owner"; and مُحَمَّد, a proper
+    name, rendered as "praise". Nothing failed — the output was simply wrong
+    everywhere those words appear.
+
+    A root may legitimately take one English word across lemmas that are true
+    inflections of each other. It may not do so across parts of speech, which is
+    the signature of the mistake.
+    """
+    from collections import defaultdict
+
+    table = load_table()
+    by_root: dict[str, list[tuple[str, dict]]] = defaultdict(list)
+    for key, row in table.items():
+        if row.get("english") and "|" in key:
+            by_root[key.split("|")[0]].append((key, row))
+
+    offenders = []
+    for root, rows in by_root.items():
+        if len(rows) < 2:
+            continue
+        englishes = {r["english"] for _, r in rows}
+        lemmas = {k.split("|")[1] for k, _ in rows if "|" in k}
+        # One lemma tagged with two parts of speech is not over-seeding —
+        # يَوْم is the same word whether tagged N or T. Distinct lemmas sharing
+        # one English word is the real signature.
+        if len(englishes) == 1 and len(lemmas) > 1:
+            offenders.append(f"{root} -> {englishes.pop()!r} across {sorted(lemmas)}")
+
+    assert not offenders, "root-level over-seeding:\n  " + "\n  ".join(offenders)
+
+
+def test_proper_names_are_not_translated() -> None:
+    """محمد is a name, not the noun 'praise' that shares its root."""
+    table = load_table()
+    for key, row in table.items():
+        if key.endswith("|PN") and row.get("english"):
+            assert row["english"][0].isupper(), (
+                f"{key} is a proper name but renders as {row['english']!r}"
+            )
