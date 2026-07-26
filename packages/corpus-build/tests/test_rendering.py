@@ -169,6 +169,43 @@ def test_a_frame_can_change_a_word() -> None:
     assert framed_words[0] != bare_words[0], "the frame made no difference"
 
 
+def test_a_broken_plural_can_be_a_different_word() -> None:
+    """بَرّ is dry land — 5:96 صيد البر against صيد البحر — but الأبرار, its
+    plural, is the dutiful (3:193 مع الأبرار). One lemma, two words, and the
+    frame mechanism cannot separate them because the distinguishing word is not
+    adjacent. Only number does, and only the row may say so.
+    """
+    table = load_table()
+    tokens = [
+        json.loads(line)
+        for line in (ARTIFACTS / f"v{_latest()}" / "tokens.jsonl").open(encoding="utf-8")
+    ]
+    rows = [(k, r) for k, r in table.items() if r.get("plural")]
+    assert rows, "no row declares a plural — this test would pass vacuously"
+
+    key, row = rows[0]
+    def pick(want_plural: bool) -> dict | None:
+        for token in tokens:
+            if resolve(token, table) is not row:
+                continue
+            feats = (token.get("morphology") or {}).get("features") or {}
+            # The corpus omits `number` on singulars rather than marking them,
+            # which is also how the renderer reads it.
+            if (feats.get("number") == "plural") is want_plural:
+                return token
+        return None
+
+    singular, plural = pick(False), pick(True)
+    assert singular and plural, f"{key}: corpus has no singular/plural pair to check"
+
+    one, _ = render_verse([dict(singular, position=1)], table)
+    many, _ = render_verse([dict(plural, position=1)], table)
+    assert row["english"].split()[-1] in one[0], f"{key}: singular gave {one[0]!r}"
+    assert row["plural"].split()[-1] in many[0], f"{key}: plural gave {many[0]!r}"
+    # And the plural word must not then be pluralised again.
+    assert not many[0].endswith("ss"), f"{key}: plural was inflected twice: {many[0]!r}"
+
+
 def test_no_doubled_words() -> None:
     """`and and`, `upon them them` — the shape of every bug so far was a word
     emitted by both the decision table and the grammar layer."""

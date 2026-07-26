@@ -85,13 +85,13 @@ DOUBLE = {"admit", "commit", "permit", "omit", "submit", "prefer", "refer",
 # has no past; "excellent is" was being turned into "excellented is".
 INVARIANT = {"is not", "excellent is", "wretched is", "perhaps", "almost"}
 # Lemmas whose English already expresses the genitive link.
-ABSORB_GENITIVE = {"غَيْر", "بَعْض", "كُلّ", "مِثْل", "أَهْل", "ذُو", "صاحِب", "آل", "عِند"}
+ABSORB_GENITIVE = {"غَيْر", "بَعْض", "كُلّ", "مِثْل", "أَهْل", "ذُو", "صاحِب", "آل", "عِند", "عالِم"}
 
 PLURAL = {
     "one astray": "those astray", "one angered": "those angered",
     "one who leads astray": "those who lead astray", "envier": "enviers",
     "angel": "angels", "parent": "parents", "child": "children",
-    "person": "people", "human": "humans", "all": "all", "sky": "skies", "way": "ways",
+    "person": "people", "human": "humans", "all": "all", "Nasrani": "Nasara", "sky": "skies", "way": "ways",
     "path": "paths", "day": "days", "chest": "chests", "knot": "knots",
     "child": "children", "one who trusts": "those who trust",
     "one who rejects": "those who reject", "beings": "beings",
@@ -206,6 +206,7 @@ def compose(
     english: str,
     previous: dict | None = None,
     drop_subject: bool = False,
+    already_plural: bool = False,
 ) -> str:
     """Inflect `english` according to what the Arabic marks.
 
@@ -247,6 +248,20 @@ def compose(
         # render "he begets" and the verse says the opposite of what it says.
         if out in INVARIANT:
             pass
+        elif out.startswith("be ") and str(feats.get("voice", "")).lower().startswith("pass"):
+            # A rendering that is already passive — "be reminded", "be turned
+            # away" — must not also take the auxiliary, or it doubles it.
+            be = "was" if tense == "PERF" else ("are" if number == "plural" else "is")
+            out = be + " " + out[len("be "):]
+            if pron_suffix:
+                sfeats = pron_suffix.get("features") or {}
+                if not _is_subject_marker(feats, sfeats):
+                    obj = _pronoun(sfeats)
+                    if obj:
+                        out = f"{out} {obj}"
+            if conj:
+                out = ("and " if (conj.get("lemma") or "") == "و" else "so ") + out
+            return out
         elif str(feats.get("voice", "")).lower().startswith("pass"):
             participle = PARTICIPLE.get(out) or _past(out)
             for pron in ("he ", "they ", "I ", "We ", "you "):
@@ -288,7 +303,12 @@ def compose(
     else:
         # Only nouns pluralise. Relatives and particles carry a number feature
         # too, and pluralising them produced "those whoms".
-        if pos == "N" and feats.get("number") == "plural" and not out.endswith("s"):
+        if (
+            pos == "N"
+            and feats.get("number") == "plural"
+            and not already_plural
+            and not out.endswith("s")
+        ):
             out = _pluralise(out)
         if pron_suffix:
             obj = _pronoun(pron_suffix.get("features") or {})
@@ -297,7 +317,9 @@ def compose(
                     out = f"{out} {obj}"
                 else:                      # ربه — his Sustainer
                     out = f"{POSSESSIVE.get(obj, obj)} {out}"
-        elif has_det and not out.startswith("those "):
+        elif has_det and not out.startswith(("those ", "the ")):
+            # "the denied", "the most beautiful" and "the dutiful" carry their
+            # own article — a word whose English needs one is not given a second.
             out = f"the {out}"
 
     if prep:

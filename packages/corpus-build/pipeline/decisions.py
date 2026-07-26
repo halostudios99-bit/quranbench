@@ -127,6 +127,7 @@ def render_verse(tokens: list[dict], table: dict, mark: bool = False) -> tuple[l
             previous_row = None
             continue
         english = row["english"]
+        morph = token.get("morphology") or {}
 
         # Rule 4: the frame decides the sense. خلا is "pass away" — قد خلت من
         # قبله الرسل — but خلا إلى is a different word, withdrawing apart with
@@ -139,6 +140,14 @@ def render_verse(tokens: list[dict], table: dict, mark: bool = False) -> tuple[l
             nxt_lemma = (nxt.get("morphology") or {}).get("lemma")
             english = following.get(nxt["text_no_tashkeel"]) or following.get(nxt_lemma) or english
 
+        # A broken plural can be a different word from its singular. بَرّ is
+        # dry land — 5:96 صيد البر against صيد البحر — but الأبرار, its plural,
+        # is the dutiful (3:193 مع الأبرار). Only the row may say so.
+        already_plural = False
+        if row.get("plural") and ((morph.get("features") or {}).get("number")) == "plural":
+            english = row["plural"]
+            already_plural = True
+
         if previous_row and previous_row.get("elative") and english.split()[0] == "from":
             english = "than" + english[len("from"):]
 
@@ -146,14 +155,19 @@ def render_verse(tokens: list[dict], table: dict, mark: bool = False) -> tuple[l
         # the verb's pronoun only when the word before ends in that same
         # pronoun, so a nominal predicate (إنكم لمشركون) keeps its subject.
         drop = False
-        morph = token.get("morphology") or {}
         if previous_row and morph.get("pos") == "V":
             feats = morph.get("features") or {}
             subject = SUBJECT.get((feats.get("person"), feats.get("number", "singular")))
             if subject and previous_row["english"].split()[-1].lower() == subject.lower():
                 drop = True
 
-        word = compose(token, english, ordered[i - 1] if i else None, drop_subject=drop)
+        word = compose(
+            token,
+            english,
+            ordered[i - 1] if i else None,
+            drop_subject=drop,
+            already_plural=already_plural,
+        )
 
         # آمن renders "trust in" and به renders "in it", so the two together said
         # "trust in in it". Where the repetition comes from our composition it is
