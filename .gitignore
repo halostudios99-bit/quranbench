@@ -4,6 +4,9 @@ node_modules/
 
 # next.js
 .next/
+# Atomic-deploy build slots (see scripts/deploy-atomic.sh)
+.next-a/
+.next-b/
 out/next/
 
 # python
@@ -37,3 +40,7 @@ zenodo-deposit/
 # os / editor
 .DS_Store
 *.log
+
+# never commit local credentials
+/CREDENTIALS.md
+CREDENTIALS.md

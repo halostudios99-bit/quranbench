@@ -6,6 +6,18 @@ import type { NextConfig } from 'next';
 // package `main` points at src/index.ts), so Next must transpile them.
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Which build directory this process uses, chosen by the environment so a
+  // deploy can build into a directory the running server is not reading.
+  //
+  // `next build` rewrites its dist directory in place, so building into the one
+  // the live server is serving takes the site down for the length of the build —
+  // pm2 crash-loops and, after 15 failures, gives up entirely. Instead the deploy
+  // alternates between two slots (.next-a / .next-b): it builds into the idle one
+  // while the live process keeps serving the active one, then restarts pm2 with
+  // NEXT_DIST_DIR pointing at the new slot. Downtime is the restart, not the
+  // build. Defaults to `.next` so local development is unchanged.
+  // See scripts/deploy-atomic.sh.
+  distDir: process.env.NEXT_DIST_DIR || '.next',
   transpilePackages: ['@quranbench/corpus', '@quranbench/search'],
   eslint: { ignoreDuringBuilds: true },
   poweredByHeader: false,
