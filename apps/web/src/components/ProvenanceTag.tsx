@@ -6,12 +6,19 @@ import { PROVENANCE, type ProvenanceLayer } from '@/lib/provenance';
 
 interface ProvenanceTagProps {
   layer: ProvenanceLayer;
+  /**
+   * Overrides the layer's stock description. Used only by the generated
+   * edition, whose layer is "translation" but which is not a human translation
+   * — leaving the stock tooltip there would have the hover text contradict the
+   * label beside it.
+   */
+  title?: string;
   /** Extra qualifier, e.g. a translation edition name or the text edition. */
   note?: string | undefined;
   className?: string | undefined;
 }
 
-export function ProvenanceTag({ layer, note, className }: ProvenanceTagProps) {
+export function ProvenanceTag({ layer, note, className, title }: ProvenanceTagProps) {
   const meta = PROVENANCE[layer];
   const style = {
     color: `var(--prov-${layer}-fg)`,
@@ -23,7 +30,7 @@ export function ProvenanceTag({ layer, note, className }: ProvenanceTagProps) {
       className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-medium leading-none ${className ?? ''}`}
       style={style}
       data-provenance={layer}
-      title={meta.description}
+      title={title ?? meta.description}
     >
       <span
         aria-hidden="true"

@@ -100,6 +100,12 @@ export function VerseTranslations({ items, compact = false }: VerseTranslationsP
                     ? `${edition.translator} — not a human translation`
                     : `${edition.translator} (${edition.year})`
                 }
+                {...(generated
+                  ? {
+                      title:
+                        'Generated from this project\u2019s decision table. Not a human translation.',
+                    }
+                  : {})}
               />
               {/* A licence chip in a metadata row, not a link inside a sentence:
                   it measured 19px tall, below the 24px target minimum. */}
