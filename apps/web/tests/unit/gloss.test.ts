@@ -1,16 +1,31 @@
 import { describe, expect, it } from 'vitest';
 
-import { groupGloss, normaliseGloss, type GlossItem } from '@/lib/gloss';
+import { glossKey, glossSlug, groupGloss, type GlossItem } from '@/lib/gloss';
 
-describe('normaliseGloss', () => {
+describe('glossKey', () => {
   it('folds case, collapses whitespace and unifies apostrophes', () => {
-    expect(normaliseGloss('  The   Mercy ')).toBe('the mercy');
-    expect(normaliseGloss('Lord’s')).toBe("lord's");
-    expect(normaliseGloss("Lord's")).toBe("lord's");
+    expect(glossKey('  The   Mercy ')).toBe('the mercy');
+    expect(glossKey('Lord’s')).toBe("lord's");
+    expect(glossKey("Lord's")).toBe("lord's");
   });
 
-  it('does not strip parentheses — "(the) reward" stays distinct from "reward"', () => {
-    expect(normaliseGloss('(the) reward')).not.toBe(normaliseGloss('reward'));
+  it('folds punctuation and bracket variants of one word to a single key', () => {
+    const variants = ['the zakah', 'the zakah,', 'the zakah."', '[the] zakah.'];
+    const keys = new Set(variants.map(glossKey));
+    expect(keys).toEqual(new Set(['the zakah']));
+  });
+
+  it('keeps bracketed helper text but drops the delimiters', () => {
+    expect(glossKey('(the) reward')).toBe('the reward');
+    expect(glossKey('reward.')).toBe('reward');
+    expect(glossKey('"reward"')).toBe('reward');
+  });
+});
+
+describe('glossSlug', () => {
+  it('turns spaces into hyphens', () => {
+    expect(glossSlug('the zakah')).toBe('the-zakah');
+    expect(glossSlug('reward')).toBe('reward');
   });
 });
 

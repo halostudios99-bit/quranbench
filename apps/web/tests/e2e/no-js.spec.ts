@@ -76,6 +76,19 @@ test('the reverse gloss page groups words without JavaScript', async ({
   await expect(page.locator('.quran').first()).toBeVisible();
 });
 
+test('the gloss index ranks and filters without JavaScript', async ({ page }) => {
+  await page.goto('/gloss');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(/Glosses/);
+  // The ranked list is in the server HTML, most-distinct-roots first.
+  const firstRow = page.getByRole('list').getByRole('link').first();
+  await expect(firstRow).toContainText(/roots/);
+  // The filter is a plain GET form, so submitting it works with scripting off.
+  await page.getByRole('searchbox').fill('reward');
+  await page.getByRole('button', { name: /Filter/ }).click();
+  await expect(page).toHaveURL(/\/gloss\?q=reward/);
+  await expect(page.getByText(/match/)).toBeVisible();
+});
+
 test('the correction form works without JavaScript', async ({ page }) => {
   await page.goto('/report?path=/2/43&ref=Al-Baqarah 2:43');
   await expect(page.getByRole('heading', { level: 1 })).toContainText(

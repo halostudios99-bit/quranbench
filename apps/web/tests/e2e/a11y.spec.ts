@@ -26,6 +26,8 @@ const PATHS = [
   '/colophon',
   '/report',
   '/report/thanks',
+  '/gloss',
+  '/gloss?q=reward',
   '/gloss/reward',
 ];
 

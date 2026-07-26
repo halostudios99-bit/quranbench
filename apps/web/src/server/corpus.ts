@@ -27,7 +27,12 @@ import {
   type DivergenceResult,
   type EditionText,
 } from '@/lib/translations';
-import { groupGloss, normaliseGloss, type GlossGrouping } from '@/lib/gloss';
+import {
+  glossKey,
+  glossSlug,
+  groupGloss,
+  type GlossGrouping,
+} from '@/lib/gloss';
 import { rankSimilarVerses, type SimilarCandidate } from '@/lib/similar-verses';
 import { rankCoOccurrence, tallyCoOccurrence } from '@/lib/co-occurrence';
 import { pickWordIndex } from '@/lib/random-word';
@@ -57,8 +62,14 @@ interface CorpusState {
   translations: LoadedTranslation[];
   /** Corpus verse ids in reading order — the ordering basis for reverse lookup. */
   verseOrder: string[];
-  /** Normalised English gloss → token handles carrying it (reverse gloss lookup). */
+  /** Gloss key → token handles carrying a gloss with that key (reverse gloss lookup). */
   glossIndex: Map<string, number[]>;
+  /** Canonical gloss slug → its gloss key, for resolving/redirecting slug URLs. */
+  glossSlugToKey: Map<string, string>;
+  /** Every gloss key as a listing (display gloss, slug, totals, distinct roots), ranked. */
+  glossListings: GlossListing[];
+  /** Distinct verbatim gloss strings before keying — the "before" of the merge. */
+  glossDistinctVerbatim: number;
   /** Root slug → the verse ids it occurs in, in reading order (co-occurrence, similarity). */
   versesByRoot: Map<string, string[]>;
   /** Verse id → the set of root slugs occurring in it. */
@@ -86,6 +97,27 @@ function artifactsRoot(): string {
     process.env.QB_CORPUS_DIR ||
     resolve(process.cwd(), '..', '..', 'packages', 'corpus-build', 'out')
   );
+}
+
+// The rootless bucket key when counting distinct roots for a gloss (particles,
+// proper nouns). Mirrors the sentinel used inside groupGloss.
+const NO_ROOT_KEY = ' no-root';
+
+/** The most frequent key of a count map; ties break alphabetically for determinism. */
+function topByCount(counts: Map<string, number>): string | undefined {
+  let best: string | undefined;
+  let bestCount = -1;
+  for (const [value, count] of counts) {
+    if (count > bestCount || (count === bestCount && best !== undefined && value < best)) {
+      best = value;
+      bestCount = count;
+    }
+  }
+  return best;
+}
+
+function compareStrings(a: string, b: string): number {
+  return a < b ? -1 : a > b ? 1 : 0;
 }
 
 function build(): CorpusState {
@@ -135,12 +167,14 @@ function build(): CorpusState {
   // English gloss. Root/verse structures back similar-verses and co-occurrence and
   // exclude separated basmalas, which are not counted verses.
   const glossIndex = new Map<string, number[]>();
+  const verbatimGlosses = new Set<string>();
   const versesByRootSet = new Map<string, Set<string>>();
   const rootSlugsByVerse = new Map<string, Set<string>>();
   corpus.tokens.forEach((token, handle) => {
     const gloss = token.morphology.gloss;
     if (gloss) {
-      const key = normaliseGloss(gloss);
+      verbatimGlosses.add(gloss);
+      const key = glossKey(gloss);
       const list = glossIndex.get(key);
       if (list) list.push(handle);
       else glossIndex.set(key, [handle]);
@@ -170,6 +204,37 @@ function build(): CorpusState {
     if (verses.size >= SIMILARITY_STOPLIST_MIN_DF) similarityStoplist.add(slug);
   }
 
+  // One listing per gloss key: the display gloss (its most common verbatim
+  // surface form), the URL slug, the occurrence total and the distinct-root
+  // count that ranks the reverse-lookup index. Slugs resolve back to their key.
+  const glossSlugToKey = new Map<string, string>();
+  const glossListings: GlossListing[] = [];
+  for (const [key, handles] of glossIndex) {
+    const roots = new Set<string>();
+    const variantCounts = new Map<string, number>();
+    for (const h of handles) {
+      const morph = corpus.tokens[h]!.morphology;
+      roots.add(morph.root_slug ?? NO_ROOT_KEY);
+      if (morph.gloss)
+        variantCounts.set(morph.gloss, (variantCounts.get(morph.gloss) ?? 0) + 1);
+    }
+    const slug = glossSlug(key);
+    if (!glossSlugToKey.has(slug)) glossSlugToKey.set(slug, key);
+    glossListings.push({
+      gloss: topByCount(variantCounts) ?? key,
+      key,
+      slug,
+      total: handles.length,
+      rootCount: roots.size,
+    });
+  }
+  glossListings.sort(
+    (a, b) =>
+      b.rootCount - a.rootCount ||
+      b.total - a.total ||
+      compareStrings(a.key, b.key),
+  );
+
   const loadMs = performance.now() - started;
   if (process.env.NODE_ENV !== 'test') {
     console.info(
@@ -190,6 +255,9 @@ function build(): CorpusState {
     translations: corpus.translations,
     verseOrder: corpus.segments.map((s) => s.id),
     glossIndex,
+    glossSlugToKey,
+    glossListings,
+    glossDistinctVerbatim: verbatimGlosses.size,
     versesByRoot,
     rootSlugsByVerse,
     similarityStoplist,
@@ -753,21 +821,46 @@ export function reverseLookupWord(
 // The correspondence is a word-level gloss from the Leeds QAC (GPL) — an external
 // annotation, never a translation of the whole verse and never Quranic text.
 
-export interface GlossView {
-  /** The gloss as first written in the corpus, for display. */
+/** A distinct verbatim gloss string merged under a key, with its occurrence count. */
+export interface GlossVariant {
   gloss: string;
-  /** The normalised key the lookup matched on. */
+  count: number;
+}
+
+export interface GlossView {
+  /** The most common verbatim surface form, for display — never rewritten. */
+  gloss: string;
+  /** The grouping key the lookup matched on. */
   key: string;
+  /** The canonical URL slug for this key (`the zakah` → `the-zakah`). */
+  slug: string;
+  /** The distinct verbatim glosses that map to this key, most common first. */
+  variants: GlossVariant[];
   grouping: GlossGrouping<OccurrenceRef>;
 }
 
-/** Resolve a gloss (raw or normalised) to its grouped occurrences, or undefined. */
-export function describeGloss(word: string): GlossView | undefined {
+/**
+ * Resolve a gloss to its grouped occurrences, or undefined. `input` may be a
+ * canonical slug (`the-zakah`), a raw gloss variant (`[the] zakah.`), or any
+ * case/spacing of either — all fold to the same key. The verbatim surface forms
+ * that were merged are returned so the page can show what grouped together.
+ */
+export function describeGloss(input: string): GlossView | undefined {
   const s = state();
-  const key = normaliseGloss(word);
+  const key = s.glossSlugToKey.get(input.toLowerCase()) ?? glossKey(input);
   const handles = s.glossIndex.get(key);
   if (!handles || handles.length === 0) return undefined;
   const tokens = tokensForHandles(handles);
+
+  const variantCounts = new Map<string, number>();
+  for (const t of tokens) {
+    const g = t.morphology.gloss;
+    if (g) variantCounts.set(g, (variantCounts.get(g) ?? 0) + 1);
+  }
+  const variants: GlossVariant[] = [...variantCounts.entries()]
+    .map(([gloss, count]) => ({ gloss, count }))
+    .sort((a, b) => b.count - a.count || compareStrings(a.gloss, b.gloss));
+
   const grouping = groupGloss(
     tokens.map((t) => ({
       rootSlug: t.morphology.root_slug,
@@ -776,12 +869,19 @@ export function describeGloss(word: string): GlossView | undefined {
       ref: occurrenceRef(t),
     })),
   );
-  return { gloss: tokens[0]!.morphology.gloss ?? key, key, grouping };
+  return {
+    gloss: variants[0]?.gloss ?? key,
+    key,
+    slug: glossSlug(key),
+    variants,
+    grouping,
+  };
 }
 
 export interface GlossListing {
   gloss: string;
   key: string;
+  slug: string;
   total: number;
   rootCount: number;
 }
@@ -792,24 +892,46 @@ export interface GlossListing {
  * A single-root gloss still resolves at its URL; it is just not advertised.
  */
 export function listReverseGlosses(): GlossListing[] {
+  return state().glossListings.filter((g) => g.rootCount >= 2);
+}
+
+export interface GlossIndexResult {
+  /** Listings matching the filter, ranked by distinct-root count, capped to `limit`. */
+  items: GlossListing[];
+  /** How many listings matched the filter (before the cap). */
+  matched: number;
+  /** Total distinct gloss keys (all listings). */
+  total: number;
+  /** Distinct verbatim gloss strings before keying — the "before" of the merge. */
+  distinctVerbatim: number;
+  query: string;
+}
+
+/**
+ * The reverse-gloss index: every gloss key ranked by how many distinct Arabic
+ * roots it spans (the narrowing signal), optionally filtered by a substring of
+ * the key. Pure substring match so it works with JavaScript off.
+ */
+export function listGlossIndex(query: string, limit: number): GlossIndexResult {
   const s = state();
-  const out: GlossListing[] = [];
-  for (const [key, handles] of s.glossIndex) {
-    const roots = new Set<string>();
-    for (const h of handles) {
-      const slug = s.corpus.tokens[h]!.morphology.root_slug;
-      roots.add(slug ?? ' no-root');
-    }
-    if (roots.size < 2) continue;
-    const first = s.corpus.tokens[handles[0]!]!;
-    out.push({
-      gloss: first.morphology.gloss ?? key,
-      key,
-      total: handles.length,
-      rootCount: roots.size,
-    });
-  }
-  return out.sort((a, b) => b.rootCount - a.rootCount || b.total - a.total);
+  const trimmed = query.trim();
+  const q = glossKey(trimmed);
+  const matched = q
+    ? s.glossListings.filter((g) => g.key.includes(q))
+    : s.glossListings;
+  return {
+    items: matched.slice(0, limit),
+    matched: matched.length,
+    total: s.glossListings.length,
+    distinctVerbatim: s.glossDistinctVerbatim,
+    query: trimmed,
+  };
+}
+
+/** Distinct gloss counts before and after keying — reports how much the merge saved. */
+export function glossKeyingStats(): { before: number; after: number } {
+  const s = state();
+  return { before: s.glossDistinctVerbatim, after: s.glossListings.length };
 }
 
 // ─── Similar verses ──────────────────────────────────────────────────────────

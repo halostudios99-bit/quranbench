@@ -1,6 +1,8 @@
 // Canonical URLs and identifiers for every addressable unit (architecture doc
 // §"Addressable units"). One place builds these so links never drift.
 
+import { glossKey, glossSlug } from './gloss';
+
 export function surahHref(surah: number): string {
   return `/${surah}`;
 }
@@ -23,9 +25,10 @@ export function rootHref(slug: string): string {
   return `/root/${slug}`;
 }
 
-/** Reverse gloss lookup page for one English gloss (`mercy`, `(the) reward`). */
+/** Reverse gloss lookup page for one English gloss. Accepts a raw gloss or a key
+ *  and always emits the canonical slug URL (`[the] zakah.` → `/gloss/the-zakah`). */
 export function glossHref(gloss: string): string {
-  return `/gloss/${encodeURIComponent(gloss)}`;
+  return `/gloss/${encodeURIComponent(glossSlug(glossKey(gloss)))}`;
 }
 
 /** A page of a root's occurrence list. Page 1 is the bare root page. */

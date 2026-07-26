@@ -56,6 +56,7 @@ function coreAndRoots(): MetadataRoute.Sitemap {
     { url: absoluteUrl('/colophon'), changeFrequency: 'monthly', priority: 0.5 },
     { url: absoluteUrl('/identifiers'), changeFrequency: 'yearly', priority: 0.5 },
     { url: absoluteUrl('/data'), changeFrequency: 'monthly', priority: 0.5 },
+    { url: absoluteUrl('/gloss'), changeFrequency: 'weekly', priority: 0.6 },
   ];
   // Reverse-gloss pages worth advertising: those where one English gloss spans two
   // or more distinct Arabic roots — the "different words, same rendering" cases.

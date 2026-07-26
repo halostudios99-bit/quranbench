@@ -3,6 +3,8 @@ import { describe, expect, it } from 'vitest';
 import {
   describeGloss,
   getToken,
+  glossKeyingStats,
+  listGlossIndex,
   listSimilarVerses,
   randomTokenId,
   rootCoOccurrences,
@@ -27,6 +29,62 @@ describe('reverse gloss lookup', () => {
 
   it('is case- and space-insensitive on the query', () => {
     expect(describeGloss('  Reward ')?.key).toBe('reward');
+  });
+
+  it('folds punctuation and bracket variants of one gloss to a single page', () => {
+    // Four verbatim Leeds glosses that a reader would call one word (v0.8.0).
+    const variants = ['the zakah', 'the zakah,', 'the zakah."', '[the] zakah.'];
+    const views = variants.map((v) => describeGloss(v));
+    for (const view of views) expect(view).toBeDefined();
+
+    // All resolve to the same key and the same canonical slug.
+    const keys = new Set(views.map((v) => v!.key));
+    expect(keys).toEqual(new Set(['the zakah']));
+    for (const view of views) expect(view!.slug).toBe('the-zakah');
+
+    // The canonical slug resolves to the same page.
+    expect(describeGloss('the-zakah')?.key).toBe('the zakah');
+  });
+
+  it('shows the verbatim surface forms that were merged, unaltered', () => {
+    const view = describeGloss('the-zakah')!;
+    const forms = view.variants.map((v) => v.gloss);
+    // The raw, punctuation-bearing strings are preserved for display — not rewritten.
+    expect(forms).toContain('the zakah,');
+    expect(forms).toContain('[the] zakah.');
+    // The displayed gloss is one of those verbatim forms, most common first.
+    expect(forms[0]).toBe(view.gloss);
+    expect(view.variants[0]!.count).toBeGreaterThanOrEqual(
+      view.variants[view.variants.length - 1]!.count,
+    );
+  });
+
+  it('reports the distinct-gloss count falling after keying', () => {
+    const { before, after } = glossKeyingStats();
+    // v0.8.0 carries 28,119 verbatim glosses; keying collapses the punctuation
+    // and bracket variants, so there are strictly fewer keys.
+    expect(before).toBe(28119);
+    expect(after).toBeLessThan(before);
+    expect(after).toBeGreaterThan(0);
+  });
+});
+
+describe('reverse gloss index', () => {
+  it('ranks glosses by distinct root count, strongest signal first', () => {
+    const { items, total, distinctVerbatim } = listGlossIndex('', 50);
+    expect(total).toBeGreaterThan(0);
+    expect(distinctVerbatim).toBe(28119);
+    // Descending by distinct root count.
+    for (let i = 1; i < items.length; i++)
+      expect(items[i - 1]!.rootCount).toBeGreaterThanOrEqual(items[i]!.rootCount);
+    // The very top gloss collapses several distinct Arabic roots.
+    expect(items[0]!.rootCount).toBeGreaterThan(1);
+  });
+
+  it('filters case- and punctuation-insensitively by gloss key', () => {
+    const { items } = listGlossIndex('Reward', 50);
+    expect(items.length).toBeGreaterThan(0);
+    expect(items.every((g) => g.key.includes('reward'))).toBe(true);
   });
 });
 

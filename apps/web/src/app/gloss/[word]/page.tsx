@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 
 import { JsonLd } from '@/components/JsonLd';
 import { OccurrenceChips } from '@/components/OccurrenceChips';
@@ -40,10 +40,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function GlossPage({ params }: Params) {
   const { word } = await params;
-  const view = describeGloss(decodeURIComponent(word));
+  const requested = decodeURIComponent(word);
+  const view = describeGloss(requested);
   if (!view) notFound();
 
-  const { gloss, grouping } = view;
+  // Raw variants and non-canonical spellings redirect to the canonical slug, so a
+  // gloss has one address whatever punctuation or bracket the reader arrived with.
+  if (requested !== view.slug) redirect(glossHref(view.key));
+
+  const { gloss, grouping, variants } = view;
   const corpusVersion = getCorpus().version;
   const canonical = absoluteUrl(glossHref(view.key));
 
@@ -89,6 +94,31 @@ export default async function GlossPage({ params }: Params) {
           text. Where more than one root appears below, those are different Arabic
           words rendered the same way in English.
         </p>
+
+        {variants.length > 1 ? (
+          <div className="mt-4 border-t border-line pt-4">
+            <p className="font-ui text-[12px] uppercase tracking-wide text-ink3">
+              Merged surface forms
+            </p>
+            <p className="mt-1 text-[13px] leading-relaxed text-ink2">
+              {variants.length} verbatim gloss
+              {variants.length === 1 ? '' : 'es'} from the corpus differ only by
+              punctuation or bracketed helpers and are grouped here; each is shown
+              exactly as written.
+            </p>
+            <ul className="mt-2 flex flex-wrap gap-2">
+              {variants.map((v) => (
+                <li
+                  key={v.gloss}
+                  className="rounded-full border border-line bg-soft px-2.5 py-0.5 font-ui text-[12px] text-ink2"
+                >
+                  <span>“{v.gloss}”</span>
+                  <span className="ml-1.5 text-ink3">· {v.count}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </header>
 
       <div className="flex flex-col gap-4">

@@ -21,6 +21,11 @@ test('segment 0 carries the reader surfaces and roots; a sample resolves 200', a
   const urls = locs(await res.text());
   expect(urls.length).toBeGreaterThan(6000); // surahs + verses + roots
   expect(urls.some((u) => u.endsWith('/root/z-k-w'))).toBe(true);
+  expect(urls.some((u) => u.endsWith('/gloss'))).toBe(true); // the gloss index
+  // Multi-root glosses are advertised by canonical slug (hyphenated, punctuation-free).
+  expect(urls.some((u) => /\/gloss\/[a-z0-9'-]+$/.test(new URL(u).pathname))).toBe(
+    true,
+  );
 
   for (const url of sample(urls, 12)) {
     // Sitemap URLs are absolute (production origin); test the path locally.
