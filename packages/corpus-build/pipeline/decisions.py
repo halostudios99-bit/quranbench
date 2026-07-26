@@ -127,6 +127,18 @@ def render_verse(tokens: list[dict], table: dict, mark: bool = False) -> tuple[l
             previous_row = None
             continue
         english = row["english"]
+
+        # Rule 4: the frame decides the sense. خلا is "pass away" — قد خلت من
+        # قبله الرسل — but خلا إلى is a different word, withdrawing apart with
+        # someone (2:14 وإذا خلوا إلى شيطينهم). A row may name the words that
+        # change its sense; nothing is guessed from context beyond what the row
+        # itself declares.
+        following = row.get("followed_by")
+        if following and i + 1 < len(ordered):
+            nxt = ordered[i + 1]
+            nxt_lemma = (nxt.get("morphology") or {}).get("lemma")
+            english = following.get(nxt["text_no_tashkeel"]) or following.get(nxt_lemma) or english
+
         if previous_row and previous_row.get("elative") and english.split()[0] == "from":
             english = "than" + english[len("from"):]
 

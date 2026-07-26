@@ -124,6 +124,51 @@ def test_min_after_an_elative_is_than() -> None:
     assert alone[0].split()[0] == "from", "the rule must only fire after an elative"
 
 
+def test_a_frame_can_change_a_word() -> None:
+    """Rule 4: the frame decides the sense.
+
+    خلا is "pass away" — قد خلت من قبله الرسل — but خلا إلى is a different act,
+    withdrawing apart with someone (2:14 وإذا خلوا إلى شيطينهم). A row names the
+    words that change it; the renderer never infers a sense from context beyond
+    what the row itself declares.
+    """
+    table = load_table()
+    tokens = [
+        json.loads(line)
+        for line in (ARTIFACTS / f"v{_latest()}" / "tokens.jsonl").open(encoding="utf-8")
+    ]
+    framed = [(k, r) for k, r in table.items() if r.get("followed_by")]
+    assert framed, "no row declares a frame — this test would pass vacuously"
+
+    key, row = framed[0]
+    trigger, alternative = next(iter(row["followed_by"].items()))
+    subject = next(t for t in tokens if (r := resolve(t, table)) and r is row)
+    follower = next(t for t in tokens if t["text_no_tashkeel"] == trigger)
+
+    from pipeline.grammar import _past, _present_3s
+
+    def forms(english: str) -> set[str]:
+        """A rendering inflects, so accept any form of it — 'withdraw' arrives
+        as 'they withdrew'."""
+        return {english, _past(english), _present_3s(english)}
+
+    def says(rendered: str, english: str) -> bool:
+        return any(f.split()[0] in rendered for f in forms(english))
+
+    framed_words, _ = render_verse(
+        [dict(subject, position=1), dict(follower, position=2)], table
+    )
+    assert says(framed_words[0], alternative), (
+        f"{key}: expected the frame rendering {alternative!r}, got {framed_words[0]!r}"
+    )
+
+    bare_words, _ = render_verse([dict(subject, position=1)], table)
+    assert says(bare_words[0], row["english"]), (
+        f"{key}: without the frame it must render {row['english']!r}, got {bare_words[0]!r}"
+    )
+    assert framed_words[0] != bare_words[0], "the frame made no difference"
+
+
 def test_no_doubled_words() -> None:
     """`and and`, `upon them them` — the shape of every bug so far was a word
     emitted by both the decision table and the grammar layer."""
