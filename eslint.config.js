@@ -29,6 +29,11 @@ export default tseslint.config(
       '**/node_modules/**',
       '**/dist/**',
       '**/.next/**',
+      // The atomic-deploy build slots (scripts/deploy-atomic.sh). Same generated
+      // output as .next; without these, a local build into a slot makes eslint
+      // walk the entire bundle and report tens of thousands of errors.
+      '**/.next-a/**',
+      '**/.next-b/**',
       'packages/corpus-build/**',
     ],
   },
@@ -41,6 +46,13 @@ export default tseslint.config(
   {
     files: ['**/public/**/*.js'],
     languageOptions: { globals: serviceWorkerGlobals },
+  },
+  {
+    // Browser-automation scripts: the bodies passed to page.evaluate() are
+    // serialised and run inside the page, so they legitimately reference DOM
+    // globals that do not exist in the Node process running the file.
+    files: ['**/tests/**/*.mjs'],
+    languageOptions: { globals: { ...nodeGlobals, document: 'readonly', window: 'readonly' } },
   },
   {
     rules: {

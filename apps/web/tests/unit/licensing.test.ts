@@ -10,7 +10,19 @@ import { describe, expect, it } from 'vitest';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..', '..');
 
-const SKIP = new Set(['node_modules', '.next', 'dist', '.git', 'out']);
+// Build output is not source and has no licence to declare. `.next-a` and
+// `.next-b` are the atomic-deploy slots (see scripts/deploy-atomic.sh); they are
+// the same kind of artifact as `.next` and must be skipped for the same reason —
+// Next's standalone output writes its own package.json inside them.
+const SKIP = new Set([
+  'node_modules',
+  '.next',
+  '.next-a',
+  '.next-b',
+  'dist',
+  '.git',
+  'out',
+]);
 
 function findPackageJsons(dir: string, acc: string[] = []): string[] {
   for (const entry of readdirSync(dir)) {

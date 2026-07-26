@@ -1,8 +1,17 @@
+import type { Metadata } from 'next';
+
+import { JsonLd } from '@/components/JsonLd';
 import { ReaderVerse } from '@/components/ReaderVerse';
 import { SearchBar } from '@/components/SearchBar';
 import { SurahIndex } from '@/components/SurahIndex';
-import { SITE_TAGLINE } from '@/lib/site';
+import { SITE_NAME, SITE_TAGLINE, SITE_URL } from '@/lib/site';
 import { getCorpus, getSurah, getVerse } from '@/server/corpus';
+
+// The homepage is the page most likely to be linked with tracking parameters, so
+// it needs the canonical every other page type already has.
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default function HomePage() {
   const corpus = getCorpus();
@@ -11,8 +20,54 @@ export default function HomePage() {
   const words = corpus.tokens.length.toLocaleString('en-US');
   const roots = corpus.roots.length.toLocaleString('en-US');
 
+  // Word, root, gloss and data pages already carry JSON-LD; the homepage did not,
+  // so nothing declared what this site *is*. WebSite + SearchAction is what makes
+  // a search box eligible in results; the Organization is deliberately the project
+  // and not a person, because the maintainer's name is still undecided and nothing
+  // in this codebase may assert one.
+  const structured = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: SITE_NAME,
+        description: SITE_TAGLINE,
+        inLanguage: 'en',
+        publisher: { '@id': `${SITE_URL}/#organization` },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
+          },
+          'query-input': 'required name=search_term_string',
+        },
+      },
+      {
+        '@type': 'Organization',
+        '@id': `${SITE_URL}/#organization`,
+        name: SITE_NAME,
+        url: SITE_URL,
+        description:
+          'An open Quran research workbench. Every Arabic word is a permanent, addressable research object.',
+      },
+      {
+        '@type': 'Dataset',
+        '@id': `${SITE_URL}/data#dataset`,
+        name: `${SITE_NAME} Quran corpus`,
+        description: `A versioned, checksummed Quran token corpus: ${words} tokens and ${roots} roots, with morphology, glosses and public-domain translations.`,
+        url: `${SITE_URL}/data`,
+        isAccessibleForFree: true,
+        creator: { '@id': `${SITE_URL}/#organization` },
+      },
+    ],
+  };
+
   return (
     <div className="flex flex-col gap-16">
+      <JsonLd data={structured} />
       <section className="pt-4">
         <h1 className="max-w-3xl text-[32px] font-semibold leading-tight tracking-tight text-ink sm:text-[40px]">
           {SITE_TAGLINE}

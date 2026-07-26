@@ -1,0 +1,52 @@
+cff-version: 1.2.0
+title: quranbench
+message: >-
+  If you use this corpus, this software, or a query reproduced from this site in
+  academic work, please cite it. Cite the corpus version you actually used — the
+  version is printed on every page and returned by every API response, and each
+  version is independently checksummed.
+type: software
+authors:
+  # The maintainer's public name is not yet decided (see apps/web/src/lib/site.ts).
+  # Nothing in this project asserts a name that has not been chosen, so the project
+  # itself is named as the author for now. Replace this entry with the person or
+  # organisation when that decision is made, and add an ORCID.
+  - name: quranbench
+    website: 'https://quranbench.com'
+repository-code: 'https://github.com/halostudios99-bit/quranbench'
+url: 'https://quranbench.com'
+abstract: >-
+  An open Quran research workbench. Every Arabic word is a permanent, addressable
+  research object with its own page: forms, position, root and morphology, every
+  other occurrence of the same form, and how translators rendered the surrounding
+  verse. Search runs over the text by its own words — form, root, lemma, pattern,
+  proximity — and every result carries the corpus version and the query that
+  produced it, so any figure on the site can be reproduced by a third party.
+keywords:
+  - Quran
+  - Arabic
+  - corpus linguistics
+  - digital humanities
+  - morphology
+  - reproducible research
+  - open data
+license: MIT
+license-url: 'https://github.com/halostudios99-bit/quranbench/blob/main/LICENSE'
+version: 0.8.0
+date-released: '2026-07-26'
+references:
+  - type: data
+    title: Tanzil Quran Text (Uthmani)
+    notes: >-
+      The Arabic source text. CC BY 3.0. Never modified; normalised and segmented
+      forms are stored as separate labelled fields.
+    url: 'https://tanzil.net/'
+  - type: data
+    title: Quranic Arabic Corpus (Leeds)
+    notes: >-
+      Morphological annotation, glosses and transliteration. GPL-2.0-or-later.
+      tokens.jsonl embeds this and is therefore GPL as a whole — see LICENSING.md.
+    url: 'https://corpus.quran.com/'
+  - type: data
+    title: "Lane's Arabic-English Lexicon (Perseus/Tufts)"
+    notes: 'CC BY-SA 3.0. Covers 1,564 of 1,651 roots (94.7%).'

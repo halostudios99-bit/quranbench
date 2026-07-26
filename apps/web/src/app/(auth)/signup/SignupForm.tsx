@@ -105,7 +105,17 @@ export function SignupForm({
         <legend className="px-1 text-[13px] font-medium text-ink2">
           Contributor terms · version {termsVersion}
         </legend>
-        <div className="max-h-64 overflow-y-auto rounded border border-line bg-panel px-4 py-3 text-[14px]">
+        {/* A scrollable region must be reachable by keyboard (WCAG 2.1.1). Without
+            tabindex a keyboard-only reader cannot scroll this box, which means they
+            cannot read the terms they are being asked to accept — on the page where
+            they accept them. tabindex="0" puts it in the tab order; role="region"
+            plus the label gives it a name when it receives focus. */}
+        <div
+          tabIndex={0}
+          role="region"
+          aria-label={`Contributor terms, version ${termsVersion}`}
+          className="max-h-64 overflow-y-auto rounded border border-line bg-panel px-4 py-3 text-[14px]"
+        >
           {terms}
         </div>
         <label className="mt-1 flex items-start gap-2.5 text-[14px] text-ink">

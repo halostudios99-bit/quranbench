@@ -1,0 +1,57 @@
+name: Bug report
+description: Something in the site or the API behaves incorrectly.
+title: 'Bug: '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For errors in the *text or data* please use the Correction template
+        instead. For anything security-related, do not open an issue — use the
+        Security tab's private reporting.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to /2
+        2. Open Reading settings
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+    validations:
+      required: true
+  - type: dropdown
+    id: js
+    attributes:
+      label: Does it also happen with JavaScript disabled?
+      description: >-
+        Every public page must work without JavaScript, so the answer changes
+        where the bug is.
+      options:
+        - Yes, happens with JS disabled too
+        - 'No, only with JS enabled'
+        - Have not checked
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Browser and device
+      placeholder: 'Safari 18, iPhone 14'

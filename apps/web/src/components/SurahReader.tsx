@@ -5,6 +5,8 @@ import type { Surah, Token } from '@quranbench/corpus';
 import { surahAllHref, surahHref, surahPageHref } from '@/lib/addressing';
 import { arabicScale, type ArabicSize, type DisplayMode } from '@/lib/reader-prefs';
 import { getVerseTranslations, type VerseView } from '@/server/corpus';
+import { absoluteUrl } from '@/lib/site';
+import { JsonLd } from './JsonLd';
 import { ReaderVerse } from './ReaderVerse';
 import { ReaderVerseBlock } from './ReaderVerseBlock';
 import { SurahRail } from './SurahRail';
@@ -56,8 +58,31 @@ export function SurahReader({
   const lastOrdinal =
     verses.length > 0 ? verses[verses.length - 1]!.ordinal : null;
 
+  // Word, root and gloss pages carry JSON-LD; the reader surfaces did not, so the
+  // most-linked pages on the site declared nothing machine-readable. A surah is a
+  // Chapter of a Book — described as a translation-independent structural unit,
+  // with no claim made about the text itself beyond its source edition.
+  const structured = {
+    '@context': 'https://schema.org',
+    '@type': 'Chapter',
+    name: `${surah.name_en} (${surah.name_translit})`,
+    alternateName: surah.name_ar,
+    position: number,
+    url: absoluteUrl(surahHref(number)),
+    inLanguage: 'ar',
+    isPartOf: {
+      '@type': 'Book',
+      name: 'Quran',
+      alternateName: 'القرآن',
+      bookEdition: 'Tanzil Uthmani 1.1',
+      inLanguage: 'ar',
+      numberOfPages: 114,
+    },
+  };
+
   return (
     <div className="flex gap-8">
+      <JsonLd data={structured} />
       <SurahRail currentSurah={number} />
       <div
         className="mx-auto w-full min-w-0 max-w-reader"

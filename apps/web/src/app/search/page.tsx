@@ -6,10 +6,18 @@ import { ProvenanceTag } from '@/components/ProvenanceTag';
 import { searchString } from '@quranbench/search';
 import { describeSegment, getCorpus, getIndex } from '@/server/corpus';
 
+// `?q=` makes this an unbounded URL space. Left indexable it would compete for
+// crawl budget with the 87,000 real, permanent URLs in the sitemap — and search
+// result pages are thin duplicates of content that already has canonical homes on
+// word, root and verse pages. `follow` is kept so the links out of a result page
+// still pass crawlers through to those pages; the canonical points every variant
+// back at the bare /search.
 export const metadata: Metadata = {
   title: 'Search',
   description:
     'Search the Quran corpus by word, root, lemma, part of speech, pattern, proximity and reference — every result reproducible.',
+  robots: { index: false, follow: true },
+  alternates: { canonical: '/search' },
 };
 
 const MAX_SEGMENTS = 40;

@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a correction from the site
+    url: https://quranbench.com/report
+    about: The in-site form, if you would rather not use GitHub. It records the same information.
+  - name: Report a security vulnerability
+    url: https://github.com/halostudios99-bit/quranbench/security/advisories/new
+    about: Please do not open a public issue for security problems.
+  - name: How the corpus is built
+    url: https://quranbench.com/method
+    about: Sources, licences, what is computed and what is asserted — read this before reporting a data issue.

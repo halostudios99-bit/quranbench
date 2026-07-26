@@ -1,0 +1,59 @@
+name: Correction to the text, data or a claim
+description: Report an error in a gloss, root, morphology field, translation attribution, verse reference or an investigation.
+title: 'Correction: '
+labels: ['correction']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Corrections are the most valuable thing this project can receive, and they
+        are handled with more care than code changes.
+
+        Please give an identifier so the claim is checkable by anyone. Token
+        identifiers look like `quran:tanzil-uthmani:2:43:4` and appear on every
+        word page.
+  - type: input
+    id: identifier
+    attributes:
+      label: Identifier
+      description: The token id, verse reference, root slug or investigation slug this concerns.
+      placeholder: 'quran:tanzil-uthmani:2:43:4  ·  or 2:43  ·  or root/z-k-w'
+    validations:
+      required: true
+  - type: input
+    id: corpus_version
+    attributes:
+      label: Corpus version
+      description: Printed in the footer of every page and returned by /api/health.
+      placeholder: '0.8.0'
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: What the site currently says
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: What it should say, and on what basis
+      description: >-
+        Cite a source, or a query on this site that demonstrates it. "The root of
+        صلاة is ص ل و, see /root/s-l-w" is exactly the right level of detail.
+    validations:
+      required: true
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Which layer is wrong?
+      options:
+        - Quranic text (serious — the source edition should be immutable)
+        - Morphology, root or lemma
+        - Gloss or transliteration
+        - Translation text or attribution
+        - Lexicon entry
+        - An investigation's prose or evidence
+        - Not sure
+    validations:
+      required: true
