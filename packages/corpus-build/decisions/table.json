@@ -96,9 +96,9 @@
   "tokens": 1
  },
  "form:أفلا": {
-  "english": "",
+  "english": "do they not",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 45
  },
  "form:أفلم": {
@@ -198,9 +198,9 @@
   "tokens": 66
  },
  "form:أنت": {
-  "english": "",
+  "english": "You",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 55
  },
  "form:أنتم": {
@@ -552,9 +552,9 @@
   "tokens": 156
  },
  "form:إنك": {
-  "english": "",
+  "english": "indeed you",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 50
  },
  "form:إنكم": {
@@ -996,9 +996,9 @@
   "tokens": 280
  },
  "form:ذلكم": {
-  "english": "",
+  "english": "that",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 44
  },
  "form:ذلكما": {
@@ -1194,9 +1194,9 @@
   "tokens": 1
  },
  "form:علينا": {
-  "english": "",
+  "english": "upon us",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 51
  },
  "form:عليه": {
@@ -1206,9 +1206,9 @@
   "tokens": 146
  },
  "form:عليها": {
-  "english": "",
+  "english": "upon it",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 46
  },
  "form:عليهم": {
@@ -1236,9 +1236,9 @@
   "tokens": 1
  },
  "form:عما": {
-  "english": "",
+  "english": "about what",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 47
  },
  "form:عمرن": {
@@ -1350,9 +1350,9 @@
   "tokens": 11
  },
  "form:فأولئك": {
-  "english": "",
+  "english": "so those",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 46
  },
  "form:فأين": {
@@ -1578,9 +1578,9 @@
   "tokens": 3
  },
  "form:فقد": {
-  "english": "",
+  "english": "then indeed",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 57
  },
  "form:فكأنما": {
@@ -2124,9 +2124,9 @@
   "tokens": 2
  },
  "form:لعلكم": {
-  "english": "",
+  "english": "so that you might",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 59
  },
  "form:لعلنا": {
@@ -2172,9 +2172,9 @@
   "tokens": 29
  },
  "form:لقد": {
-  "english": "",
+  "english": "indeed",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 54
  },
  "form:لقمن": {
@@ -2754,9 +2754,9 @@
   "tokens": 14
  },
  "form:وأنتم": {
-  "english": "",
+  "english": "and you",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 45
  },
  "form:وأنك": {
@@ -4020,9 +4020,9 @@
   "tokens": 64
  },
  "أ ب و|أَب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "father",
+  "evidence": "لأبيه",
+  "grade": "settled",
   "tokens": 46
  },
  "أ ب و|أَبَوان|N": {
@@ -4164,9 +4164,9 @@
   "tokens": 1
  },
  "أ ج ل|أَجَل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "term",
+  "evidence": "+مسمى = an appointed term",
+  "grade": "supported",
   "tokens": 52
  },
  "أ ج ل|أَجَّلَ|V": {
@@ -5136,9 +5136,9 @@
   "tokens": 3
  },
  "أ ي ي|أَيّ|INTG": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "which",
+  "evidence": "interrogative",
+  "grade": "settled",
   "tokens": 57
  },
  "أ ي ي|أَيّ|N": {
@@ -5850,9 +5850,9 @@
   "tokens": 29
  },
  "ب ص ر|بَصَر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "sight",
+  "evidence": "الأبصر",
+  "grade": "settled",
   "tokens": 48
  },
  "ب ص ر|بَصُرَتْ|V": {
@@ -5862,9 +5862,9 @@
   "tokens": 3
  },
  "ب ص ر|بَصِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "seeing",
+  "evidence": "+بما; paired with سميع",
+  "grade": "settled",
   "tokens": 51
  },
  "ب ص ر|بَصِيرَة|N": {
@@ -6030,9 +6030,9 @@
   "tokens": 1
  },
  "ب ع ث|بَعَثَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "raise up",
+  "evidence": "يبعثون",
+  "grade": "settled",
   "tokens": 52
  },
  "ب ع ث|بَعْث|N": {
@@ -6822,9 +6822,9 @@
   "tokens": 3
  },
  "ت ح ت|تَحْت|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "beneath",
+  "evidence": "+الأنهر",
+  "grade": "settled",
   "tokens": 48
  },
  "ت ر ب|أَتْراب|N": {
@@ -6924,9 +6924,9 @@
   "tokens": 1
  },
  "ت ل و|تَلَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "recite",
+  "evidence": "+عليهم, +عليك",
+  "grade": "settled",
   "tokens": 61
  },
  "ت ل و|تِلاوَت|N": {
@@ -6972,9 +6972,9 @@
   "tokens": 1
  },
  "ت و ب|تابَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "turn back",
+  "evidence": "+على, +من; root ت و ب = returning",
+  "grade": "supported",
   "tokens": 63
  },
  "ت و ب|تَوّاب|N": {
@@ -7650,9 +7650,9 @@
   "tokens": 5
  },
  "ج ر م|مُجْرِم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "criminal",
+  "evidence": "المجرمين",
+  "grade": "supported",
   "tokens": 52
  },
  "ج ر م|يَجْرِمَ|V": {
@@ -7668,9 +7668,9 @@
   "tokens": 3
  },
  "ج ر ي|جَرَيْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "flow",
+  "evidence": "تجرى من تحتها الأنهر",
+  "grade": "settled",
   "tokens": 57
  },
  "ج ر ي|جَوار|N": {
@@ -7884,9 +7884,9 @@
   "tokens": 22
  },
  "ج م ع|جَمِيع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "all together",
+  "evidence": "جميعا",
+  "grade": "settled",
   "tokens": 53
  },
  "ج م ع|جَمْع|N": {
@@ -8065,9 +8065,9 @@
   "tokens": 96
  },
  "ج ن ن|جَنَّة|PN": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "Garden",
+  "evidence": "جنت تجرى",
+  "grade": "settled",
   "tokens": 51
  },
  "ج ن ن|جُنَّة|N": {
@@ -8899,9 +8899,9 @@
   "tokens": 2
  },
  "ح س ب|حَسِبَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "reckon",
+  "evidence": "+أن",
+  "grade": "settled",
   "tokens": 44
  },
  "ح س ب|حَسِيب|N": {
@@ -9500,9 +9500,9 @@
   "tokens": 3
  },
  "ح ك م|حَكَمَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "judge",
+  "evidence": "+بينهم",
+  "grade": "settled",
   "tokens": 45
  },
  "ح ك م|حَكِيم|N": {
@@ -10064,9 +10064,9 @@
   "tokens": 4
  },
  "ح ي ي|أَحْيا|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "give life",
+  "evidence": "+ويميت",
+  "grade": "settled",
   "tokens": 51
  },
  "ح ي ي|اسْتِحْياء|N": {
@@ -10190,9 +10190,9 @@
   "tokens": 2
  },
  "خ ب ر|خَبِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "aware",
+  "evidence": "+بما",
+  "grade": "settled",
   "tokens": 45
  },
  "خ ب ر|خُبْر|N": {
@@ -10352,9 +10352,9 @@
   "tokens": 1
  },
  "خ ر ج|خَرَجَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "go out",
+  "evidence": "+من, +منها",
+  "grade": "settled",
   "tokens": 53
  },
  "خ ر ج|خَرْج|N": {
@@ -11126,9 +11126,9 @@
   "tokens": 2
  },
  "خ ل ق|خَلْق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "creation",
+  "evidence": "خلق السموت",
+  "grade": "settled",
   "tokens": 52
  },
  "خ ل ق|خُلُق|N": {
@@ -12038,9 +12038,9 @@
   "tokens": 3
  },
  "د و ر|دار|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "abode",
+  "evidence": "+الآخرة",
+  "grade": "settled",
   "tokens": 48
  },
  "د و ر|دَوائِر|N": {
@@ -12237,9 +12237,9 @@
   "tokens": 1
  },
  "ذ ك ر|تَذَكَّرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "take heed",
+  "evidence": "form V of ذكر",
+  "grade": "supported",
   "tokens": 51
  },
  "ذ ك ر|تَذْكِرَة|N": {
@@ -13100,9 +13100,9 @@
   "tokens": 6
  },
  "ر ز ق|رَزَقَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "provide",
+  "evidence": "رزقنهم",
+  "grade": "settled",
   "tokens": 61
  },
  "ر ز ق|رَزّاق|N": {
@@ -13112,9 +13112,9 @@
   "tokens": 1
  },
  "ر ز ق|رِزْق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "provision",
+  "evidence": "+كريم, +حسنا",
+  "grade": "settled",
   "tokens": 55
  },
  "ر س خ|راسِخ|N": {
@@ -14452,9 +14452,9 @@
   "tokens": 8
  },
  "ز ي د|زادَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "increase",
+  "evidence": "+إيمانا",
+  "grade": "settled",
   "tokens": 49
  },
  "ز ي د|زِيادَة|N": {
@@ -15844,9 +15844,9 @@
   "tokens": 78
  },
  "س م ع|سَمِيع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "hearing",
+  "evidence": "+عليم",
+  "grade": "settled",
   "tokens": 47
  },
  "س م ع|سَمّاع|N": {
@@ -16084,15 +16084,15 @@
   "tokens": 4
  },
  "س و أ|سَيِّئَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bad deed",
+  "evidence": "السيئات; set against الحسنات",
+  "grade": "settled",
   "tokens": 58
  },
  "س و أ|سُوء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "evil",
+  "evidence": "سوء العذاب; distinct from شر",
+  "grade": "supported",
   "tokens": 50
  },
  "س و أ|سُوٓأَى|N": {
@@ -16180,9 +16180,9 @@
   "tokens": 1
  },
  "س و ع|ساعَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "hour",
+  "evidence": "الساعة; +بغتة",
+  "grade": "settled",
   "tokens": 47
  },
  "س و ع|ساعَة|T": {
@@ -16516,9 +16516,9 @@
   "tokens": 6
  },
  "ش د د|شَدِيد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "severe",
+  "evidence": "+العقاب",
+  "grade": "settled",
   "tokens": 56
  },
  "ش ر ب|أُشْرِبُ|V": {
@@ -16692,9 +16692,9 @@
   "tokens": 2
  },
  "ش ر ك|مُشْرِك|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "associator",
+  "evidence": "المشركين; from أشرك",
+  "grade": "supported",
   "tokens": 44
  },
  "ش ر ك|مُشْرِكَة|N": {
@@ -16992,9 +16992,9 @@
   "tokens": 14
  },
  "ش ك ر|شَكَرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "give thanks",
+  "evidence": "R9: distinct from حمد",
+  "grade": "settled",
   "tokens": 46
  },
  "ش ك ر|شَكُور|N": {
@@ -17160,9 +17160,9 @@
   "tokens": 44
  },
  "ش ه د|شَهِيد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "witness",
+  "evidence": "+على",
+  "grade": "settled",
   "tokens": 56
  },
  "ش ه د|مَشْهَد|N": {
@@ -17412,9 +17412,9 @@
   "tokens": 1
  },
  "ص ب ر|صَبَرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be steadfast",
+  "evidence": "+على",
+  "grade": "supported",
   "tokens": 58
  },
  "ص ب ر|صَبّار|N": {
@@ -17628,9 +17628,9 @@
   "tokens": 2
  },
  "ص د ق|صادِق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "truthful",
+  "evidence": "الصادقين",
+  "grade": "settled",
   "tokens": 59
  },
  "ص د ق|صادِقَة|N": {
@@ -18108,9 +18108,9 @@
   "tokens": 9
  },
  "ص ل ح|صالِحَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "righteous deeds",
+  "evidence": "الصالحات; feminine plural of صالح",
+  "grade": "supported",
   "tokens": 62
  },
  "ص ل ح|صَلَحَ|V": {
@@ -18522,9 +18522,9 @@
   "tokens": 1
  },
  "ض ر ب|ضَرَبَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "strike",
+  "evidence": "ضرب مثلا = set forth a likeness",
+  "grade": "settled",
   "tokens": 55
  },
  "ض ر ب|ضَرْب|N": {
@@ -19676,9 +19676,9 @@
   "tokens": 21
  },
  "ظ ن ن|ظَنَّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "assume",
+  "evidence": "2:78 set against يعلمون",
+  "grade": "settled",
   "tokens": 47
  },
  "ظ ه ر|أَظْهَرَ|V": {
@@ -20182,9 +20182,9 @@
   "tokens": 6
  },
  "ع د و|عَدُوّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "enemy",
+  "evidence": "+مبين",
+  "grade": "settled",
   "tokens": 50
  },
  "ع د و|عَدْو|N": {
@@ -21125,9 +21125,9 @@
   "tokens": 5
  },
  "ع ق ل|عَقَلُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "reason",
+  "evidence": "تعقلون; R9: distinct from تفكر, تدبر",
+  "grade": "settled",
   "tokens": 49
  },
  "ع ق م|عَقِيم|N": {
@@ -21179,9 +21179,9 @@
   "tokens": 2
  },
  "ع ل م|أَعْلَم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "most knowing",
+  "evidence": "+بما, +بمن",
+  "grade": "settled",
   "tokens": 49
  },
  "ع ل م|عالَم|N": {
@@ -21779,9 +21779,9 @@
   "tokens": 1
  },
  "ع ي ن|عَيْن|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "eye",
+  "evidence": "أعينهم; also spring",
+  "grade": "settled",
   "tokens": 57
  },
  "ع ي ن|عِين|N": {
@@ -22547,9 +22547,9 @@
   "tokens": 2
  },
  "غ ي ب|غَيْب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "unseen",
+  "evidence": "+والشهدة — set against the witnessed",
+  "grade": "settled",
   "tokens": 49
  },
  "غ ي ب|غُيُوب|N": {
@@ -23189,9 +23189,9 @@
   "tokens": 1
  },
  "ف ر ي|افْتَرَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "fabricate",
+  "evidence": "+على الله",
+  "grade": "settled",
   "tokens": 50
  },
  "ف ر ي|افْتِراء|N": {
@@ -23951,9 +23951,9 @@
   "tokens": 197
  },
  "ق ب ل|قَبْل|T": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "before",
+  "evidence": "same lemma as the N key",
+  "grade": "settled",
   "tokens": 45
  },
  "ق ب ل|قُبُل|N": {
@@ -24041,9 +24041,9 @@
   "tokens": 1
  },
  "ق ت ل|قاتَلَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "fight",
+  "evidence": "form III; +فى, +حتى — distinct from قتل=kill",
+  "grade": "settled",
   "tokens": 54
  },
  "ق ت ل|قَتَلَ|V": {
@@ -24137,9 +24137,9 @@
   "tokens": 25
  },
  "ق د ر|قَدِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "capable",
+  "evidence": "على كل شىء قدير",
+  "grade": "settled",
   "tokens": 45
  },
  "ق د ر|قَدَّرَ|V": {
@@ -24509,9 +24509,9 @@
   "tokens": 1
  },
  "ق ر ي|قَرْيَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "town",
+  "evidence": "القرى; أهلكنها",
+  "grade": "settled",
   "tokens": 57
  },
  "ق س ر|قَسْوَرَة|N": {
@@ -24785,9 +24785,9 @@
   "tokens": 1
  },
  "ق ض ي|قَضَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "decree",
+  "evidence": "+بينهم, +الأمر",
+  "grade": "supported",
   "tokens": 59
  },
  "ق ض ي|مَقْضِيّ|N": {
@@ -25595,9 +25595,9 @@
   "tokens": 1
  },
  "ك ت ب|كَتَبَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "write",
+  "evidence": "+عليكم = prescribed upon you",
+  "grade": "settled",
   "tokens": 49
  },
  "ك ت ب|كِتاب|N": {
@@ -25661,9 +25661,9 @@
   "tokens": 2
  },
  "ك ث ر|كَثِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "many",
+  "evidence": "+من",
+  "grade": "settled",
   "tokens": 63
  },
  "ك ث ر|كَثِيرَة|N": {
@@ -25890,9 +25890,9 @@
   "tokens": 5
  },
  "ك س ب|كَسَبَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "earn",
+  "evidence": "ما كسبت",
+  "grade": "settled",
   "tokens": 62
  },
  "ك س د|كَساد|N": {
@@ -26447,9 +26447,9 @@
   "tokens": 30
  },
  "ك ي ف|كَيْف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "how",
+  "evidence": "+كان",
+  "grade": "settled",
   "tokens": 53
  },
  "ك ي ل|اكْتالُ|V": {
@@ -27659,9 +27659,9 @@
   "tokens": 2
  },
  "م س س|مَسَّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "touch",
+  "evidence": "+الشر, +النار",
+  "grade": "settled",
   "tokens": 56
  },
  "م س س|مِساس|N": {
@@ -28187,9 +28187,9 @@
   "tokens": 3
  },
  "م و ت|مَوْت|N": {
-  "english": "",
+  "english": "death",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 50
  },
  "م و ت|مَوْتَت|N": {
@@ -28247,9 +28247,9 @@
   "tokens": 86
  },
  "م و ه|ماء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "water",
+  "evidence": "+فأخرجنا, +فأحيا",
+  "grade": "settled",
   "tokens": 63
  },
  "م ي د|تَمِيدَ|V": {
@@ -28331,9 +28331,9 @@
   "tokens": 75
  },
  "ن ب أ|نَبَّأَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "inform",
+  "evidence": "+بما; root = news",
+  "grade": "settled",
   "tokens": 46
  },
  "ن ب أ|نُبُوَّة|N": {
@@ -28655,9 +28655,9 @@
   "tokens": 4
  },
  "ن ذ ر|نَذِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "warner",
+  "evidence": "+مبين",
+  "grade": "settled",
   "tokens": 58
  },
  "ن ذ ر|نَذْر|N": {
@@ -28781,9 +28781,9 @@
   "tokens": 6
  },
  "ن ز ل|نَزَّلَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "send down in stages",
+  "evidence": "form II (intensive/repeated) against form IV أنزل",
+  "grade": "supported",
   "tokens": 62
  },
  "ن ز ل|نَزْلَة|N": {
@@ -28883,9 +28883,9 @@
   "tokens": 2
  },
  "ن س و|نِساء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "women",
+  "evidence": "نسائكم",
+  "grade": "settled",
   "tokens": 59
  },
  "ن س ي|أَنسَى|V": {
@@ -29153,9 +29153,9 @@
   "tokens": 11
  },
  "ن ص ر|نَصَرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "help",
+  "evidence": "ينصركم",
+  "grade": "settled",
   "tokens": 59
  },
  "ن ص ر|نَصِير|N": {
@@ -29927,9 +29927,9 @@
   "tokens": 2
  },
  "ن ه ر|نَهار|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "daytime",
+  "evidence": "الليل والنهار",
+  "grade": "settled",
   "tokens": 56
  },
  "ن ه ر|نَهار|T": {
@@ -29939,9 +29939,9 @@
   "tokens": 1
  },
  "ن ه ر|نَهَر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "river",
+  "evidence": "الأنهر تجرى",
+  "grade": "settled",
   "tokens": 54
  },
  "ن ه ي|انتَهَى|V": {
@@ -30337,9 +30337,9 @@
   "tokens": 1
  },
  "ه ل ك|أَهْلَكَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "destroy",
+  "evidence": "أهلكنا من قبلهم",
+  "grade": "settled",
   "tokens": 51
  },
  "ه ل ك|تَهْلُكَة|N": {
@@ -30937,9 +30937,9 @@
   "tokens": 1
  },
  "و ذ ر|يَذَرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "leave",
+  "evidence": "فذرهم",
+  "grade": "settled",
   "tokens": 45
  },
  "و ر ث|أَوْرَثَ|V": {
@@ -31459,9 +31459,9 @@
   "tokens": 6
  },
  "و ع د|وَعْد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "promise",
+  "evidence": "+الله, +الحق",
+  "grade": "settled",
   "tokens": 49
  },
  "و ع ظ|مَوْعِظَة|N": {
@@ -31760,9 +31760,9 @@
   "tokens": 1
  },
  "و ق ي|مُتَّقي|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one who guards",
+  "evidence": "المتقين; from اتقى",
+  "grade": "settled",
   "tokens": 49
  },
  "و ق ي|واق|N": {

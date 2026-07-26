@@ -166,6 +166,12 @@ def test_no_root_level_over_seeding() -> None:
             continue
         englishes = {r["english"] for _, r in rows}
         lemmas = {k.split("|")[1] for k, _ in rows if "|" in k}
+        # A verb and its own noun may share an English word — "promise" is both
+        # وَعَدَ and وَعْد. Two lemmas of the SAME part of speech sharing one
+        # rendering is the mistake this catches.
+        pos_tags = [k.split("|")[2] for k, _ in rows if k.count("|") == 2]
+        if len(englishes) == 1 and len(set(pos_tags)) == len(pos_tags):
+            continue
         # One lemma tagged with two parts of speech is not over-seeding —
         # يَوْم is the same word whether tagged N or T. Distinct lemmas sharing
         # one English word is the real signature.
