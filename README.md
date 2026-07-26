@@ -74,11 +74,13 @@ cd packages/corpus-build
 python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
 python -m pipeline.build
-python -m pipeline.verify out/v0.6.0
+python -m pipeline.verify out/v0.8.0
 pytest
 ```
 
 Artifacts are immutable once released. Corrections produce a new version.
+
+The build fetches one **display-only** translation (Talal Itani's ClearQuran, CC BY-NC-ND 4.0). It is served to readers but, because it is not redistributable, is **never committed to this repository** (`translations/en-itani.*` is gitignored). If you have not fetched it, everything still builds and runs — the site simply shows one fewer translation. See `LICENSING.md`.
 
 ## Verifying the corpus
 
@@ -86,7 +88,7 @@ Anyone can confirm a published corpus is byte-for-byte what was built:
 
 ```bash
 cd packages/corpus-build
-python -m pipeline.verify out/v0.6.0
+python -m pipeline.verify out/v0.8.0
 ```
 
 It re-hashes every artifact against the checksums in `manifest.json`, prints `OK` and exits 0 when everything matches, and exits non-zero naming the offending file otherwise.
@@ -120,6 +122,7 @@ Code is MIT. The corpus is not uniformly licensed and you must read `LICENSING.m
 | Application code | MIT |
 | Tanzil Quran text | CC BY 3.0 |
 | Leeds morphology, and `tokens.jsonl` which embeds it | GPL-2.0-or-later |
-| Translations | per edition, all public domain |
+| Translations shipped in the dataset | per edition, all public domain |
+| Talal Itani / ClearQuran (display-only, fetched at build time, never committed) | CC BY-NC-ND 4.0 |
 | Amiri fonts | SIL OFL 1.1 |
 | Contributed content | CC BY-SA 4.0 |

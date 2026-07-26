@@ -5,6 +5,49 @@ readiness), as an honest internal assessment — for the owner, not for marketin
 It records what is genuinely built, what only looks built, what is fragile, and
 what an outside reviewer would attack first. It supersedes the 2026-07-25 version._
 
+## Final cleanup (2026-07-26, after Batches 5–6)
+
+A closing pass addressing the loose ends the batch reports had flagged out of
+scope. Nothing new was built; four things were finished:
+
+- **The three pre-existing e2e failures are fixed** and the whole e2e suite is now
+  green against real Postgres (**149 passed, 5 skipped, 0 failed**). `actions.spec`
+  no longer hardcodes the corpus version — it reads it from `/api/health`, so a
+  corpus bump can't break it. The `/data` page had a **real duplicate-render bug**
+  (the "Display-only translations" heading rendered once per version, inside the
+  version loop); it now renders **once**, deduplicated across versions
+  (`app/data/page.tsx`) — the page, not the test, was fixed. `tooltip.spec` waits
+  for `document.fonts.ready` before measuring layout, so the Arabic web-font
+  reflow can no longer flake the no-layout-shift assertion (no sleep added).
+- **The non-redistributable Itani edition is no longer committed.** This repo is
+  MIT and meant to be forked commercially; a CC BY-NC-ND artifact inside it created
+  licensing ambiguity. `translations/en-itani.jsonl` and its `LICENSE.md` are now
+  gitignored across every version, `git rm --cached`'d, fetched at build time only,
+  and documented in `LICENSING.md`. The corpus loader **degrades cleanly** when a
+  non-redistributable edition is absent — it skips it (ENOENT only, and only for
+  `redistributable: false`) rather than failing to boot, so a fork that hasn't
+  fetched Itani still runs, one translation lighter. A missing *redistributable*
+  edition remains a hard error. Two new tests guard this: one asserts no
+  non-redistributable artifact is tracked by git
+  (`packages/corpus/src/licensing.test.ts`), one asserts the loader degrades
+  cleanly on absence (`packages/corpus/src/index.test.ts`).
+- **The CLAUDE.md non-negotiables were re-audited against the code** (see the
+  updated table at the bottom). Rules 1, 3, 4, 5, 6 hold with cited enforcement.
+  Rule 2 remains convention-enforced (single tested renderer, no compile-time
+  guard). Rules 7 (MT) and the payment-isolation sub-clause of Rule 5 remain
+  **vacuous** — those subsystems do not exist, so there is no boundary to enforce
+  or violate yet; both must be re-audited when `i18n-mt` and Stripe land.
+
+**Final verification run (all suites):**
+
+- **Python (`pytest`, corpus-build):** 109 passed, 1 skipped.
+- **Packages (`vitest run`):** 332 passed across 11 files.
+- **Web unit (`vitest run`, apps/web):** 186 passed across 28 files.
+- **Playwright e2e — against real Postgres:** 149 passed, 5 skipped, **0 failed**.
+
+The Docker-image and Lighthouse gaps below are unchanged — still unverified in this
+environment (no Docker daemon, no headless-Chrome Lighthouse run).
+
 How this was produced: every package and app unit suite was run; the app was
 type-checked, linted and production-built; the Playwright e2e suite was run against
 a **real Postgres**; the backup round-trip and the Prisma migrations were exercised
@@ -137,12 +180,12 @@ and migration checks. Nothing observed flaky in the unit layer.
   categories > 95, TTFB < 400ms) are encoded as assertions and the CI job is wired,
   but no run happened (no Chrome). The performance claims remain aspirational until
   the `lighthouse` CI job runs green on a real browser.
-- **Three pre-existing e2e failures persist**, unrelated to this batch:
-  `actions.spec.ts` (clipboard copy — environment/permission sensitive),
-  `reader.spec.ts:177` (a strict-mode selector matching the "Display-only
-  translations" heading twice on `/data`), and `tooltip.spec.ts:51` (asserts hover
-  does not change `scrollHeight`; off by ~271px). None touch Batch 5–6 code, but
-  they keep the e2e job red and should be fixed before CI is trusted as a gate.
+- ~~**Three pre-existing e2e failures persist**~~ **— fixed in the final cleanup
+  pass (2026-07-26).** `actions.spec.ts` now reads the corpus version from
+  `/api/health` instead of hardcoding it; the `/data` page's duplicate "Display-only
+  translations" heading (a real render bug) was consolidated to one deduplicated
+  section; `tooltip.spec.ts` waits for `document.fonts.ready` before its layout
+  assertion. The e2e suite is now green (149 passed, 0 failed) against real Postgres.
 - **The public API read-path limiter is still per-process** (`server/api/http.ts`),
   not Redis. This is deliberate — it is explicitly a courtesy backstop that fails
   open, and the security-relevant _write_ limits are the ones moved to Redis — but
@@ -181,9 +224,9 @@ and migration checks. Nothing observed flaky in the unit layer.
 2. **"Your performance budgets are unmeasured."** Lighthouse is wired but never run.
    A reviewer will (rightly) not take LCP/CLS on faith. — Run the CI `lighthouse`
    job on a runner with Chrome.
-3. **"CI is red."** Three pre-existing e2e failures mean the pipeline you just added
-   does not pass. A gate that fails on `main` trains people to ignore it. — Fix the
-   three specs.
+3. ~~**"CI is red."**~~ **Resolved (2026-07-26).** The three pre-existing e2e
+   failures are fixed and the suite is green against real Postgres; the remaining
+   red on CI would only be the still-unrun Docker/Lighthouse jobs above.
 4. **"The API rate limit you publish isn't the one you enforce."** Read-path limiting
    is per-process while the header advertises a global number. — Move it to Redis or
    soften the published claim.
@@ -192,15 +235,17 @@ and migration checks. Nothing observed flaky in the unit layer.
 
 ## Non-negotiable rules (CLAUDE.md) — status
 
-| Rule                                                 | Verdict     | Note                                                                  |
-| ---------------------------------------------------- | ----------- | --------------------------------------------------------------------- |
-| 1 Never modify Quranic text                          | UPHELD      | derived forms separate; source immutable, Tanzil-attributed           |
-| 2 Nothing resembles scripture w/o provenance tag     | **PARTIAL** | enforced on the `Verse` path; convention-only for raw `.quran` spans  |
-| 3 Server-render everything public; works with JS off | UPHELD      | `no-js.spec.ts` green in the real e2e run                             |
-| 4 Reproducibility                                    | UPHELD      | version + params + query on every result; corpus baked into the image |
-| 5 Nothing gated by login/payment                     | UPHELD      | draft-by-slug leak fixed; auth gates only a user's own work           |
-| 6 No Quran.Foundation API                            | UPHELD      | unchanged                                                             |
-| 7 MT never touches Quranic text                      | VACUOUS     | no MT service exists                                                  |
+Re-audited against the code on 2026-07-26 (evidence cited inline):
+
+| Rule                                                 | Verdict     | Note                                                                                                          |
+| ---------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------- |
+| 1 Never modify Quranic text                          | UPHELD      | derived forms are separate fields (`normalise.py`); loader only reads + checksums, never mutates (`load.ts`) |
+| 2 Nothing resembles scripture w/o provenance tag     | **PARTIAL** | `Verse`/`VerseTranslations` always emit `<ProvenanceTag>`; single-renderer is tested but not compiler-forced |
+| 3 Server-render everything public; works with JS off | UPHELD      | no `'use client'` in any `page.tsx`/`layout.tsx`; `no-js.spec.ts` green in the real e2e run                  |
+| 4 Reproducibility                                    | UPHELD      | version + params + query on search/gloss/similar; `api-core.test.ts` asserts every read endpoint carries it  |
+| 5 Nothing gated by login/payment                     | UPHELD      | no auth check on public pages/downloads; payment-isolation sub-clause vacuous (no payments code)             |
+| 6 No Quran.Foundation API                            | UPHELD      | zero `quran.foundation` refs; `corpus.quran.com` hits are the Leeds QAC build source only                    |
+| 7 MT never touches Quranic text                      | VACUOUS     | no MT service exists; `lib/translations.ts` operates on licensed human editions only. Re-audit when built    |
 
 ## What remains, in order
 
@@ -210,7 +255,7 @@ compose -f docker/compose.prod.yaml up --build`, confirm `migrate` completes, th
    paper.
 2. **Run Lighthouse** (CI `lighthouse` job, or `pnpm lighthouse` locally with Chrome)
    and confirm the budgets, or fix what regresses. No number until a real run.
-3. **Fix the three pre-existing e2e failures** so CI is green and trustworthy.
+3. ~~Fix the three pre-existing e2e failures~~ — **done (2026-07-26)**; e2e is green.
 4. **Provision the deploy inputs the owner must supply:** register the domain + DNS,
    obtain real SMTP credentials, and fill `docker/.env` (Postgres password,
    `SITE_DOMAIN`, `TLS_EMAIL`, `NEXT_PUBLIC_SITE_URL`, SMTP).

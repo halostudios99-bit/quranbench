@@ -17,6 +17,12 @@ __pycache__/
 packages/corpus-build/sources/*
 !packages/corpus-build/sources/checksums.json
 
+# non-redistributable translation editions — fetched at build time, never
+# committed. Talal Itani's ClearQuran is CC BY-NC-ND 4.0; shipping it inside an
+# MIT repo would create licensing ambiguity for forks. See LICENSING.md.
+packages/corpus-build/out/*/translations/en-itani.jsonl
+packages/corpus-build/out/*/translations/en-itani.LICENSE.md
+
 # env
 .env
 .env.*

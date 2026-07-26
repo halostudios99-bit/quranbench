@@ -15,12 +15,17 @@ test('copy "Arabic (Uthmani)" writes the verse with no attribution', async ({ pa
 });
 
 test('copy "Arabic + reference" appends the reference and source', async ({ page }) => {
+  // Read the version the server actually loaded rather than hardcoding it, so a
+  // corpus bump never breaks this assertion.
+  const health = await page.request.get('/api/health');
+  const { corpus_version } = (await health.json()) as { corpus_version: string };
+
   await page.goto('/2/43');
   await page.getByRole('button', { name: 'Copy' }).click();
   await page.getByRole('menuitem', { name: 'Arabic + reference' }).click();
   const text = await page.evaluate(() => navigator.clipboard.readText());
   expect(text).toContain('2:43');
-  expect(text).toContain('corpus v0.7.0');
+  expect(text).toContain(`corpus v${corpus_version}`);
   expect(text).toContain('quranbench.com/2/43');
 });
 

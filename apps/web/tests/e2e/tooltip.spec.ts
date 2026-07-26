@@ -15,6 +15,15 @@ async function isCoarse(
   return page.evaluate(() => window.matchMedia('(pointer: coarse)').matches);
 }
 
+// The Arabic web font reflows the page once it swaps in. Any layout measurement
+// (scrollHeight, bounding boxes) must wait for that to settle first, or it races
+// the font load and flakes. This is a deterministic signal, not a sleep.
+async function fontsReady(
+  page: import('@playwright/test').Page,
+): Promise<void> {
+  await page.evaluate(() => document.fonts.ready);
+}
+
 test('token carries the gloss data in the page, not a fetch', async ({
   page,
 }) => {
@@ -31,6 +40,7 @@ test('desktop hover shows gloss, transliteration, root link and a source label',
 }) => {
   await page.goto('/1');
   if (await isCoarse(page)) test.skip();
+  await fontsReady(page);
   const token = page.locator(FIRST_TOKEN).first();
 
   const before = await page.evaluate(

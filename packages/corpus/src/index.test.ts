@@ -1,4 +1,4 @@
-import { cpSync, mkdtempSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -69,6 +69,25 @@ describe('loadCorpus', () => {
 
     expect(() => loadCorpus(DEFAULT_CORPUS_VERSION, { root })).toThrow(CorpusValidationError);
     expect(() => loadCorpus(DEFAULT_CORPUS_VERSION, { root })).toThrow(/tokens\.jsonl.*checksum/);
+  });
+
+  it('degrades cleanly when a non-redistributable edition is absent', () => {
+    // Talal Itani's ClearQuran is fetched at build time and never committed, so a
+    // fork that has not fetched it must still load the corpus — just with one
+    // fewer translation. Removing a *redistributable* edition would, by contrast,
+    // remain a hard error (covered by the checksum tests above).
+    const root = mkdtempSync(join(tmpdir(), 'qb-no-itani-'));
+    const dir = join(root, `v${DEFAULT_CORPUS_VERSION}`);
+    cpSync(join(ARTIFACTS_ROOT, `v${DEFAULT_CORPUS_VERSION}`), dir, {
+      recursive: true,
+    });
+    rmSync(join(dir, 'translations', 'en-itani.jsonl'));
+
+    const degraded = loadCorpus(DEFAULT_CORPUS_VERSION, { root });
+    const editionIds = degraded.translations.map((t) => t.edition.id);
+    expect(editionIds).not.toContain('en-itani');
+    expect(editionIds).toContain('en-pickthall');
+    expect(degraded.translations.length).toBe(corpus.translations.length - 1);
   });
 
   it('preserves Quranic text byte-for-byte (no mutation on load)', () => {

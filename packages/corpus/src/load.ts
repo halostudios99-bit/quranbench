@@ -376,7 +376,19 @@ export function loadCorpus(
   for (const edition of manifest.translations?.editions ?? []) {
     const relPath = edition.artifact;
     const editionPath = join(dir, relPath);
-    const editionText = readText(editionPath);
+    // Non-redistributable editions (e.g. Talal Itani's ClearQuran, CC BY-NC-ND)
+    // are fetched at build time and never committed to this repository. When such
+    // an artifact is absent the site degrades cleanly — one fewer translation —
+    // rather than refusing to boot. A missing *redistributable* edition is still
+    // a hard error: those must be present and match the manifest.
+    let editionText: string;
+    try {
+      editionText = readFileSync(editionPath, 'utf8');
+    } catch (cause) {
+      const code = (cause as NodeJS.ErrnoException).code;
+      if (edition.redistributable === false && code === 'ENOENT') continue;
+      fail(`cannot read artifact '${editionPath}': ${(cause as Error).message}`);
+    }
     verifyBytes(relPath, editionText);
     checksums[relPath] = sha256(editionText);
     const rows = parseJsonl(editionPath, editionText);

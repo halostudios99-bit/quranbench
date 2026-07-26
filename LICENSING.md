@@ -16,7 +16,7 @@ SHA-256s) see [`docs/licensing.md`](docs/licensing.md).
 | `packages/corpus-build/out/<version>/tokens.jsonl` | tokens **with embedded morphology** | **GPL-2.0-or-later** (whole file) |
 | `packages/corpus-build/out/<version>/morphology/` | roots, lemmas, features (Leeds QAC) | **GPL-2.0-or-later** |
 | `packages/corpus-build/out/<version>/translations/*.jsonl` | translation editions (public-domain, redistributable) | per edition (see each `*.LICENSE.md`) |
-| `packages/corpus-build/out/<version>/translations/en-itani.*` | Talal Itani / ClearQuran — **display-only, NOT redistributable** | **CC BY-NC-ND 4.0** |
+| `packages/corpus-build/out/<version>/translations/en-itani.*` | Talal Itani / ClearQuran — **display-only, NOT redistributable, never committed** (fetched at build time; gitignored) | **CC BY-NC-ND 4.0** |
 | `apps/web/public/fonts/*.woff2` | Amiri / Amiri Quran fonts | **SIL OFL 1.1** (`apps/web/public/fonts/OFL.txt`) |
 | user-contributed content (investigations, annotations) | community edits | **CC BY-SA 4.0** (per `docs/contributor-terms.md`) |
 
@@ -59,6 +59,19 @@ and the `text_*` fields, which contain no Leeds-derived data.
   Itani's ClearQuran, CC BY-NC-ND 4.0). These carry `redistributable: false` in
   `sources.json` and the manifest, are excluded from the full tarball, and are
   refused by the download route — do not redistribute them.
+
+## Display-only editions are never in this repository
+
+Because this repository is MIT-licensed and intended to be forked and used
+commercially, it does not commit any non-redistributable artifact — bundling a
+CC BY-NC-ND file inside an MIT repo would create licensing ambiguity for forks.
+Talal Itani's ClearQuran (`translations/en-itani.jsonl` and its `LICENSE.md`) is
+therefore **fetched at build time by `packages/corpus-build` and never
+redistributed by this repository**: both paths are gitignored, and a test
+(`packages/corpus/src/licensing.test.ts`) fails the build if either is ever
+tracked by git. The corpus loader tolerates its absence and degrades cleanly —
+the site works without it, simply with one fewer translation — so a fork that
+does not fetch Itani builds and runs normally.
 - **Fonts (SIL OFL 1.1 — Amiri):** redistribute (including subset/embedded)
   with `OFL.txt` carried alongside; do not sell the fonts on their own and do
   not use the reserved font names for modified versions.
