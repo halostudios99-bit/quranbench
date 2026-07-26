@@ -19,6 +19,8 @@ docs/translation-method.md, Rule 1.
 
 from __future__ import annotations
 
+import re
+
 # Attached pronouns, by person·gender·number.
 OBJECT = {
     ("1", None, "singular"): "me", ("1", None, "plural"): "us",
@@ -52,16 +54,36 @@ PARTICIPLE = {
     "beget": "begotten", "give": "given", "take": "taken", "see": "seen",
     "know": "known", "do": "done", "make": "made", "say": "said",
     "send": "sent", "write": "written", "cast": "cast", "find": "found",
+    "forbid": "forbidden", "forget": "forgotten", "forgive": "forgiven", "eat": "eaten",
+    "bear": "borne", "strike": "struck", "lead": "led", "bring": "brought",
+    "spend": "spent", "stand": "stood", "hear": "heard", "teach": "taught",
+    "leave": "left", "throw": "thrown", "speak": "spoken", "rise": "risen",
+    "beget": "begotten",
 }
 
 PAST = {
-    "be": "was", "say": "said", "know": "knew", "create": "created",
-    "beget": "begot", "give": "gave", "take": "took", "come": "came",
-    "make": "made", "see": "saw", "find": "found", "send": "sent",
-    "guide": "guided", "favour": "favoured", "trust in": "trusted in",
-    "reject": "rejected", "serve": "served", "teach": "taught",
-    "cover over": "covered over", "envy": "envied", "whisper": "whispered", "sink in": "sank in", "withdraw": "withdrew",
+    "be": "was", "say": "said", "know": "knew", "beget": "begot",
+    "give": "gave", "take": "took", "come": "came", "make": "made",
+    "see": "saw", "find": "found", "send": "sent", "teach": "taught",
+    "sink": "sank", "withdraw": "withdrew", "write": "wrote", "eat": "ate",
+    "do": "did", "hear": "heard", "fight": "fought", "spend": "spent",
+    "stand": "stood", "strike": "struck", "leave": "left", "seek": "sought",
+    "forbid": "forbade", "forget": "forgot", "forgive": "forgave", "bring": "brought",
+    "go": "went", "lead": "led", "bear": "bore", "befall": "befell",
+    "cast": "cast", "hold": "held", "keep": "kept", "feel": "felt",
+    "flee": "fled", "sell": "sold", "buy": "bought", "fall": "fell",
+    "rise": "rose", "speak": "spoke", "swear": "swore", "tear": "tore",
+    "throw": "threw", "wear": "wore", "win": "won", "shine": "shone",
 }
+
+# Multi-syllable verbs whose final consonant doubles. Single-syllable ones are
+# detected; these are the exceptions a rule cannot see.
+DOUBLE = {"admit", "commit", "permit", "omit", "submit", "prefer", "refer",
+          "occur", "compel", "repel", "expel", "rebel", "control", "regret"}
+
+# Fixed predicates that are not verbs and must not be inflected at all. "is not"
+# has no past; "excellent is" was being turned into "excellented is".
+INVARIANT = {"is not", "excellent is", "wretched is"}
 # Lemmas whose English already expresses the genitive link.
 ABSORB_GENITIVE = {"غَيْر", "بَعْض", "كُلّ", "مِثْل", "أَهْل", "ذُو"}
 
@@ -97,15 +119,60 @@ def _pluralise(word: str) -> str:
     return word + "s"
 
 
+def _vowel_groups(word: str) -> int:
+    return len(re.findall(r"[aeiouy]+", word))
+
+
+def _inflect_head(word: str, rule) -> str:
+    """Apply `rule` to the first word only.
+
+    A rendering may be a phrase — "go astray", "ask help", "be able". The verb is
+    its head; inflecting the whole string produced "go astrays" and "be ables",
+    because the noun pluraliser was being reused and it works on the last word.
+    """
+    if word in INVARIANT:
+        return word
+    head, _, tail = word.partition(" ")
+    return (rule(head) + " " + tail).strip()
+
+
+def _past_stem(head: str) -> str:
+    if head in PAST:
+        return PAST[head]
+    if head.endswith("e"):
+        return head + "d"
+    if head.endswith("y") and head[-2:-1] not in "aeiou":
+        return head[:-1] + "ied"                       # carry -> carried
+    if (
+        head in DOUBLE
+        or (_vowel_groups(head) == 1 and len(head) > 2
+            and head[-1] not in "aeiouwxy" and head[-2] in "aeiou"
+            and head[-3] not in "aeiou")
+    ):
+        return head + head[-1] + "ed"                  # bar -> barred
+    return head + "ed"
+
+
 def _past(word: str) -> str:
     if word in PAST:
         return PAST[word]
-    head, _, tail = word.partition(" ")
-    if head in PAST:
-        return (PAST[head] + " " + tail).strip()
-    if head.endswith("e"):
-        return (head + "d " + tail).strip()
-    return (head + "ed " + tail).strip()
+    return _inflect_head(word, _past_stem)
+
+
+def _present_3s_stem(head: str) -> str:
+    if head in PRESENT_3S:
+        return PRESENT_3S[head]
+    if head.endswith(("s", "x", "z", "ch", "sh", "o")):
+        return head + "es"
+    if head.endswith("y") and head[-2:-1] not in "aeiou":
+        return head[:-1] + "ies"
+    return head + "s"
+
+
+def _present_3s(word: str) -> str:
+    if word in PRESENT_3S:
+        return PRESENT_3S[word]
+    return _inflect_head(word, _present_3s_stem)
 
 
 def _is_subject_marker(verb_feats: dict, suffix_feats: dict) -> bool:
@@ -160,7 +227,9 @@ def compose(token: dict, english: str, previous: dict | None = None) -> str:
         number = feats.get("number", "singular")
         # 112:3 لم يلد ولم يولد — the second verb is passive. Without this both
         # render "he begets" and the verse says the opposite of what it says.
-        if str(feats.get("voice", "")).lower().startswith("pass"):
+        if out in INVARIANT:
+            pass
+        elif str(feats.get("voice", "")).lower().startswith("pass"):
             participle = PARTICIPLE.get(out) or _past(out)
             for pron in ("he ", "they ", "I ", "We ", "you "):
                 if participle.startswith(pron):
@@ -178,6 +247,9 @@ def compose(token: dict, english: str, previous: dict | None = None) -> str:
             return out
         if tense == "PERF":
             out = _past(out)
+            # "be" is the one English verb whose past agrees with its subject.
+            if out.split()[0] == "was" and (number != "singular" or person == "2"):
+                out = "were" + out[3:]
             subj = SUBJECT.get((person, number))
             if subj:
                 out = f"{subj} {out}"
@@ -185,10 +257,8 @@ def compose(token: dict, english: str, previous: dict | None = None) -> str:
             subj = SUBJECT.get((person, number))
             if number == "plural" or person in ("1", "2"):
                 verb = out
-            elif out in PRESENT_3S:
-                verb = PRESENT_3S[out]
             else:
-                verb = _pluralise(out)
+                verb = _present_3s(out)
             out = f"{subj} {verb}" if subj else verb
         # IMPV: bare stem, which is already the base form
         if pron_suffix:

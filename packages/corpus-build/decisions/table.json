@@ -258,9 +258,9 @@
   "tokens": 4
  },
  "form:أنهم": {
-  "english": "",
+  "english": "that they",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 41
  },
  "form:أنهما": {
@@ -402,9 +402,9 @@
   "tokens": 15
  },
  "form:إبرهيم": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "Ibrahim",
+  "evidence": "proper name, not translated",
+  "grade": "settled",
   "tokens": 43
  },
  "form:إبليس": {
@@ -450,9 +450,9 @@
   "tokens": 6
  },
  "form:إسرءيل": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "Israil",
+  "evidence": "proper name, not translated",
+  "grade": "settled",
   "tokens": 42
  },
  "form:إسمعيل": {
@@ -522,9 +522,9 @@
   "tokens": 4
  },
  "form:إليهم": {
-  "english": "",
+  "english": "to them",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 40
  },
  "form:إليهن": {
@@ -774,9 +774,9 @@
   "tokens": 10
  },
  "form:بكم": {
-  "english": "",
+  "english": "with you",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 35
  },
  "form:بل": {
@@ -840,9 +840,9 @@
   "tokens": 14
  },
  "form:بهم": {
-  "english": "",
+  "english": "with them",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 41
  },
  "form:بهما": {
@@ -1272,9 +1272,9 @@
   "tokens": 24
  },
  "form:عنه": {
-  "english": "",
+  "english": "from it",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 37
  },
  "form:عنها": {
@@ -1752,9 +1752,9 @@
   "tokens": 23
  },
  "form:فهم": {
-  "english": "",
+  "english": "so they",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 41
  },
  "form:فهو": {
@@ -2142,9 +2142,9 @@
   "tokens": 3
  },
  "form:لعلهم": {
-  "english": "",
+  "english": "so that they might",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 41
  },
  "form:لعلى": {
@@ -2370,9 +2370,9 @@
   "tokens": 4
  },
  "form:لولا": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "why not",
+  "evidence": "لولا يكلمنا; لولا ينهىهم",
+  "grade": "supported",
   "tokens": 38
  },
  "form:لى": {
@@ -2616,9 +2616,9 @@
   "tokens": 4
  },
  "form:هؤلاء": {
-  "english": "",
+  "english": "these",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 41
  },
  "form:هتين": {
@@ -3132,9 +3132,9 @@
   "tokens": 5
  },
  "form:وعلى": {
-  "english": "",
+  "english": "and upon",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 39
  },
  "form:وعليكم": {
@@ -3210,9 +3210,9 @@
   "tokens": 3
  },
  "form:وقد": {
-  "english": "",
+  "english": "and indeed",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 43
  },
  "form:وقرون": {
@@ -3228,9 +3228,9 @@
   "tokens": 6
  },
  "form:وكذلك": {
-  "english": "",
+  "english": "and thus",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 38
  },
  "form:وكم": {
@@ -3396,9 +3396,9 @@
   "tokens": 2
  },
  "form:ولهم": {
-  "english": "",
+  "english": "and for them",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 43
  },
  "form:ولهن": {
@@ -4356,9 +4356,9 @@
   "tokens": 18
  },
  "أ ذ ن|إِذْن|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "permission",
+  "evidence": "بإذن الله",
+  "grade": "settled",
   "tokens": 39
  },
  "أ ذ ن|اسْتَأْذَنَ|V": {
@@ -5184,9 +5184,9 @@
   "tokens": 1
  },
  "ب أ س|بِئْسَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "wretched is",
+  "evidence": "بئسما اشتروا",
+  "grade": "settled",
   "tokens": 40
  },
  "ب أ س|تَبْتَئِسْ|V": {
@@ -5268,9 +5268,9 @@
   "tokens": 1
  },
  "ب ح ر|بَحْر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "sea",
+  "evidence": "صيد البحر",
+  "grade": "settled",
   "tokens": 41
  },
  "ب خ س|بَخْس|N": {
@@ -5790,9 +5790,9 @@
   "tokens": 2
  },
  "ب ش ر|بَشَر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "human being",
+  "evidence": "أنتم بشر ممن خلق",
+  "grade": "settled",
   "tokens": 37
  },
  "ب ش ر|بَشِير|N": {
@@ -5802,9 +5802,9 @@
   "tokens": 9
  },
  "ب ش ر|بُشِّرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "give good news",
+  "evidence": "وبشر الصبرين; وبشر المؤمنين",
+  "grade": "supported",
   "tokens": 38
  },
  "ب ش ر|بُشْر|N": {
@@ -6354,9 +6354,9 @@
   "tokens": 15
  },
  "ب ل غ|بَلَغَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "reach",
+  "evidence": "حتى يبلغ الهدى محله",
+  "grade": "settled",
   "tokens": 40
  },
  "ب ل غ|بَلِيغ|N": {
@@ -6876,9 +6876,9 @@
   "tokens": 3
  },
  "ت ر ك|تَرَكَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "leave behind",
+  "evidence": "مما ترك; R9: distinct from يذر (leave)",
+  "grade": "settled",
   "tokens": 40
  },
  "ت س ع|تِسْع|N": {
@@ -7416,9 +7416,9 @@
   "tokens": 10
  },
  "ج ب ل|جَبَل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "mountain",
+  "evidence": "وتنحتون الجبال بيوتا",
+  "grade": "settled",
   "tokens": 39
  },
  "ج ب ل|جِبِلَّة|N": {
@@ -7710,9 +7710,9 @@
   "tokens": 1
  },
  "ج ز ي|جَزاء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "recompense",
+  "evidence": "جزاء الكفرين; فما جزاء من",
+  "grade": "settled",
   "tokens": 42
  },
  "ج ز ي|جَزَى|V": {
@@ -8827,9 +8827,9 @@
   "tokens": 33
  },
  "ح ر م|حَرَّمَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "forbid",
+  "evidence": "إنما حرم عليكم; set against أحل",
+  "grade": "settled",
   "tokens": 39
  },
  "ح ر م|حُرُمَة|N": {
@@ -8881,9 +8881,9 @@
   "tokens": 2
  },
  "ح ز ن|يَحْزُن|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "grieve",
+  "evidence": "ولا هم يحزنون",
+  "grade": "settled",
   "tokens": 37
  },
  "ح س ب|حاسَبْ|V": {
@@ -8923,9 +8923,9 @@
   "tokens": 3
  },
  "ح س ب|حِساب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "reckoning",
+  "evidence": "سريع الحساب; بغير حساب",
+  "grade": "settled",
   "tokens": 39
  },
  "ح س ب|يَحْتَسِبُ|V": {
@@ -9019,9 +9019,9 @@
   "tokens": 1
  },
  "ح س ن|أَحْسَن|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "best",
+  "evidence": "elative; وأحسن تأويلا",
+  "grade": "settled",
   "tokens": 36
  },
  "ح س ن|أَحْسَنَ|V": {
@@ -9073,9 +9073,9 @@
   "tokens": 1
  },
  "ح س ن|مُحْسِن|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "doer of good",
+  "evidence": "يحب المحسنين",
+  "grade": "settled",
   "tokens": 38
  },
  "ح س ن|مُحْسِنَة|N": {
@@ -9091,9 +9091,9 @@
   "tokens": 3
  },
  "ح ش ر|حَشَرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "gather",
+  "evidence": "إليه تحشرون",
+  "grade": "settled",
   "tokens": 37
  },
  "ح ش ر|حَشْر|N": {
@@ -9746,9 +9746,9 @@
   "tokens": 1
  },
  "ح م ل|حَمَلَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "carry",
+  "evidence": "تحمله الملئكة",
+  "grade": "settled",
   "tokens": 41
  },
  "ح م ل|حَمُولَة|N": {
@@ -10574,9 +10574,9 @@
   "tokens": 1
  },
  "خ ش ي|خَشِيَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "dread",
+  "evidence": "R9: distinct from خاف (fear); فلا تخشوهم واخشونى",
+  "grade": "supported",
   "tokens": 40
  },
  "خ ش ي|خَشْيَة|N": {
@@ -11588,9 +11588,9 @@
   "tokens": 4
  },
  "د خ ل|أُدْخِلَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "admit",
+  "evidence": "form IV causative of دخل; ولأدخلنهم جنت",
+  "grade": "settled",
   "tokens": 42
  },
  "د خ ل|داخِل|N": {
@@ -12393,9 +12393,9 @@
   "tokens": 3
  },
  "ذ ن ب|ذَنب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "offence",
+  "evidence": "R9: distinct from سيئة (bad deed)",
+  "grade": "supported",
   "tokens": 37
  },
  "ذ ن ب|ذَنُوب|N": {
@@ -12429,9 +12429,9 @@
   "tokens": 8
  },
  "ذ ه ب|ذَهَبَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "go away",
+  "evidence": "ذهب الله بنورهم; R9: distinct from خرج (go out)",
+  "grade": "settled",
   "tokens": 35
  },
  "ذ ه ل|تَذْهَلُ|V": {
@@ -12465,9 +12465,9 @@
   "tokens": 2
  },
  "ذ و ق|ذاقُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "taste",
+  "evidence": "فذوقوا العذاب",
+  "grade": "settled",
   "tokens": 36
  },
  "ذ ي ع|أَذاعُ|V": {
@@ -12495,9 +12495,9 @@
   "tokens": 2
  },
  "ر أ ي|أَرَيْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "show",
+  "evidence": "form IV causative of رأى; ويريكم ءايته",
+  "grade": "settled",
   "tokens": 40
  },
  "ر أ ي|تَراءَتِ|V": {
@@ -13016,9 +13016,9 @@
   "tokens": 2
  },
  "ر د د|رَدَّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "send back",
+  "evidence": "يردون إلى أشد العذاب; R9: distinct from تاب (turn back)",
+  "grade": "supported",
   "tokens": 36
  },
  "ر د د|مَرَدّ|N": {
@@ -13324,9 +13324,9 @@
   "tokens": 4
  },
  "ر ض و|رَضِيَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be pleased",
+  "evidence": "+عن; ولن ترضى عنك",
+  "grade": "settled",
   "tokens": 38
  },
  "ر ض و|رَضِيّ|N": {
@@ -14614,9 +14614,9 @@
   "tokens": 1
  },
  "س ب ح|سَبَّحَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "declare far removed",
+  "evidence": "2:116 سبحنه rejects an attribution; Rule 22: general Arabic, not the corpus",
+  "grade": "judgement",
   "tokens": 42
  },
  "س ب ح|سَبْح|N": {
@@ -14626,9 +14626,9 @@
   "tokens": 2
  },
  "س ب ح|سُبْحان|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "far removed is",
+  "evidence": "2:32 سبحنك disclaims; Rule 22: general Arabic, not the corpus",
+  "grade": "judgement",
   "tokens": 41
  },
  "س ب ح|مُسَبِّح|N": {
@@ -14770,9 +14770,9 @@
   "tokens": 23
  },
  "س ج د|سَجَدَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "prostrate",
+  "evidence": "اسجدوا لـادم",
+  "grade": "settled",
   "tokens": 35
  },
  "س ج د|سُجُود|N": {
@@ -15652,9 +15652,9 @@
   "tokens": 2
  },
  "س ل ط|سُلْطان|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "authority",
+  "evidence": "سلطنا مبينا",
+  "grade": "settled",
   "tokens": 37
  },
  "س ل ف|أَسْلَفَتْ|V": {
@@ -15730,9 +15730,9 @@
   "tokens": 1
  },
  "س ل م|سَلام|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "peace",
+  "evidence": "سلم عليكم; سبل السلم",
+  "grade": "supported",
   "tokens": 42
  },
  "س ل م|سَلَم|N": {
@@ -16276,9 +16276,9 @@
   "tokens": 4
  },
  "س و ي|اسْتَوَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be level",
+  "evidence": "لا يستوى الخبيث والطيب — equality is the sense",
+  "grade": "supported",
   "tokens": 35
  },
  "س و ي|تُسَوَّى|V": {
@@ -16674,9 +16674,9 @@
   "tokens": 1
  },
  "ش ر ك|شَرِيك|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "partner",
+  "evidence": "R9: distinct from مشرك (associator)",
+  "grade": "settled",
   "tokens": 40
  },
  "ش ر ك|شِرْك|N": {
@@ -17154,9 +17154,9 @@
   "tokens": 26
  },
  "ش ه د|شَهِدَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bear witness",
+  "evidence": "شهد الله; +على",
+  "grade": "settled",
   "tokens": 44
  },
  "ش ه د|شَهِيد|N": {
@@ -17532,9 +17532,9 @@
   "tokens": 2
  },
  "ص د د|صَدَّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bar",
+  "evidence": "+عن سبيل الله",
+  "grade": "supported",
   "tokens": 37
  },
  "ص د د|صُدُود|N": {
@@ -18714,9 +18714,9 @@
   "tokens": 9
  },
  "ض ل ل|أَضَلَّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "lead astray",
+  "evidence": "form IV causative of ضلّ",
+  "grade": "settled",
   "tokens": 64
  },
  "ض ل ل|تَضْلِيل|N": {
@@ -18744,9 +18744,9 @@
   "tokens": 9
  },
  "ض ل ل|ضَلَّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "go astray",
+  "evidence": "+عن; فقد ضل سواء السبيل",
+  "grade": "settled",
   "tokens": 53
  },
  "ض ل ل|مُضِلّ|N": {
@@ -19302,9 +19302,9 @@
   "tokens": 72
  },
  "ط و ع|اسْتَطاعَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be able",
+  "evidence": "لا يستطيعون; form X of طاع",
+  "grade": "settled",
   "tokens": 42
  },
  "ط و ع|تَطَوَّعَ|V": {
@@ -20237,9 +20237,9 @@
   "tokens": 322
  },
  "ع ذ ب|عَذَّبَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "punish",
+  "evidence": "form II of عذاب",
+  "grade": "settled",
   "tokens": 41
  },
  "ع ذ ب|عَذْب|N": {
@@ -20459,9 +20459,9 @@
   "tokens": 2
  },
  "ع ر ف|مَعْرُوف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "recognised",
+  "evidence": "passive participle of عرف; set against منكر (denied)",
+  "grade": "supported",
   "tokens": 38
  },
  "ع ر ف|مَعْرُوفَة|N": {
@@ -21221,9 +21221,9 @@
   "tokens": 4
  },
  "ع ل م|عَلَّمَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "teach",
+  "evidence": "form II causative; وعلم ءادم",
+  "grade": "settled",
   "tokens": 41
  },
  "ع ل م|عِلْم|N": {
@@ -21557,9 +21557,9 @@
   "tokens": 160
  },
  "ع ن د|عِند|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the presence of",
+  "evidence": "من عند الله",
+  "grade": "settled",
   "tokens": 37
  },
  "ع ن ق|عُنُق|N": {
@@ -22163,9 +22163,9 @@
   "tokens": 2
  },
  "غ ف ر|اسْتَغْفَرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "seek covering",
+  "evidence": "form X (seeking) of غفر = cover over",
+  "grade": "supported",
   "tokens": 40
  },
  "غ ف ر|اسْتِغْفار|N": {
@@ -23303,9 +23303,9 @@
   "tokens": 1
  },
  "ف س ق|فاسِق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one who departs",
+  "evidence": "Rule 22: general Arabic ف س ق = to go out; not settled by the corpus",
+  "grade": "judgement",
   "tokens": 37
  },
  "ف س ق|فَسَقَ|V": {
@@ -25475,9 +25475,9 @@
   "tokens": 1
  },
  "ك ب ر|اسْتَكْبَرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be arrogant",
+  "evidence": "form X of كبر (great); أبى واستكبر",
+  "grade": "supported",
   "tokens": 40
  },
  "ك ب ر|اسْتِكْبار|N": {
@@ -25499,9 +25499,9 @@
   "tokens": 8
  },
  "ك ب ر|كَبِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "great",
+  "evidence": "إثم كبير",
+  "grade": "settled",
   "tokens": 40
  },
  "ك ب ر|كَبِيرَة|N": {
@@ -26237,9 +26237,9 @@
   "tokens": 4
  },
  "ك ل م|كَلِمَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "word",
+  "evidence": "كلمت ربه",
+  "grade": "settled",
   "tokens": 42
  },
  "ك ل م|كَلَّمَ|V": {
@@ -27215,9 +27215,9 @@
   "tokens": 11
  },
  "م ت ع|مَتاع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "enjoyment",
+  "evidence": "متعا إلى حين; R9: distinct from رزق (provision)",
+  "grade": "supported",
   "tokens": 35
  },
  "م ت ع|مَتَّعْ|V": {
@@ -28175,9 +28175,9 @@
   "tokens": 21
  },
  "م و ت|ماتَ|V": {
-  "english": "",
+  "english": "die",
   "evidence": "",
-  "grade": "",
+  "grade": "settled",
   "tokens": 39
  },
  "م و ت|مَمات|N": {
@@ -28199,9 +28199,9 @@
   "tokens": 3
  },
  "م و ت|مَيِّت|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "dead",
+  "evidence": "الله الموتى ويريكم",
+  "grade": "settled",
   "tokens": 38
  },
  "م و ت|مَيْت|N": {
@@ -28481,9 +28481,9 @@
   "tokens": 2
  },
  "ن ج و|نَجَّى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "deliver",
+  "evidence": "وإذ نجينكم من ءال فرعون",
+  "grade": "settled",
   "tokens": 37
  },
  "ن ج و|نَجْوَى|N": {
@@ -28607,9 +28607,9 @@
   "tokens": 1
  },
  "ن د ي|نادَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "call out",
+  "evidence": "فنادته الملئكة; مناديا ينادى",
+  "grade": "settled",
   "tokens": 44
  },
  "ن د ي|نادِي|N": {
@@ -28631,9 +28631,9 @@
   "tokens": 2
  },
  "ن ذ ر|أَنذَرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "warn",
+  "evidence": "ءأنذرتهم أم لم تنذرهم",
+  "grade": "settled",
   "tokens": 44
  },
  "ن ذ ر|مُنذَر|N": {
@@ -28901,9 +28901,9 @@
   "tokens": 1
  },
  "ن س ي|نَسِيَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "forget",
+  "evidence": "وتنسون أنفسكم",
+  "grade": "settled",
   "tokens": 35
  },
  "ن س ي|نَسِيّ|N": {
@@ -30018,9 +30018,9 @@
   "tokens": 145
  },
  "ن و ر|نُور|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "light",
+  "evidence": "من الظلمت إلى النور — set against darkness",
+  "grade": "settled",
   "tokens": 43
  },
  "ن و ش|تَناوُش|N": {
@@ -30180,9 +30180,9 @@
   "tokens": 7
  },
  "ه د ي|اهْتَدَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be guided",
+  "evidence": "form VIII of هدى",
+  "grade": "settled",
   "tokens": 40
  },
  "ه د ي|مُهْتَد|N": {
@@ -31814,9 +31814,9 @@
   "tokens": 1
  },
  "و ك ل|تَوَكَّلْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "rely",
+  "evidence": "+على الله",
+  "grade": "settled",
   "tokens": 40
  },
  "و ك ل|مُتَوَكِّل|N": {

@@ -181,6 +181,45 @@ def test_no_root_level_over_seeding() -> None:
     assert not offenders, "root-level over-seeding:\n  " + "\n  ".join(offenders)
 
 
+def test_english_inflection_is_well_formed() -> None:
+    """Every verb in the table must inflect into real English.
+
+    The table stores base forms and the grammar layer inflects them, so a single
+    missing rule corrupts every verse a verb appears in. Three rules were absent
+    at once and the output carried `carryed`, `writed` and `admited`; separately,
+    third-person present was being built by the NOUN pluraliser, which inflects
+    the last word of a phrase rather than the verb, giving `go astrays`,
+    `ask helps` and `be ables`.
+
+    The check is deliberately crude — a real English past tense is not formed by
+    gluing "ed" onto a stem that needed something else — but it catches exactly
+    the shape of every one of those bugs.
+    """
+    from pipeline.grammar import INVARIANT, _past, _present_3s
+
+    table = load_table()
+    verbs = {v["english"] for k, v in table.items() if v.get("english") and k.endswith("|V")}
+
+    bad = []
+    for verb in sorted(verbs):
+        if verb in INVARIANT:
+            continue
+        head = verb.split()[0]
+        past, present = _past(verb), _present_3s(verb)
+        # -ed on a stem ending in a consonant+y, or in e, or a doubling stem.
+        if past.split()[0] == head + "ed" and (
+            head.endswith("e") or (head.endswith("y") and head[-2:-1] not in "aeiou")
+        ):
+            bad.append(f"{verb!r} -> past {past!r}")
+        # The verb must be the word that changed, not the tail of the phrase.
+        if " " in verb and present.split()[1:] != verb.split()[1:]:
+            bad.append(f"{verb!r} -> present {present!r} inflects the wrong word")
+        if present.split()[0] == head and head not in ("is", "was"):
+            bad.append(f"{verb!r} -> present {present!r} did not inflect")
+
+    assert not bad, "malformed English inflection:\n  " + "\n  ".join(bad)
+
+
 def test_proper_names_are_not_translated() -> None:
     """محمد is a name, not the noun 'praise' that shares its root."""
     table = load_table()
