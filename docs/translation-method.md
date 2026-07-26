@@ -1,6 +1,6 @@
 # Translation method — strict rules
 
-_Version 0.2, 26 July 2026. Derived from working 33:56, 2:78, 9:97 and 18:66 by hand._
+_Version 0.3, 26 July 2026. Derived from working 33:56, 2:78, 9:97 and 18:66 by hand._
 
 This document defines how a quranbench rendering is produced. It exists because
 every rule below was written after an error — most of them made during the session
@@ -18,18 +18,24 @@ rendering constrained by evidence, and it will read stiffly. That is correct.
 
 Permitted: the consonantal Arabic text, and the distribution of its words.
 
-**Forbidden**: tafsir, hadith, classical or modern lexicons, existing translations,
-morphological tag sets (including the Leeds QAC tags in this very corpus), and
-general knowledge of Arabic beyond what the text itself demonstrates.
+**Forbidden**: tafsir, hadith, existing Quran translations, and any commentary
+tradition. Morphological tag sets (including the Leeds QAC tags in this corpus)
+are an outside source and must be declared wherever a decision rests on them.
+
+**Permitted as a last resort, under Rule 22**: the ordinary lexical meaning of
+Arabic as a language. Arabic is a language before it is a scripture, and knowing
+what a word means carries no interpretive tradition with it. Such a decision is
+graded `judgement` and must say so.
 
 > **Error this prevents.** Mid-session I asserted "the classical exegetical
 > tradition is against this reading". That is tafsir, it was stated without
 > evidence, and it had no place in the output. Separately, I reported "root is ن ب أ"
 > and "this is a form II verb" — both taken from the Leeds tags, not from the text.
 
-If a claim cannot be produced by pointing at Arabic words in the Quran, it is not
-admissible. Where general Arabic knowledge is unavoidable, it must be **labelled as
-an outside judgement**, not presented as a finding.
+A claim produced by pointing at Arabic words in the Quran is the strongest kind and
+is what this method is for. Where the corpus cannot settle a word, Rule 22 governs:
+general Arabic may fill the gap, labelled as an outside judgement and never
+presented as a finding of the text.
 
 ### Rule 2. Roots are derived, never assumed
 
@@ -282,6 +288,32 @@ set together** before assigning any of them.
 The unit of decision is the competing set, not the individual word.
 
 ---
+
+### Rule 22. General Arabic is a permitted fallback; religious sources never are
+
+Where the corpus cannot settle a word — a hapax, or a frame with no informative
+distribution — the **ordinary lexical meaning of the Arabic** may be used. It is
+graded `judgement`, marked in the rendering, and its evidence line must record
+that it rests on general Arabic rather than on the text.
+
+The line this draws is the whole point of the rule:
+
+| Permitted | Forbidden |
+| --- | --- |
+| What a word means in Arabic as a language | Tafsir |
+| Morphological pattern and derivation | Hadith |
+| Cognate forms elsewhere in Arabic | Any existing Quran translation |
+| | Any commentary tradition |
+
+Arabic is a language before it is a scripture. Knowing that كُفُؤ means *equal*, or
+that وَقَبَ means *to sink in*, is lexical knowledge of the same kind as knowing
+what a Latin word means — it carries no interpretive tradition with it. Tafsir is a
+reading *of the Quran*, and importing one is precisely the deviation this method
+exists to remove.
+
+This replaces the earlier practice of leaving hapaxes permanently blocked, which
+made complete coverage unreachable. Nothing is guessed: a word with no lexical
+meaning available still stays `undetermined`.
 
 ## Part 5 — The engine
 

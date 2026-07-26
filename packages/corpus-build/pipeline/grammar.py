@@ -60,7 +60,7 @@ PAST = {
     "make": "made", "see": "saw", "find": "found", "send": "sent",
     "guide": "guided", "favour": "favoured", "trust in": "trusted in",
     "reject": "rejected", "serve": "served", "teach": "taught",
-    "cover over": "covered over", "envy": "envied", "whisper": "whispered",
+    "cover over": "covered over", "envy": "envied", "whisper": "whispered", "sink in": "sank in", "withdraw": "withdrew",
 }
 # Lemmas whose English already expresses the genitive link.
 ABSORB_GENITIVE = {"غَيْر", "بَعْض", "كُلّ", "مِثْل", "أَهْل", "ذُو"}

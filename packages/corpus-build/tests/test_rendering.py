@@ -121,15 +121,22 @@ def test_table_rows_are_well_formed() -> None:
             assert not row["english"], f"{key} is undetermined but has English"
 
 
-def test_undetermined_keys_are_recorded_not_guessed() -> None:
-    """The five hapaxes found in 112-114 must stay blocked, not quietly filled."""
+def test_hapaxes_rest_on_general_arabic_and_say_so() -> None:
+    """Rule 22: a hapax may be rendered from ordinary Arabic lexis, but only at
+    judgement grade and only if its evidence records that it does not come from
+    the corpus. Promoting one to settled would hide the weakest words in the
+    translation among the strongest."""
     table = load_table()
     for root in ("ص م د", "ك ف أ", "و ق ب", "ن ف ث", "خ ن س"):
         rows = [v for k, v in table.items() if k == root or k.startswith(root + "|")]
         assert rows, f"{root} missing from the table"
-        assert all(r["grade"] == "undetermined" or not r["english"] for r in rows), (
-            f"{root} was filled in without evidence"
-        )
+        for r in rows:
+            if not r.get("english"):
+                continue
+            assert r["grade"] == "judgement", f"{root} must stay judgement"
+            assert "Rule 22" in r.get("evidence", ""), (
+                f"{root} renders from general Arabic but does not say so"
+            )
 
 
 def test_no_root_level_over_seeding() -> None:

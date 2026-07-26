@@ -8040,9 +8040,9 @@
   "tokens": 1
  },
  "ج ن ن|أَجِنَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "unseen ones",
+  "evidence": "114:6 paired against الناس",
+  "grade": "supported",
   "tokens": 1
  },
  "ج ن ن|جانّ|N": {
@@ -8077,15 +8077,15 @@
   "tokens": 2
  },
  "ج ن ن|جِنّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "unseen ones",
+  "evidence": "114:6 paired against الناس",
+  "grade": "supported",
   "tokens": 22
  },
  "ج ن ن|جِنَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "unseen ones",
+  "evidence": "114:6 paired against الناس",
+  "grade": "supported",
   "tokens": 10
  },
  "ج ن ن|مَجْنُون|N": {
@@ -11246,15 +11246,15 @@
   "tokens": 5
  },
  "خ ن س|خَنّاس|N": {
-  "english": "",
-  "evidence": "2 tokens, 81:15 uninformative",
-  "grade": "undetermined",
+  "english": "withdrawer",
+  "evidence": "خَنَسَ = to draw back [Rule 22: general Arabic, not the corpus]",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ن س|خُنَّس|N": {
-  "english": "",
-  "evidence": "2 tokens, 81:15 uninformative",
-  "grade": "undetermined",
+  "english": "receders",
+  "evidence": "خُنَّس = those that recede (81:15) [Rule 22: general Arabic, not the corpus]",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ن ق|مُنْخَنِقَة|N": {
@@ -18222,9 +18222,9 @@
   "tokens": 1
  },
  "ص م د|صَمَد|N": {
-  "english": "",
-  "evidence": "hapax: 112:2 only",
-  "grade": "undetermined",
+  "english": "Impervious",
+  "evidence": "صمد = solid, without hollow [Rule 22: general Arabic, not the corpus]",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص م ع|صَوامِع|N": {
@@ -25998,9 +25998,9 @@
   "tokens": 1
  },
  "ك ف أ|كُفُو|N": {
-  "english": "",
-  "evidence": "hapax: 112:4 only",
-  "grade": "undetermined",
+  "english": "equal",
+  "evidence": "كُفُؤ = a match, a peer [Rule 22: general Arabic, not the corpus]",
+  "grade": "judgement",
   "tokens": 1
  },
  "ك ف ت|كِفات|N": {
@@ -29411,9 +29411,9 @@
   "tokens": 1
  },
  "ن ف ث|نَفّاثَة|N": {
-  "english": "",
-  "evidence": "hapax: 113:4 only",
-  "grade": "undetermined",
+  "english": "blowers",
+  "evidence": "نَفَثَ = to blow, to breathe out lightly [Rule 22: general Arabic, not the corpus]",
+  "grade": "judgement",
   "tokens": 1
  },
  "ن ف ح|نَفْحَة|N": {
@@ -31591,9 +31591,9 @@
   "tokens": 1
  },
  "و ق ب|وَقَبَ|V": {
-  "english": "",
-  "evidence": "hapax: 113:3 only",
-  "grade": "undetermined",
+  "english": "sink in",
+  "evidence": "وَقَبَ = to enter, to sink in [Rule 22: general Arabic, not the corpus]",
+  "grade": "judgement",
   "tokens": 1
  },
  "و ق ت|أُقِّتَتْ|V": {
