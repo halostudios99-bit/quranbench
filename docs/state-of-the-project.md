@@ -1,5 +1,32 @@
 # State of the project
 
+> **Superseded in part — updated 2026-07-26, after first deployment.**
+>
+> Everything below about the *code* still holds. Everything about *deployment* was
+> written before the site was deployed and is now wrong in one important way: the
+> production deployment does **not** use Docker or Caddy.
+>
+> quranbench.com is live on an Oracle VPS, served by **pm2** (`next start`, port
+> 3004) behind the **nginx** that already fronts 41 other sites on that box. The
+> `Dockerfile` and `docker/compose.prod.yaml` still exist and are still unbuilt and
+> untested; they are simply not what runs in production, so "build and smoke-test
+> the image" is no longer the top outstanding task. It is optional work for a
+> future host.
+>
+> What has actually been done since: TLS via Let's Encrypt (expires 24 Oct 2026),
+> Postgres 18 with the schema migrated, **nightly checksum-verified backups with a
+> weekly restore proof** (`scripts/backup-cron.sh`, `scripts/verify-latest-backup.sh`,
+> installed in cron — the round-trip has been proven against the live database:
+> 17 tables, identical row counts), and **atomic zero-downtime deploys**
+> (`scripts/deploy-atomic.sh`).
+>
+> Still true and still unmeasured: **Lighthouse**. Still true and still missing:
+> **real SMTP credentials**, so no verification or password-reset email has ever
+> been sent from production.
+>
+> See `../HANDOVER.md` for the operational detail.
+
+
 _Written 2026-07-26, after Batches 5–6 (production hardening and deployment
 readiness), as an honest internal assessment — for the owner, not for marketing.
 It records what is genuinely built, what only looks built, what is fragile, and
@@ -249,23 +276,25 @@ Re-audited against the code on 2026-07-26 (evidence cited inline):
 
 ## What remains, in order
 
-1. **Build and smoke-test the Docker image** on a machine with Docker: `docker
-compose -f docker/compose.prod.yaml up --build`, confirm `migrate` completes, the
-   app reaches healthy, and Caddy serves. This is the one deployment claim still on
-   paper.
-2. **Run Lighthouse** (CI `lighthouse` job, or `pnpm lighthouse` locally with Chrome)
-   and confirm the budgets, or fix what regresses. No number until a real run.
-3. ~~Fix the three pre-existing e2e failures~~ — **done (2026-07-26)**; e2e is green.
-4. **Provision the deploy inputs the owner must supply:** register the domain + DNS,
-   obtain real SMTP credentials, and fill `docker/.env` (Postgres password,
-   `SITE_DOMAIN`, `TLS_EMAIL`, `NEXT_PUBLIC_SITE_URL`, SMTP).
-5. **First real deploy as a dry run** on the VPS; watch TLS issuance and send a real
-   verification + reset email end-to-end.
-6. **Close the read-path rate-limit gap** (Redis) or adjust the published API limit.
-7. **Schedule backups** (cron `backup.sh`) and push a monthly copy off the server.
-8. **Deposit the current corpus version to Zenodo** (`scripts/zenodo-package.mjs` +
+_Rewritten 2026-07-26 against the deployed reality. Items 1, 4 and 5 of the
+original list are done or obsolete: the site is deployed, on pm2 and nginx rather
+than Docker, with DNS and TLS in place._
+
+1. **Real SMTP credentials.** The mailer is still console-only in production, so
+   account verification and password reset are dead ends for a real visitor. This
+   is the largest functional gap on the live site and it is blocked on the owner.
+2. **Run Lighthouse.** Still configured, still never executed — no Chrome in any
+   environment used so far. The budgets remain aspirational until a real run.
+3. **Close the read-path rate-limit gap** (Redis) or soften the published API
+   limit, which is still advertised globally but enforced per process.
+4. **Push a backup copy off the server.** Nightly local backups now run and are
+   proven restorable, but every copy still lives on the same machine as the
+   database. A disk or instance loss takes both.
+5. **Deposit the current corpus version to Zenodo** (`scripts/zenodo-package.mjs` +
    `docs/zenodo.md`) and record the DOI on `/data` and `/method`.
-9. Carried forward: build the MT and payment isolation barriers _with_ those
+6. **Optional:** build and smoke-test the Docker image if the project ever moves
+   host. It remains unbuilt and unverified, and is no longer on the critical path.
+7. Carried forward: build the MT and payment isolation barriers _with_ those
    features; move Rule 2 enforcement from convention to the component layer for raw
    `.quran` spans.
 
