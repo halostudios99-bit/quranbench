@@ -1,0 +1,31 @@
+{
+ "id": "en-qb-v1",
+ "language": "English",
+ "language_code": "en",
+ "translator": "QuranBench (generated)",
+ "year": 2026,
+ "licence": "CC BY-SA 4.0",
+ "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+ "redistributable": true,
+ "verses": 1176,
+ "artifact": "en-qb-v1.jsonl",
+ "licence_file": "",
+ "source_id": "quranbench-decisions",
+ "generated": true,
+ "disclaimer": "Generated from a table of word-by-word decisions, not written as prose. Arabic word order is preserved, so it reads stiffly and is not a substitute for a translation written by a person. It is under review and incomplete: only verses whose every word has been decided appear at all. Words marked as judgement rest on weaker evidence than the rest and are flagged. No tafsir, hadith or existing translation was consulted.",
+ "corpus_version": "0.8.0",
+ "decision_table_sha256": "d013557cf745277c3e7ca7141addfc88e7ab3cd827874e3ba035ad0ccc64316c",
+ "artifact_sha256": "02854ac3277baaeae5bdd0ef326f7831970a12528bb36a9f97b714e4579d1c71",
+ "coverage": {
+  "verses_rendered": 1176,
+  "verses_total": 6348,
+  "words_rendered": 9224,
+  "words_total": 77881,
+  "verses_carrying_judgement": 72,
+  "grades": {
+   "settled": 7675,
+   "supported": 1476,
+   "judgement": 73
+  }
+ }
+}

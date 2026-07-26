@@ -37,6 +37,12 @@ import { rankSimilarVerses, type SimilarCandidate } from '@/lib/similar-verses';
 import { rankCoOccurrence, tallyCoOccurrence } from '@/lib/co-occurrence';
 import { pickWordIndex } from '@/lib/random-word';
 
+import {
+  isGenerated,
+  loadGeneratedEdition,
+  type LoadedGeneratedEdition,
+} from './qb-edition';
+
 // The whole corpus is a few megabytes and fits in RAM (see CLAUDE.md). It is
 // loaded and indexed exactly once per server process — a module-level singleton,
 // never per request. Everything the reader renders is derived from these maps.
@@ -58,8 +64,10 @@ interface CorpusState {
   rootBySlug: Map<string, Root>;
   /** Root identity forms → Root: the spaced form (`ز ك و`) and its unspaced form. */
   rootByForm: Map<string, Root>;
-  /** Verse-level translation editions, in manifest order. */
+  /** Verse-level translation editions, in manifest order, generated one last. */
   translations: LoadedTranslation[];
+  /** The project's own generated edition, or null until it has been built. */
+  generated: LoadedGeneratedEdition | null;
   /** Corpus verse ids in reading order — the ordering basis for reverse lookup. */
   verseOrder: string[];
   /** Gloss key → token handles carrying a gloss with that key (reverse gloss lookup). */
@@ -96,6 +104,16 @@ function artifactsRoot(): string {
   return (
     process.env.QB_CORPUS_DIR ||
     resolve(process.cwd(), '..', '..', 'packages', 'corpus-build', 'out')
+  );
+}
+
+/** The generated edition sits beside the releases, not inside one: it is derived
+ *  from the decision table rather than sourced, and the sealed version dirs
+ *  describe sourced data only (see server/qb-edition.ts). */
+function generatedEditionDir(): string {
+  return (
+    process.env.QB_GENERATED_EDITION_DIR ||
+    resolve(artifactsRoot(), '..', 'qb-translation')
   );
 }
 
@@ -235,6 +253,14 @@ function build(): CorpusState {
       compareStrings(a.key, b.key),
   );
 
+  // The project's own generated edition, loaded after the licensed ones so it
+  // never displaces them in manifest order. Absent until the generator has been
+  // run, which is not an error.
+  const generated = loadGeneratedEdition(generatedEditionDir());
+  const translations = generated
+    ? [...corpus.translations, generated]
+    : corpus.translations;
+
   const loadMs = performance.now() - started;
   if (process.env.NODE_ENV !== 'test') {
     console.info(
@@ -252,7 +278,8 @@ function build(): CorpusState {
     versesBySurah,
     rootBySlug,
     rootByForm,
-    translations: corpus.translations,
+    translations,
+    generated,
     verseOrder: corpus.segments.map((s) => s.id),
     glossIndex,
     glossSlugToKey,
@@ -724,6 +751,12 @@ export function translationLabel(edition: TranslationEdition): string {
 export interface VerseTranslation {
   edition: TranslationEdition;
   text: string;
+  /**
+   * Generated edition only: [start, length] spans into the whitespace-split
+   * text, marking the words whose decision is graded `judgement` — weaker
+   * evidence than the rest, and shown as such rather than passed off as settled.
+   */
+  judgement?: number[][];
 }
 
 /**
@@ -736,10 +769,15 @@ export function getVerseTranslations(
 ): VerseTranslation[] {
   const wanted = editionIds ? new Set(editionIds) : null;
   const out: VerseTranslation[] = [];
-  for (const t of state().translations) {
+  const s = state();
+  for (const t of s.translations) {
     if (wanted && !wanted.has(t.edition.id)) continue;
     const text = t.byVerseId.get(verseId);
-    if (text !== undefined) out.push({ edition: t.edition, text });
+    if (text === undefined) continue;
+    const judgement = isGenerated(t.edition)
+      ? s.generated?.judgementByVerseId.get(verseId)
+      : undefined;
+    out.push({ edition: t.edition, text, ...(judgement ? { judgement } : {}) });
   }
   return out;
 }

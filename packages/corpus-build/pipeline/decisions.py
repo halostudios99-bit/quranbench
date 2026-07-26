@@ -103,7 +103,20 @@ def resolve(token: dict, table: dict) -> dict | None:
 
 
 def render_verse(tokens: list[dict], table: dict, mark: bool = False) -> tuple[list[str], bool]:
-    """Render one verse. Returns the words and whether anything blocked it.
+    """Render one verse. Returns the words and whether anything blocked it."""
+    parts, blocked = render_verse_parts(tokens, table, mark)
+    return [word for word, _ in parts], blocked
+
+
+def render_verse_parts(
+    tokens: list[dict], table: dict, mark: bool = False
+) -> tuple[list[tuple[str, dict | None]], bool]:
+    """Render one verse, keeping each rendered word beside the row that produced it.
+
+    The edition builder needs this correspondence to mark the words graded
+    judgement. Token position will not do: one token can render as several words
+    ("the All-Merciful"), and a word can be dropped entirely by the repetition
+    rule, so the two sequences drift apart.
 
     This is the single rendering path. The fixtures used to carry their own copy
     of this loop, which meant a change to how production renders a verse could
@@ -114,7 +127,7 @@ def render_verse(tokens: list[dict], table: dict, mark: bool = False) -> tuple[l
     decision table marks which words are elatives, because the morphology does
     not: the corpus tags أظلم as a verb.
     """
-    words: list[str] = []
+    parts: list[tuple[str, dict | None]] = []
     blocked = False
     ordered = sorted(tokens, key=lambda t: t["position"])
     previous_row: dict | None = None
@@ -122,7 +135,7 @@ def render_verse(tokens: list[dict], table: dict, mark: bool = False) -> tuple[l
     for i, token in enumerate(ordered):
         row = resolve(token, table)
         if not row:
-            words.append(f"⟦{token['text_no_tashkeel']}⟧")
+            parts.append((f"⟦{token['text_no_tashkeel']}⟧", None))
             blocked = True
             previous_row = None
             continue
@@ -173,19 +186,20 @@ def render_verse(tokens: list[dict], table: dict, mark: bool = False) -> tuple[l
         # "trust in in it". Where the repetition comes from our composition it is
         # dropped; where the Arabic itself repeats a word — وإلهكم إله, أمتكم أمة
         # — the lemmas match and both are kept, because the text said it twice.
-        if words and word:
+        if parts and word:
             prev_lemma = (ordered[i - 1].get("morphology") or {}).get("lemma")
             if morph.get("lemma") != prev_lemma:
-                tail = words[-1].split()
+                tail = parts[-1][0].split()
                 head = word.split()
                 if tail and head and tail[-1].lower() == head[0].lower():
                     word = " ".join(head[1:])
 
         if word:
-            words.append(f"*{word}*" if mark and row["grade"] == "judgement" else word)
+            marked = f"*{word}*" if mark and row["grade"] == "judgement" else word
+            parts.append((marked, row))
         previous_row = row
 
-    return words, blocked
+    return parts, blocked
 
 
 # ── commands ──────────────────────────────────────────────────────────────────
