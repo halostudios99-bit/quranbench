@@ -83,7 +83,7 @@ DOUBLE = {"admit", "commit", "permit", "omit", "submit", "prefer", "refer",
 
 # Fixed predicates that are not verbs and must not be inflected at all. "is not"
 # has no past; "excellent is" was being turned into "excellented is".
-INVARIANT = {"is not", "excellent is", "wretched is"}
+INVARIANT = {"is not", "excellent is", "wretched is", "perhaps"}
 # Lemmas whose English already expresses the genitive link.
 ABSORB_GENITIVE = {"غَيْر", "بَعْض", "كُلّ", "مِثْل", "أَهْل", "ذُو"}
 

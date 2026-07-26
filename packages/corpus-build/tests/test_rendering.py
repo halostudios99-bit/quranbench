@@ -172,6 +172,10 @@ def test_no_root_level_over_seeding() -> None:
         pos_tags = [k.split("|")[2] for k, _ in rows if k.count("|") == 2]
         if len(englishes) == 1 and len(set(pos_tags)) == len(pos_tags):
             continue
+        # A masculine noun and its feminine are one word: مُؤْمِن and مُؤْمِنَة both
+        # render "one who trusts". Strip the ة and see whether anything is left.
+        if len({lemma.rstrip("ةَُِ") for lemma in lemmas}) == 1:
+            continue
         # One lemma tagged with two parts of speech is not over-seeding —
         # يَوْم is the same word whether tagged N or T. Distinct lemmas sharing
         # one English word is the real signature.
