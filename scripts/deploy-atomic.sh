@@ -54,8 +54,27 @@ say "live slot: $CURRENT — building into: $TARGET"
 
 cd "$APP_DIR" || { say "FATAL: no $APP_DIR"; exit 1; }
 
+# Run the build — and the slot deletion below — at the lowest priority. The box
+# has 2 vCPUs and the static generation pass covers ~78,000 pages, which
+# saturates both; the live process then misses nginx's proxy timeout and a
+# request occasionally returns 502 even though the app is healthy and the old
+# slot is untouched. Observed once during a deploy on 2026-07-26. `nice` lets the
+# serving process win the CPU, at the cost of a slower build — the right trade
+# when the build is not user-visible.
+NICE="nice -n 19"
+command -v ionice >/dev/null && NICE="ionice -c3 $NICE"
+
 # A stale target from an earlier failed run would otherwise be served as-is.
-rm -rf "${WEB_DIR:?}/${TARGET:?}"
+#
+# This deletes ~390MB across tens of thousands of files, and on 2026-07-26 that
+# took the whole box down for half an hour: `/` was mounted with `discard`, so
+# every freed extent issued a synchronous TRIM to a volume that handles TRIM
+# slowly. ext4's discard worker then sat at 99% disk utilisation for 25 minutes
+# and every site on the host stalled behind it. The mount option is gone now
+# (see HANDOVER.md), which is the actual fix; deleting at idle I/O priority is
+# the belt to that braces, so a bulk delete never again competes with the live
+# site for the disk.
+$NICE rm -rf "${WEB_DIR:?}/${TARGET:?}"
 
 say "installing dependencies"
 if ! pnpm install --frozen-lockfile; then
@@ -63,19 +82,10 @@ if ! pnpm install --frozen-lockfile; then
   echo "DEPLOY_EXIT=1"; say "END"; exit 1
 fi
 
-# Run the build at the lowest priority. The box has 2 vCPUs and the static
-# generation pass covers ~78,000 pages, which saturates both; the live process
-# then misses nginx's proxy timeout and a request occasionally returns 502 even
-# though the app is healthy and the old slot is untouched. Observed once during
-# a deploy on 2026-07-26. `nice` lets the serving process win the CPU, at the
-# cost of a slower build — the right trade when the build is not user-visible.
-NICE="nice -n 19"
-command -v ionice >/dev/null && NICE="ionice -c3 $NICE"
-
 say "building (deprioritised: $NICE)"
 if ! $NICE env NEXT_DIST_DIR="$TARGET" pnpm --filter @quranbench/web build; then
   say "FATAL: build failed — nothing changed, site still serving $CURRENT"
-  rm -rf "${WEB_DIR:?}/${TARGET:?}"
+  $NICE rm -rf "${WEB_DIR:?}/${TARGET:?}"
   echo "DEPLOY_EXIT=1"; say "END"; exit 1
 fi
 
