@@ -1,0 +1,123 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NEXT_TELEMETRY_DISABLED: '1'
+
+jobs:
+  # ── Fast gate: format, lint, types, unit tests, build. No services needed. ──
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @quranbench/web exec prisma generate
+      - name: Lint
+        run: pnpm lint
+      - name: Typecheck
+        run: pnpm --filter @quranbench/web exec tsc --noEmit
+      - name: Unit tests (packages)
+        run: pnpm test
+      - name: Unit tests (web)
+        run: pnpm --filter @quranbench/web test
+      - name: Build
+        run: pnpm --filter @quranbench/web build
+
+  # ── Integration: migrations, e2e, and the backup round-trip against real
+  #    Postgres + Redis. ─────────────────────────────────────────────────────
+  e2e:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: quranbench
+          POSTGRES_PASSWORD: quranbench
+          POSTGRES_DB: quranbench
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U quranbench -d quranbench"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+      redis:
+        image: redis:7-alpine
+        ports: ['6379:6379']
+        options: >-
+          --health-cmd "redis-cli ping" --health-interval 5s
+          --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://quranbench:quranbench@localhost:5432/quranbench?schema=public
+      REDIS_URL: redis://localhost:6379
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Apply migrations
+        run: pnpm --filter @quranbench/web exec prisma migrate deploy
+      - name: Backup round-trip test
+        run: |
+          sudo apt-get update && sudo apt-get install -y postgresql-client
+          PGHOST=localhost PGPORT=5432 PGUSER=quranbench PGPASSWORD=quranbench \
+            ./scripts/backup-restore-test.sh
+      - name: Build
+        run: pnpm --filter @quranbench/web build
+      - name: Install Playwright browsers
+        run: pnpm --filter @quranbench/web exec playwright install --with-deps chromium
+      - name: E2E
+        run: pnpm --filter @quranbench/web test:e2e
+
+  # ── Lighthouse against the budgets in docs/design-system.md. ───────────────
+  lighthouse:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: quranbench
+          POSTGRES_PASSWORD: quranbench
+          POSTGRES_DB: quranbench
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U quranbench -d quranbench"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://quranbench:quranbench@localhost:5432/quranbench?schema=public
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @quranbench/web exec prisma migrate deploy
+      - name: Build
+        run: pnpm --filter @quranbench/web build
+      - name: Lighthouse CI
+        # lhci starts the app (see lighthouserc.json), collects, and asserts the
+        # budgets. Fails the job on any budget regression.
+        run: pnpm dlx @lhci/cli@0.15.x autorun
