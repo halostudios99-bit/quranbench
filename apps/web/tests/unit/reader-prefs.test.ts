@@ -3,7 +3,9 @@ import { describe, expect, it } from 'vitest';
 import {
   arabicScale,
   DEFAULT_DISPLAY,
+  DEFAULT_EDITION_ID,
   DEFAULT_SIZE,
+  defaultEditions,
   normaliseReaderPrefs,
   parseDisplay,
   parseEditions,
@@ -18,10 +20,33 @@ import {
 
 const AVAILABLE = ['en-itani', 'en-pickthall', 'en-rodwell', 'en-palmer'];
 
+describe('defaultEditions', () => {
+  it('is the named default edition when it exists', () => {
+    expect(defaultEditions(AVAILABLE)).toEqual([DEFAULT_EDITION_ID]);
+  });
+
+  it('never defaults to a display-only edition', () => {
+    // Itani is first in manifest order but is CC BY-NC-ND; ordering must not be
+    // what decides the default.
+    expect(defaultEditions(AVAILABLE)).not.toContain('en-itani');
+  });
+
+  it('falls back to the first available edition when the default is absent', () => {
+    expect(defaultEditions(['en-rodwell', 'en-palmer'])).toEqual(['en-rodwell']);
+    expect(defaultEditions([])).toEqual([]);
+  });
+});
+
 describe('parseEditions', () => {
-  it('treats a missing cookie and the "all" sentinel as "show all"', () => {
-    expect(parseEditions(undefined, AVAILABLE)).toBeUndefined();
-    expect(parseEditions('', AVAILABLE)).toBeUndefined();
+  it('treats a missing cookie as "the default single edition", not "all"', () => {
+    // A reader who has never opened the panel sees one translation.
+    expect(parseEditions(undefined, AVAILABLE)).toEqual([DEFAULT_EDITION_ID]);
+    expect(parseEditions('', AVAILABLE)).toEqual([DEFAULT_EDITION_ID]);
+  });
+
+  it('treats the "all" sentinel as an explicit "show all"', () => {
+    // Distinct from a missing cookie: this reader ticked everything, and that
+    // choice must survive the default changing.
     expect(parseEditions('all', AVAILABLE)).toBeUndefined();
   });
 
@@ -94,7 +119,24 @@ describe('normaliseReaderPrefs sanitises untrusted stored JSON', () => {
   });
 
   it('returns the defaults for a non-object', () => {
-    expect(normaliseReaderPrefs(null, AVAILABLE).editions).toBeUndefined();
+    expect(normaliseReaderPrefs(null, AVAILABLE).editions).toEqual([
+      DEFAULT_EDITION_ID,
+    ]);
     expect(normaliseReaderPrefs('x', AVAILABLE).display).toBe(DEFAULT_DISPLAY);
+  });
+
+  it('treats a stored record with no editions array as "never chosen"', () => {
+    // Profiles written before the reader had a per-edition setting.
+    expect(normaliseReaderPrefs({ display: 'both' }, AVAILABLE).editions).toEqual([
+      DEFAULT_EDITION_ID,
+    ]);
+  });
+
+  it('keeps an explicitly stored full selection', () => {
+    // Both writers store the resolved array, so "every edition" is preserved
+    // rather than being mistaken for an absent value.
+    expect(normaliseReaderPrefs({ editions: AVAILABLE }, AVAILABLE).editions).toEqual(
+      AVAILABLE,
+    );
   });
 });

@@ -57,8 +57,12 @@ export async function GET(request: NextRequest) {
   // Mirror to the account so the choice follows a signed-in reader across devices.
   const user = await getCurrentUser();
   if (user) {
+    // Store the resolved list explicitly, even when it is every edition. An
+    // absent `editions` in a profile means "never chosen" and resolves to the
+    // default single edition, so writing `undefined` here for a reader who
+    // deliberately ticked everything would silently undo their choice.
     const prefs: ReaderPrefs = {
-      editions: editionsValue === 'all' ? undefined : [...chosen],
+      editions: available.filter((id) => chosen.has(id)),
       display,
       size,
     };

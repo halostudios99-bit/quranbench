@@ -1,7 +1,17 @@
 // Inline SVG icons — no icon dependency, no emoji (design-system §7). Stroke
 // follows currentColor so icons inherit the button's text colour in both modes.
 
-type IconName = 'copy' | 'link' | 'share' | 'quote' | 'sun' | 'moon' | 'search' | 'chevron';
+type IconName =
+  | 'copy'
+  | 'link'
+  | 'share'
+  | 'quote'
+  | 'sun'
+  | 'moon'
+  | 'search'
+  | 'chevron'
+  | 'settings'
+  | 'close';
 
 const PATHS: Record<IconName, React.ReactNode> = {
   copy: (
@@ -43,6 +53,13 @@ const PATHS: Record<IconName, React.ReactNode> = {
     </>
   ),
   chevron: <path d="M9 6l6 6-6 6" />,
+  settings: (
+    <>
+      <circle cx="12" cy="12" r="3" />
+      <path d="M12 2.5l1.4 2.3 2.6-.5.5 2.6 2.3 1.4-1.3 2.3 1.3 2.3-2.3 1.4-.5 2.6-2.6-.5L12 21.5l-1.4-2.3-2.6.5-.5-2.6-2.3-1.4 1.3-2.3-1.3-2.3 2.3-1.4.5-2.6 2.6.5z" />
+    </>
+  ),
+  close: <path d="M6 6l12 12M18 6L6 18" />,
 };
 
 export function Icon({ name, size = 16 }: { name: IconName; size?: number }) {

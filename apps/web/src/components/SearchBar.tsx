@@ -20,7 +20,7 @@ export function SearchBar({ defaultValue = '' }: { defaultValue?: string }) {
         role="search"
         className="flex max-w-2xl flex-col gap-2 sm:flex-row"
       >
-        <div className="flex flex-1 items-center gap-3 rounded-lg border border-line2 bg-panel px-4 focus-within:border-accent">
+        <div className="qb-field flex flex-1 items-center gap-3 rounded-lg border border-line2 bg-panel px-4">
           <span className="text-ink3" aria-hidden="true">
             <Icon name="search" size={18} />
           </span>

@@ -24,6 +24,29 @@ export const ARABIC_SIZES: ArabicSize[] = [1, 2, 3];
 export const DEFAULT_DISPLAY: DisplayMode = 'both';
 export const DEFAULT_SIZE: ArabicSize = 2;
 
+/**
+ * What a reader who has never opened the settings sees: one translation, not all
+ * of them. Stacking every edition under each ayah buries the Arabic and reads as
+ * clutter rather than as scholarship; comparing editions is a deliberate act, and
+ * `/compare` is the surface built for it.
+ *
+ * Pickthall (1930) is the most conventional English of the public-domain editions.
+ * This is an editorial choice and the only one in the reader, so it is named here
+ * in one place rather than implied by manifest order — the manifest happens to
+ * list Itani first, which is display-only and must never be a default.
+ */
+export const DEFAULT_EDITION_ID = 'en-pickthall';
+
+/**
+ * The default selection resolved against the editions that actually exist. A fork
+ * that ships without Pickthall falls back to the first available edition rather
+ * than showing a reader nothing at all.
+ */
+export function defaultEditions(available: string[]): string[] {
+  const preferred = available.filter((id) => id === DEFAULT_EDITION_ID);
+  return preferred.length > 0 ? preferred : available.slice(0, 1);
+}
+
 /** Human label for a display mode, for controls and screen readers. */
 export const DISPLAY_LABELS: Record<DisplayMode, string> = {
   arabic: 'Arabic only',
@@ -58,15 +81,21 @@ export function parseSize(raw: string | undefined | null): ArabicSize {
 
 /**
  * Resolve the reader's selected edition ids from the cookie value, intersected
- * with what is actually available. `undefined` means "show all" (the default and
- * the `all` sentinel); `[]` means the reader hid every edition. Selection order
- * follows the available (manifest) order so the reading order is stable.
+ * with what is actually available. `undefined` means "show all" (the `all`
+ * sentinel); `[]` means the reader hid every edition. Selection order follows the
+ * available (manifest) order so the reading order is stable.
+ *
+ * No cookie means the reader has never chosen, so they get the default single
+ * edition — distinct from `all`, which means they opened the panel and ticked
+ * everything. Keeping those two cases apart is what lets an explicit choice
+ * survive this default changing.
  */
 export function parseEditions(
   raw: string | undefined | null,
   available: string[],
 ): string[] | undefined {
-  if (!raw || raw === 'all') return undefined;
+  if (raw == null || raw === '') return defaultEditions(available);
+  if (raw === 'all') return undefined;
   if (raw === 'none') return [];
   const chosen = new Set(raw.split(',').filter(Boolean));
   return available.filter((id) => chosen.has(id));
@@ -90,18 +119,41 @@ export interface ReaderPrefs {
   size: ArabicSize;
 }
 
+/**
+ * The display and size defaults. `editions: undefined` here is the "show all"
+ * sentinel, not the reader default — resolve that with `defaultEditions()`, which
+ * needs to know which editions exist.
+ */
 export const DEFAULT_READER_PREFS: ReaderPrefs = {
   editions: undefined,
   display: DEFAULT_DISPLAY,
   size: DEFAULT_SIZE,
 };
 
-/** Normalise an untrusted stored/JSON prefs object (e.g. from the profile). */
+/** The preferences a reader gets before they have chosen anything. */
+export function initialReaderPrefs(available: string[]): ReaderPrefs {
+  return {
+    editions: defaultEditions(available),
+    display: DEFAULT_DISPLAY,
+    size: DEFAULT_SIZE,
+  };
+}
+
+/**
+ * Normalise an untrusted stored/JSON prefs object (e.g. from the profile).
+ *
+ * A stored record with no `editions` array is a profile written before the reader
+ * had a per-edition setting, so it is treated as "never chosen" and gets the
+ * default. Both writers (the server action and the no-JS route) now always store
+ * an explicit array, including when every edition is selected, so a deliberate
+ * "show all" is never mistaken for an absent value.
+ */
 export function normaliseReaderPrefs(
   value: unknown,
   available: string[],
 ): ReaderPrefs {
-  if (typeof value !== 'object' || value === null) return DEFAULT_READER_PREFS;
+  if (typeof value !== 'object' || value === null)
+    return initialReaderPrefs(available);
   const v = value as Record<string, unknown>;
   const editionsRaw = v['editions'];
   let editions: string[] | undefined;
@@ -109,7 +161,7 @@ export function normaliseReaderPrefs(
     const set = new Set(editionsRaw.filter((x): x is string => typeof x === 'string'));
     editions = available.filter((id) => set.has(id));
   } else {
-    editions = undefined;
+    editions = defaultEditions(available);
   }
   return {
     editions,

@@ -180,10 +180,31 @@ body {
   font-feature-settings: 'kern' off;
 }
 
+/* One focus style for the whole site. This rule is unlayered and therefore beats
+   Tailwind's `outline-none` utility — deliberate, so no page author can remove a
+   focus indicator by accident. Two consequences were once bugs and are now
+   handled explicitly:
+     - it must NOT set border-radius. An outline already follows the element's
+       own radius; setting one here squared off every rounded button and pill at
+       the moment it received focus.
+     - a composite control (icon + input inside one bordered shell) would draw
+       this ring on the inner input *and* light up the shell, giving two rings.
+       See .qb-field below, which moves the single ring to the shell. */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
-  border-radius: 3px;
+}
+
+/* A field shell: a bordered box wrapping an icon and an input that must read as
+   one control. The ring is drawn once, on the shell, in the same style every
+   other focusable element on the site uses. The inner input draws none. */
+.qb-field:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.qb-field input:focus-visible,
+.qb-field textarea:focus-visible {
+  outline: none;
 }
 
 /* Token styling lives in one rule, not a long class string repeated across
