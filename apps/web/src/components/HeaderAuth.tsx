@@ -27,7 +27,7 @@ const linkClass = 'rounded-md px-2.5 py-2 text-[14px] text-ink2 hover:text-ink';
 let sessionRequest: Promise<Session> | null = null;
 let sessionAt = 0;
 function loadSession(): Promise<Session> {
-  if (!sessionRequest || Date.now() - sessionAt > 3000) {
+  if (!sessionRequest || Date.now() - sessionAt > 1000) {
     sessionAt = Date.now();
     sessionRequest = fetch('/api/session', {
       headers: { accept: 'application/json' },
