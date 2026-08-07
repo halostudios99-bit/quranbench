@@ -33,13 +33,16 @@ describe('the generated edition', () => {
     expect(loaded!.byVerseId.size).toBe(loaded!.edition.verses);
   });
 
-  it('is partial, and says so in its own coverage figures', () => {
+  it('reports coverage honestly, complete or not', () => {
     const { edition, byVerseId } = loadGeneratedEdition(editionDir)!;
-    // Only verses whose every word is decided are emitted. If this ever equals
-    // the corpus verse count the claim "under review, incomplete" has changed
-    // and the disclaimer must change with it.
-    expect(byVerseId.size).toBeLessThan(edition.coverage.verses_total);
+    // The edition reached 100% of verses on 2026-08-07 and the disclaimer was
+    // rewritten from "incomplete" to "under review" at the same moment —
+    // this test originally asserted partiality precisely to force that change.
     expect(edition.coverage.verses_rendered).toBe(byVerseId.size);
+    expect(byVerseId.size).toBeLessThanOrEqual(edition.coverage.verses_total);
+    if (byVerseId.size === edition.coverage.verses_total) {
+      expect(edition.disclaimer).not.toMatch(/incomplete/i);
+    }
   });
 
   it('marks judgement words as spans that land on real words', () => {

@@ -64,10 +64,10 @@ LICENCE_URL = "https://creativecommons.org/licenses/by-sa/4.0/"
 DISCLAIMER = (
     "Generated from a table of word-by-word decisions, not written as prose. "
     "Arabic word order is preserved, so it reads stiffly and is not a "
-    "substitute for a translation written by a person. It is under review and "
-    "incomplete: only verses whose every word has been decided appear at all. "
-    "Words marked as judgement rest on weaker evidence than the rest and are "
-    "flagged. No tafsir, hadith or existing translation was consulted."
+    "substitute for a translation written by a person. Every verse is "
+    "rendered, but the whole remains under review: words marked as judgement "
+    "rest on weaker evidence than the rest and are flagged in place. No "
+    "tafsir, hadith or existing translation was consulted."
 )
 
 
