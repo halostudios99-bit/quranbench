@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 // The header's signed-in indicator. Rendered as progressive enhancement so
 // public pages stay static: the server renders the signed-out links, and this
@@ -67,6 +68,10 @@ function SignedOut({ stacked }: { stacked: boolean }) {
  */
 export function HeaderAuth({ stacked = false }: { stacked?: boolean }) {
   const [session, setSession] = useState<Session | null>(null);
+  // The header lives in the layout and never remounts, so the summary must
+  // refresh on every route change — that is how the chrome catches sign-out's
+  // redirect (and sign-in's) without a full page load.
+  const pathname = usePathname();
 
   useEffect(() => {
     let active = true;
@@ -76,7 +81,7 @@ export function HeaderAuth({ stacked = false }: { stacked?: boolean }) {
     return () => {
       active = false;
     };
-  }, []);
+  }, [pathname]);
 
   // Before hydration resolves, show the signed-out controls: they are always
   // safe and never gate anything.
