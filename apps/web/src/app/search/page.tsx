@@ -5,6 +5,7 @@ import { SearchBar } from '@/components/SearchBar';
 import { ProvenanceTag } from '@/components/ProvenanceTag';
 import { searchString } from '@quranbench/search';
 import { describeSegment, getCorpus, getIndex } from '@/server/corpus';
+import { suggest, type Suggestion } from '@/server/suggest';
 
 // `?q=` makes this an unbounded URL space. Left indexable it would compete for
 // crawl budget with the 87,000 real, permanent URLs in the sitemap — and search
@@ -21,6 +22,32 @@ export const metadata: Metadata = {
 };
 
 const MAX_SEGMENTS = 40;
+
+// When a query parses but matches nothing (or fails to parse), the dead end
+// should still lead somewhere: the same suggestion engine behind the search
+// box dropdown proposes surahs, roots, words and glosses near what was typed.
+function DidYouMean({ items }: { items: Suggestion[] }) {
+  if (items.length === 0) return null;
+  return (
+    <div className="mt-4">
+      <p className="text-[14px] text-ink2">Did you mean:</p>
+      <ul className="mt-2 flex flex-wrap gap-2">
+        {items.slice(0, 5).map((s) => (
+          <li key={`${s.type}-${s.label}`}>
+            <a
+              href={s.href ?? `/search?q=${encodeURIComponent(s.q ?? '')}`}
+              dir="auto"
+              className="inline-block rounded-full border border-line bg-panel px-3 py-1.5 text-[13px] text-ink hover:border-line2"
+            >
+              {s.label}
+              <span className="ml-1.5 text-[11px] text-ink3">{s.type}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 interface SearchParams {
   searchParams: Promise<{ q?: string }>;
@@ -55,6 +82,7 @@ export default async function SearchPage({ searchParams }: SearchParams) {
             Could not parse the query at position {result.error.position}.
           </p>
           <p className="mt-1 text-[14px] text-ink2">{result.error.message}</p>
+          <DidYouMean items={suggest(query)} />
         </div>
       ) : null}
 
@@ -95,7 +123,17 @@ export default async function SearchPage({ searchParams }: SearchParams) {
           </details>
 
           {result.result.segmentIds.length === 0 ? (
-            <p className="text-[16px] text-ink2">No verses matched. Try a broader query.</p>
+            <div>
+              <p className="text-[16px] text-ink2">
+                No verses matched. Try a broader query — or, for English words,
+                the{' '}
+                <a href="/gloss" className="text-accent hover:underline">
+                  reverse lookup
+                </a>
+                .
+              </p>
+              <DidYouMean items={suggest(query)} />
+            </div>
           ) : (
             <div className="flex flex-col gap-4">
               {result.result.segmentIds.slice(0, MAX_SEGMENTS).map((segmentId) => {

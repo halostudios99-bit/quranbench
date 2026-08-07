@@ -1,8 +1,8 @@
 # Audit — Five Prayers & Timings
 
-_five-prayers-timings.md · corpus 0.6.0 · slug `five-prayers-timings`_
+_five-prayers-timings.md · corpus 0.8.0 · slug `five-prayers-timings`_
 
-Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.
+Audited against corpus 0.8.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.
 
 **10 claims checked** — ✅ 10 verified · 🚩 0 flagged · ❔ 0 unchecked · review score **0**
 

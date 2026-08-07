@@ -1,30 +1,24 @@
 # Audit — Zakat
 
-_zakat.md · corpus 0.6.0 · slug `zakat`_
+_zakat.md · corpus 0.8.0 · slug `zakat`_
 
-Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.
+Audited against corpus 0.8.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.
 
-**53 claims checked** — ✅ 51 verified · 🚩 2 flagged · ❔ 0 unchecked · review score **10**
+**53 claims checked** — ✅ 53 verified · 🚩 0 flagged · ❔ 0 unchecked · review score **0**
 
-## 🚩 Flagged — needs a human decision
+## 🚩 Flagged
 
-- **Arabic "آتُو" has 1/1 word(s) not found in the corpus, even allowing for spelling variation.**
-  - Quoted Arabic · severity: high · line 31
-  - source: `Quranic word آتُو Atoo literally means "Give/Donate" and word الزَّكَاةَ meaning "Purify"…`
-  - Not found: آتُو. This may be a typo, a truncated fragment, or non-Quranic text.
-- **Root claim: article says the root of "zakat" is "زَكَّىٰ", but the corpus root is ز ك و.**
-  - Root claim · severity: high · line 31
-  - source: `…and word الزَّكَاةَ meaning "Purify" and the root word for zakat is زَكَّىٰ Zaki but in Qu…`
-  - The corpus records root ز ك و for "الزَّكَاةَ". "زَكَّىٰ" is not that root — it is likely a derived form, not the triliteral root.
+_Nothing was flagged by the automated checks._
 
 ## ✅ Verified
 
-- **Quoted Arabic** (23)
+- **Quoted Arabic** (24)
   - Arabic "ٱلزَّكَٰوةَ" appears in the corpus (1 word(s)). _(line 10)_
   - Quoted Arabic beside 2:43 matches the verse (6/7 words exact, 100% consonant match). _(line 14)_
   - Arabic "آتُوا الزَّكَاةَ" appears in the corpus (2 word(s)). _(line 28)_
+  - Arabic "آتُوا" appears in the corpus (1 word(s)). _(line 31)_
   - Arabic "الزَّكَاةَ" appears in the corpus (1 word(s)). _(line 31)_
-  - Arabic "زَكَّىٰ" appears in the corpus (1 word(s)). _(line 31)_
+  - Arabic "ز ك و" appears in the corpus (3 word(s)). _(line 31)_
   - Quoted Arabic beside 92:18 matches the verse (4/4 words exact, 100% consonant match). _(line 32)_
   - Quoted Arabic beside 2:215 matches the verse (22/22 words exact, 100% consonant match). _(line 48)_
   - Arabic "خَيْرٍ" appears in the corpus (1 word(s)). _(line 57)_
@@ -74,3 +68,5 @@ Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @q
   - Surah name "Al-Isra" matches surah 17 (Al-Israa). _(line 171)_
   - Surah name "Al-Isra" matches surah 17 (Al-Israa). _(line 180)_
   - Surah name "Al-Isra" matches surah 17 (Al-Israa). _(line 189)_
+- **Root claim** (1)
+  - Root claim: root of "الزَّكَاةَ" is "ز ك و" — matches the corpus. _(line 31)_

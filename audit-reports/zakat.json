@@ -2,44 +2,16 @@
   "slug": "zakat",
   "title": "Zakat",
   "file": "zakat.md",
-  "corpusVersion": "0.6.0",
-  "provenance": "Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
+  "corpusVersion": "0.8.0",
+  "provenance": "Audited against corpus 0.8.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
   "counts": {
     "checked": 53,
-    "verified": 51,
-    "flagged": 2,
+    "verified": 53,
+    "flagged": 0,
     "unchecked": 0
   },
-  "workScore": 10,
+  "workScore": 0,
   "findings": [
-    {
-      "kind": "quoted-arabic",
-      "status": "flagged",
-      "severity": "high",
-      "location": {
-        "line": 31,
-        "excerpt": "Quranic word آتُو Atoo literally means \"Give/Donate\" and word الزَّكَاةَ meaning \"Purify\"…"
-      },
-      "summary": "Arabic \"آتُو\" has 1/1 word(s) not found in the corpus, even allowing for spelling variation.",
-      "detail": "Not found: آتُو. This may be a typo, a truncated fragment, or non-Quranic text.",
-      "claimedArabic": "آتُو",
-      "matchLevel": "none"
-    },
-    {
-      "kind": "root-claim",
-      "location": {
-        "line": 31,
-        "excerpt": "…and word الزَّكَاةَ meaning \"Purify\" and the root word for zakat is زَكَّىٰ Zaki but in Qu…"
-      },
-      "claimedRoot": "زَكَّىٰ",
-      "status": "flagged",
-      "severity": "high",
-      "summary": "Root claim: article says the root of \"zakat\" is \"زَكَّىٰ\", but the corpus root is ز ك و.",
-      "detail": "The corpus records root ز ك و for \"الزَّكَاةَ\". \"زَكَّىٰ\" is not that root — it is likely a derived form, not the triliteral root.",
-      "corpusRoots": [
-        "ز ك و"
-      ]
-    },
     {
       "kind": "quoted-arabic",
       "status": "verified",
@@ -145,6 +117,18 @@
       "severity": "low",
       "location": {
         "line": 31,
+        "excerpt": "Quranic word آتُوا Atoo literally means \"Give/Donate\" and word الزَّكَاةَ meaning \"Purify\"…"
+      },
+      "summary": "Arabic \"آتُوا\" appears in the corpus (1 word(s)).",
+      "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
+      "claimedArabic": "آتُوا"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 31,
         "excerpt": "…Atoo literally means \"Give/Donate\" and word الزَّكَاةَ meaning \"Purify\" and the root word…"
       },
       "summary": "Arabic \"الزَّكَاةَ\" appears in the corpus (1 word(s)).",
@@ -158,11 +142,26 @@
       "severity": "low",
       "location": {
         "line": 31,
-        "excerpt": "…ning \"Purify\" and the root word for zakat is زَكَّىٰ Zaki but in Quranic context literal t…"
+        "excerpt": "…ning \"Purify\" and the root word for zakat is ز ك و (z-k-w) but in Quranic context literal…"
       },
-      "summary": "Arabic \"زَكَّىٰ\" appears in the corpus (1 word(s)).",
+      "summary": "Arabic \"ز ك و\" appears in the corpus (3 word(s)).",
       "detail": "Every word occurs somewhere in the corpus (not necessarily contiguously).",
-      "claimedArabic": "زَكَّىٰ"
+      "claimedArabic": "ز ك و"
+    },
+    {
+      "kind": "root-claim",
+      "location": {
+        "line": 31,
+        "excerpt": "…and word الزَّكَاةَ meaning \"Purify\" and the root word for zakat is ز ك و (z-k-w) but in Q…"
+      },
+      "claimedRoot": "ز ك و",
+      "status": "verified",
+      "severity": "low",
+      "summary": "Root claim: root of \"الزَّكَاةَ\" is \"ز ك و\" — matches the corpus.",
+      "detail": "Corpus root for this word: ز ك و.",
+      "corpusRoots": [
+        "ز ك و"
+      ]
     },
     {
       "kind": "verse-reference",

@@ -1,8 +1,8 @@
 # Audit — Homosexuality
 
-_homosexuality.md · corpus 0.6.0 · slug `homosexuality`_
+_homosexuality.md · corpus 0.8.0 · slug `homosexuality`_
 
-Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.
+Audited against corpus 0.8.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.
 
 **18 claims checked** — ✅ 14 verified · 🚩 0 flagged · ❔ 4 unchecked · review score **0**
 

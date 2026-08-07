@@ -76,6 +76,63 @@ export default function MethodPage() {
         </p>
       </header>
 
+      <Section title="Try it yourself — a worked example" provenance="editorial">
+        <p>
+          You do not need Arabic to check a claim on this site. Here is one
+          walked end to end, in English, using only links.
+        </p>
+        <ol className="ml-5 flex list-decimal flex-col gap-2">
+          <li>
+            Suppose you read that &ldquo;mercy&rdquo; is central to the Quran
+            and want to see for yourself. Start from the English side:{' '}
+            <a href="/gloss/mercy" className="text-accent hover:underline">
+              the reverse lookup for &ldquo;mercy&rdquo;
+            </a>{' '}
+            shows every Arabic word that translators render with that English
+            word — and that they are not one word but several, from different
+            roots.
+          </li>
+          <li>
+            Follow the most common one to its root page,{' '}
+            <a href="/root/r-hh-m" className="text-accent hover:underline">
+              ر ح م
+            </a>
+            . Everything there is computed from the corpus: how often the root
+            occurs, in which forms, in which surahs — with every occurrence
+            linked to its verse.
+          </li>
+          <li>
+            Reproduce the count yourself:{' '}
+            <a
+              href={`/search?q=${encodeURIComponent('root:ر ح م')}`}
+              className="text-accent hover:underline"
+            >
+              run the search <code dir="rtl">root:ر ح م</code>
+            </a>
+            . The result states the corpus version and parameters it was
+            computed with; the number on the root page and the number here must
+            agree, and you can watch them do so.
+          </li>
+          <li>
+            See how translators disagree:{' '}
+            <a href="/compare?v=1:1" className="text-accent hover:underline">
+              compare the translations of 1:1
+            </a>
+            , where two words from this one root are rendered differently by
+            every edition on file.
+          </li>
+        </ol>
+        <p>
+          Every number on this site can be interrogated this way. If a page
+          shows a figure you cannot reproduce by clicking through to the
+          search that generated it, that is a bug —{' '}
+          <a href="/report" className="text-accent hover:underline">
+            report it
+          </a>
+          .
+        </p>
+      </Section>
+
       <Section title="The text edition" provenance="quran">
         <p>
           The Arabic is the <strong>{text?.name ?? 'Tanzil Uthmani'}</strong> (

@@ -8,6 +8,7 @@ import {
   PRESET_AMOUNTS,
   createDonationCheckout,
   stripeConfigured,
+  supporterCount,
 } from '@/server/donations';
 
 export const metadata: Metadata = {
@@ -42,6 +43,9 @@ async function donate(formData: FormData) {
 export default async function DonatePage() {
   const user = await getCurrentUser();
   const configured = stripeConfigured();
+  // Shown only once real: a fake or padded number here would poison the one
+  // page whose entire argument is honesty.
+  const supporters = await supporterCount().catch(() => 0);
 
   return (
     <main className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
@@ -57,6 +61,12 @@ export default async function DonatePage() {
         download stays free for everyone. Signed-in supporters receive a badge
         on their account as a thank-you.
       </p>
+      {supporters > 0 ? (
+        <p className="mt-3 text-[14px] text-ink2">
+          {supporters.toLocaleString()} gift{supporters === 1 ? '' : 's'} so
+          far — thank you.
+        </p>
+      ) : null}
 
       {configured ? (
         <form action={donate} className="mt-8 flex flex-col gap-4">

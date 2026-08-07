@@ -2,8 +2,8 @@
   "slug": "true-islam-from-quran",
   "title": "Home",
   "file": "true-islam-from-quran.md",
-  "corpusVersion": "0.6.0",
-  "provenance": "Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
+  "corpusVersion": "0.8.0",
+  "provenance": "Audited against corpus 0.8.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
   "counts": {
     "checked": 0,
     "verified": 0,

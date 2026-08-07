@@ -1,8 +1,11 @@
 import { Icon } from './Icon';
 import { SearchShortcut } from './SearchShortcut';
+import { SearchSuggest } from './SearchSuggest';
 
 // A real GET form: search works with JavaScript disabled — submitting navigates
 // to the server-rendered /search page. The chips are plain links, not scripts.
+// SearchSuggest layers an autosuggest dropdown over the input; with JS off it
+// renders as the same plain input and the form still submits.
 
 const CHIPS: { label: string; q: string; highlight?: boolean }[] = [
   { label: 'root: ز ك و', q: 'root:ز ك و', highlight: true },
@@ -24,16 +27,7 @@ export function SearchBar({ defaultValue = '' }: { defaultValue?: string }) {
           <span className="text-ink3" aria-hidden="true">
             <Icon name="search" size={18} />
           </span>
-          <input
-            id="q"
-            name="q"
-            type="search"
-            defaultValue={defaultValue}
-            placeholder="Arabic word, root, or query…"
-            aria-label="Search the Quran corpus"
-            autoComplete="off"
-            className="h-13 min-h-[52px] w-full bg-transparent py-3 text-[16px] text-ink outline-none placeholder:text-ink3"
-          />
+          <SearchSuggest defaultValue={defaultValue} />
         </div>
         <button
           type="submit"

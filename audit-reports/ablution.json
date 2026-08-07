@@ -2,15 +2,15 @@
   "slug": "ablution",
   "title": "Ablution",
   "file": "ablution.md",
-  "corpusVersion": "0.6.0",
-  "provenance": "Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
+  "corpusVersion": "0.8.0",
+  "provenance": "Audited against corpus 0.8.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
   "counts": {
     "checked": 8,
-    "verified": 5,
-    "flagged": 2,
+    "verified": 6,
+    "flagged": 1,
     "unchecked": 1
   },
-  "workScore": 7,
+  "workScore": 5,
   "findings": [
     {
       "kind": "quoted-arabic",
@@ -24,18 +24,6 @@
       "detail": "Not found: وضوء. This may be a typo, a truncated fragment, or non-Quranic text.",
       "claimedArabic": "وضوء",
       "matchLevel": "none"
-    },
-    {
-      "kind": "surah-name",
-      "status": "flagged",
-      "severity": "medium",
-      "location": {
-        "line": 45,
-        "excerpt": "Quran Al-Maida 27:4"
-      },
-      "summary": "Surah name \"Al-Maida\" does not match surah 27 (An-Naml).",
-      "detail": "\"Al-Maida\" best matches surah 5 (Al-Maaida). The name and the number 27:4 disagree — one of them is wrong.",
-      "reference": "27:4"
     },
     {
       "kind": "transliteration",
@@ -159,9 +147,9 @@
       "severity": "low",
       "location": {
         "line": 45,
-        "excerpt": "Quran Al-Maida 27:4"
+        "excerpt": "Quran An-Naml 27:4"
       },
-      "summary": "Reference Quran Al-Maida 27:4 resolves to 1 verse(s) in the corpus.",
+      "summary": "Reference Quran An-Naml 27:4 resolves to 1 verse(s) in the corpus.",
       "detail": "Resolved to quran:tanzil-uthmani:27:4.",
       "reference": "27:4",
       "segmentIds": [
@@ -181,12 +169,24 @@
       ]
     },
     {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 45,
+        "excerpt": "Quran An-Naml 27:4"
+      },
+      "summary": "Surah name \"An-Naml\" matches surah 27 (An-Naml).",
+      "detail": "Exact name match.",
+      "reference": "27:4"
+    },
+    {
       "kind": "quoted-arabic",
       "status": "verified",
       "severity": "low",
       "location": {
         "line": 45,
-        "excerpt": "Quran Al-Maida 27:4"
+        "excerpt": "Quran An-Naml 27:4"
       },
       "summary": "Quoted Arabic beside 27:4 matches the verse (10/10 words exact, 100% consonant match).",
       "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",

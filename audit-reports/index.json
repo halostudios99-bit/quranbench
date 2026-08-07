@@ -3,26 +3,20 @@
     "slug": "ablution",
     "title": "Ablution",
     "file": "ablution.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 8,
-      "verified": 5,
-      "flagged": 2,
+      "verified": 6,
+      "flagged": 1,
       "unchecked": 1
     },
-    "workScore": 7,
+    "workScore": 5,
     "flagged": [
       {
         "kind": "quoted-arabic",
         "severity": "high",
         "line": 8,
         "summary": "Arabic \"وضوء\" has 1/1 word(s) not found in the corpus, even allowing for spelling variation."
-      },
-      {
-        "kind": "surah-name",
-        "severity": "medium",
-        "line": 45,
-        "summary": "Surah name \"Al-Maida\" does not match surah 27 (An-Naml)."
       }
     ]
   },
@@ -30,7 +24,7 @@
     "slug": "al-aqsa-mosque",
     "title": "Al-Aqsa Mosque",
     "file": "al-aqsa-mosque.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 12,
       "verified": 12,
@@ -44,7 +38,7 @@
     "slug": "angels-made-from-light",
     "title": "Angels made from Light",
     "file": "angels-made-from-light.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 18,
       "verified": 18,
@@ -58,7 +52,7 @@
     "slug": "death-of-jesus",
     "title": "Death of Jesus",
     "file": "death-of-jesus.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 38,
       "verified": 37,
@@ -79,7 +73,7 @@
     "slug": "divorce-according-to-quran",
     "title": "Divorce according to Quran",
     "file": "divorce-according-to-quran.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 47,
       "verified": 47,
@@ -93,7 +87,7 @@
     "slug": "first-revelation",
     "title": "First Revelation",
     "file": "first-revelation.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 31,
       "verified": 31,
@@ -107,7 +101,7 @@
     "slug": "five-prayers-timings",
     "title": "Five Prayers & Timings",
     "file": "five-prayers-timings.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 10,
       "verified": 10,
@@ -121,7 +115,7 @@
     "slug": "homosexuality",
     "title": "Homosexuality",
     "file": "homosexuality.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 18,
       "verified": 14,
@@ -135,7 +129,7 @@
     "slug": "live-chat",
     "title": "Live Chat",
     "file": "live-chat.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 0,
       "verified": 0,
@@ -149,7 +143,7 @@
     "slug": "pre-islamic-divorce",
     "title": "Pre-Islamic divorce",
     "file": "pre-islamic-divorce.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 24,
       "verified": 24,
@@ -163,7 +157,7 @@
     "slug": "return-of-jesus-and-dajjal",
     "title": "Return of Jesus and Dajjal",
     "file": "return-of-jesus-and-dajjal.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 22,
       "verified": 20,
@@ -177,7 +171,7 @@
     "slug": "salat-positions",
     "title": "Salat Positions",
     "file": "salat-positions.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 43,
       "verified": 43,
@@ -191,7 +185,7 @@
     "slug": "salat-words",
     "title": "Salat Words",
     "file": "salat-words.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 18,
       "verified": 18,
@@ -205,58 +199,33 @@
     "slug": "salat",
     "title": "Salat",
     "file": "salat.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
-      "checked": 45,
-      "verified": 42,
-      "flagged": 3,
+      "checked": 47,
+      "verified": 47,
+      "flagged": 0,
       "unchecked": 0
     },
-    "workScore": 12,
-    "flagged": [
-      {
-        "kind": "quoted-arabic",
-        "severity": "high",
-        "line": 33,
-        "summary": "Quoted Arabic beside 24:35 does not match that verse — it matches 6:38."
-      },
-      {
-        "kind": "root-claim",
-        "severity": "high",
-        "line": 46,
-        "summary": "Root claim: article says the root of \"Salat (صلاة)\" is \"تصل\", but the corpus root is ص ل و."
-      },
-      {
-        "kind": "surah-name",
-        "severity": "medium",
-        "line": 33,
-        "summary": "Surah name \"Al-Anam\" does not match surah 24 (An-Noor)."
-      }
-    ]
+    "workScore": 0,
+    "flagged": []
   },
   {
     "slug": "shirk-in-salat",
     "title": "Shirk in Salat",
     "file": "shirk-in-salat.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
-      "checked": 9,
-      "verified": 7,
-      "flagged": 2,
+      "checked": 10,
+      "verified": 9,
+      "flagged": 1,
       "unchecked": 0
     },
-    "workScore": 7,
+    "workScore": 2,
     "flagged": [
       {
         "kind": "quoted-arabic",
-        "severity": "high",
-        "line": 13,
-        "summary": "Quoted Arabic beside 33:52 does not match that verse — it matches 35:22."
-      },
-      {
-        "kind": "quoted-arabic",
         "severity": "medium",
-        "line": 31,
+        "line": 32,
         "summary": "Arabic \"التَّحِيَّاتُ لِلّٰهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ، اَلسَّ…\" has 5/29 word(s) not found in the corpus, even allowing for spelling variation."
       }
     ]
@@ -265,7 +234,7 @@
     "slug": "the-beast",
     "title": "The Beast",
     "file": "the-beast.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 0,
       "verified": 0,
@@ -279,7 +248,7 @@
     "slug": "true-islam-from-quran",
     "title": "Home",
     "file": "true-islam-from-quran.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 0,
       "verified": 0,
@@ -293,27 +262,14 @@
     "slug": "zakat",
     "title": "Zakat",
     "file": "zakat.md",
-    "corpusVersion": "0.6.0",
+    "corpusVersion": "0.8.0",
     "counts": {
       "checked": 53,
-      "verified": 51,
-      "flagged": 2,
+      "verified": 53,
+      "flagged": 0,
       "unchecked": 0
     },
-    "workScore": 10,
-    "flagged": [
-      {
-        "kind": "quoted-arabic",
-        "severity": "high",
-        "line": 31,
-        "summary": "Arabic \"آتُو\" has 1/1 word(s) not found in the corpus, even allowing for spelling variation."
-      },
-      {
-        "kind": "root-claim",
-        "severity": "high",
-        "line": 31,
-        "summary": "Root claim: article says the root of \"zakat\" is \"زَكَّىٰ\", but the corpus root is ز ك و."
-      }
-    ]
+    "workScore": 0,
+    "flagged": []
   }
 ]

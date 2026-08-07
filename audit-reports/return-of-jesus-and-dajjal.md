@@ -1,8 +1,8 @@
 # Audit — Return of Jesus and Dajjal
 
-_return-of-jesus-and-dajjal.md · corpus 0.6.0 · slug `return-of-jesus-and-dajjal`_
+_return-of-jesus-and-dajjal.md · corpus 0.8.0 · slug `return-of-jesus-and-dajjal`_
 
-Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.
+Audited against corpus 0.8.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.
 
 **22 claims checked** — ✅ 20 verified · 🚩 0 flagged · ❔ 2 unchecked · review score **0**
 

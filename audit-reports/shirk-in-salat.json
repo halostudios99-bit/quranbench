@@ -2,36 +2,22 @@
   "slug": "shirk-in-salat",
   "title": "Shirk in Salat",
   "file": "shirk-in-salat.md",
-  "corpusVersion": "0.6.0",
-  "provenance": "Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
+  "corpusVersion": "0.8.0",
+  "provenance": "Audited against corpus 0.8.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.",
   "counts": {
-    "checked": 9,
-    "verified": 7,
-    "flagged": 2,
+    "checked": 10,
+    "verified": 9,
+    "flagged": 1,
     "unchecked": 0
   },
-  "workScore": 7,
+  "workScore": 2,
   "findings": [
-    {
-      "kind": "quoted-arabic",
-      "status": "flagged",
-      "severity": "high",
-      "location": {
-        "line": 13,
-        "excerpt": "Quran 33:52"
-      },
-      "summary": "Quoted Arabic beside 33:52 does not match that verse — it matches 35:22.",
-      "detail": "Word coverage 31%, consonant coverage 32%. Unmatched words: وَمَا يَسْتَوِي الْأَحْيَاءُ الْأَمْوَاتُ يُسْمِعُ يَشَاءُ وَمَا أَنتَ بِمُسْمِعٍ فِي الْقُبُورِ. The text is a 100% consonant match to 35:22; the citation may be to the wrong verse.",
-      "reference": "33:52",
-      "claimedArabic": "وَمَا يَسْتَوِي الْأَحْيَاءُ وَلَا الْأَمْوَاتُ ۚ إِنَّ اللَّـهَ يُسْمِعُ مَن يَشَاءُ ۖ وَمَا أَنتَ بِمُسْمِعٍ مَّن فِي …",
-      "matchLevel": "none"
-    },
     {
       "kind": "quoted-arabic",
       "status": "flagged",
       "severity": "medium",
       "location": {
-        "line": 31,
+        "line": 32,
         "excerpt": "التَّحِيَّاتُ لِلّٰهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ، اَلسَّلَامُ عَلَيْكَ أَيُّهَا النَّب…"
       },
       "summary": "Arabic \"التَّحِيَّاتُ لِلّٰهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ، اَلسَّ…\" has 5/29 word(s) not found in the corpus, even allowing for spelling variation.",
@@ -44,49 +30,66 @@
       "status": "verified",
       "severity": "low",
       "location": {
-        "line": 13,
-        "excerpt": "Quran 33:52"
+        "line": 14,
+        "excerpt": "Quran Fatir 35:22"
       },
-      "summary": "Reference Quran 33:52 resolves to 1 verse(s) in the corpus.",
-      "detail": "Resolved to quran:tanzil-uthmani:33:52.",
-      "reference": "33:52",
+      "summary": "Reference Quran Fatir 35:22 resolves to 1 verse(s) in the corpus.",
+      "detail": "Resolved to quran:tanzil-uthmani:35:22.",
+      "reference": "35:22",
       "segmentIds": [
-        "quran:tanzil-uthmani:33:52"
+        "quran:tanzil-uthmani:35:22"
       ],
       "tokenIds": [
-        "quran:tanzil-uthmani:33:52:1",
-        "quran:tanzil-uthmani:33:52:2",
-        "quran:tanzil-uthmani:33:52:3",
-        "quran:tanzil-uthmani:33:52:4",
-        "quran:tanzil-uthmani:33:52:5",
-        "quran:tanzil-uthmani:33:52:6",
-        "quran:tanzil-uthmani:33:52:7",
-        "quran:tanzil-uthmani:33:52:8",
-        "quran:tanzil-uthmani:33:52:9",
-        "quran:tanzil-uthmani:33:52:10",
-        "quran:tanzil-uthmani:33:52:11",
-        "quran:tanzil-uthmani:33:52:12",
-        "quran:tanzil-uthmani:33:52:13",
-        "quran:tanzil-uthmani:33:52:14",
-        "quran:tanzil-uthmani:33:52:15",
-        "quran:tanzil-uthmani:33:52:16",
-        "quran:tanzil-uthmani:33:52:17",
-        "quran:tanzil-uthmani:33:52:18",
-        "quran:tanzil-uthmani:33:52:19",
-        "quran:tanzil-uthmani:33:52:20",
-        "quran:tanzil-uthmani:33:52:21",
-        "quran:tanzil-uthmani:33:52:22",
-        "quran:tanzil-uthmani:33:52:23",
-        "quran:tanzil-uthmani:33:52:24",
-        "quran:tanzil-uthmani:33:52:25"
+        "quran:tanzil-uthmani:35:22:1",
+        "quran:tanzil-uthmani:35:22:2",
+        "quran:tanzil-uthmani:35:22:3",
+        "quran:tanzil-uthmani:35:22:4",
+        "quran:tanzil-uthmani:35:22:5",
+        "quran:tanzil-uthmani:35:22:6",
+        "quran:tanzil-uthmani:35:22:7",
+        "quran:tanzil-uthmani:35:22:8",
+        "quran:tanzil-uthmani:35:22:9",
+        "quran:tanzil-uthmani:35:22:10",
+        "quran:tanzil-uthmani:35:22:11",
+        "quran:tanzil-uthmani:35:22:12",
+        "quran:tanzil-uthmani:35:22:13",
+        "quran:tanzil-uthmani:35:22:14",
+        "quran:tanzil-uthmani:35:22:15",
+        "quran:tanzil-uthmani:35:22:16"
       ]
+    },
+    {
+      "kind": "surah-name",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 14,
+        "excerpt": "Quran Fatir 35:22"
+      },
+      "summary": "Surah name \"Fatir\" matches surah 35 (Faatir).",
+      "detail": "Exact name match.",
+      "reference": "35:22"
     },
     {
       "kind": "quoted-arabic",
       "status": "verified",
       "severity": "low",
       "location": {
-        "line": 37,
+        "line": 14,
+        "excerpt": "Quran Fatir 35:22"
+      },
+      "summary": "Quoted Arabic beside 35:22 matches the verse (16/16 words exact, 100% consonant match).",
+      "detail": "Matched on the consonant skeleton; some words differ in spelling from the Uthmani text.",
+      "reference": "35:22",
+      "claimedArabic": "وَمَا يَسْتَوِي الْأَحْيَاءُ وَلَا الْأَمْوَاتُ ۚ إِنَّ اللَّـهَ يُسْمِعُ مَن يَشَاءُ ۖ وَمَا أَنتَ بِمُسْمِعٍ مَّن فِي …",
+      "matchLevel": "orthographic"
+    },
+    {
+      "kind": "quoted-arabic",
+      "status": "verified",
+      "severity": "low",
+      "location": {
+        "line": 38,
         "excerpt": "اَلسَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ Asalam o alika ayuhanabi is not just shirk but gr…"
       },
       "summary": "Arabic \"اَلسَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ\" appears in the corpus (4 word(s)).",
@@ -99,7 +102,7 @@
       "status": "verified",
       "severity": "low",
       "location": {
-        "line": 39,
+        "line": 40,
         "excerpt": "عَلَيْكَ is the first you"
       },
       "summary": "Arabic \"عَلَيْكَ\" appears in the corpus (1 word(s)).",
@@ -111,7 +114,7 @@
       "status": "verified",
       "severity": "low",
       "location": {
-        "line": 41,
+        "line": 42,
         "excerpt": "أَيُّهَا is the second you."
       },
       "summary": "Arabic \"أَيُّهَا\" appears in the corpus (1 word(s)).",
@@ -123,7 +126,7 @@
       "status": "verified",
       "severity": "low",
       "location": {
-        "line": 51,
+        "line": 52,
         "excerpt": "ٱللَّٰهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَىٰ إِبْرَاهِ…"
       },
       "summary": "Arabic \"ٱللَّٰهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ كَ…\" appears in the corpus (34 word(s)).",
@@ -136,7 +139,7 @@
       "status": "verified",
       "severity": "low",
       "location": {
-        "line": 65,
+        "line": 66,
         "excerpt": "Quran 13:14"
       },
       "summary": "Reference Quran 13:14 resolves to 1 verse(s) in the corpus.",
@@ -180,7 +183,7 @@
       "status": "verified",
       "severity": "low",
       "location": {
-        "line": 65,
+        "line": 66,
         "excerpt": "Quran 13:14"
       },
       "summary": "Quoted Arabic beside 13:14 matches the verse (27/27 words exact, 100% consonant match).",

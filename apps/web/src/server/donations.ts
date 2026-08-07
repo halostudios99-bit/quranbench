@@ -132,3 +132,12 @@ export async function handleStripeWebhook(
 export async function donationBySession(sessionId: string) {
   return prisma.donation.findUnique({ where: { providerRef: sessionId } });
 }
+
+/**
+ * How many gifts have succeeded — the /donate page shows it once it is
+ * non-zero. A count, never names or amounts: donors did not consent to a
+ * public register, and a number is honest social proof on its own.
+ */
+export async function supporterCount(): Promise<number> {
+  return prisma.donation.count({ where: { status: 'SUCCEEDED' } });
+}

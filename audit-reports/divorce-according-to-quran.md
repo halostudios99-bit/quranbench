@@ -1,8 +1,8 @@
 # Audit — Divorce according to Quran
 
-_divorce-according-to-quran.md · corpus 0.6.0 · slug `divorce-according-to-quran`_
+_divorce-according-to-quran.md · corpus 0.8.0 · slug `divorce-according-to-quran`_
 
-Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.
+Audited against corpus 0.8.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.
 
 **47 claims checked** — ✅ 47 verified · 🚩 0 flagged · ❔ 0 unchecked · review score **0**
 

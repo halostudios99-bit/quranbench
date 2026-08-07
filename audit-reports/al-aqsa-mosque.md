@@ -1,8 +1,8 @@
 # Audit — Al-Aqsa Mosque
 
-_al-aqsa-mosque.md · corpus 0.6.0 · slug `al-aqsa-mosque`_
+_al-aqsa-mosque.md · corpus 0.8.0 · slug `al-aqsa-mosque`_
 
-Audited against corpus 0.6.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.
+Audited against corpus 0.8.0 (Tanzil Uthmani text, Leeds QAC morphology) with @quranbench/audit. Automated checks only; every flag is for human decision and nothing was corrected.
 
 **12 claims checked** — ✅ 12 verified · 🚩 0 flagged · ❔ 0 unchecked · review score **0**
 
