@@ -7,25 +7,25 @@
  "licence": "CC BY-SA 4.0",
  "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
  "redistributable": true,
- "verses": 4893,
+ "verses": 5089,
  "artifact": "en-qb-v1.jsonl",
  "licence_file": "",
  "source_id": "quranbench-decisions",
  "generated": true,
  "disclaimer": "Generated from a table of word-by-word decisions, not written as prose. Arabic word order is preserved, so it reads stiffly and is not a substitute for a translation written by a person. It is under review and incomplete: only verses whose every word has been decided appear at all. Words marked as judgement rest on weaker evidence than the rest and are flagged. No tafsir, hadith or existing translation was consulted.",
  "corpus_version": "0.8.0",
- "decision_table_sha256": "7f8cd11396b91ac44808c44eb267b8374638538a1daf66551f8f1f6022308d8a",
- "artifact_sha256": "a8eec0fb0b303a1247ad607c70ae0ea3b4cd8386eaf664673f8072b22994e2d2",
+ "decision_table_sha256": "11adb0a21de093d9dd9ee991ea6c05a9277f69a21a56016e5fda155360a0338c",
+ "artifact_sha256": "774f83a2127e86da5f9b4c8f2217e5020cee1612818df213e61b676051b090cd",
  "coverage": {
-  "verses_rendered": 4893,
+  "verses_rendered": 5089,
   "verses_total": 6348,
-  "words_rendered": 58366,
+  "words_rendered": 61357,
   "words_total": 77881,
-  "verses_carrying_judgement": 254,
+  "verses_carrying_judgement": 257,
   "grades": {
-   "settled": 49524,
-   "supported": 8578,
-   "judgement": 264
+   "settled": 52085,
+   "supported": 9005,
+   "judgement": 267
   }
  }
 }

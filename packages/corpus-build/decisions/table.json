@@ -120,9 +120,9 @@
   "tokens": 1
  },
  "form:أثم|ثُمّ": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "is it then",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:أذلك": {
@@ -462,9 +462,9 @@
   "tokens": 18
  },
  "form:أنما|إِنّ": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "that only",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:أننا": {
@@ -1236,9 +1236,9 @@
   "tokens": 1
  },
  "form:إنهن|إِنّ": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "indeed they",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:إنى": {
@@ -1326,9 +1326,9 @@
   "tokens": 6
  },
  "form:المر": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "Alif Lam Mim Ra",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:المص": {
@@ -1680,9 +1680,9 @@
   "tokens": 1
  },
  "form:بيوسف|يُوسُف": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "to Yusuf",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:بٱلأمس": {
@@ -1962,9 +1962,9 @@
   "tokens": 1
  },
  "form:ذلكما|ذا": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "that",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:ذو": {
@@ -2046,9 +2046,9 @@
   "tokens": 1
  },
  "form:ربما|رُب": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "many a time",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:زكريا": {
@@ -2676,9 +2676,9 @@
   "tokens": 1
  },
  "form:فإلم|إِن": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "so if not",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:فإلينا": {
@@ -2700,9 +2700,9 @@
   "tokens": 1
  },
  "form:فإليه|إِلَى": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "then to Him",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:فإما": {
@@ -2856,9 +2856,9 @@
   "tokens": 1
  },
  "form:فبذلك|ذا": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "so in that",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:فبم": {
@@ -2868,9 +2868,9 @@
   "tokens": 1
  },
  "form:فبم|ما": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "then with what",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:فبما": {
@@ -2928,9 +2928,9 @@
   "tokens": 1
  },
  "form:فذلكم|ذا": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "so that is",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:فذلكن": {
@@ -3048,9 +3048,9 @@
   "tokens": 1
  },
  "form:فعليهم|عَلَى": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "then upon them",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:فعليهن": {
@@ -3756,9 +3756,9 @@
   "tokens": 9
  },
  "form:كهيعص": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "Kaf Ha Ya Ayn Sad",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:كى": {
@@ -4278,9 +4278,9 @@
   "tokens": 1
  },
  "form:لكنا|لٰكِنّ": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "but as for me",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:لكى": {
@@ -4314,9 +4314,9 @@
   "tokens": 1
  },
  "form:للتى|الَّذِي": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "to that which",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:للذى": {
@@ -5742,9 +5742,9 @@
   "tokens": 1
  },
  "form:وإنهما|إِنّ": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "and indeed they two",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:وإنى": {
@@ -6072,9 +6072,9 @@
   "tokens": 1
  },
  "form:وعلينا|عَلَى": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "and upon Us",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:وعليه": {
@@ -6300,9 +6300,9 @@
   "tokens": 1
  },
  "form:ولذلك|ذا": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "and for that",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:ولذى": {
@@ -7236,9 +7236,9 @@
   "tokens": 1
  },
  "form:يزكريا|زَكَرِيّا": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "O Zakariyya",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "form:يس": {
@@ -8436,9 +8436,9 @@
   "tokens": 77
  },
  "أ م ر|أَمّارَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "ever urging",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "أ م ر|أَمْر|N": {
@@ -8448,9 +8448,9 @@
   "tokens": 166
  },
  "أ م ر|إِمْر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a grievous thing",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "أ م ر|يَأْتَمِرُ|V": {
@@ -8515,9 +8515,9 @@
   "tokens": 16
  },
  "أ م ن|آمِنَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "secure",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "أ م ن|أَمانَة|N": {
@@ -9042,9 +9042,9 @@
   "tokens": 1
  },
  "ب د ل|بَدَل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a substitute",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ب د ل|بَدَّلَ|V": {
@@ -9084,9 +9084,9 @@
   "tokens": 3
  },
  "ب د ن|بَدَن|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "body",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ب د ن|بُدْن|N": {
@@ -9102,9 +9102,9 @@
   "tokens": 1
  },
  "ب د و|بادي|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "at first glance",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ب د و|بادِي|N": {
@@ -9120,9 +9120,9 @@
   "tokens": 11
  },
  "ب د و|بَدْو|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the desert",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ب د و|مُبْدِي|N": {
@@ -9150,9 +9150,9 @@
   "tokens": 1
  },
  "ب ذ ر|مُبَذِّر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the squanderers",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ب ر أ|بارِئ|N": {
@@ -9295,9 +9295,9 @@
   "tokens": 1
  },
  "ب ر ز|بارِزَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "laid bare",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ب ر ز|بَرَزَ|V": {
@@ -9829,9 +9829,9 @@
   "tokens": 5
  },
  "ب غ ل|بِغال|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "mules",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ب غ ي|ابْتَغَى|V": {
@@ -9913,9 +9913,9 @@
   "tokens": 7
  },
  "ب ق ي|باق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "enduring",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ب ق ي|باقي|N": {
@@ -10213,9 +10213,9 @@
   "tokens": 6
  },
  "ب و أ|مُبَوَّأ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a settlement",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ب و أ|يَتَبَوَّأُ|V": {
@@ -10231,9 +10231,9 @@
   "tokens": 27
  },
  "ب و ر|بَوار|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "perdition",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ب و ر|بُور|N": {
@@ -10285,9 +10285,9 @@
   "tokens": 1
  },
  "ب ي د|تَبِيدَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "perish",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ب ي ض|أَبْيَض|N": {
@@ -10345,9 +10345,9 @@
   "tokens": 35
  },
  "ب ي ن|بَيِّن|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "clear",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ب ي ن|بَيِّنَة|N": {
@@ -10381,9 +10381,9 @@
   "tokens": 1
  },
  "ب ي ن|تِبْيان|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a making clear",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ب ي ن|مُبَيِّنَة|N": {
@@ -10423,9 +10423,9 @@
   "tokens": 2
  },
  "ت ب ب|تَتْبِيب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "ruin",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ت ب ر|تَبار|N": {
@@ -10741,9 +10741,9 @@
   "tokens": 10
  },
  "ث ب ت|ثُبُوت|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "being firm",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ث ب ت|يُثْبِتُ|V": {
@@ -10759,9 +10759,9 @@
   "tokens": 4
  },
  "ث ب ر|مَثْبُور|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "doomed",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ث ب ط|ثَبَّطَ|V": {
@@ -10789,9 +10789,9 @@
   "tokens": 2
  },
  "ث ر ب|تَثْرِيب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "reproach",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ث ر ي|ثَرَى|N": {
@@ -10885,9 +10885,9 @@
   "tokens": 7
  },
  "ث ل ث|ثَلاث|T": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "three",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ث ل ث|ثَلاثَة|N": {
@@ -11017,9 +11017,9 @@
   "tokens": 3
  },
  "ث ن ي|يَثْنُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "fold up",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ث ن ي|يَسْتَثْنُ|V": {
@@ -11155,9 +11155,9 @@
   "tokens": 1
  },
  "ج ث ث|اجْتُثَّتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be torn up",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ج ث م|جاثِم|N": {
@@ -11335,9 +11335,9 @@
   "tokens": 5
  },
  "ج ر م|إِجْرام|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "crime",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ج ر م|جَرَم|N": {
@@ -11377,9 +11377,9 @@
   "tokens": 3
  },
  "ج ر ي|مَجْرى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "course",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ج ز أ|جُزْء|N": {
@@ -11395,9 +11395,9 @@
   "tokens": 1
  },
  "ج ز ع|جَزِعْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be impatient",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ج ز ي|جاز|N": {
@@ -11659,9 +11659,9 @@
   "tokens": 9
  },
  "ج ن ب|اجْنُبْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "keep away from",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ج ن ب|جانِب|LOC": {
@@ -11966,9 +11966,9 @@
   "tokens": 3
  },
  "ج و ر|مُتَجاوِرَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "neighbouring",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ج و ر|يُجاوِرُ|V": {
@@ -11996,9 +11996,9 @@
   "tokens": 1
  },
  "ج و س|جاسُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "range through",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ج و ع|تَجُوعَ|V": {
@@ -12020,9 +12020,9 @@
   "tokens": 1
  },
  "ج و و|جَوّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the open air",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ج ي أ|جاءَ|V": {
@@ -12338,9 +12338,9 @@
   "tokens": 3
  },
  "ح ذ ر|مَحْذُور|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "to be guarded against",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ح ذ ر|يَحْذَرُ|V": {
@@ -12692,9 +12692,9 @@
   "tokens": 3
  },
  "ح س س|تَحَسَّسُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "seek news",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ح س س|تَحُسُّ|V": {
@@ -12819,9 +12819,9 @@
   "tokens": 1
  },
  "ح ص ح ص|حَصْحَصَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "come clear",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ح ص د|حَصاد|N": {
@@ -12861,9 +12861,9 @@
   "tokens": 2
  },
  "ح ص ر|حَصِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a confinement",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ح ص ل|حُصِّلَ|V": {
@@ -12909,9 +12909,9 @@
   "tokens": 2
  },
  "ح ص ي|أَحْصَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "better at counting",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ح ص ي|أَحْصَى|V": {
@@ -13023,9 +13023,9 @@
   "tokens": 7
  },
  "ح ف د|حَفَدَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "grandchildren",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ح ف ر|حافِرَة|N": {
@@ -13095,9 +13095,9 @@
   "tokens": 1
  },
  "ح ف ف|حَفَفْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "surround with",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ح ف و|حَفِيّ|N": {
@@ -13119,9 +13119,9 @@
   "tokens": 1
  },
  "ح ق ب|حُقُب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "an age",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ح ق ف|أَحْقاف|PN": {
@@ -13360,9 +13360,9 @@
   "tokens": 3
  },
  "ح م أ|حَمِئَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "murky",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ح م د|أَحْمَد|PN": {
@@ -13534,9 +13534,9 @@
   "tokens": 2
  },
  "ح ن ذ|حَنِيذ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "roasted",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ح ن ف|حَنِيف|N": {
@@ -13546,15 +13546,15 @@
   "tokens": 12
  },
  "ح ن ك|أَحْتَنِكَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bring under sway",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ح ن ن|حَنان|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "tenderness",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ح و ب|حُوب|N": {
@@ -13678,9 +13678,9 @@
   "tokens": 1
  },
  "ح و ل|حِوَل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "any removal",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ح و ل|حِيلَة|N": {
@@ -13927,9 +13927,9 @@
   "tokens": 2
  },
  "خ ب و|خَبَتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "abate",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "خ ت ر|خَتّار|N": {
@@ -14005,9 +14005,9 @@
   "tokens": 1
  },
  "خ ذ ل|مَخْذُول|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "forsaken",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "خ ذ ل|يَخْذُلْ|V": {
@@ -14197,9 +14197,9 @@
   "tokens": 4
  },
  "خ س ر|تَخْسِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in loss",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "خ س ر|خاسِر|N": {
@@ -14275,9 +14275,9 @@
   "tokens": 2
  },
  "خ ش ع|خُشُوع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "humility",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "خ ش ي|خَشِيَ|V": {
@@ -14419,9 +14419,9 @@
   "tokens": 10
  },
  "خ ط أ|خِطْء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a sin",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "خ ط ب|خاطَبَ|V": {
@@ -14479,9 +14479,9 @@
   "tokens": 5
  },
  "خ ف ت|تُخافِتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be too quiet",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "خ ف ت|يَتَخافَتُ|V": {
@@ -14623,9 +14623,9 @@
   "tokens": 2
  },
  "خ ل ص|أَسْتَخْلِصْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "take for myself",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "خ ل ص|خالِص|N": {
@@ -14641,9 +14641,9 @@
   "tokens": 5
  },
  "خ ل ص|خَلَصُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "withdraw apart",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "خ ل ص|مُخْلَص|N": {
@@ -14779,9 +14779,9 @@
   "tokens": 10
  },
  "خ ل ف|مُخْلِف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one who fails",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "خ ل ف|مُسْتَخْلَف|N": {
@@ -14998,15 +14998,15 @@
   "tokens": 2
  },
  "خ و ف|تَخَوُّف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "gradual erosion",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "خ و ف|تَخْوِيف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a warning of fear",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "خ و ف|خائِف|N": {
@@ -15178,9 +15178,9 @@
   "tokens": 1
  },
  "د أ ب|دائِبَيْن|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "constant in course",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "د أ ب|دَأَب|N": {
@@ -15442,9 +15442,9 @@
   "tokens": 1
  },
  "د س س|يَدُسُّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bury in",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "د س و|دَسَّى|V": {
@@ -15508,9 +15508,9 @@
   "tokens": 3
  },
  "د ف أ|دِفْء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "warmth",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "د ف ع|دافِع|N": {
@@ -15550,9 +15550,9 @@
   "tokens": 3
  },
  "د ك ك|دَكّاء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "level ground",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "د ك ك|دَكَّة|N": {
@@ -15568,9 +15568,9 @@
   "tokens": 2
  },
  "د ل ك|دُلُوك|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the declining of",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "د ل ل|دَلِيل|N": {
@@ -15598,9 +15598,9 @@
   "tokens": 1
  },
  "د ل و|دَلْو|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bucket",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "د م د م|دَمْدَمَ|V": {
@@ -15911,9 +15911,9 @@
   "tokens": 2
  },
  "ذ ر و|تَذْرُو|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "scatter",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ذ ر و|ذارِيَة|N": {
@@ -15941,9 +15941,9 @@
   "tokens": 3
  },
  "ذ ك ر|ادَّكَرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "call to mind",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ذ ك ر|تَذَكَّرَ|V": {
@@ -16061,9 +16061,9 @@
   "tokens": 2
  },
  "ذ ل ل|ذُلُل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "made smooth",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ذ ل ل|ذُلّ|N": {
@@ -16404,9 +16404,9 @@
   "tokens": 7
  },
  "ر ت ع|يَرْتَعْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "graze freely",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ر ت ق|رَتْق|N": {
@@ -16678,9 +16678,9 @@
   "tokens": 169
  },
  "ر ح م|رُحْم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in mercy",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ر ح م|مَرْحَمَة|N": {
@@ -16714,9 +16714,9 @@
   "tokens": 3
  },
  "ر د د|رادِّي|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who hand over",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ر د د|رَدّ|N": {
@@ -16768,9 +16768,9 @@
   "tokens": 1
  },
  "ر د م|رَدْم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a rampart",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ر د ي|أَرْدَى|V": {
@@ -17040,9 +17040,9 @@
   "tokens": 38
  },
  "ر ض و|رَضِيّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "pleasing",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ر ض و|رِضْوان|N": {
@@ -17250,9 +17250,9 @@
   "tokens": 2
  },
  "ر ف ق|مِرْفَق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "ease",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ر ق ب|ارْتَقِبْ|V": {
@@ -17310,9 +17310,9 @@
   "tokens": 1
  },
  "ر ق م|رَقِيم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the Raqim",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ر ق م|مَرْقُوم|N": {
@@ -17652,9 +17652,9 @@
   "tokens": 2
  },
  "ر و ع|رَوْع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the alarm",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ر و غ|راغَ|V": {
@@ -17778,9 +17778,9 @@
   "tokens": 1
  },
  "ز ج و|مُزْجاة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "paltry",
+  "evidence": "ببضعة مزجىة; an adjective, so the genitive rule does not double the of",
+  "grade": "supported",
   "tokens": 1
  },
  "ز ج و|يُزْجِي|V": {
@@ -17850,9 +17850,9 @@
   "tokens": 1
  },
  "ز ر ي|تَزْدَرِي|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "look down upon",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ز ع م|زَعَمَ|V": {
@@ -17922,9 +17922,9 @@
   "tokens": 1
  },
  "ز ك و|زَكِيَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "pure",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ز ك و|زَكَّى|V": {
@@ -17970,9 +17970,9 @@
   "tokens": 4
  },
  "ز ل ق|زَلَق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "slippery",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ز ل ق|يُزْلِقُ|V": {
@@ -18042,9 +18042,9 @@
   "tokens": 3
  },
  "ز ن ي|زِنَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "adultery",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ز ن ي|يَزْنُ|V": {
@@ -18078,9 +18078,9 @@
   "tokens": 3
  },
  "ز ه ق|زَهُوق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bound to vanish",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ز و ج|زَوْج|N": {
@@ -18132,9 +18132,9 @@
   "tokens": 3
  },
  "ز و ل|زَوال|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a passing away",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ز ي ت|زَيْت|N": {
@@ -18468,9 +18468,9 @@
   "tokens": 1
  },
  "س ت ر|مَسْتُور|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "concealing",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "س ج د|ساجِد|N": {
@@ -18768,9 +18768,9 @@
   "tokens": 2
  },
  "س ر ب|سَرَب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a passage",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "س ر ج|سِراج|N": {
@@ -18912,9 +18912,9 @@
   "tokens": 15
  },
  "س ر ق|اسْتَرَقَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "steal by stealth",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "س ر ق|سارِق|N": {
@@ -19002,9 +19002,9 @@
   "tokens": 1
  },
  "س ع د|سَعِيد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "blessed",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "س ع د|سُعِدُ|V": {
@@ -19242,9 +19242,9 @@
   "tokens": 1
  },
  "س ك ر|سَكَر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "an intoxicant",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "س ك ر|سَكْرَة|N": {
@@ -19260,9 +19260,9 @@
   "tokens": 3
  },
  "س ك ر|سُكِّرَتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be dazzled",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "س ك ن|أَسْكَن|V": {
@@ -20190,9 +20190,9 @@
   "tokens": 3
  },
  "ش خ ص|تَشْخَصُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "stare fixedly",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ش خ ص|شاخِصَة|N": {
@@ -20349,9 +20349,9 @@
   "tokens": 1
  },
  "ش ر ق|شَرْقِيّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "eastern",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ش ر ق|شَرْقِيَّة|N": {
@@ -20529,9 +20529,9 @@
   "tokens": 1
  },
  "ش غ ف|شَغَفَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "pierce with love",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ش غ ل|شَغَلَتْ|V": {
@@ -20619,9 +20619,9 @@
   "tokens": 2
  },
  "ش ق ق|أَشَقّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "harder",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ش ق ق|انشَقَّ|V": {
@@ -20643,9 +20643,9 @@
   "tokens": 2
  },
  "ش ق ق|شَقّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "hardship",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ش ق ق|شُقَّة|N": {
@@ -20745,9 +20745,9 @@
   "tokens": 15
  },
  "ش ك ل|شاكِلَت|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "own manner",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ش ك ل|شَكْل|N": {
@@ -21159,9 +21159,9 @@
   "tokens": 2
  },
  "ص ب و|أَصْبُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "incline toward",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ص ب و|صَبِيّ|N": {
@@ -21231,9 +21231,9 @@
   "tokens": 2
  },
  "ص د د|صَدِيد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "festering fluid",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ص د د|صَدّ|N": {
@@ -21255,9 +21255,9 @@
   "tokens": 1
  },
  "ص د د|صُدُّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be barred",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ص د ر|صَدْر|N": {
@@ -21279,9 +21279,9 @@
   "tokens": 1
  },
  "ص د ع|اصْدَعْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "proclaim openly",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ص د ع|صَدْع|N": {
@@ -21537,9 +21537,9 @@
   "tokens": 1
  },
  "ص ر ف|مَصْرُوف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "turned away",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ص ر ف|مَصْرِف|N": {
@@ -22035,9 +22035,9 @@
   "tokens": 1
  },
  "ص و ب|مُصِيب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one who befalls",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ص و ب|مُصِيبَة|N": {
@@ -22083,9 +22083,9 @@
   "tokens": 1
  },
  "ص و ع|صُواع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the drinking cup",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ص و ف|أَصْواف|N": {
@@ -22546,9 +22546,9 @@
   "tokens": 1
  },
  "ض ي ق|ضائِق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "straitened",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ض ي ق|ضاقَ|V": {
@@ -22588,9 +22588,9 @@
   "tokens": 1
  },
  "ط ر ح|اطْرَحُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "cast out",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ط ر د|طارِد|N": {
@@ -22774,9 +22774,9 @@
   "tokens": 1
  },
  "ط ل ب|طَلَب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a way to recover",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ط ل ب|مَطْلُوب|N": {
@@ -23146,9 +23146,9 @@
   "tokens": 3
  },
  "ط و ل|طُول|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in height",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ط و ي|طَىّ|N": {
@@ -23194,9 +23194,9 @@
   "tokens": 30
  },
  "ط ي ب|طُوبَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "blessedness",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ط ي ر|اطَّيَّرْ|V": {
@@ -23346,9 +23346,9 @@
   "tokens": 20
  },
  "ظ ل م|مَظْلُوم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "wrongfully",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ظ ل م|مُظْلِم|N": {
@@ -23448,9 +23448,9 @@
   "tokens": 15
  },
  "ظ ه ر|ظِهْرِيّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a thing cast behind",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ع ب أ|يَعْبَؤُا۟|V": {
@@ -23516,9 +23516,9 @@
   "tokens": 1
  },
  "ع ب ر|تَعْبُرُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "interpret",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ع ب ر|عابِرِي|N": {
@@ -23618,9 +23618,9 @@
   "tokens": 2
  },
  "ع ث ر|أَعْثَرْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "cause to be discovered",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ع ث ر|عُثِرَ|V": {
@@ -23744,9 +23744,9 @@
   "tokens": 1
  },
  "ع ج ل|عَجُول|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "hasty",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ع ج ل|عَجِلَ|V": {
@@ -23834,9 +23834,9 @@
   "tokens": 11
  },
  "ع د د|مَعْدُود|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "numbered",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ع د د|مَعْدُودَة|N": {
@@ -24195,9 +24195,9 @@
   "tokens": 1
  },
  "ع ر و|اعْتَرَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "afflict",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ع ر و|عُرْوَة|N": {
@@ -24297,9 +24297,9 @@
   "tokens": 1
  },
  "ع ز ل|مَعْزِل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a place apart",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ع ز م|عَزَمَ|V": {
@@ -24477,9 +24477,9 @@
   "tokens": 1
  },
  "ع ص ب|عَصِيب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "distressful",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ع ص ب|عُصْبَة|N": {
@@ -24615,9 +24615,9 @@
   "tokens": 2
  },
  "ع ض و|عِضِين|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "into parts",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ع ط ف|عِطْف|N": {
@@ -24765,9 +24765,9 @@
   "tokens": 8
  },
  "ع ق ب|عُقْب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in outcome",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ع ق ب|عُقْبَى|N": {
@@ -24783,9 +24783,9 @@
   "tokens": 20
  },
  "ع ق ب|مُعَقِّب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one who reverses",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ع ق ب|مُعَقِّبَة|N": {
@@ -24910,9 +24910,9 @@
   "tokens": 18
  },
  "ع ل م|عَلامَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "landmarks",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ع ل م|عَلِمَ|V": {
@@ -25066,9 +25066,9 @@
   "tokens": 2
  },
  "ع ل و|مُتَعال|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the exalted",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ع م د|تَعَمَّدَتْ|V": {
@@ -25096,9 +25096,9 @@
   "tokens": 2
  },
  "ع م ر|اسْتَعْمَرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "settle to cultivate",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ع م ر|اعْتَمَرَ|V": {
@@ -25114,9 +25114,9 @@
   "tokens": 4
  },
  "ع م ر|عَمْر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the life of",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ع م ر|عُمُر|N": {
@@ -25228,9 +25228,9 @@
   "tokens": 7
  },
  "ع م ي|عُمِّيَتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be made obscure",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ع ن ب|عِنَب|N": {
@@ -25558,9 +25558,9 @@
   "tokens": 5
  },
  "غ د و|غَداء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the morning meal",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "غ د و|غَداة|N": {
@@ -25666,9 +25666,9 @@
   "tokens": 17
  },
  "غ ر ق|غَرَق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the drowning",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "غ ر ق|غَرْق|N": {
@@ -26657,9 +26657,9 @@
   "tokens": 3
  },
  "ف ر ث|فَرْث|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the contents of the gut",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ف ر ج|فَرْج|N": {
@@ -26777,9 +26777,9 @@
   "tokens": 1
  },
  "ف ر ط|مُفْرَط|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "abandoned",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ف ر ط|يَفْرُطَ|V": {
@@ -26789,9 +26789,9 @@
   "tokens": 1
  },
  "ف ر ع|فَرْع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "branches",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ف ر غ|أَفْرِغْ|V": {
@@ -26885,15 +26885,15 @@
   "tokens": 1
  },
  "ف ر ق|مُتَفَرِّق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "separate",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ف ر ق|مُتَفَرِّقَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "separate",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ف ر ه|فارِه|N": {
@@ -26921,9 +26921,9 @@
   "tokens": 1
  },
  "ف ر ي|مُفْتَر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a fabricator",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ف ر ي|مُفْتَري|N": {
@@ -26939,9 +26939,9 @@
   "tokens": 2
  },
  "ف ر ي|مُفْتَرَيَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "fabricated",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ف ر ي|يَفْتَرِي|V": {
@@ -27095,9 +27095,9 @@
   "tokens": 3
  },
  "ف ص ل|مُفَصَّل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "set out in detail",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ف ص ل|مُفَصَّلَة|N": {
@@ -27113,9 +27113,9 @@
   "tokens": 1
  },
  "ف ض ح|تَفْضَحُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "disgrace",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ف ض ض|انفَضُّ|V": {
@@ -27389,9 +27389,9 @@
   "tokens": 1
  },
  "ف ن د|تُفَنِّدُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "think senile",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ف ن ن|أَفْنان|N": {
@@ -27521,9 +27521,9 @@
   "tokens": 12
  },
  "ف و ه|فا|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the mouth",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ف ي أ|أَفاءَ|V": {
@@ -27539,9 +27539,9 @@
   "tokens": 3
  },
  "ف ي أ|يَتَفَيَّؤُا۟|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "incline in shadow",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ف ي ض|أَفاضَ|V": {
@@ -27713,9 +27713,9 @@
   "tokens": 9
  },
  "ق ت ر|قَتَر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "dust of gloom",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ق ت ر|قَتَرَة|N": {
@@ -28319,9 +28319,9 @@
   "tokens": 3
  },
  "ق س م|مَقْسُوم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "apportioned",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ق س م|مُقَسِّمَة|N": {
@@ -28331,9 +28331,9 @@
   "tokens": 1
  },
  "ق س م|مُقْتَسِم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who divided",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ق س و|قاسِيَة|N": {
@@ -28517,9 +28517,9 @@
   "tokens": 2
  },
  "ق ط ر|قَطِران|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "tar",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ق ط ر|قِطْر|N": {
@@ -28571,9 +28571,9 @@
   "tokens": 2
  },
  "ق ط ع|مَقْطُوع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "cut off",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ق ط ع|مَقْطُوعَة|N": {
@@ -28643,9 +28643,9 @@
   "tokens": 1
  },
  "ق ف و|تَقْفُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "pursue blindly",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ق ف و|قَفَّيْ|V": {
@@ -28847,9 +28847,9 @@
   "tokens": 1
  },
  "ق ن ط|قانِط|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who despair",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ق ن ط|قَنَطُ|V": {
@@ -28871,9 +28871,9 @@
   "tokens": 1
  },
  "ق ن ع|مُقْنِعِي|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "with heads upraised",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ق ن و|قِنْوان|N": {
@@ -29203,9 +29203,9 @@
   "tokens": 2
  },
  "ك ب ر|تَكْبِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in magnification",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ك ب ر|كَبُرَ|V": {
@@ -29474,9 +29474,9 @@
   "tokens": 2
  },
  "ك ذ ب|مَكْذُوب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "to be belied",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ك ذ ب|مُكَذِّب|N": {
@@ -29594,9 +29594,9 @@
   "tokens": 3
  },
  "ك ر ه|مَكْرُوه|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "detestable",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ك س ب|اكْتَسَبَ|V": {
@@ -29672,9 +29672,9 @@
   "tokens": 14
  },
  "ك ش ف|كَشْف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the removal of",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ك ظ م|كاظِم|N": {
@@ -29911,9 +29911,9 @@
   "tokens": 2
  },
  "ك ل ل|كَلّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a burden",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ك ل ل|كُلّ|N": {
@@ -29971,15 +29971,15 @@
   "tokens": 4
  },
  "ك ل و|كِلا|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "both of them",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ك ل و|كِلْتا|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "both of the two",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ك م ل|أَكْمَلْ|V": {
@@ -30043,9 +30043,9 @@
   "tokens": 4
  },
  "ك ن ن|أَكْنان|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "shelters",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ك ن ن|أَكْنَن|V": {
@@ -30361,9 +30361,9 @@
   "tokens": 17
  },
  "ل د ن|لَدُن|T": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "from before",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ل ذ ذ|تَلَذُّ|V": {
@@ -30469,9 +30469,9 @@
   "tokens": 1
  },
  "ل ع ن|مَلْعُونَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "accursed",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ل غ ب|لُغُوب|N": {
@@ -30499,9 +30499,9 @@
   "tokens": 9
  },
  "ل ف ت|تَلْفِتَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "turn away from",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ل ف ت|يَلْتَفِتْ|V": {
@@ -30535,9 +30535,9 @@
   "tokens": 1
  },
  "ل ف ف|لَفِيف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in a mixed crowd",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ل ف و|أَلْفَ|V": {
@@ -30961,9 +30961,9 @@
   "tokens": 2
  },
  "م ث ل|تَمَثَّلَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "take the form",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "م ث ل|مَثَل|N": {
@@ -30973,9 +30973,9 @@
   "tokens": 88
  },
  "م ث ل|مَثُلَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "exemplary punishments",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "م ث ل|مُثْلَى|N": {
@@ -31015,9 +31015,9 @@
   "tokens": 2
  },
  "م ح ل|مِحال|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in strength",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "م ح ن|امْتَحَنَ|V": {
@@ -31555,9 +31555,9 @@
   "tokens": 4
  },
  "م ك ث|مُكْث|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "at intervals",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "م ك ر|ماكِر|N": {
@@ -31693,9 +31693,9 @@
   "tokens": 1
  },
  "م ل ك|مَمْلُوك|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "owned",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "م ل ك|مُلْك|N": {
@@ -31939,9 +31939,9 @@
   "tokens": 6
  },
  "م و ج|يَمُوجُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "surge",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "م و ر|تَمُورُ|V": {
@@ -31981,9 +31981,9 @@
   "tokens": 2
  },
  "م ي ر|نَمِيرُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bring provisions",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "م ي ز|امْتازُ|V": {
@@ -32167,9 +32167,9 @@
   "tokens": 2
  },
  "ن ج و|ناج|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one saved",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ن ج و|ناجَيْ|V": {
@@ -32245,9 +32245,9 @@
   "tokens": 1
  },
  "ن ح ل|نَحْل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the bee",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ن ح ل|نِحْلَة|N": {
@@ -32827,9 +32827,9 @@
   "tokens": 1
  },
  "ن ص ح|نُصْح|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "counsel",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ن ص ر|اسْتَنصَرَ|V": {
@@ -33097,9 +33097,9 @@
   "tokens": 1
  },
  "ن ع م|نَعْماء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a favour",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ن ع م|نَعْمَة|N": {
@@ -33121,9 +33121,9 @@
   "tokens": 50
  },
  "ن غ ض|يُنْغِضُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "shake in derision",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ن ف ث|نَفّاثَة|N": {
@@ -33187,9 +33187,9 @@
   "tokens": 8
  },
  "ن ف ر|نَفِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in manpower",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ن ف ر|نُفُور|N": {
@@ -33337,9 +33337,9 @@
   "tokens": 1
  },
  "ن ق ب|نَقْب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a breach",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ن ق ذ|أَنقَذَ|V": {
@@ -33511,15 +33511,15 @@
   "tokens": 3
  },
  "ن ك ر|مُنكِرَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "denying",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ن ك ر|نَكِرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "find strange",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ن ك ر|نَكِير|N": {
@@ -33824,9 +33824,9 @@
   "tokens": 2
  },
  "ه ج د|تَهَجَّدْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "keep vigil",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "ه ج ر|اهْجُرْ|V": {
@@ -34329,9 +34329,9 @@
   "tokens": 1
  },
  "و أ ل|مَوْئِل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a place of escape",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "و ب ر|أَوْبار|N": {
@@ -34341,9 +34341,9 @@
   "tokens": 1
  },
  "و ب ق|مَوْبِق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a place of ruin",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "و ب ق|يُوبِقْ|V": {
@@ -34479,9 +34479,9 @@
   "tokens": 1
  },
  "و ج ل|وَجِل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in fear",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "و ج ل|وَجِلَة|N": {
@@ -34827,9 +34827,9 @@
   "tokens": 3
  },
  "و ز ن|مَوْزُون|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "well measured",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "و ز ن|مِيزان|N": {
@@ -34929,9 +34929,9 @@
   "tokens": 2
  },
  "و س م|مُتَوَسِّم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who read the signs",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "supported",
   "tokens": 1
  },
  "و س م|نَسِمُ|V": {
@@ -35229,9 +35229,9 @@
   "tokens": 1
  },
  "و ف ر|مَوْفُور|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in full",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "و ف ض|يُوفِضُ|V": {
@@ -35800,9 +35800,9 @@
   "tokens": 1
  },
  "ي س ر|مَيْسُور|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "gentle",
+  "evidence": "hapax or near-hapax; decided from the frame it appears in",
+  "grade": "settled",
   "tokens": 1
  },
  "ي س ر|مَيْسِر|N": {
