@@ -7,6 +7,7 @@ import { ThemeToggle } from './ThemeToggle';
 const LINKS: { href: string; label: string }[] = [
   { href: '/', label: 'Read' },
   { href: '/search', label: 'Search' },
+  { href: '/donate', label: 'Donate' },
 ];
 
 // The header has two layouts because one row cannot hold this much at 360px.

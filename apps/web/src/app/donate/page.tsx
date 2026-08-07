@@ -121,10 +121,13 @@ export default async function DonatePage() {
         </form>
       ) : (
         <div className="mt-8 rounded-xl border border-line bg-panel px-5 py-5">
-          <p className="text-[15px] leading-relaxed text-ink2">
-            Card payments are not switched on yet — the payment account is
-            still being set up. Nothing is broken and nothing is being
-            collected; this page will take gifts as soon as that is done.
+          <p className="text-[16px] font-semibold text-ink">
+            Donations are coming soon.
+          </p>
+          <p className="mt-2 text-[15px] leading-relaxed text-ink2">
+            The payment account is still being set up. Nothing is being
+            collected yet — this page will take gifts the moment it is ready.
+            Meanwhile, the whole site is and will remain free.
           </p>
         </div>
       )}
