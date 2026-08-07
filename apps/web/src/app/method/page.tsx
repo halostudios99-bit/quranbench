@@ -312,6 +312,44 @@ export default function MethodPage() {
         </ul>
       </Section>
 
+      <section id="generated-edition" className="mb-9 scroll-mt-20">
+        <div className="mb-3 flex flex-wrap items-center gap-3">
+          <h2 className="text-[18px] font-semibold text-ink">
+            The generated translation
+          </h2>
+        </div>
+        <div className="flex max-w-prose flex-col gap-3 text-[15px] leading-relaxed text-ink2">
+          <p>
+            One edition in the reader — <em>QuranBench (generated)</em> — is
+            not a human translation. It is produced from a table of word-by-word
+            decisions: each Arabic word (by root, lemma and part of speech)
+            maps to one English rendering, decided from how the word is used
+            across the whole text, and the build substitutes those decisions
+            verse by verse. Arabic word order is preserved. No language model
+            writes any of it, and no tafsir, hadith or existing translation was
+            consulted; the machine indexes and substitutes, a person decides.
+          </p>
+          <p>
+            Every decision carries a grade. <em>Settled</em> means the text
+            itself fixes the sense; <em>supported</em> means the evidence is
+            thinner; <em>judgement</em> means the word occurs once in the Quran
+            and its rendering rests on general Arabic rather than the corpus.
+            Judgement words are underlined in the reader, and the full list is
+            reviewable at{' '}
+            <a href="/review" className="text-accent underline">
+              /review
+            </a>
+            . The edition is hash-locked to the exact decision table that
+            produced it, so identical inputs always yield an identical text.
+          </p>
+          <p>
+            The complete method — twenty-two rules, each named for the error it
+            prevents — is in the repository as{' '}
+            <code>docs/translation-method.md</code>.
+          </p>
+        </div>
+      </section>
+
       <footer className="mt-10 border-t border-line pt-5 text-[13px] leading-relaxed text-ink3">
         <p>
           This page describes corpus v{version}. The definitive,

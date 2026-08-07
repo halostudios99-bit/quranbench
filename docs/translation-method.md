@@ -367,6 +367,48 @@ Frames multiply some roots, so the realistic total is **2,500–3,500 decisions*
 Working order: the closed list of particles first (35% of the text, and the easiest),
 then roots by descending frequency.
 
+### Part 5b — What the engine grew during the work (completed 7 August 2026)
+
+The estimate above was close: the finished table holds **5,400 decided keys**
+covering all 77,881 tokens and all 6,348 verses. Getting there forced five
+mechanisms that the original design did not anticipate, each added only when a
+real word could not be decided honestly without it:
+
+- **Lemma-qualified form keys.** An unvocalised surface form can be several
+  different words: `form:من` covered both مِن (from) and مَن (who) — 393 tokens
+  reading wrongly with nothing failing. Rootless words are now keyed by form
+  *and* lemma, and a guard rejects any bare form key that still spans two lemmas.
+- **Forward frames (`followed_by`).** Rule 4 as machinery: a row may name the
+  words that change its sense. خلا is *pass away*, but خلا إلى is *withdraw
+  apart with* (2:14). The row declares its own trigger; nothing is inferred.
+- **Backward frames (`preceded_by`).** The deciding word can come first: حَوْل
+  is *a full term*, but مِن حولك is *around you*.
+- **Number-conditioned renderings (`plural`).** A broken plural can be a
+  different word: بَرّ is *dry land* (5:96, set against the sea), but its
+  plural الأبرار is *the dutiful* (3:193). Only the row may say so.
+- **Elative marking.** Arabic مِن after an elative is English *than*, not
+  *from* (أكبر من). The morphology cannot supply this — the corpus tags أظلم
+  as a verb — so the table marks elatives and the renderer reads the mark.
+
+Two policies hardened during the run:
+
+- **Rule 22 at scale.** 1,563 keys — 29% of the decided vocabulary — are words
+  occurring once in the Quran. A frame cannot settle a word that appears a
+  single time, so each rests on general Arabic, is graded `judgement`, records
+  that fact in its evidence, and is marked in the reader. An early batch
+  graded 397 hapaxes `supported`; it was reverted the same hour, because
+  hiding the weakest words among the strongest is the failure Rule 20 exists
+  to prevent. The full list is served at `/review`.
+- **The table stores bare words.** The renderer supplies everything the Arabic
+  marks — articles, possessives, number, tense. Seeding "your station" made
+  6:135 read "upon your your station". A guard now rejects any rooted row
+  whose English begins with a possessive, and the batch-apply step strips them
+  mechanically.
+
+The rendered edition ships as `en-qb-v1` beside the corpus releases (not inside
+one — it is derived, not sourced), hash-locked to the decision table that
+produced it, under CC BY-SA 4.0.
+
 ---
 
 ## Part 3b — Who decides what

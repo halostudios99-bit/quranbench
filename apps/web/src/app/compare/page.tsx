@@ -22,7 +22,10 @@ import {
 // correspondence is verse-level, not word-level.
 
 const MAX_RANGE = 20;
-const REVERSE_LIMIT = 50;
+// 25, down from 50: at 50 the page measured 1.37MB of HTML and ~11,500
+// elements for a common word, and the axe sweep needed three minutes for this
+// one route. The total is still reported, so nothing is hidden — only unrendered.
+const REVERSE_LIMIT = 25;
 
 interface CompareParams {
   searchParams: Promise<{ v?: string; q?: string }>;

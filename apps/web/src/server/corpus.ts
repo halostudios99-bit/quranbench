@@ -40,7 +40,9 @@ import { pickWordIndex } from '@/lib/random-word';
 import {
   isGenerated,
   loadGeneratedEdition,
+  loadReviewQueue,
   type LoadedGeneratedEdition,
+  type ReviewItem,
 } from './qb-edition';
 
 // The whole corpus is a few megabytes and fits in RAM (see CLAUDE.md). It is
@@ -68,6 +70,8 @@ interface CorpusState {
   translations: LoadedTranslation[];
   /** The project's own generated edition, or null until it has been built. */
   generated: LoadedGeneratedEdition | null;
+  /** Judgement words awaiting review, in reading order (see /review). */
+  reviewQueue: ReviewQueueItem[];
   /** Corpus verse ids in reading order — the ordering basis for reverse lookup. */
   verseOrder: string[];
   /** Gloss key → token handles carrying a gloss with that key (reverse gloss lookup). */
@@ -257,6 +261,16 @@ function build(): CorpusState {
   // never displaces them in manifest order. Absent until the generator has been
   // run, which is not an error.
   const generated = loadGeneratedEdition(generatedEditionDir());
+  const reviewQueue = loadReviewQueue(generatedEditionDir()).map((item) => ({
+    ...item,
+    ref: `${item.surah}:${item.slot}`,
+    // A slot is a string and may be "basmala", which has no verse URL of its
+    // own — the surah page is the closest addressable thing.
+    href:
+      item.slot === 'basmala'
+        ? `/${item.surah}`
+        : verseHref(item.surah, Number(item.slot)),
+  }));
   const translations = generated
     ? [...corpus.translations, generated]
     : corpus.translations;
@@ -280,6 +294,7 @@ function build(): CorpusState {
     rootByForm,
     translations,
     generated,
+    reviewQueue,
     verseOrder: corpus.segments.map((s) => s.id),
     glossIndex,
     glossSlugToKey,
@@ -726,6 +741,16 @@ export function getRootOccurrences(
 // Verse-level licensed human translation editions. Never Quranic text: each is a
 // labelled external edition, always shown with translator, edition, year and
 // licence. Correspondence to Arabic is verse-level only — never word-level.
+
+export interface ReviewQueueItem extends ReviewItem {
+  ref: string;
+  href: string;
+}
+
+/** The judgement-word review queue, in reading order (see /review). */
+export function getJudgementQueue(): ReviewQueueItem[] {
+  return state().reviewQueue;
+}
 
 /** The available translation editions' metadata, in manifest order. */
 export function listTranslationEditions(): TranslationEdition[] {

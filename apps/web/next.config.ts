@@ -18,6 +18,15 @@ const nextConfig: NextConfig = {
   // build. Defaults to `.next` so local development is unchanged.
   // See scripts/deploy-atomic.sh.
   distDir: process.env.NEXT_DIST_DIR || '.next',
+  // Inline the CSS into the HTML instead of loading it as a render-blocking
+  // stylesheet. That one request cost ~470ms of LCP on a cold load — the
+  // difference between the measured 2.5-2.9s and the 1.8s budget. optimizeCss
+  // (critters) was tried first and does nothing under the App Router; inlineCss
+  // is the supported mechanism. The whole sheet is ~20KB compressed, an
+  // acceptable per-page cost for removing the blocking fetch entirely.
+  experimental: {
+    inlineCss: true,
+  },
   transpilePackages: ['@quranbench/corpus', '@quranbench/search'],
   eslint: { ignoreDuringBuilds: true },
   poweredByHeader: false,

@@ -52,7 +52,7 @@ export function SimilarVerses({ result }: { result: SimilarVersesResult }) {
               <div className="flex items-center justify-between gap-3">
                 <a
                   href={v.href}
-                  className="font-ui text-[14px] text-accent hover:underline"
+                  className="inline-block py-1 font-ui text-[14px] text-accent hover:underline"
                 >
                   {v.surahName} {v.ref}
                 </a>

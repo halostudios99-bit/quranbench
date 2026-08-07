@@ -164,11 +164,11 @@ export default async function WordPage({ params }: Params) {
       <JsonLd data={jsonLd} />
 
       <nav aria-label="Breadcrumb" className="mb-3 text-[13px] text-ink3">
-        <a href="/" className="hover:text-ink2">
+        <a href="/" className="inline-block py-1 hover:text-ink2">
           Read
         </a>
         <span aria-hidden="true"> / </span>
-        <a href={surahHref(token.surah)} className="hover:text-ink2">
+        <a href={surahHref(token.surah)} className="inline-block py-1 hover:text-ink2">
           {surah.name_en}
         </a>
         <span aria-hidden="true"> / </span>
@@ -176,7 +176,7 @@ export default async function WordPage({ params }: Params) {
           <>
             <a
               href={verseHref(token.surah, ordinal)}
-              className="hover:text-ink2"
+              className="inline-block py-1 hover:text-ink2"
             >
               {verseRef}
             </a>
@@ -270,7 +270,7 @@ export default async function WordPage({ params }: Params) {
             <Field label="Surah">
               <a
                 href={surahHref(token.surah)}
-                className="text-accent hover:underline"
+                className="inline-block py-1 text-accent hover:underline"
               >
                 {token.surah} · {surah.name_en}
               </a>
@@ -279,7 +279,7 @@ export default async function WordPage({ params }: Params) {
               {ordinal !== null ? (
                 <a
                   href={verseHref(token.surah, ordinal)}
-                  className="text-accent hover:underline"
+                  className="inline-block py-1 text-accent hover:underline"
                 >
                   {verseRef}
                 </a>
@@ -308,7 +308,7 @@ export default async function WordPage({ params }: Params) {
                   {morph.gloss ? (
                     <a
                       href={glossHref(morph.gloss)}
-                      className="text-accent hover:underline"
+                      className="inline-block py-1 text-accent hover:underline"
                       title={`Every Arabic word glossed “${morph.gloss}”`}
                     >
                       {morph.gloss}
@@ -332,7 +332,7 @@ export default async function WordPage({ params }: Params) {
                   {root ? (
                     <a
                       href={rootHref(root.slug)}
-                      className="text-accent hover:underline"
+                      className="inline-block py-1 text-accent hover:underline"
                     >
                       <span lang="ar" dir="rtl" className="quran text-[22px]">
                         {root.root}
@@ -522,7 +522,7 @@ export default async function WordPage({ params }: Params) {
               The root{' '}
               <a
                 href={rootHref(root.slug)}
-                className="text-accent hover:underline"
+                className="inline-block py-1 text-accent hover:underline"
               >
                 <span lang="ar" dir="rtl" className="quran text-[22px]">
                   {root.root}

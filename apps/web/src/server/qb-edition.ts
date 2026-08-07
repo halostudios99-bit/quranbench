@@ -123,6 +123,34 @@ export function loadGeneratedEdition(dir: string): LoadedGeneratedEdition | null
   return { edition, byVerseId, judgementByVerseId };
 }
 
+/** One judgement word as the review queue lists it (see /review). */
+export interface ReviewItem {
+  surah: number;
+  slot: string;
+  arabic: string;
+  english: string;
+  evidence: string;
+}
+
+/**
+ * The review queue: every judgement-graded word, in reading order. Emitted by
+ * pipeline/edition.py beside the edition. An absent file means the queue is
+ * simply empty — a checkout without the generated edition has nothing to review.
+ */
+export function loadReviewQueue(dir: string): ReviewItem[] {
+  let body: string;
+  try {
+    body = readFileSync(join(dir, 'review.jsonl'), 'utf8');
+  } catch {
+    return [];
+  }
+  const items: ReviewItem[] = [];
+  for (const raw of body.split('\n')) {
+    if (raw) items.push(JSON.parse(raw) as ReviewItem);
+  }
+  return items;
+}
+
 /** Whether an edition is the generated one — it must be displayed differently. */
 export function isGenerated(
   edition: TranslationEdition,

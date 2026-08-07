@@ -105,7 +105,7 @@ def resolve(token: dict, table: dict) -> dict | None:
 def render_verse(tokens: list[dict], table: dict, mark: bool = False) -> tuple[list[str], bool]:
     """Render one verse. Returns the words and whether anything blocked it."""
     parts, blocked = render_verse_parts(tokens, table, mark)
-    return [word for word, _ in parts], blocked
+    return [word for word, _, _ in parts], blocked
 
 
 def render_verse_parts(
@@ -135,7 +135,7 @@ def render_verse_parts(
     for i, token in enumerate(ordered):
         row = resolve(token, table)
         if not row:
-            parts.append((f"⟦{token['text_no_tashkeel']}⟧", None))
+            parts.append((f"⟦{token['text_no_tashkeel']}⟧", None, token))
             blocked = True
             previous_row = None
             continue
@@ -213,7 +213,7 @@ def render_verse_parts(
 
         if word:
             marked = f"*{word}*" if mark and row["grade"] == "judgement" else word
-            parts.append((marked, row))
+            parts.append((marked, row, token))
         previous_row = row
 
     return parts, blocked

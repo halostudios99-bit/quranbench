@@ -86,6 +86,9 @@ def build(version: str) -> None:
     lines: list[dict] = []
     grades: Counter[str] = Counter()
     judgement_verses = 0
+    # One row per judgement word, in reading order — the review queue. Kept as
+    # its own artifact so the edition file and its hash are untouched by it.
+    review: list[dict] = []
 
     for key in sorted(by_verse, key=lambda k: (k[0], 0 if k[1] == "basmala" else int(k[1]))):
         verse = by_verse[key]
@@ -99,7 +102,7 @@ def build(version: str) -> None:
         # row graded judgement.
         words: list[str] = []
         judgement: list[list[int]] = []
-        for word, row in parts:
+        for word, row, token in parts:
             start = len(words)
             pieces = word.split()
             words.extend(pieces)
@@ -107,6 +110,15 @@ def build(version: str) -> None:
                 grades[row["grade"]] += 1
                 if row["grade"] == "judgement":
                     judgement.append([start, len(pieces)])
+                    review.append(
+                        {
+                            "surah": key[0],
+                            "slot": key[1],
+                            "arabic": token["text_no_tashkeel"],
+                            "english": word,
+                            "evidence": row.get("evidence", ""),
+                        }
+                    )
         if judgement:
             judgement_verses += 1
 
@@ -157,6 +169,11 @@ def build(version: str) -> None:
     }
     (OUT / "edition.json").write_text(
         json.dumps(edition, ensure_ascii=False, indent=1) + "\n", encoding="utf-8"
+    )
+
+    (OUT / "review.jsonl").write_text(
+        "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in review),
+        encoding="utf-8",
     )
 
     pct = len(lines) / len(by_verse) * 100
