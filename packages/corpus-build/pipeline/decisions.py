@@ -153,6 +153,15 @@ def render_verse_parts(
             nxt_lemma = (nxt.get("morphology") or {}).get("lemma")
             english = following.get(nxt["text_no_tashkeel"]) or following.get(nxt_lemma) or english
 
+        # The frame can sit on either side. حَوْل is "a year" — إلى الحول — but
+        # مِن حولك is "around you", and there the word that decides the sense
+        # comes first.
+        preceding = row.get("preceded_by")
+        if preceding and i > 0:
+            prv = ordered[i - 1]
+            prv_lemma = (prv.get("morphology") or {}).get("lemma")
+            english = preceding.get(prv["text_no_tashkeel"]) or preceding.get(prv_lemma) or english
+
         # A broken plural can be a different word from its singular. بَرّ is
         # dry land — 5:96 صيد البر against صيد البحر — but الأبرار, its plural,
         # is the dutiful (3:193 مع الأبرار). Only the row may say so.

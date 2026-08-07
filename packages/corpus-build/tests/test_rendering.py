@@ -353,6 +353,12 @@ def test_no_root_level_over_seeding() -> None:
         # render "one who trusts". Strip the ة and see whether anything is left.
         if len({lemma.rstrip("ةَُِ") for lemma in lemmas}) == 1:
             continue
+        # The corpus occasionally lists one verb under two lemmas — أَغْنَتْ is
+        # simply the feminine perfect of أَغْنَى. That is an artefact of how the
+        # morphology was tagged, not two different words, so the pair is named
+        # here rather than papered over with a second English rendering.
+        if lemmas <= {"أَغْنَى", "أَغْنَتْ"}:
+            continue
         # One lemma tagged with two parts of speech is not over-seeding —
         # يَوْم is the same word whether tagged N or T. Distinct lemmas sharing
         # one English word is the real signature.
