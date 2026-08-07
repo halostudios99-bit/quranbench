@@ -24,23 +24,43 @@ export function LogoMark({ height = 24 }: { height?: number }) {
   );
 }
 
-export function Logo({ tagline = false }: { tagline?: boolean }) {
+export function Logo({
+  tagline = false,
+  stacked = false,
+}: {
+  tagline?: boolean;
+  stacked?: boolean;
+}) {
   return (
     <span className="flex min-w-0 items-center gap-2.5">
       <span className="text-accent">
         <LogoMark />
       </span>
-      <span className="flex min-w-0 items-baseline gap-2">
-        <span className="truncate text-[17px] font-semibold tracking-tight">
-          <span className="text-ink">Quran</span>
-          <span className="text-accent">Bench</span>
-        </span>
-        {tagline ? (
-          <span className="hidden text-[12px] text-ink3 lg:inline">
-            a Quran research workbench
+      {stacked ? (
+        <span className="flex min-w-0 flex-col leading-tight">
+          <span className="truncate text-[16px] font-semibold tracking-tight">
+            <span className="text-ink">Quran</span>
+            <span className="text-accent">Bench</span>
           </span>
-        ) : null}
-      </span>
+          {tagline ? (
+            <span className="hidden text-[9.5px] uppercase tracking-[0.08em] text-ink3 sm:block">
+              A Quran research workbench
+            </span>
+          ) : null}
+        </span>
+      ) : (
+        <span className="flex min-w-0 items-baseline gap-2">
+          <span className="truncate text-[17px] font-semibold tracking-tight">
+            <span className="text-ink">Quran</span>
+            <span className="text-accent">Bench</span>
+          </span>
+          {tagline ? (
+            <span className="hidden text-[12px] text-ink3 lg:inline">
+              a Quran research workbench
+            </span>
+          ) : null}
+        </span>
+      )}
     </span>
   );
 }

@@ -36,7 +36,7 @@ function SignedOut({ stacked }: { stacked: boolean }) {
       </a>
       <a
         href="/signup"
-        className={`rounded-md border border-line px-2.5 py-2 text-[14px] text-ink hover:border-line2 ${
+        className={`rounded-md bg-accent px-3 py-2 text-[14px] font-medium text-on-accent hover:opacity-90 ${
           stacked ? 'block text-center' : ''
         }`}
       >
