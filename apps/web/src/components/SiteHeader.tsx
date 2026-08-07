@@ -1,6 +1,6 @@
-import { SITE_NAME } from '@/lib/site';
 import { HeaderAuth } from './HeaderAuth';
 import { Icon } from './Icon';
+import { Logo } from './Logo';
 import { ThemeToggle } from './ThemeToggle';
 
 // Only routes that exist this prompt are linked, so no navigation is a dead end.
@@ -51,13 +51,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-panel/95 backdrop-blur">
       <div className="relative mx-auto flex h-15 min-h-[60px] max-w-wrap items-center justify-between gap-2 px-5 sm:px-8">
-        <a href="/" className="flex min-w-0 items-baseline gap-2">
-          <span className="truncate text-[17px] font-semibold tracking-tight text-ink">
-            {SITE_NAME}
-          </span>
-          <span className="hidden text-[12px] text-ink3 sm:inline">
-            a Quran research workbench
-          </span>
+        <a href="/" aria-label="QuranBench — home" className="min-w-0">
+          <Logo tagline />
         </a>
 
         {/* Wide viewports: everything inline. */}
