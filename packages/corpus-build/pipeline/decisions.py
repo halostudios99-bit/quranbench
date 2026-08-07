@@ -196,8 +196,16 @@ def render_verse_parts(
         # dropped; where the Arabic itself repeats a word — وإلهكم إله, أمتكم أمة
         # — the lemmas match and both are kept, because the text said it twice.
         if parts and word:
-            prev_lemma = (ordered[i - 1].get("morphology") or {}).get("lemma")
-            if morph.get("lemma") != prev_lemma:
+            # Identity is the lemma where there is one, and the surface form
+            # otherwise. Rootless particles all carry lemma=None, so comparing
+            # lemmas alone made every adjacent pair of them look like the same
+            # word repeated — which silently disabled this rule for them, and
+            # 38:60 read "with you you sent ahead".
+            def ident(tok):
+                m = tok.get("morphology") or {}
+                return m.get("lemma") or tok["text_no_tashkeel"]
+
+            if ident(token) != ident(ordered[i - 1]):
                 tail = parts[-1][0].split()
                 head = word.split()
                 if tail and head and tail[-1].lower() == head[0].lower():

@@ -247,7 +247,11 @@ def compose(
         # 112:3 لم يلد ولم يولد — the second verb is passive. Without this both
         # render "he begets" and the verse says the opposite of what it says.
         if out in INVARIANT:
-            pass
+            # ليس, نعم, بئس and عسى are not inflected and take no subject
+            # pronoun: "he wretched is" was the verb machinery running anyway.
+            if conj:
+                out = ("and " if (conj.get("lemma") or "") == "و" else "so ") + out
+            return out
         elif out.startswith("be ") and str(feats.get("voice", "")).lower().startswith("pass"):
             # A rendering that is already passive — "be reminded", "be turned
             # away" — must not also take the auxiliary, or it doubles it.

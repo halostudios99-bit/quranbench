@@ -3600,9 +3600,9 @@
   "tokens": 10
  },
  "form:كأن|كَأَنّ": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "as though",
+  "evidence": "decided from the frame; occurs 1 times",
+  "grade": "supported",
   "tokens": 1
  },
  "form:كأن|كَأَنْ": {
@@ -9108,9 +9108,9 @@
   "tokens": 1
  },
  "ب د و|بادِي|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "at first glance",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ب د و|بَدا|V": {
@@ -9631,9 +9631,9 @@
   "tokens": 1
  },
  "ب ط ر|بَطِرَتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "grow insolent in",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ب ط ش|بَطَشْ|V": {
@@ -12674,15 +12674,15 @@
   "tokens": 1
  },
  "ح س ر|مَحْسُور|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "stripped bare",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح س ر|يَسْتَحْسِرُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "grow weary",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح س س|أَحَسَّ|V": {
@@ -12704,9 +12704,9 @@
   "tokens": 1
  },
  "ح س س|حَسِيس|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the faintest sound of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح س م|حُسُوم|N": {
@@ -12777,9 +12777,9 @@
   "tokens": 38
  },
  "ح س ن|مُحْسِنَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the women who do good",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ش ر|حاشِر|N": {
@@ -12801,9 +12801,9 @@
   "tokens": 2
  },
  "ح ش ر|مَحْشُورَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "gathered",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ص ب|حاصِب|N": {
@@ -12813,9 +12813,9 @@
   "tokens": 4
  },
  "ح ص ب|حَصَب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "fuel",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ص ح ص|حَصْحَصَ|V": {
@@ -12867,9 +12867,9 @@
   "tokens": 1
  },
  "ح ص ل|حُصِّلَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be brought out",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ص ن|أَحْصَنَتْ|V": {
@@ -12891,9 +12891,9 @@
   "tokens": 1
  },
  "ح ص ن|مُحَصَّنَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "fortified",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ص ن|مُحْصَنَة|N": {
@@ -12927,9 +12927,9 @@
   "tokens": 3
  },
  "ح ض ر|حاضِر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "present",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ض ر|حاضِرَة|N": {
@@ -12951,9 +12951,9 @@
   "tokens": 7
  },
  "ح ض ر|مُحْتَضَر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "attended in turn",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ض ر|مُحْضَر|N": {
@@ -12963,9 +12963,9 @@
   "tokens": 10
  },
  "ح ض ض|تَحاضُّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "urge one another",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ض ض|يَحُضُّ|V": {
@@ -13005,15 +13005,15 @@
   "tokens": 1
  },
  "ح ظ ر|مَحْظُور|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "withheld",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ظ ر|مُحْتَظِر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the pen-builder",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ظ ظ|حَظّ|N": {
@@ -13029,9 +13029,9 @@
   "tokens": 1
  },
  "ح ف ر|حافِرَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the former state",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ف ر|حُفْرَة|N": {
@@ -13089,9 +13089,9 @@
   "tokens": 4
  },
  "ح ف ف|حافّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "encircling",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ف ف|حَفَفْ|V": {
@@ -13125,9 +13125,9 @@
   "tokens": 1
  },
  "ح ق ف|أَحْقاف|PN": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "Ahqaf",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ق ق|أَحَقّ|N": {
@@ -13252,9 +13252,9 @@
   "tokens": 12
  },
  "ح ل ف|حَلّاف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a habitual swearer",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ل ق|تَحْلِقُ|V": {
@@ -13264,9 +13264,9 @@
   "tokens": 1
  },
  "ح ل ق|حُلْقُوم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the throat",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ل ق|مُحَلِّق|N": {
@@ -13282,9 +13282,9 @@
   "tokens": 20
  },
  "ح ل ل|تَحِلَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the release from",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ل ل|حَلائِل|N": {
@@ -13432,9 +13432,9 @@
   "tokens": 3
  },
  "ح م ل|حامِل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who bear",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح م ل|حامِلَة|N": {
@@ -13486,9 +13486,9 @@
   "tokens": 20
  },
  "ح م م|يَحْمُوم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "black smoke",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح م ي|حام|N": {
@@ -13504,9 +13504,9 @@
   "tokens": 2
  },
  "ح م ي|حَمِيَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "zeal",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ح م ي|يُحْمَى|V": {
@@ -13516,21 +13516,21 @@
   "tokens": 1
  },
  "ح ن ث|تَحْنَثْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "break the oath",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ن ث|حِنث|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the grave sin",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ن ج ر|حَناجِر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the throats",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ح ن ذ|حَنِيذ|N": {
@@ -13600,9 +13600,9 @@
   "tokens": 4
  },
  "ح و ر|يَحُورَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "return",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح و ر|يُحاوِرُ|V": {
@@ -13612,9 +13612,9 @@
   "tokens": 2
  },
  "ح و ز|مُتَحَيِّز|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "withdrawing to",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح و ش|حاش|N": {
@@ -13690,9 +13690,9 @@
   "tokens": 1
  },
  "ح و ي|أَحْوَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "darkened",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح و ي|حَوايا|N": {
@@ -13714,9 +13714,9 @@
   "tokens": 29
  },
  "ح ي د|تَحِيدُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "shrink from",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ي ر|حَيْران|N": {
@@ -13744,9 +13744,9 @@
   "tokens": 1
  },
  "ح ي ف|يَحِيفَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "deal unjustly",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ي ق|حاقَ|V": {
@@ -13774,9 +13774,9 @@
   "tokens": 51
  },
  "ح ي ي|اسْتِحْياء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "shyness",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ي ي|تَحِيَّة|N": {
@@ -13798,9 +13798,9 @@
   "tokens": 76
  },
  "ح ي ي|حَيَوان|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the true life",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ي ي|حَيّ|N": {
@@ -13816,9 +13816,9 @@
   "tokens": 4
  },
  "ح ي ي|حَيَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a serpent",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ح ي ي|مَحْيا|N": {
@@ -13849,9 +13849,9 @@
   "tokens": 9
  },
  "خ ب أ|خَبْء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "what is hidden",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ب ت|أَخْبَتُ|V": {
@@ -13861,9 +13861,9 @@
   "tokens": 2
  },
  "خ ب ت|مُخْبِت|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the humble",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ب ث|خَبُثَ|V": {
@@ -13939,9 +13939,9 @@
   "tokens": 1
  },
  "خ ت م|خاتَم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the seal of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ت م|خَتَمَ|V": {
@@ -13963,9 +13963,9 @@
   "tokens": 1
  },
  "خ د د|أُخْدُود|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the trench",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ د د|خَدّ|N": {
@@ -13999,9 +13999,9 @@
   "tokens": 2
  },
  "خ ذ ل|خَذُول|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a deserter",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ذ ل|مَخْذُول|N": {
@@ -14053,9 +14053,9 @@
   "tokens": 3
  },
  "خ ر ج|خَراج|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a payment",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ر ج|خَرَجَ|V": {
@@ -14107,9 +14107,9 @@
   "tokens": 12
  },
  "خ ر ص|خَرّاص|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the conjecturers",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ر ص|يَخْرُصُ|V": {
@@ -14179,9 +14179,9 @@
   "tokens": 1
  },
  "خ س أ|اخْسَأُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be driven off",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ س أ|خاسِئ|N": {
@@ -14209,9 +14209,9 @@
   "tokens": 32
  },
  "خ س ر|خاسِرَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a losing",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ س ر|خَسار|N": {
@@ -14239,9 +14239,9 @@
   "tokens": 3
  },
  "خ س ر|مُخْسِر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who cause loss",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ س ر|يُخْسِرُ|V": {
@@ -14299,9 +14299,9 @@
   "tokens": 1
  },
  "خ ص ص|خَصاصَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "privation",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ص ص|يَخْتَصُّ|V": {
@@ -14323,15 +14323,15 @@
   "tokens": 8
  },
  "خ ص م|تَخاصُم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the mutual dispute of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ص م|خَصِم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "contentious",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ص م|خَصِيم|N": {
@@ -14353,9 +14353,9 @@
   "tokens": 1
  },
  "خ ض ر|أَخْضَر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "green",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ض ر|خَضِر|N": {
@@ -14371,21 +14371,21 @@
   "tokens": 5
  },
  "خ ض ر|مُخْضَرَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "turned green",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ض ع|تَخْضَعْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be soft in",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ض ع|خاضِع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bowing low",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ط أ|أَخْطَأْ|V": {
@@ -14449,9 +14449,9 @@
   "tokens": 1
  },
  "خ ط ط|تَخُطُّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "write with",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ط ف|خَطِفَ|V": {
@@ -14461,9 +14461,9 @@
   "tokens": 3
  },
  "خ ط ف|خَطْفَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a snatch",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ط ف|يَتَخَطَّفَ|V": {
@@ -14533,9 +14533,9 @@
   "tokens": 8
  },
  "خ ف ي|أَخْفَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "what is more hidden",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ف ي|أُخْفِيَ|V": {
@@ -14545,9 +14545,9 @@
   "tokens": 18
  },
  "خ ف ي|خافِيَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "anything hidden",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ف ي|خَفِيّ|N": {
@@ -14593,9 +14593,9 @@
   "tokens": 74
  },
  "خ ل د|خُلُود|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "abiding",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ل د|خُلْد|N": {
@@ -14761,9 +14761,9 @@
   "tokens": 6
  },
  "خ ل ف|خِلْفَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in succession",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ل ف|مُخَلَّف|N": {
@@ -14785,9 +14785,9 @@
   "tokens": 1
  },
  "خ ل ف|مُسْتَخْلَف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "made successors",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ل ف|يَتَخَلَّفُ|V": {
@@ -14803,9 +14803,9 @@
   "tokens": 2
  },
  "خ ل ق|اخْتِلاق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "an invention",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ل ق|خالِق|N": {
@@ -14869,15 +14869,15 @@
   "tokens": 8
  },
  "خ ل و|تَخَلَّتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "empty itself",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ل و|خالِيَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the days gone by",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ل و|خَلا|V": {
@@ -14908,9 +14908,9 @@
   "tokens": 6
  },
  "خ م ر|خُمُر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "head coverings",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ م س|خامِسَة|N": {
@@ -14980,9 +14980,9 @@
   "tokens": 2
  },
  "خ و ض|خائِض|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who indulge in idle talk",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ و ض|خاضُ|V": {
@@ -15166,9 +15166,9 @@
   "tokens": 3
  },
  "خ ي ل|يُخَيَّلُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "seem",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "خ ي م|خِيام|N": {
@@ -15208,9 +15208,9 @@
   "tokens": 4
  },
  "د ب ر|إِدْبار|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the retreating of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د ب ر|دابِر|N": {
@@ -15226,9 +15226,9 @@
   "tokens": 18
  },
  "د ب ر|مُدَبِّرَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those that direct",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د ب ر|مُدْبِر|N": {
@@ -15250,15 +15250,15 @@
   "tokens": 4
  },
  "د ث ر|مُدَّثِّر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the one wrapped up",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د ح ر|دُحُور|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in repulse",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د ح ر|مَدْحُور|N": {
@@ -15268,9 +15268,9 @@
   "tokens": 3
  },
  "د ح ض|داحِضَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "refuted",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د ح ض|مُدْحَض|N": {
@@ -15286,9 +15286,9 @@
   "tokens": 2
  },
  "د ح و|دَحَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "spread out",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د خ ر|داخِر|N": {
@@ -15334,9 +15334,9 @@
   "tokens": 3
  },
  "د خ ن|دُخان|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "smoke",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "د ر أ|ادّارَأَ|V": {
@@ -15412,9 +15412,9 @@
   "tokens": 1
  },
  "د ر ك|مُدْرَك|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those overtaken",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د ر ه م|دَراهِم|N": {
@@ -15436,9 +15436,9 @@
   "tokens": 12
  },
  "د س ر|دُسُر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "nails",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د س س|يَدُسُّ|V": {
@@ -15448,9 +15448,9 @@
   "tokens": 1
  },
  "د س و|دَسَّى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bury in corruption",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د ع ع|دَعّ|N": {
@@ -15460,9 +15460,9 @@
   "tokens": 1
  },
  "د ع ع|يَدُعُّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be thrust",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "د ع و|داع|N": {
@@ -15532,15 +15532,15 @@
   "tokens": 2
  },
  "د ف ع|يُدافِعُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "defend",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د ف ق|دافِق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "gushing",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د ك ك|دَكّ|N": {
@@ -15562,9 +15562,9 @@
   "tokens": 1
  },
  "د ك ك|دُكَّتِ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be crushed",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "د ل ك|دُلُوك|N": {
@@ -15604,9 +15604,9 @@
   "tokens": 1
  },
  "د م د م|دَمْدَمَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bring down upon",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د م ر|تَدْمِير|N": {
@@ -15658,9 +15658,9 @@
   "tokens": 1
  },
  "د ن و|دان|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "near at hand",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د ن و|دانِيَة|N": {
@@ -15670,9 +15670,9 @@
   "tokens": 3
  },
  "د ن و|دَنا|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "draw down over",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "د ن و|دُنْيا|N": {
@@ -15682,21 +15682,21 @@
   "tokens": 115
  },
  "د ه ر|دَهْر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the passing of time",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "د ه ق|دِهاق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "filled to the brim",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د ه م|مُدْهامَّتان|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "dark green",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د ه ن|دُهْن|N": {
@@ -15712,15 +15712,15 @@
   "tokens": 1
  },
  "د ه ن|مُدْهِن|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "dismissive",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د ه ن|يُدْهِنُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be pliant",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "د ه ي|أَدْهَى|N": {
@@ -15760,15 +15760,15 @@
   "tokens": 1
  },
  "د و ر|دَيّار|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a single dweller",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د و ل|دُولَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a thing passed round",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "د و ل|نُداوِلُ|V": {
@@ -15827,9 +15827,9 @@
   "tokens": 2
  },
  "د ي ن|يَدِينُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "hold as binding",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ذ أ ب|ذِئْب|N": {
@@ -15929,9 +15929,9 @@
   "tokens": 1
  },
  "ذ ع ن|مُذْعِن|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "readily submitting",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ذ ق ن|أَذْقان|N": {
@@ -16019,9 +16019,9 @@
   "tokens": 6
  },
  "ذ ك ر|مُذَكِّر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a reminder-bringer",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ذ ك و|ذَكَّيْ|V": {
@@ -16031,9 +16031,9 @@
   "tokens": 1
  },
  "ذ ل ل|أَذَلّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the most abased",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ذ ل ل|أَذِلَّة|N": {
@@ -16109,9 +16109,9 @@
   "tokens": 37
  },
  "ذ ن ب|ذَنُوب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a share",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ذ ه ب|أَذْهَبَ|V": {
@@ -16121,15 +16121,15 @@
   "tokens": 11
  },
  "ذ ه ب|ذاهِب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "going",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ذ ه ب|ذَهاب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the taking away of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ذ ه ب|ذَهَب|N": {
@@ -16235,9 +16235,9 @@
   "tokens": 7
  },
  "ر أ ي|رِءْي|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "outward show",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر أ ي|رِئاء|N": {
@@ -16290,9 +16290,9 @@
   "tokens": 13
  },
  "ر ب ص|تَرَبُّص|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a waiting of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ب ص|مُتَرَبِّص|N": {
@@ -16326,9 +16326,9 @@
   "tokens": 6
  },
  "ر ب ع|أَرْبَع|T": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "forty",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ب ع|أَرْبَعَة|N": {
@@ -16368,9 +16368,9 @@
   "tokens": 1
  },
  "ر ب و|رابِيَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "ever-increasing",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ب و|رَبَتْ|V": {
@@ -16440,9 +16440,9 @@
   "tokens": 1
  },
  "ر ج ز|رُجْز|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the defilement",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ج ز|رِجْز|N": {
@@ -16476,9 +16476,9 @@
   "tokens": 3
  },
  "ر ج ع|رُجْعَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the return",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ج ع|مَرْجِع|N": {
@@ -16512,9 +16512,9 @@
   "tokens": 4
  },
  "ر ج ف|مُرْجِف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the rumour-mongers",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ج ل|رَجُل|N": {
@@ -16560,21 +16560,21 @@
   "tokens": 1
  },
  "ر ج م|رُجُوم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "missiles",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ج م|مَرْجُوم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those stoned",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ج و|أَرْجائ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "edges",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ج و|تُرْجِي|V": {
@@ -16584,9 +16584,9 @@
   "tokens": 3
  },
  "ر ج و|مَرْجُوّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one hoped in",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ج و|مُرْجَوْن|N": {
@@ -16608,9 +16608,9 @@
   "tokens": 2
  },
  "ر ح ب|مَرْحَب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "welcome",
+  "evidence": "لا مرحبا بهم — the negation is its own word",
+  "grade": "supported",
   "tokens": 2
  },
  "ر ح ق|رَحِيق|N": {
@@ -16684,15 +16684,15 @@
   "tokens": 1
  },
  "ر ح م|مَرْحَمَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "compassion",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر خ و|رُخاء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "gently",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر د أ|رِدْء|N": {
@@ -16750,15 +16750,15 @@
   "tokens": 1
  },
  "ر د ف|رادِفَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the one that follows",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر د ف|رَدِفَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "draw close behind",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر د ف|مُرْدِف|N": {
@@ -16780,15 +16780,15 @@
   "tokens": 3
  },
  "ر د ي|تَرَدَّى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "fall down",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر د ي|تَرْدَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be ruined",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر د ي|مُتَرَدِّيَة|N": {
@@ -16816,9 +16816,9 @@
   "tokens": 61
  },
  "ر ز ق|رَزّاق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the constant provider",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ز ق|رِزْق|N": {
@@ -16866,9 +16866,9 @@
   "tokens": 35
  },
  "ر س ل|مُرْسَلَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those sent forth",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر س ل|مُرْسِل|N": {
@@ -16884,9 +16884,9 @@
   "tokens": 1
  },
  "ر س و|أَرْسَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "fix firm",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر س و|رَواسِي|N": {
@@ -16968,9 +16968,9 @@
   "tokens": 2
  },
  "ر ص ص|مَرْصُوص|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "closely joined",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ض ع|أَرْضَعَتْ|V": {
@@ -16992,9 +16992,9 @@
   "tokens": 2
  },
  "ر ض ع|مَراضِع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the wet-nurses",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ض ع|مُرْضِعَة|N": {
@@ -17058,15 +17058,15 @@
   "tokens": 5
  },
  "ر ض و|مَرْضِيّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "well pleasing",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ض و|مَرْضِيَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "well pleasing",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ض و|يُرْضُ|V": {
@@ -17220,9 +17220,9 @@
   "tokens": 1
  },
  "ر ف ع|مَرْفُوع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "raised high",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ف ع|مَرْفُوعَة|N": {
@@ -17274,15 +17274,15 @@
   "tokens": 5
  },
  "ر ق ب|مُرْتَقِب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who wait",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ق ب|يَتَرَقَّبُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "watch warily",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ر ق ب|يَرْقُبُ|V": {
@@ -17298,15 +17298,15 @@
   "tokens": 1
  },
  "ر ق د|مَرْقَد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the sleeping place",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ق ق|رَقّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "parchment",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ق م|رَقِيم|N": {
@@ -17328,9 +17328,9 @@
   "tokens": 1
  },
  "ر ق ي|راق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one who can heal",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ق ي|رُقِيّ|N": {
@@ -17340,9 +17340,9 @@
   "tokens": 1
  },
  "ر ق ي|يَرْتَقُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "ascend",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ك ب|رَكُوب|N": {
@@ -17358,9 +17358,9 @@
   "tokens": 9
  },
  "ر ك ب|رَكَّبَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "assemble",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ك ب|رَكْب|N": {
@@ -17388,15 +17388,15 @@
   "tokens": 1
  },
  "ر ك د|رَواكِد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "motionless",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ك ز|رِكْز|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the faintest whisper",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ك س|أَرْكَسَ|V": {
@@ -17466,9 +17466,9 @@
   "tokens": 1
  },
  "ر م ز|رَمْز|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "by sign",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر م ض|رَمَضان|PN": {
@@ -17508,9 +17508,9 @@
   "tokens": 1
  },
  "ر ه ب|رَهَب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the fear",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ه ب|رَهْب|N": {
@@ -17526,9 +17526,9 @@
   "tokens": 1
  },
  "ر ه ب|رَهْبَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in dread",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ه ب|رُهْبان|N": {
@@ -17568,15 +17568,15 @@
   "tokens": 3
  },
  "ر ه ن|رَهِين|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "held in pledge",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ه ن|رَهِينَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "held in pledge for",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ه ن|رِهان|N": {
@@ -17586,9 +17586,9 @@
   "tokens": 1
  },
  "ر ه و|رَهْو|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "still parted",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر و ح|تُرِيحُ|V": {
@@ -17646,9 +17646,9 @@
   "tokens": 1
  },
  "ر و ض|رَوْضَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a meadow",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ر و ع|رَوْع|N": {
@@ -17688,9 +17688,9 @@
   "tokens": 7
  },
  "ر ي ب|مُرْتاب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "full of doubt",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ر ي ش|رِيش|N": {
@@ -17706,9 +17706,9 @@
   "tokens": 1
  },
  "ر ي ن|رانَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "cover over as rust",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ب د|زَبَد|N": {
@@ -17736,9 +17736,9 @@
   "tokens": 7
  },
  "ز ب ن|زَبانِيَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the guards of hell",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ج ج|زُجاجَة|N": {
@@ -17748,9 +17748,9 @@
   "tokens": 2
  },
  "ز ج ر|ازْدُجِرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be driven off",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ج ر|زاجِرَة|N": {
@@ -17772,9 +17772,9 @@
   "tokens": 2
  },
  "ز ج ر|مُزْدَجَر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a deterrent",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ج و|مُزْجاة|N": {
@@ -17796,9 +17796,9 @@
   "tokens": 1
  },
  "ز ح ز ح|مُزَحْزِح|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one who removes",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ح ف|زَحْف|N": {
@@ -17814,9 +17814,9 @@
   "tokens": 4
  },
  "ز ر ب|زَرابِيّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "rich carpets",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ر ع|تَزْرَعُ|V": {
@@ -17826,9 +17826,9 @@
   "tokens": 2
  },
  "ز ر ع|زارِع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who make grow",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ر ع|زَرْع|N": {
@@ -17844,9 +17844,9 @@
   "tokens": 1
  },
  "ز ر ق|زُرْق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "blue-eyed with terror",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ر ي|تَزْدَرِي|V": {
@@ -17880,9 +17880,9 @@
   "tokens": 3
  },
  "ز ف ف|يَزِفُّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "come hurrying",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ق م|زَقُّوم|PN": {
@@ -17910,15 +17910,15 @@
   "tokens": 32
  },
  "ز ك و|زَكَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be pure",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ك و|زَكِيّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "pure",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ك و|زَكِيَّة|N": {
@@ -17934,9 +17934,9 @@
   "tokens": 12
  },
  "ز ل ز ل|زَلْزَلَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the quaking of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ل ز ل|زُلْزِلُ|V": {
@@ -17976,9 +17976,9 @@
   "tokens": 1
  },
  "ز ل ق|يُزْلِقُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "cast down with",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ل ل|أَزَلَّ|V": {
@@ -18012,15 +18012,15 @@
   "tokens": 2
  },
  "ز م ل|مُزَّمِّل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the one enfolded",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز م ه ر|زَمْهَرِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bitter cold",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ن م|زَنِيم|N": {
@@ -18060,9 +18060,9 @@
   "tokens": 1
  },
  "ز ه ر|زَهْرَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the splendour of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ز ه ق|زاهِق|N": {
@@ -18174,9 +18174,9 @@
   "tokens": 2
  },
  "ز ي د|مَزِيد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "more",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ز ي غ|أَزاغَ|V": {
@@ -18252,9 +18252,9 @@
   "tokens": 1
  },
  "س أ ل|سُؤْل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the request of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س أ ل|مَسْئُول|N": {
@@ -18414,9 +18414,9 @@
   "tokens": 1
  },
  "س ب ق|سابِقُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "race one another",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ب ق|سَبَقَ|V": {
@@ -18456,9 +18456,9 @@
   "tokens": 1
  },
  "س ت ر|تَسْتَتِرُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "conceal yourselves",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ت ر|سِتْر|N": {
@@ -18498,21 +18498,21 @@
   "tokens": 28
  },
  "س ج ر|سُجِّرَتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be set ablaze",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ج ر|مَسْجُور|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "swollen",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ج ر|يُسْجَرُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be scorched",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ج ل|سِجِلّ|N": {
@@ -18540,9 +18540,9 @@
   "tokens": 6
  },
  "س ج ن|مَسْجُون|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the imprisoned",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ج ن|يُسْجَنَ|V": {
@@ -18552,9 +18552,9 @@
   "tokens": 3
  },
  "س ج و|سَجَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "grow still",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ح ب|سَحاب|N": {
@@ -18576,9 +18576,9 @@
   "tokens": 3
  },
  "س ح ت|يُسْحِتَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "wipe out",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ح ر|ساحِر|N": {
@@ -18600,9 +18600,9 @@
   "tokens": 3
  },
  "س ح ر|سَحّار|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a great sorcerer",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ح ر|سِحْر|N": {
@@ -18624,21 +18624,21 @@
   "tokens": 2
  },
  "س ح ق|سَحِيق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "far-off",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ح ق|سُحْق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "away with",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ح ل|ساحِل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the shore",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س خ ر|ساخِر|N": {
@@ -18684,15 +18684,15 @@
   "tokens": 3
  },
  "س خ ر|يَسْتَسْخِرُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "scoff",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س خ ط|أَسْخَطَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bring displeasure",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س خ ط|سَخَط|N": {
@@ -18744,9 +18744,9 @@
   "tokens": 3
  },
  "س د ي|سُدًى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "to no purpose",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ر ب ل|سَرابِيل|N": {
@@ -18792,9 +18792,9 @@
   "tokens": 1
  },
  "س ر ح|سَراح|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a release",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "س ر ح|سَرِّحُ|V": {
@@ -18834,9 +18834,9 @@
   "tokens": 1
  },
  "س ر ر|سَرائِر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the secrets",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ر ر|سَرّاء|N": {
@@ -18948,21 +18948,21 @@
   "tokens": 6
  },
  "س ر ي|سَرِيّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a stream",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ر ي|يَسْرِ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "pass on",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ط ح|سُطِحَتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be spread flat",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ط ر|أَساطِير|N": {
@@ -18978,9 +18978,9 @@
   "tokens": 3
  },
  "س ط ر|مُسْتَطَر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "written down",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ط ر|مُصَيْطِر|N": {
@@ -18990,15 +18990,15 @@
   "tokens": 2
  },
  "س ط ر|يَسْطُرُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "write in lines",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ط و|يَسْطُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "assault",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ع د|سَعِيد|N": {
@@ -19008,9 +19008,9 @@
   "tokens": 1
  },
  "س ع د|سُعِدُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be blessed",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ع ر|سَعِير|N": {
@@ -19026,9 +19026,9 @@
   "tokens": 2
  },
  "س ع ر|سُعِّرَتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be set blazing",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ع ي|سَعَى|V": {
@@ -19044,9 +19044,9 @@
   "tokens": 10
  },
  "س غ ب|مَسْغَبَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "hunger",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ف ح|مَسْفُوح|N": {
@@ -19068,15 +19068,15 @@
   "tokens": 1
  },
  "س ف ر|أَسْفار|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "journeys",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "س ف ر|أَسْفَرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "grow bright",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ف ر|سَفَر|N": {
@@ -19086,21 +19086,21 @@
   "tokens": 7
  },
  "س ف ر|سَفَرَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "scribes",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ف ر|مُسْفِرَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "bright",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ف ع|نَسْفَعًۢ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "seize by",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ف ك|يَسْفِكُ|V": {
@@ -19194,9 +19194,9 @@
   "tokens": 4
  },
  "س ق م|سَقِيم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "ailing",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "س ق ي|أَسْقَيْ|V": {
@@ -19218,9 +19218,9 @@
   "tokens": 12
  },
  "س ق ي|سُقْيا|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the drinking turn of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ق ي|سِقايَة|N": {
@@ -19230,9 +19230,9 @@
   "tokens": 2
  },
  "س ك ب|مَسْكُوب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "ever-flowing",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ك ت|سَكَتَ|V": {
@@ -19314,9 +19314,9 @@
   "tokens": 2
  },
  "س ك ن|مَسْكُونَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "inhabited",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ك ن|مِسْكِين|N": {
@@ -19344,9 +19344,9 @@
   "tokens": 2
  },
  "س ل خ|نَسْلَخُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "draw off",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ل س ل|سِلْسِلَة|N": {
@@ -19374,9 +19374,9 @@
   "tokens": 2
  },
  "س ل ف|سَلَف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a precedent",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ل ف|سَلَفَ|V": {
@@ -19434,9 +19434,9 @@
   "tokens": 3
  },
  "س ل م|سالِم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "sound",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ل م|سَلام|N": {
@@ -19488,9 +19488,9 @@
   "tokens": 3
  },
  "س ل م|مُسْتَسْلِم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in surrender",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ل م|مُسْلِم|N": {
@@ -19518,15 +19518,15 @@
   "tokens": 3
  },
  "س م د|سامِد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "heedlessly diverted",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س م ر|سامِر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in night talk",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س م ر|سامِرِيّ|PN": {
@@ -19578,9 +19578,9 @@
   "tokens": 2
  },
  "س م ع|مُسْمَع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one who can make hear",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س م ع|مُسْمِع|N": {
@@ -19590,15 +19590,15 @@
   "tokens": 1
  },
  "س م ع|يَسَّمَّعُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "eavesdrop",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س م ك|سَمْك|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "vault",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س م م|سَمُوم|N": {
@@ -19620,9 +19620,9 @@
   "tokens": 3
  },
  "س م ن|يُسْمِنُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "nourish",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س م و|اسْم|N": {
@@ -19632,9 +19632,9 @@
   "tokens": 151
  },
  "س م و|تَسْمِيَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the naming of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س م و|سَماء|N": {
@@ -19680,9 +19680,9 @@
   "tokens": 1
  },
  "س ن م|تَسْنِيم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "Tasnim",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ن ن|سُنَّة|N": {
@@ -19734,9 +19734,9 @@
   "tokens": 1
  },
  "س ه ر|ساهِرَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the open surface",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ه ل|سُهُول|N": {
@@ -19806,15 +19806,15 @@
   "tokens": 50
  },
  "س و أ|سُوٓأَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the worst",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س و أ|مُسِيء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the one who does evil",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س و ح|ساحَت|N": {
@@ -19854,9 +19854,9 @@
   "tokens": 2
  },
  "س و د|مُسْوَدَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "darkened",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س و ر|أَساوِر|N": {
@@ -19866,9 +19866,9 @@
   "tokens": 5
  },
  "س و ر|تَسَوَّرُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "climb over",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س و ر|سُور|N": {
@@ -19884,9 +19884,9 @@
   "tokens": 10
  },
  "س و ط|سَوْط|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a scourge of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س و ع|ساعَة|N": {
@@ -19914,15 +19914,15 @@
   "tokens": 2
  },
  "س و غ|يُسِيغُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "swallow down",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س و ق|سائِق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a driver",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س و ق|ساق|N": {
@@ -19944,9 +19944,9 @@
   "tokens": 7
  },
  "س و ق|مَساق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the driving",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س و ل|سَوَّلَ|V": {
@@ -19956,9 +19956,9 @@
   "tokens": 4
  },
  "س و م|تُسِيمُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "pasture",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س و م|سِيما|N": {
@@ -20022,9 +20022,9 @@
   "tokens": 13
  },
  "س و ي|سُوًى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "even",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ي ب|سائِبَة|N": {
@@ -20064,9 +20064,9 @@
   "tokens": 3
  },
  "س ي ر|سَيْر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the travelling",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "س ي ر|سُيِّرَتْ|V": {
@@ -20076,9 +20076,9 @@
   "tokens": 5
  },
  "س ي ر|سِيرَت|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "former state",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "س ي ل|أَسَلْ|V": {
@@ -20196,9 +20196,9 @@
   "tokens": 1
  },
  "ش خ ص|شاخِصَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "staring fixedly",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش د د|أَشَدّ|N": {
@@ -20287,9 +20287,9 @@
   "tokens": 1
  },
  "ش ر ذ م|شِرْذِمَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a small band",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ر ر|شَرَر|N": {
@@ -20307,9 +20307,9 @@
   "tokens": 30
  },
  "ش ر ط|أَشْراط|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "signs",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ر ع|شَرَعَ|V": {
@@ -20319,9 +20319,9 @@
   "tokens": 2
  },
  "ش ر ع|شَرِيعَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "an ordained way",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ر ع|شُرَّع|N": {
@@ -20337,15 +20337,15 @@
   "tokens": 1
  },
  "ش ر ق|أَشْرَقَتِ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "shine forth",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ر ق|إِشْراق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "at sunrise",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ر ق|شَرْقِيّ|N": {
@@ -20427,9 +20427,9 @@
   "tokens": 4
  },
  "ش ط أ|شاطِئ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the bank of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ط أ|شَطْء|N": {
@@ -20445,9 +20445,9 @@
   "tokens": 5
  },
  "ش ط ط|تُشْطِطْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be unjust",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ط ط|شَطَط|N": {
@@ -20469,9 +20469,9 @@
   "tokens": 80
  },
  "ش ع ب|شُعَب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "columns",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ع ب|شُعُوب|N": {
@@ -20499,9 +20499,9 @@
   "tokens": 2
  },
  "ش ع ر|شِعْرَى|PN": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "Shira",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ع ر|مَشْعَر|N": {
@@ -20535,15 +20535,15 @@
   "tokens": 1
  },
  "ش غ ل|شَغَلَتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "keep occupied",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش غ ل|شُغُل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "an occupation",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ف ع|شافِع|N": {
@@ -20577,15 +20577,15 @@
   "tokens": 5
  },
  "ش ف ق|أَشْفَقْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "shrink from",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ش ف ق|شَفَق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the afterglow",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ف ق|مُشْفِق|N": {
@@ -20595,9 +20595,9 @@
   "tokens": 8
  },
  "ش ف ه|شَفَتَيْن|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "two lips",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ف و|شَفا|N": {
@@ -20637,9 +20637,9 @@
   "tokens": 7
  },
  "ش ق ق|شَقَقْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "make it hard",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ش ق ق|شَقّ|N": {
@@ -20691,9 +20691,9 @@
   "tokens": 4
  },
  "ش ق و|شِقْوَت|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the wretchedness of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ك ر|شاكِر|N": {
@@ -20733,9 +20733,9 @@
   "tokens": 2
  },
  "ش ك س|مُتَشاكِس|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "at odds",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ك ك|شَكّ|N": {
@@ -20751,15 +20751,15 @@
   "tokens": 1
  },
  "ش ك ل|شَكْل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "kind",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ك و|أَشْكُوا۟|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "complain of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ك و|تَشْتَكِي|V": {
@@ -20775,21 +20775,21 @@
   "tokens": 1
  },
  "ش م ت|تُشْمِتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "let gloat over",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش م خ|شامِخَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "towering",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش م ز|اشْمَأَزَّتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "shrink with aversion",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش م س|شَمْس|N": {
@@ -20817,9 +20817,9 @@
   "tokens": 8
  },
  "ش ن أ|شانِئ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the one who hates",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ن أ|شَنَآن|N": {
@@ -20829,9 +20829,9 @@
   "tokens": 2
  },
  "ش ه ب|شُهُب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "piercing flames",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ه ب|شِهاب|N": {
@@ -20877,9 +20877,9 @@
   "tokens": 56
  },
  "ش ه د|مَشْهَد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the witnessing of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ه د|مَشْهُود|N": {
@@ -20919,15 +20919,15 @@
   "tokens": 2
  },
  "ش و ب|شَوْب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a mixture",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش و ر|أَشارَتْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "point",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش و ر|تَشاوُر|N": {
@@ -20943,9 +20943,9 @@
   "tokens": 1
  },
  "ش و ر|شُورَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "by mutual counsel",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش و ظ|شُواظ|N": {
@@ -20985,15 +20985,15 @@
   "tokens": 283
  },
  "ش ي ب|شَيْب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "grey-haired",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ي ب|شَيْبَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "grey hair",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ي ب|شِيب|N": {
@@ -21021,9 +21021,9 @@
   "tokens": 1
  },
  "ش ي ع|تَشِيعَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "spread abroad",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ش ي ع|شِيعَة|N": {
@@ -21039,9 +21039,9 @@
   "tokens": 3
  },
  "ص ب ب|صَبّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in pouring",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ب ب|صَبَّ|V": {
@@ -21069,9 +21069,9 @@
   "tokens": 1
  },
  "ص ب ح|صَبَّحَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "come upon at morning",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ب ح|صُبْح|N": {
@@ -21195,9 +21195,9 @@
   "tokens": 4
  },
  "ص ح ب|يُصْحَبُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be protected",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ح ف|صُحُف|N": {
@@ -21213,15 +21213,15 @@
   "tokens": 1
  },
  "ص خ خ|صاخَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the deafening blast",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص خ ر|صَخْر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the rock",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص خ ر|صَخْرَة|N": {
@@ -21267,9 +21267,9 @@
   "tokens": 44
  },
  "ص د ر|يَصْدُرُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "proceed forth",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص د ر|يُصْدِرَ|V": {
@@ -21285,21 +21285,21 @@
   "tokens": 1
  },
  "ص د ع|صَدْع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the splitting",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص د ع|مُتَصَدِّع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "split asunder",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص د ع|يَصَّدَّعُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be parted",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص د ع|يُصَدَّعُ|V": {
@@ -21429,9 +21429,9 @@
   "tokens": 1
  },
  "ص د ي|تَصَدَّى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "give attention",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص د ي|تَصْدِيَة|N": {
@@ -21447,9 +21447,9 @@
   "tokens": 4
  },
  "ص ر خ|صَرِيخ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a rescuer",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ر خ|مُصْرِخ|N": {
@@ -21465,9 +21465,9 @@
   "tokens": 1
  },
  "ص ر خ|يَصْطَرِخُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "cry aloud for help",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ر ر|أَصَرُّ|V": {
@@ -21531,9 +21531,9 @@
   "tokens": 10
  },
  "ص ر ف|صَرْف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "any averting",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ر ف|مَصْرُوف|N": {
@@ -21549,21 +21549,21 @@
   "tokens": 1
  },
  "ص ر م|صارِم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who gather the crop",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ر م|صَرِيم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a blackened field",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ر م|يَصْرِمُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "gather the crop",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ع د|تُصْعِدُ|V": {
@@ -21573,15 +21573,15 @@
   "tokens": 1
  },
  "ص ع د|صَعَد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "mounting",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ع د|صَعُود|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a steep ascent",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ع د|صَعِيد|N": {
@@ -21597,9 +21597,9 @@
   "tokens": 1
  },
  "ص ع د|يَصْعَدُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "ascend",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ع ر|تُصَعِّرْ|V": {
@@ -21687,9 +21687,9 @@
   "tokens": 1
  },
  "ص ف ر|صُفْر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "yellow",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ف ر|مُصْفَرّ|N": {
@@ -21705,9 +21705,9 @@
   "tokens": 1
  },
  "ص ف ف|صافّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those ranged in rows",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ف ف|صافَّة|N": {
@@ -21729,15 +21729,15 @@
   "tokens": 1
  },
  "ص ف ف|مَصْفُوفَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "set in rows",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ص ف ن|صافِنَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "standing on three legs",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ف و|أَصْفَى|V": {
@@ -21765,9 +21765,9 @@
   "tokens": 1
  },
  "ص ف و|مُصْطَفَيْن|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the chosen",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ك ك|صَكَّتْ|V": {
@@ -21873,9 +21873,9 @@
   "tokens": 3
  },
  "ص ل و|مُصَلًّى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a place of connection",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ل ي|أُصْلِي|V": {
@@ -21885,39 +21885,39 @@
   "tokens": 4
  },
  "ص ل ي|تَصْطَلُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "warm yourselves",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ص ل ي|تَصْلِيَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a burning in",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ل ي|صال|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one who burns in",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ل ي|صالُوا|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who burn in",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ص ل ي|صَلُّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "burn him in",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ل ي|صِلِيّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "to burn in",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ل ي|يَصْلَى|V": {
@@ -21951,9 +21951,9 @@
   "tokens": 12
  },
  "ص م م|أَصَمَّ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "make deaf",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص م م|صَمُّ|V": {
@@ -21963,9 +21963,9 @@
   "tokens": 2
  },
  "ص ن ع|اصْطَنَعْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "fashion for",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ن ع|صَنَعُ|V": {
@@ -21987,9 +21987,9 @@
   "tokens": 2
  },
  "ص ن ع|مَصانِع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "strongholds",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ن م|أَصْنام|N": {
@@ -22005,15 +22005,15 @@
   "tokens": 2
  },
  "ص ه ر|صِهْر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "marriage kinship",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ه ر|يُصْهَرُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be melted",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص و ب|أَصابَ|V": {
@@ -22023,9 +22023,9 @@
   "tokens": 64
  },
  "ص و ب|صَواب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "what is right",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص و ب|صَيِّب|N": {
@@ -22077,9 +22077,9 @@
   "tokens": 3
  },
  "ص و ر|مُصَوِّر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the fashioner",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص و ع|صُواع|N": {
@@ -22107,9 +22107,9 @@
   "tokens": 1
  },
  "ص و م|صَوْم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a fast",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص و م|صِيام|N": {
@@ -22131,9 +22131,9 @@
   "tokens": 13
  },
  "ص ي د|اصْطادُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "hunt",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ي د|صَيْد|N": {
@@ -22143,9 +22143,9 @@
   "tokens": 5
  },
  "ص ي ر|تَصِيرُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "come to rest",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ي ر|مَصِير|N": {
@@ -22155,9 +22155,9 @@
   "tokens": 28
  },
  "ص ي ص|صَياصِي|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "strongholds",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ص ي ف|صَيْف|N": {
@@ -22185,9 +22185,9 @@
   "tokens": 3
  },
  "ض ح ك|أَضْحَكَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "make laugh",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ض ح ك|ضاحِك|N": {
@@ -22197,9 +22197,9 @@
   "tokens": 1
  },
  "ض ح ك|ضاحِكَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "laughing",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ض ح ك|ضَحِكَتْ|V": {
@@ -22227,9 +22227,9 @@
   "tokens": 2
  },
  "ض د د|ضِدّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "an adversary",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ض ر ب|ضَرَبَ|V": {
@@ -22293,9 +22293,9 @@
   "tokens": 1
  },
  "ض ر ر|مُضْطَرّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the one in distress",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ض ر ر|يَضُرَّ|V": {
@@ -22323,9 +22323,9 @@
   "tokens": 3
  },
  "ض ر ع|ضَرِيع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a bitter thorn",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ض ر ع|يَتَضَرَّعُ|V": {
@@ -22407,9 +22407,9 @@
   "tokens": 3
  },
  "ض غ ن|أَضْغان|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "rancours",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ض ف د ع|ضَفادِع|N": {
@@ -22432,9 +22432,9 @@
   "tokens": 64
  },
  "ض ل ل|تَضْلِيل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a ruin",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ض ل ل|ضالّ|N": {
@@ -22480,21 +22480,21 @@
   "tokens": 2
  },
  "ض ن ك|ضَنك|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "straitened",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ض ن ن|ضَنِين|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "grudging",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ض ه أ|يُضاهِئُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "imitate",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ض و أ|أَضاءَ|V": {
@@ -22510,15 +22510,15 @@
   "tokens": 3
  },
  "ض ي ر|ضَيْر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "no harm",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ض ي ز|ضِيزَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "unfair",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ض ي ع|أَضاعُ|V": {
@@ -22582,9 +22582,9 @@
   "tokens": 4
  },
  "ط ح و|طَحَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "spread wide",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط ر ح|اطْرَحُ|V": {
@@ -22696,15 +22696,15 @@
   "tokens": 1
  },
  "ط غ ي|أَطْغَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "more transgressing",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط غ ي|أَطْغَيْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "drive to excess",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط غ ي|طاغي|N": {
@@ -22720,9 +22720,9 @@
   "tokens": 8
  },
  "ط غ ي|طاغِيَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the overwhelming blast",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط غ ي|طَغَى|V": {
@@ -22732,9 +22732,9 @@
   "tokens": 12
  },
  "ط غ ي|طَغْوَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the excess of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط غ ي|طُغْيان|N": {
@@ -22750,9 +22750,9 @@
   "tokens": 3
  },
  "ط ف ف|مُطَفِّف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who give short measure",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط ف ق|طَفِقَ|V": {
@@ -22786,15 +22786,15 @@
   "tokens": 1
  },
  "ط ل ب|يَطْلُبُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "pursue",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط ل ح|طَلْح|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "banana trees",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط ل ع|طَلَعَ|V": {
@@ -22822,15 +22822,15 @@
   "tokens": 2
  },
  "ط ل ع|مَطْلَع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the rising of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط ل ع|مَطْلِع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who look down",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط ل ع|مُطَّلِع|N": {
@@ -22918,9 +22918,9 @@
   "tokens": 8
  },
  "ط م م|طامَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the overwhelming event",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط ه ر|أَطْهَر|N": {
@@ -22936,9 +22936,9 @@
   "tokens": 5
  },
  "ط ه ر|تَطْهِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a thorough cleansing",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط ه ر|طَهُور|N": {
@@ -22996,9 +22996,9 @@
   "tokens": 1
  },
  "ط و ر|أَطْوار|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in stages",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط و ر|طُور|N": {
@@ -23050,15 +23050,15 @@
   "tokens": 4
  },
  "ط و ع|مُطاع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "obeyed",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط و ع|مُطَّوِّع|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who give freely",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط و ع|يُطاعُ|V": {
@@ -23122,9 +23122,9 @@
   "tokens": 1
  },
  "ط و ل|تَطاوَلَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "grow long",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط و ل|طالَ|V": {
@@ -23134,9 +23134,9 @@
   "tokens": 3
  },
  "ط و ل|طَوِيل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "long",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ط و ل|طَوْل|N": {
@@ -23164,9 +23164,9 @@
   "tokens": 2
  },
  "ط و ي|مَطْوِيَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "rolled up",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط و ي|نَطْوِي|V": {
@@ -23218,9 +23218,9 @@
   "tokens": 19
  },
  "ط ي ر|مُسْتَطِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "far-spreading",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ط ي ر|يَطِيرُ|V": {
@@ -23242,9 +23242,9 @@
   "tokens": 1
  },
  "ظ ف ر|أَظْفَرَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "give victory over",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ظ ف ر|ظُفُر|N": {
@@ -23376,9 +23376,9 @@
   "tokens": 1
  },
  "ظ ن ن|ظانّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who assume",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ظ ن ن|ظَنّ|N": {
@@ -23454,9 +23454,9 @@
   "tokens": 1
  },
  "ع ب أ|يَعْبَؤُا۟|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "concern himself",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ب ث|تَعْبَثُ|V": {
@@ -23466,9 +23466,9 @@
   "tokens": 1
  },
  "ع ب ث|عَبَث|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in vain",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ب د|عابِد|N": {
@@ -23491,9 +23491,9 @@
   "tokens": 122
  },
  "ع ب د|عَبَّد|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "enslave",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ب د|عَبْد|N": {
@@ -23534,9 +23534,9 @@
   "tokens": 6
  },
  "ع ب س|عَبَسَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "frown",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ع ب س|عَبُوس|N": {
@@ -23552,9 +23552,9 @@
   "tokens": 1
  },
  "ع ت ب|مُعْتَب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those allowed to make amends",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ت ب|يَسْتَعْتِبُ|V": {
@@ -23570,9 +23570,9 @@
   "tokens": 14
  },
  "ع ت د|عَتِيد|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "ready at hand",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ع ت ق|عَتِيق|N": {
@@ -23582,9 +23582,9 @@
   "tokens": 2
  },
  "ع ت ل|اعْتِلُ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "seize and drag",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ت ل|عُتُلّ|N": {
@@ -23594,9 +23594,9 @@
   "tokens": 1
  },
  "ع ت و|عاتِيَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "raging",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ت و|عَتَ|V": {
@@ -23660,9 +23660,9 @@
   "tokens": 2
  },
  "ع ج ب|عُجاب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "astounding",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ج ز|أَعْجاز|N": {
@@ -23672,9 +23672,9 @@
   "tokens": 2
  },
  "ع ج ز|عَجَزْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be unable",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ج ز|عَجُوز|N": {
@@ -23708,9 +23708,9 @@
   "tokens": 2
  },
  "ع ج ل|أَعْجَلَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "make hasten",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ج ل|اسْتَعْجَلَ|V": {
@@ -23738,9 +23738,9 @@
   "tokens": 3
  },
  "ع ج ل|عَجَل|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "haste",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ج ل|عَجُول|N": {
@@ -23768,9 +23768,9 @@
   "tokens": 10
  },
  "ع ج م|أَعْجَمِين|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the non-Arabs",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ج م|أَعْجَمِيّ|N": {
@@ -23792,9 +23792,9 @@
   "tokens": 1
  },
  "ع د د|عادّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "those who count",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع د د|عَدَد|N": {
@@ -23816,15 +23816,15 @@
   "tokens": 7
  },
  "ع د د|عَدَّدَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "count over",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع د د|عُدَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a preparation",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع د د|عِدَّة|N": {
@@ -23876,9 +23876,9 @@
   "tokens": 6
  },
  "ع د و|عادَيْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be at enmity with",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع د و|عادِيَة|N": {
@@ -23979,9 +23979,9 @@
   "tokens": 2
  },
  "ع ذ ر|مَعاذِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "excuses",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ذ ر|مَعْذِرَة|N": {
@@ -24015,15 +24015,15 @@
   "tokens": 11
  },
  "ع ر ب|عُرُب|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "loving",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ر ج ن|عُرْجُون|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the withered stalk",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ر ج|أَعْرَج|N": {
@@ -24105,9 +24105,9 @@
   "tokens": 11
  },
  "ع ر ض|عَرِيض|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "lengthy",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ر ض|عَرَّضْ|V": {
@@ -24177,9 +24177,9 @@
   "tokens": 38
  },
  "ع ر ف|مَعْرُوفَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "known",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ر ف|يَتَعارَفُ|V": {
@@ -24207,15 +24207,15 @@
   "tokens": 2
  },
  "ع ر ي|تَعْرَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "be unclothed",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ر ي|عَراء|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the barren shore",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ع ز ب|يَعْزُبُ|V": {
@@ -24237,9 +24237,9 @@
   "tokens": 3
  },
  "ع ز ز|الْعُزَّى|PN": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "Uzza",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ز ز|تُعِزُّ|V": {
@@ -24261,15 +24261,15 @@
   "tokens": 1
  },
  "ع ز ز|عَزَّزْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "reinforce",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ز ز|عِزّ|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "might",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ز ز|عِزَّة|N": {
@@ -24285,15 +24285,15 @@
   "tokens": 7
  },
  "ع ز ل|عَزَلْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "set aside",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ز ل|مَعْزُول|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "debarred",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ز ل|مَعْزِل|N": {
@@ -24315,9 +24315,9 @@
   "tokens": 5
  },
  "ع ز و|عِزِين|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "in scattered groups",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع س ر|تَعاسَرْ|V": {
@@ -24327,9 +24327,9 @@
   "tokens": 1
  },
  "ع س ر|عَسِر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "hard",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع س ر|عَسِير|N": {
@@ -24351,15 +24351,15 @@
   "tokens": 2
  },
  "ع س ر|عُسْرَى|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the way of hardship",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع س ع س|عَسْعَسَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "darken",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع س ل|عَسَل|N": {
@@ -24393,9 +24393,9 @@
   "tokens": 2
  },
  "ع ش ر|عَشِير|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the companion",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ش ر|عَشِيرَت|N": {
@@ -24411,9 +24411,9 @@
   "tokens": 6
  },
  "ع ش ر|عَشْر|T": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "ten",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ش ر|عَشْرَة|N": {
@@ -24441,9 +24441,9 @@
   "tokens": 3
  },
  "ع ش ر|مِعْشار|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a tenth of",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ش و|عَشِيّ|N": {
@@ -24459,9 +24459,9 @@
   "tokens": 2
  },
  "ع ش و|عَشِيَّة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "an evening",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ش و|عِشاء|N": {
@@ -24489,21 +24489,21 @@
   "tokens": 4
  },
  "ع ص ر|إِعْصار|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a whirlwind",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ص ر|عَصْر|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the passing age",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ص ر|مُعْصِرَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the rain clouds",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ص ر|يَعْصِرُ|V": {
@@ -24531,9 +24531,9 @@
   "tokens": 3
  },
  "ع ص م|اسْتَعْصَمَ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "hold firmly back",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ص م|اعْتَصَمُ|V": {
@@ -24621,9 +24621,9 @@
   "tokens": 1
  },
  "ع ط ف|عِطْف|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "side",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ط ل|عُطِّلَتْ|V": {
@@ -24645,9 +24645,9 @@
   "tokens": 8
  },
  "ع ط و|تَعاطَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "take up",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ط و|عَطاء|N": {
@@ -24687,15 +24687,15 @@
   "tokens": 2
  },
  "ع ظ م|يُعْظِمْ|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "make great",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ف ر|عِفْرِيت|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "an ifrit",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ف ف|تَعَفُّف|N": {
@@ -24753,9 +24753,9 @@
   "tokens": 32
  },
  "ع ق ب|عَقَبَة|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "the steep path",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ع ق ب|عَقِب|N": {
@@ -24867,9 +24867,9 @@
   "tokens": 1
  },
  "ع ل ق|عَلَق|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "a clinging form",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ل ق|عَلَقَة|N": {
@@ -24885,9 +24885,9 @@
   "tokens": 1
  },
  "ع ل م|أَعْلام|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "like mountains",
+  "evidence": "decided from the frame; occurs 2 times",
+  "grade": "supported",
   "tokens": 2
  },
  "ع ل م|أَعْلَم|N": {
@@ -24958,9 +24958,9 @@
   "tokens": 2
  },
  "ع ل م|مُعَلَّم|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "one taught by another",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ل م|يَتَعَلَّمُ|V": {
@@ -24994,9 +24994,9 @@
   "tokens": 9
  },
  "ع ل و|اسْتَعْلَى|V": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "prevail",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ل و|تَعالَ|V": {
@@ -25012,9 +25012,9 @@
   "tokens": 14
  },
  "ع ل و|عال|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "exalting himself",
+  "evidence": "Rule 22: general Arabic, not the corpus — a hapax, so the frame cannot settle it",
+  "grade": "judgement",
   "tokens": 1
  },
  "ع ل و|عالي|N": {
@@ -25024,9 +25024,9 @@
   "tokens": 2
  },
  "ع ل و|عالِي|N": {
-  "english": "",
-  "evidence": "",
-  "grade": "",
+  "english": "uppermost",
+  "evidence": "decided from the frame; occurs 4 times",
+  "grade": "supported",
   "tokens": 4
  },
  "ع ل و|عالِيَة|N": {
@@ -28115,7 +28115,7 @@
   "tokens": 5
  },
  "ق ر ر|قَرار|N": {
-  "english": "a settled place",
+  "english": "settled place",
   "evidence": "R9: distinct from مستقر (a place of rest)",
   "grade": "supported",
   "tokens": 9

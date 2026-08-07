@@ -278,7 +278,10 @@ def test_no_word_is_emitted_twice_unless_the_arabic_repeats_it() -> None:
         if not any(a == b for a, b in zip(parts, parts[1:])):
             continue
         ordered = sorted(verse, key=lambda t: t["position"])
-        lemmas = [(t.get("morphology") or {}).get("lemma") for t in ordered]
+        lemmas = [
+            ((t.get("morphology") or {}).get("lemma") or t["text_no_tashkeel"])
+            for t in ordered
+        ]
         if any(a == b and a is not None for a, b in zip(lemmas, lemmas[1:])):
             continue                      # the text itself says it twice
         offenders.append(f"{ref[0]}:{ref[1]}  {' '.join(words)}")
