@@ -49,6 +49,8 @@ export type ActionKind =
   | 'REPORT'
   | 'PASSWORD_RESET';
 
+export type Role = 'USER' | 'MODERATOR' | 'ADMIN';
+
 export interface User {
   id: string;
   email: string;
@@ -56,6 +58,9 @@ export interface User {
   displayName: string | null;
   emailVerified: Date | null;
   createdAt: Date;
+  role: Role;
+  /** Set when a donation succeeds; presence is the supporter badge. */
+  supporterSince: Date | null;
 }
 
 /** A persisted session, keyed by the SHA-256 of the raw cookie token. */

@@ -68,3 +68,25 @@ export async function clientId(): Promise<string> {
   const fwd = h.get('x-forwarded-for');
   return fwd?.split(',')[0]?.trim() || h.get('x-real-ip') || 'unknown';
 }
+
+// ─── Roles ────────────────────────────────────────────────────────────────────
+
+/**
+ * Whether a user may act with a given role. ADMIN implies MODERATOR.
+ *
+ * ADMIN_EMAILS bootstraps the first administrator: the database starts with no
+ * privileged rows and the admin page is the only way to grant roles, so without
+ * a bootstrap nobody could ever reach it. An email listed there acts as ADMIN
+ * regardless of its row. Set once in the environment, then grant real roles and
+ * remove it.
+ */
+export function hasRole(user: User | null, role: 'MODERATOR' | 'ADMIN'): boolean {
+  if (!user) return false;
+  const bootstrap = (process.env.ADMIN_EMAILS ?? '')
+    .split(',')
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
+  if (bootstrap.includes(user.email.toLowerCase())) return true;
+  if (user.role === 'ADMIN') return true;
+  return role === 'MODERATOR' && user.role === 'MODERATOR';
+}

@@ -39,6 +39,8 @@ function toUser(r: Row): User {
     displayName: (r.displayName as string | null) ?? null,
     emailVerified: (r.emailVerified as Date | null) ?? null,
     createdAt: r.createdAt as Date,
+    role: (r.role as User['role'] | undefined) ?? 'USER',
+    supporterSince: (r.supporterSince as Date | null) ?? null,
   };
 }
 

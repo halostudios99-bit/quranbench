@@ -4,6 +4,7 @@ import { ProvenanceTag } from './ProvenanceTag';
 // Every link resolves to a page that exists, so the footer is never a dead end.
 const SITE_LINKS: { href: string; label: string }[] = [
   { href: '/about', label: 'About' },
+  { href: '/donate', label: 'Support' },
   { href: '/method', label: 'Method' },
   { href: '/colophon', label: 'Colophon' },
   { href: '/identifiers', label: 'Identifiers' },

@@ -25,10 +25,23 @@ datasource db {
 // at signup and recorded with version + timestamp — a user cannot create content
 // without a recorded acceptance, enforced in the data layer.
 
+// Roles are additive privileges over an ordinary account. USER is everyone;
+// MODERATOR may work the report queue; ADMIN may also grant roles and badges.
+// Public content is never gated by role — CLAUDE.md "nothing is gated" stands.
+enum Role {
+  USER
+  MODERATOR
+  ADMIN
+}
+
 model User {
   id            String    @id @default(cuid())
   email         String    @unique
   emailVerified DateTime?
+  role          Role      @default(USER)
+  // Set when a donation succeeds (or an admin grants it for an off-platform
+  // gift). Presence = the supporter badge; the date lets the badge say since when.
+  supporterSince DateTime?
   // scrypt hash (domain/password.ts). The raw password is never stored.
   passwordHash  String
   handle        String    @unique
@@ -51,8 +64,42 @@ model User {
   collections      Collection[]
   savedSearches    SavedSearch[]
   reports          ModerationReport[]
+  donations        Donation[]
 
   @@index([handle])
+}
+
+// ─── Donations ────────────────────────────────────────────────────────────────
+// A donation is a personal gift to the maintainer, recorded for the donor's
+// badge and for bookkeeping. It is not a charitable donation and buys no
+// content: the badge is a thank-you, never an entitlement (CLAUDE.md rule 5).
+
+enum DonationStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+}
+
+model Donation {
+  id          String         @id @default(cuid())
+  // Null for donations made while signed out; the badge then attaches when an
+  // admin links the payment to an account.
+  userId      String?
+  email       String?
+  amountCents Int
+  currency    String         @default("gbp")
+  provider    String // "stripe" | "manual"
+  // The provider's id (Stripe checkout session id), unique so a replayed
+  // webhook cannot record the same payment twice.
+  providerRef String         @unique
+  status      DonationStatus @default(PENDING)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([status])
 }
 
 model Session {

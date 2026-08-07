@@ -61,7 +61,17 @@ export default async function AccountPage({
 
       <dl className="grid grid-cols-1 gap-x-6 gap-y-3 rounded-md border border-line bg-panel p-4 sm:grid-cols-[10rem_1fr]">
         <dt className="text-[14px] text-ink3">Handle</dt>
-        <dd className="text-[15px] font-medium text-ink">@{user.handle}</dd>
+        <dd className="flex items-center gap-2 text-[15px] font-medium text-ink">
+          @{user.handle}
+          {user.supporterSince ? (
+            <span
+              className="inline-flex items-center gap-1 rounded-full border border-accent px-2 py-0.5 text-[11px] font-medium text-accent"
+              title={`Supporter since ${user.supporterSince.toLocaleDateString('en-GB')}`}
+            >
+              ♥ Supporter
+            </span>
+          ) : null}
+        </dd>
 
         <dt className="text-[14px] text-ink3">Real name</dt>
         <dd className="text-[15px] text-ink">{user.displayName ?? '—'}</dd>

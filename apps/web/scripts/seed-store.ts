@@ -34,7 +34,9 @@ function toUser(u: Row): User {
     displayName: (u.displayName as string | null) ?? null,
     emailVerified: (u.emailVerified as Date | null) ?? null,
     createdAt: u.createdAt as Date,
-  };
+    role: 'USER',
+      supporterSince: null,
+    };
 }
 
 function toInvestigation(i: Row): Investigation {

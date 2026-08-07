@@ -93,6 +93,8 @@ export class InMemoryStore implements Store {
       displayName: input.displayName ?? null,
       emailVerified: null,
       createdAt: this.now(),
+      role: 'USER',
+      supporterSince: null,
     };
     this.users.push(user);
     this.passwordHashes.set(user.id, input.passwordHash);
