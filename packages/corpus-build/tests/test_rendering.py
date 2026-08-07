@@ -407,6 +407,32 @@ def test_english_inflection_is_well_formed() -> None:
     assert not bad, "malformed English inflection:\n  " + "\n  ".join(bad)
 
 
+def test_no_rendering_carries_a_pronoun_the_arabic_supplies() -> None:
+    """A rooted word's English must not begin with a possessive.
+
+    The table holds the bare word; the renderer adds everything the Arabic
+    marks, including the attached pronoun. Seeding "your station" or "their
+    plea" makes the possessive arrive twice — 6:135 read "upon your your
+    station". Three separate rows had this before the guard existed.
+
+    Rootless form keys are exempt: those ARE whole particles with the pronoun
+    fused in (لهم, معهم), and are decided as single indivisible units.
+    """
+    table = load_table()
+    possessives = ("my ", "your ", "his ", "her ", "their ", "our ", "its ")
+    offenders = [
+        f"{key} = {row['english']!r}"
+        for key, row in table.items()
+        if row.get("english")
+        and not key.startswith("form:")
+        and row["english"].startswith(possessives)
+    ]
+    assert not offenders, (
+        "rendering carries a pronoun the renderer will add again:\n  "
+        + "\n  ".join(offenders)
+    )
+
+
 def test_proper_names_are_not_translated() -> None:
     """محمد is a name, not the noun 'praise' that shares its root."""
     table = load_table()
